@@ -839,10 +839,14 @@
           return { position, target, fov: CAMERA_FOV };
         };
 
+        const publicUrl = (path) => new URL(path, document.baseURI).toString();
+
         const buildIframeSrc = () => {
           const { position, target, fov } = computeCameraParams();
           const cam = [...position, ...target, fov].map((n) => n.toFixed(4)).join(",");
-          return `/viewers/exterior-382a1520/index.html?noui&nofx&content=/assets/exterior/382a1520/v1/meta.json&cam=${cam}&bg=${PLATE_BG}`;
+          const viewer = publicUrl("viewers/exterior-382a1520/index.html");
+          const content = publicUrl("assets/exterior/382a1520/v1/meta.json");
+          return `${viewer}?noui&nofx&content=${encodeURIComponent(content)}&cam=${cam}&bg=${PLATE_BG}`;
         };
 
         const iframeEl = document.querySelector("iframe");
@@ -922,7 +926,7 @@
 
           const interiorLink = document.getElementById("detailInterior");
           if (apt.hasInterior) {
-            interiorLink.href = `/inventory/?unit=${apt.interiorUnit}&room=living`;
+            interiorLink.href = publicUrl(`inventory/?unit=${apt.interiorUnit}&room=living`);
             interiorLink.style.display = "inline-flex";
           } else {
             interiorLink.style.display = "none";

@@ -2,9 +2,9 @@
   {
     "unit": "inventory-47",
     "scene": "0300_840573",
-    "viewer": "/viewers/inventory-47/index.html",
-    "collision": "/assets/interior-inventory/0300_840573/occupancy.collision.glb",
-    "occupancy": "/assets/interior-inventory/0300_840573/occupancy.png",
+    "viewer": "../../viewers/inventory-47/index.html",
+    "collision": "0300_840573/occupancy.collision.glb",
+    "occupancy": "0300_840573/occupancy.png",
     "waypoints": [
       {
         "id": "living",
@@ -199,9 +199,9 @@
   {
     "unit": "inventory-48",
     "scene": "0303_840566",
-    "viewer": "/viewers/inventory-48/index.html",
-    "collision": "/assets/interior-inventory/0303_840566/occupancy.collision.glb",
-    "occupancy": "/assets/interior-inventory/0303_840566/occupancy.png",
+    "viewer": "../../viewers/inventory-48/index.html",
+    "collision": "0303_840566/occupancy.collision.glb",
+    "occupancy": "0303_840566/occupancy.png",
     "waypoints": [
       {
         "id": "living",
@@ -404,9 +404,9 @@
   {
     "unit": "inventory-50",
     "scene": "0306_840556",
-    "viewer": "/viewers/inventory-50/index.html",
-    "collision": "/assets/interior-inventory/0306_840556/occupancy.collision.glb",
-    "occupancy": "/assets/interior-inventory/0306_840556/occupancy.png",
+    "viewer": "../../viewers/inventory-50/index.html",
+    "collision": "0306_840556/occupancy.collision.glb",
+    "occupancy": "0306_840556/occupancy.png",
     "waypoints": [
       {
         "id": "living",

@@ -948,8 +948,8 @@
           unit: "inventory-48",
           title: "Unidad 48",
           scene: "0303_840566",
-          collision: "/assets/interior-inventory/0303_840566/occupancy.collision.glb",
-          occupancy: "/assets/interior-inventory/0303_840566/plan-editorial.png",
+          collision: "../assets/interior-inventory/0303_840566/occupancy.collision.glb",
+          occupancy: "../assets/interior-inventory/0303_840566/plan-editorial.png",
           dollhouse: "",
           bounds: { minX: -5.1608, maxX: 5.1608, minZ: -7.7104, maxZ: 6.8018 },
           rooms: ["living", "dining", "kitchen", "primary_bedroom", "secondary_bedroom", "bath"],
@@ -958,8 +958,8 @@
           unit: "inventory-50",
           title: "Unidad 50",
           scene: "0306_840556",
-          collision: "/assets/interior-inventory/0306_840556/occupancy.collision.glb",
-          occupancy: "/assets/interior-inventory/0306_840556/plan-editorial.png",
+          collision: "../assets/interior-inventory/0306_840556/occupancy.collision.glb",
+          occupancy: "../assets/interior-inventory/0306_840556/plan-editorial.png",
           dollhouse: "",
           bounds: { minX: -4.8701, maxX: 5.8348, minZ: -5.2930, maxZ: 6.2520 },
           rooms: ["living", "dining", "kitchen", "primary_bedroom", "secondary_bedroom", "primary_bath", "guest_bath", "laundry"],
@@ -968,8 +968,8 @@
           unit: "inventory-47",
           title: "Unidad 47",
           scene: "0300_840573",
-          collision: "/assets/interior-inventory/0300_840573/occupancy.collision.glb",
-          occupancy: "/assets/interior-inventory/0300_840573/plan-editorial.png",
+          collision: "../assets/interior-inventory/0300_840573/occupancy.collision.glb",
+          occupancy: "../assets/interior-inventory/0300_840573/plan-editorial.png",
           dollhouse: "",
           bounds: { minX: -6.0041, maxX: 5.7459, minZ: -6.7275, maxZ: 4.9205 },
           rooms: ["living", "dining", "kitchen", "primary_bedroom", "secondary_bedroom", "kids_room", "primary_bath"],
@@ -1208,11 +1208,14 @@
       };
 
       const authoringUnits = new Set(["inventory-47", "inventory-48", "inventory-50"]);
+      const publicUrl = (path) => new URL(path, document.baseURI).toString();
       let viewCacheBust = Date.now();
       const viewerUrl = () => {
         const bust = authoringUnits.has(state.unit.unit) ? viewCacheBust : "rooms-20260907";
-        const settings = `/viewer-settings/${state.unit.unit}-${state.room}.json`;
-        return `/viewers/${state.unit.unit}/index.html?noui&nofx&noanim&v=${bust}&collision=${encodeURIComponent(state.unit.collision)}&settings=${encodeURIComponent(settings + "?v=" + bust)}`;
+        const settings = publicUrl(`../viewer-settings/${state.unit.unit}-${state.room}.json`);
+        const viewerPath = publicUrl(`../viewers/${state.unit.unit}/index.html`);
+        const collision = publicUrl(state.unit.collision);
+        return `${viewerPath}?noui&nofx&noanim&v=${bust}&collision=${encodeURIComponent(collision)}&settings=${encodeURIComponent(settings + "?v=" + bust)}`;
       };
 
       const showEditorial = () => {
@@ -1247,8 +1250,8 @@
         const roomIndex = Math.max(0, state.unit.rooms.indexOf(state.room));
         titleBlock.dataset.folio = `${String(roomIndex + 1).padStart(2, "0")}  /  ${String(state.unit.rooms.length).padStart(2, "0")}`;
         roomEyebrow.textContent = `Recorrido · ${roomLabels[state.room]}`;
-        const pageUrl = `/inventory/?unit=${encodeURIComponent(state.unit.unit)}&room=${encodeURIComponent(state.room)}`;
-        if (location.pathname + location.search !== pageUrl) history.replaceState(null, "", pageUrl);
+        const pageUrl = `?unit=${encodeURIComponent(state.unit.unit)}&room=${encodeURIComponent(state.room)}`;
+        if (location.search !== pageUrl) history.replaceState(null, "", pageUrl);
         const nextUrl = viewerUrl();
         document.body.classList.add("transitioning");
         if (viewer.getAttribute("src") !== nextUrl) viewer.src = nextUrl;
@@ -1456,7 +1459,7 @@
           fov: cam.fov,
         };
         try {
-          const res = await fetch("/api/save-viewpoint", {
+          const res = await fetch(new URL("../api/save-viewpoint", document.baseURI), {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body),
