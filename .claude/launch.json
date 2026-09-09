@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "serve",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5175", "--directory", "D:\\real-estate-spatial-catalog\\public"],
+      "port": 5175
+    }
+  ]
+}
