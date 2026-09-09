@@ -1,0 +1,601 @@
+[
+  {
+    "unit": "inventory-47",
+    "scene": "0300_840573",
+    "viewer": "/viewers/inventory-47/index.html",
+    "collision": "/assets/interior-inventory/0300_840573/occupancy.collision.glb",
+    "occupancy": "/assets/interior-inventory/0300_840573/occupancy.png",
+    "waypoints": [
+      {
+        "id": "living",
+        "label": "Sala",
+        "camera": [
+          3.451,
+          1.55,
+          1.235
+        ],
+        "target": [
+          1.651,
+          1.2,
+          -0.965
+        ],
+        "sourceLabels": [
+          [
+            "plant",
+            7
+          ],
+          [
+            "tv cabinet",
+            2
+          ],
+          [
+            "multi person sofa",
+            1
+          ],
+          [
+            "sofa",
+            1
+          ],
+          [
+            "floor lamp",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "dining",
+        "label": "Comedor",
+        "camera": [
+          1.937,
+          1.55,
+          2.868
+        ],
+        "target": [
+          0.137,
+          1.2,
+          0.668
+        ],
+        "sourceLabels": [
+          [
+            "chair",
+            10
+          ],
+          [
+            "bedside table",
+            3
+          ],
+          [
+            "teatable",
+            1
+          ],
+          [
+            "side table",
+            1
+          ],
+          [
+            "dining table",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "kitchen",
+        "label": "Cocina",
+        "camera": [
+          1.94,
+          1.55,
+          3.773
+        ],
+        "target": [
+          0.14,
+          1.2,
+          1.573
+        ],
+        "sourceLabels": [
+          [
+            "cabinet",
+            5
+          ],
+          [
+            "tv cabinet",
+            2
+          ],
+          [
+            "display cabinet",
+            1
+          ],
+          [
+            "refrigerator",
+            1
+          ],
+          [
+            "storage cabinet",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "bedroom",
+        "label": "Dormitorio",
+        "camera": [
+          0.835,
+          1.55,
+          2.465
+        ],
+        "target": [
+          -0.965,
+          1.2,
+          0.265
+        ],
+        "sourceLabels": [
+          [
+            "wardrobe",
+            4
+          ],
+          [
+            "bed",
+            4
+          ],
+          [
+            "bedside table",
+            3
+          ],
+          [
+            "side table",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "bath",
+        "label": "Baño",
+        "camera": [
+          3.185,
+          1.55,
+          7.66
+        ],
+        "target": [
+          1.385,
+          1.2,
+          5.46
+        ],
+        "sourceLabels": [
+          [
+            "shower head",
+            1
+          ],
+          [
+            "toilet",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "study",
+        "label": "Estudio",
+        "camera": [
+          1.824,
+          1.55,
+          4.194
+        ],
+        "target": [
+          0.024,
+          1.2,
+          1.994
+        ],
+        "sourceLabels": [
+          [
+            "chair",
+            10
+          ],
+          [
+            "desk",
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "unit": "inventory-48",
+    "scene": "0303_840566",
+    "viewer": "/viewers/inventory-48/index.html",
+    "collision": "/assets/interior-inventory/0303_840566/occupancy.collision.glb",
+    "occupancy": "/assets/interior-inventory/0303_840566/occupancy.png",
+    "waypoints": [
+      {
+        "id": "living",
+        "label": "Sala",
+        "camera": [
+          2.306,
+          1.55,
+          3.334
+        ],
+        "target": [
+          0.506,
+          1.2,
+          1.134
+        ],
+        "sourceLabels": [
+          [
+            "plant",
+            6
+          ],
+          [
+            "tv cabinet",
+            2
+          ],
+          [
+            "tv",
+            2
+          ],
+          [
+            "multi person sofa",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "dining",
+        "label": "Comedor",
+        "camera": [
+          0.459,
+          1.55,
+          2.208
+        ],
+        "target": [
+          -1.341,
+          1.2,
+          0.008
+        ],
+        "sourceLabels": [
+          [
+            "chair",
+            6
+          ],
+          [
+            "bedside table",
+            4
+          ],
+          [
+            "dining table",
+            1
+          ],
+          [
+            "side table",
+            1
+          ],
+          [
+            "teatable",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "kitchen",
+        "label": "Cocina",
+        "camera": [
+          0.393,
+          1.55,
+          1.793
+        ],
+        "target": [
+          -1.407,
+          1.2,
+          -0.407
+        ],
+        "sourceLabels": [
+          [
+            "cabinet",
+            4
+          ],
+          [
+            "basin cabinet",
+            3
+          ],
+          [
+            "tv cabinet",
+            2
+          ],
+          [
+            "wall cabinet",
+            1
+          ],
+          [
+            "wine cabinet",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "bedroom",
+        "label": "Dormitorio",
+        "camera": [
+          1.994,
+          1.55,
+          5.415
+        ],
+        "target": [
+          0.194,
+          1.2,
+          3.215
+        ],
+        "sourceLabels": [
+          [
+            "wardrobe",
+            5
+          ],
+          [
+            "bedside table",
+            4
+          ],
+          [
+            "bed",
+            3
+          ],
+          [
+            "side table",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "bath",
+        "label": "Baño",
+        "camera": [
+          -1.514,
+          1.55,
+          2.957
+        ],
+        "target": [
+          -3.314,
+          1.2,
+          0.757
+        ],
+        "sourceLabels": [
+          [
+            "basin cabinet",
+            3
+          ],
+          [
+            "shower head",
+            2
+          ],
+          [
+            "toilet",
+            2
+          ],
+          [
+            "shower stone",
+            1
+          ],
+          [
+            "shower room partition",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "study",
+        "label": "Estudio",
+        "camera": [
+          -0.612,
+          1.55,
+          0.974
+        ],
+        "target": [
+          -2.412,
+          1.2,
+          -1.226
+        ],
+        "sourceLabels": [
+          [
+            "chair",
+            6
+          ],
+          [
+            "study desk and bookshelf combination",
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "unit": "inventory-50",
+    "scene": "0306_840556",
+    "viewer": "/viewers/inventory-50/index.html",
+    "collision": "/assets/interior-inventory/0306_840556/occupancy.collision.glb",
+    "occupancy": "/assets/interior-inventory/0306_840556/occupancy.png",
+    "waypoints": [
+      {
+        "id": "living",
+        "label": "Sala",
+        "camera": [
+          -0.668,
+          1.55,
+          -0.303
+        ],
+        "target": [
+          -2.468,
+          1.2,
+          -2.503
+        ],
+        "sourceLabels": [
+          [
+            "plant",
+            2
+          ],
+          [
+            "tv",
+            1
+          ],
+          [
+            "multi person sofa",
+            1
+          ],
+          [
+            "tea table",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "dining",
+        "label": "Comedor",
+        "camera": [
+          0.386,
+          1.55,
+          0.314
+        ],
+        "target": [
+          -1.414,
+          1.2,
+          -1.886
+        ],
+        "sourceLabels": [
+          [
+            "chair",
+            8
+          ],
+          [
+            "side table",
+            6
+          ],
+          [
+            "vegetable",
+            2
+          ],
+          [
+            "bedside table",
+            2
+          ],
+          [
+            "teatable",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "kitchen",
+        "label": "Cocina",
+        "camera": [
+          3.267,
+          1.55,
+          0.972
+        ],
+        "target": [
+          1.467,
+          1.2,
+          -1.228
+        ],
+        "sourceLabels": [
+          [
+            "cabinet",
+            4
+          ],
+          [
+            "basin cabinet",
+            3
+          ],
+          [
+            "mirror cabinet",
+            1
+          ],
+          [
+            "refrigerator",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "bedroom",
+        "label": "Dormitorio",
+        "camera": [
+          1.875,
+          1.55,
+          -0.369
+        ],
+        "target": [
+          0.075,
+          1.2,
+          -2.569
+        ],
+        "sourceLabels": [
+          [
+            "wardrobe",
+            8
+          ],
+          [
+            "side table",
+            6
+          ],
+          [
+            "bed",
+            2
+          ],
+          [
+            "bedside table",
+            2
+          ],
+          [
+            "mattress",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "bath",
+        "label": "Baño",
+        "camera": [
+          4.728,
+          1.55,
+          2.869
+        ],
+        "target": [
+          2.928,
+          1.2,
+          0.669
+        ],
+        "sourceLabels": [
+          [
+            "basin cabinet",
+            3
+          ],
+          [
+            "toilet",
+            2
+          ],
+          [
+            "shower stone",
+            1
+          ],
+          [
+            "shower room partition",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "study",
+        "label": "Estudio",
+        "camera": [
+          1.089,
+          1.55,
+          2.825
+        ],
+        "target": [
+          -0.711,
+          1.2,
+          0.625
+        ],
+        "sourceLabels": [
+          [
+            "chair",
+            8
+          ]
+        ]
+      }
+    ]
+  }
+]

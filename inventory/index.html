@@ -1,0 +1,1630 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Torres del Norte — Inventario Interior</title>
+    <style>
+      :root {
+        color: #f8f4ec;
+        background: #0b0b09;
+        --font-display: Didot, "Bodoni 72", "Bodoni MT", "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+        --font-editorial: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        --font-ui: "Avenir Next", "Neue Haas Grotesk Text Pro", "Segoe UI Variable Text", "Segoe UI", Tahoma, sans-serif;
+        font-family: var(--font-ui);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        background: #0b0b09;
+      }
+
+      iframe {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        border: 0;
+        background: #0b0b09;
+      }
+
+      .chrome {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(5, 5, 4, 0.72), transparent 30%, transparent 70%, rgba(5, 5, 4, 0.5)),
+          linear-gradient(0deg, rgba(5, 5, 4, 0.72), transparent 24%, transparent 70%, rgba(5, 5, 4, 0.44));
+      }
+
+      .veil {
+        position: fixed;
+        z-index: 20;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 50% 48%, rgba(248, 244, 236, 0.08), transparent 28%),
+          rgba(8, 8, 7, 0.86);
+        opacity: 0;
+        transition: opacity 520ms ease;
+      }
+
+      body.transitioning .veil { opacity: 1; }
+
+      header {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 26px 34px;
+        border-bottom: 1px solid rgba(248, 244, 236, 0.14);
+        pointer-events: none;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      header span:nth-child(2) { color: rgba(248, 244, 236, 0.62); }
+      header span:nth-child(3) { justify-self: end; }
+
+      header a {
+        color: inherit;
+        text-decoration: none;
+        pointer-events: auto;
+      }
+
+      header a:hover { color: #fff; }
+
+      .title {
+        position: fixed;
+        z-index: 6;
+        left: 36px;
+        bottom: 40px;
+        width: min(720px, calc(100vw - 72px));
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(58px, 9vw, 132px);
+        font-weight: 400;
+        letter-spacing: -0.085em;
+        line-height: 0.82;
+      }
+
+      .dock,
+      .rooms,
+      .map-panel,
+      .tools {
+        pointer-events: auto;
+      }
+
+      .dock {
+        position: fixed;
+        z-index: 30;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 24px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        backdrop-filter: blur(18px);
+      }
+
+      button {
+        appearance: none;
+        border: 0;
+        border-bottom: 1px solid rgba(248, 244, 236, 0.24);
+        background: transparent;
+        color: rgba(248, 244, 236, 0.74);
+        padding: 9px 0;
+        cursor: pointer;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font: inherit;
+        font-size: 10px;
+        font-weight: 850;
+        text-align: left;
+      }
+
+      button:hover,
+      button.active {
+        background: transparent;
+        color: #fff;
+        border-bottom-color: rgba(248, 244, 236, 0.85);
+      }
+
+      .rooms {
+        position: fixed;
+        z-index: 30;
+        right: 34px;
+        top: 116px;
+        display: grid;
+        gap: 8px;
+        width: 170px;
+      }
+
+      .rooms button {
+        text-align: left;
+      }
+
+      .tools {
+        position: fixed;
+        z-index: 30;
+        right: 34px;
+        bottom: 32px;
+        display: flex;
+        gap: 24px;
+      }
+
+      .map-panel {
+        position: fixed;
+        z-index: 29;
+        right: 34px;
+        bottom: 86px;
+        width: min(168px, calc(44vw - 20px));
+        border: 1px solid rgba(248, 244, 236, 0.15);
+        background: rgba(12, 12, 10, 0.36);
+        backdrop-filter: blur(8px);
+        display: grid;
+        overflow: hidden;
+        cursor: zoom-in;
+        transition: width 360ms ease, background 360ms ease, backdrop-filter 360ms ease;
+      }
+
+      .map-panel.hidden { display: none; }
+
+      .map-panel.expanded {
+        width: min(390px, calc(100vw - 68px));
+        background: rgba(12, 12, 10, 0.78);
+        backdrop-filter: blur(18px);
+        cursor: zoom-out;
+      }
+
+      .map-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 11px;
+        border-bottom: 1px solid rgba(248, 244, 236, 0.12);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 8px;
+        font-weight: 850;
+      }
+
+      .map-body {
+        position: relative;
+        min-height: 104px;
+        background: #080807;
+      }
+
+      .map-body img {
+        width: 100%;
+        height: 104px;
+        object-fit: contain;
+        display: block;
+        padding: 7px;
+        opacity: 0.92;
+        transition: height 360ms ease, padding 360ms ease;
+      }
+
+      .map-panel.expanded .map-body {
+        min-height: 250px;
+      }
+
+      .map-panel.expanded .map-body img {
+        height: 250px;
+        padding: 14px;
+      }
+
+      .map-note {
+        display: none;
+        padding: 0 14px 14px;
+        color: rgba(248, 244, 236, 0.58);
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .map-panel.expanded .map-note { display: block; }
+
+      .map-pins {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .map-pin {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        border: 0;
+        border-bottom: 1px solid rgba(248, 244, 236, 0.7);
+        background: transparent;
+        color: rgba(248, 244, 236, 0.86);
+        font-size: 7px;
+        letter-spacing: 0.12em;
+        padding: 0 0 2px;
+        pointer-events: auto;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+        white-space: nowrap;
+      }
+
+      .save-btn {
+        background: rgba(242, 103, 34, 0.85) !important;
+        color: #fff !important;
+        border: 1px solid rgba(242, 103, 34, 0.6) !important;
+        border-bottom: 1px solid rgba(242, 103, 34, 0.6) !important;
+        padding: 8px 14px !important;
+        cursor: pointer;
+        transition: background 0.2s ease, opacity 0.2s ease;
+      }
+      .save-btn:hover { background: rgba(242, 103, 34, 1) !important; }
+      .save-btn.hidden { display: none; }
+
+      .save-status {
+        position: fixed;
+        z-index: 40;
+        left: 50%;
+        top: 80px;
+        transform: translateX(-50%);
+        padding: 10px 22px;
+        background: rgba(242, 103, 34, 0.92);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 850;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .save-status.show { opacity: 1; }
+
+      .editorial-card {
+        position: fixed;
+        z-index: 4;
+        left: clamp(34px, 6vw, 96px);
+        top: auto;
+        bottom: clamp(240px, 30vh, 340px);
+        width: min(560px, calc(100vw - 68px));
+        transform: translateY(10px);
+        padding: 0;
+        color: #f8f4ec;
+        background: transparent;
+        border: 0;
+        backdrop-filter: none;
+        mix-blend-mode: screen;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.26);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 620ms ease, transform 620ms ease;
+      }
+
+      .editorial-card.visible {
+        opacity: 0.92;
+        transform: translateY(0);
+      }
+
+      .editorial-kicker {
+        margin: 0 0 18px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: 850;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .editorial-card h2 {
+        margin: 0 0 14px;
+        font-family: var(--font-display);
+        font-size: clamp(36px, 4.5vw, 58px);
+        font-weight: 400;
+        letter-spacing: -0.085em;
+        line-height: 0.86;
+      }
+
+      .editorial-headline {
+        max-width: 38ch;
+        margin: 0 0 14px;
+        color: rgba(255, 255, 255, 0.88);
+        font-family: var(--font-ui);
+        font-size: clamp(11px, 0.9vw, 13px);
+        font-weight: 850;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        line-height: 1.4;
+      }
+
+      .editorial-card p {
+        max-width: 38ch;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-family: var(--font-editorial);
+        font-size: clamp(12px, 1.05vw, 15px);
+        line-height: 1.65;
+      }
+
+      .editorial-detalles {
+        max-width: 38ch;
+        margin: 16px 0 0;
+        padding: 12px 0 0;
+        border-top: 1px solid rgba(248, 244, 236, 0.15);
+        color: rgba(255, 255, 255, 0.52);
+        font-family: var(--font-ui);
+        font-size: clamp(9px, 0.75vw, 11px);
+        letter-spacing: 0.08em;
+        line-height: 1.8;
+      }
+
+      .editorial-detalles-label {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 850;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: clamp(8px, 0.65vw, 10px);
+      }
+
+      .editorial-dismiss {
+        display: none;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: 850;
+        color: rgba(248, 244, 236, 0.7);
+      }
+
+      @media (max-width: 820px) {
+        header { grid-template-columns: 1fr; gap: 6px; padding: 18px; }
+        header span:nth-child(3) { justify-self: start; }
+        .rooms { right: 18px; top: 112px; width: 145px; }
+        .dock { bottom: 18px; max-width: calc(100vw - 36px); overflow-x: auto; }
+        .tools { right: 18px; bottom: 82px; }
+        .map-panel { right: 18px; bottom: 136px; width: 132px; }
+        .map-panel.expanded { width: calc(100vw - 36px); }
+        .title { left: 18px; bottom: 146px; }
+        .editorial-card { left: 18px; bottom: clamp(240px, 30vh, 340px); width: calc(100vw - 200px); }
+        .map-pin { font-size: 6px; }
+      }
+      /* ── Mobile: hidden by default ── */
+      .m-room-bar, .m-intro, .m-detalles-trigger,
+      .m-sheet, .m-sheet-backdrop, .m-espacios { display: none; }
+
+      @media (max-width: 768px) {
+        header, .title, .rooms, .dock, .editorial-card { display: none !important; }
+
+        .chrome {
+          background:
+            linear-gradient(180deg, rgba(5,5,4,0.52) 0%, transparent 14%, transparent 82%, rgba(5,5,4,0.42) 100%);
+        }
+
+        /* ── Room bar ── */
+        .m-room-bar {
+          display: flex;
+          position: fixed; z-index: 35;
+          top: 0; left: 0; right: 0;
+          align-items: center;
+          padding: 18px 20px;
+          background: linear-gradient(180deg, rgba(8,8,7,0.72) 0%, transparent 100%);
+          pointer-events: auto;
+        }
+        .m-room-name {
+          flex: 1;
+          font-family: var(--font-ui);
+          font-size: 10px; font-weight: 850;
+          letter-spacing: 0.2em; text-transform: uppercase;
+          color: rgba(248,244,236,0.78);
+          overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        .m-room-count {
+          font-family: var(--font-ui);
+          font-size: 9px; font-weight: 700;
+          letter-spacing: 0.1em;
+          color: rgba(248,244,236,0.35);
+          margin-right: 14px;
+          flex-shrink: 0;
+        }
+        .m-room-menu {
+          appearance: none; border: 0 !important; border-bottom: none !important;
+          background: none !important;
+          color: rgba(248,244,236,0.6) !important;
+          font-size: 20px; padding: 0 !important;
+          cursor: pointer; line-height: 1; flex-shrink: 0;
+        }
+
+        /* ── Editorial intro ── */
+        .m-intro {
+          display: flex; flex-direction: column; justify-content: center;
+          position: fixed; z-index: 33; inset: 0;
+          padding: 60px 32px 120px;
+          background: linear-gradient(
+            180deg,
+            rgba(8,8,7,0.2) 0%,
+            rgba(8,8,7,0.6) 25%,
+            rgba(8,8,7,0.65) 55%,
+            rgba(8,8,7,0.55) 85%,
+            rgba(8,8,7,0.6) 100%
+          );
+          pointer-events: auto; cursor: pointer;
+          opacity: 0; transition: opacity 480ms ease;
+        }
+        .m-intro.visible { opacity: 1; }
+        .m-intro.fading { opacity: 0; pointer-events: none; }
+        .m-intro-kicker {
+          margin: 0 0 28px;
+          font-family: var(--font-ui);
+          font-size: 8px; font-weight: 850;
+          letter-spacing: 0.32em; text-transform: uppercase;
+          color: rgba(248,244,236,0.38);
+        }
+        .m-intro-title {
+          margin: 0 0 18px;
+          font-family: var(--font-display);
+          font-size: 44px; font-weight: 400;
+          letter-spacing: -0.06em; line-height: 0.88;
+          color: rgba(248,244,236,0.92);
+        }
+        .m-intro-headline {
+          margin: 0 0 16px;
+          font-family: var(--font-ui);
+          font-size: 10px; font-weight: 850;
+          letter-spacing: 0.2em; text-transform: uppercase;
+          color: rgba(248,244,236,0.55);
+          max-width: 34ch;
+        }
+        .m-intro-copy {
+          margin: 0;
+          font-family: var(--font-editorial);
+          font-size: 14px; line-height: 1.7;
+          color: rgba(248,244,236,0.5);
+          max-width: 38ch;
+        }
+        .m-intro-hint {
+          position: absolute; bottom: 72px; left: 32px;
+          font-family: var(--font-ui);
+          font-size: 8px; font-weight: 700;
+          letter-spacing: 0.26em; text-transform: uppercase;
+          color: rgba(248,244,236,0.2);
+          animation: m-hint-pulse 2.4s ease-in-out infinite;
+        }
+        @keyframes m-hint-pulse {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+
+        /* ── DETALLES trigger ── */
+        .m-detalles-trigger {
+          display: block;
+          position: fixed; z-index: 34;
+          right: 20px; bottom: 22px;
+          appearance: none;
+          border: 0 !important; border-bottom: none !important;
+          background: none !important;
+          color: rgba(248,244,236,0.48) !important;
+          font-family: var(--font-ui);
+          font-size: 9px; font-weight: 850;
+          letter-spacing: 0.22em; text-transform: uppercase;
+          padding: 8px 0 !important;
+          cursor: pointer; pointer-events: auto;
+          opacity: 0; transition: opacity 380ms ease;
+        }
+        .m-detalles-trigger.visible { opacity: 1; }
+
+        /* ── DETALLES sheet ── */
+        .m-sheet-backdrop {
+          display: block;
+          position: fixed; z-index: 37; inset: 0;
+          background: rgba(0,0,0,0.4);
+          opacity: 0; pointer-events: none;
+          transition: opacity 360ms ease;
+        }
+        .m-sheet-backdrop.open { opacity: 1; pointer-events: auto; }
+
+        .m-sheet {
+          display: block;
+          position: fixed; z-index: 38;
+          left: 0; right: 0; bottom: 0;
+          max-height: 72vh;
+          background: rgba(14,14,12,0.95);
+          backdrop-filter: blur(28px);
+          border-top: 1px solid rgba(248,244,236,0.08);
+          border-radius: 16px 16px 0 0;
+          transform: translateY(100%);
+          transition: transform 420ms cubic-bezier(0.32,0.72,0,1);
+          pointer-events: auto;
+          overflow-y: auto; -webkit-overflow-scrolling: touch;
+        }
+        .m-sheet.open { transform: translateY(0); }
+
+        .m-sheet-handle {
+          display: flex; justify-content: center; padding: 14px 0 6px;
+        }
+        .m-sheet-handle::after {
+          content: ''; width: 32px; height: 3px;
+          border-radius: 2px; background: rgba(248,244,236,0.16);
+        }
+        .m-sheet-close {
+          position: absolute; top: 14px; right: 20px;
+          appearance: none; border: 0 !important; border-bottom: none !important;
+          background: none !important;
+          color: rgba(248,244,236,0.4) !important;
+          font-family: var(--font-ui);
+          font-size: 8px; font-weight: 850;
+          letter-spacing: 0.2em; text-transform: uppercase;
+          padding: 4px 0 !important; cursor: pointer;
+        }
+        .m-sheet-content { padding: 4px 32px 48px; }
+        .m-sheet-title {
+          margin: 0 0 12px;
+          font-family: var(--font-display);
+          font-size: 34px; font-weight: 400;
+          letter-spacing: -0.05em; line-height: 0.9;
+          color: rgba(248,244,236,0.88);
+        }
+        .m-sheet-headline {
+          margin: 0 0 14px;
+          font-family: var(--font-ui);
+          font-size: 10px; font-weight: 850;
+          letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(248,244,236,0.48);
+        }
+        .m-sheet-copy {
+          margin: 0 0 22px;
+          font-family: var(--font-editorial);
+          font-size: 14px; line-height: 1.7;
+          color: rgba(248,244,236,0.55);
+        }
+        .m-sheet-detalles {
+          padding: 16px 0 0;
+          border-top: 1px solid rgba(248,244,236,0.08);
+          color: rgba(248,244,236,0.38);
+          font-family: var(--font-ui);
+          font-size: 10px; letter-spacing: 0.08em; line-height: 1.9;
+        }
+        .m-sheet-detalles-label {
+          display: block; margin-bottom: 6px;
+          font-weight: 850; letter-spacing: 0.24em;
+          text-transform: uppercase;
+          color: rgba(248,244,236,0.25); font-size: 8px;
+        }
+
+        /* ── ESPACIOS index ── */
+        .m-espacios {
+          display: block;
+          position: fixed; z-index: 42; inset: 0;
+          background: rgba(10,10,8,1);
+          opacity: 0; pointer-events: none;
+          transform: translateY(-8px);
+          transition: opacity 280ms ease, transform 280ms ease;
+          overflow-y: auto;
+        }
+        .m-espacios.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .m-espacios-head {
+          display: flex; justify-content: space-between; align-items: baseline;
+          padding: 24px 56px 0 32px; margin-bottom: 48px;
+        }
+        .m-espacios-title {
+          font-family: var(--font-ui);
+          font-size: 9px; font-weight: 850;
+          letter-spacing: 0.3em; text-transform: uppercase;
+          color: rgba(248,244,236,0.38);
+        }
+        .m-espacios-count {
+          font-family: var(--font-display);
+          font-size: 36px; font-weight: 400;
+          letter-spacing: -0.03em;
+          color: rgba(248,244,236,0.15);
+        }
+        .m-espacios-close {
+          position: absolute; top: 20px; right: 20px;
+          appearance: none; border: 0 !important; border-bottom: none !important;
+          background: none !important;
+          color: rgba(248,244,236,0.4) !important;
+          font-size: 24px; padding: 4px !important;
+          cursor: pointer; line-height: 1;
+        }
+        .m-espacios-list { padding: 0 32px 48px; }
+        .m-espacios-item {
+          display: flex; align-items: baseline; gap: 20px;
+          padding: 16px 0;
+          border-bottom: 1px solid rgba(248,244,236,0.05) !important;
+          appearance: none;
+          background: none !important;
+          border-top: 0 !important; border-left: 0 !important; border-right: 0 !important;
+          color: rgba(248,244,236,0.55) !important;
+          cursor: pointer; text-align: left; width: 100%;
+        }
+        .m-espacios-item.active { color: rgba(248,244,236,0.92) !important; }
+        .m-espacios-num {
+          font-family: var(--font-display);
+          font-size: 24px; font-weight: 400;
+          letter-spacing: -0.02em;
+          color: rgba(248,244,236,0.15);
+          min-width: 36px;
+        }
+        .m-espacios-label {
+          font-family: var(--font-ui);
+          font-size: 11px; font-weight: 700;
+          letter-spacing: 0.16em; text-transform: uppercase;
+        }
+
+        /* ── Tools on mobile ── */
+        .tools {
+          left: 20px; right: auto; bottom: 18px; gap: 14px;
+        }
+        .tools button { font-size: 9px; }
+        .tools .save-btn {
+          font-size: 7px !important;
+          padding: 5px 8px !important;
+          opacity: 0.5;
+        }
+
+        /* ── Map panel on mobile ── */
+        .map-panel { display: none; left: 20px; right: auto; bottom: 56px; width: 100px; }
+        .map-panel.m-visible { display: grid; }
+        .map-panel.expanded { width: calc(100vw - 40px); left: 20px; right: 20px; }
+      }
+      /* Unit 50 / Sala — collectible editorial treatment. Intentionally scoped. */
+      @media (min-width: 769px) {
+        body.editorial-interior { --ivory:#f2eadc; --paper:#ded2bf; --gold:#b99457; --gold-soft:rgba(185,148,87,.58); }
+        body.editorial-interior .chrome {
+          z-index:3;
+          background:
+            linear-gradient(90deg,rgba(6,6,5,.96) 0%,rgba(6,6,5,.88) 12%,rgba(6,6,5,.58) 24%,rgba(6,6,5,.08) 39%,rgba(6,6,5,.02) 63%,rgba(6,6,5,.5) 82%,rgba(6,6,5,.94) 100%),
+            linear-gradient(180deg,rgba(6,6,5,.72) 0%,rgba(6,6,5,.05) 19%,rgba(6,6,5,0) 65%,rgba(6,6,5,.66) 100%);
+        }
+        body.editorial-interior .chrome::after { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 56% 46%,transparent 0 37%,rgba(4,4,3,.08) 60%,rgba(4,4,3,.38) 100%),repeating-linear-gradient(112deg,transparent 0 7px,rgba(255,255,255,.012) 8px,transparent 9px 17px); mix-blend-mode:multiply; }
+        body.editorial-interior header { height:58px; padding:0 44px 0 46px; grid-template-columns:1fr 1fr 1fr; color:var(--ivory); border-bottom-color:var(--gold-soft); font-family:var(--font-editorial); font-size:10px; font-weight:500; letter-spacing:.32em; }
+        body.editorial-interior header span { white-space: nowrap; }
+        body.editorial-interior header span:first-child { display:flex; align-items:center; gap:24px; }
+        body.editorial-interior header span:first-child a { font-size:0; white-space:nowrap; }
+        body.editorial-interior header span:first-child a::before { content:"TORRES DEL NORTE"; font-size:10px; }
+        body.editorial-interior header span:first-child::after,body.editorial-interior header span:last-child::before { content:none; }
+        body.editorial-interior header span:nth-child(2) { color:var(--gold); text-align:center; font-size:10px; }
+        body.editorial-interior header span:nth-child(2)::before { content:none; }
+        body.editorial-interior header span:last-child { display:flex; justify-content:flex-end; align-items:center; gap:22px; }
+        body.editorial-interior header span:last-child::after { content:none; }
+        body.editorial-interior #sceneLabel { font-size:10px; }
+        body.editorial-interior #sceneLabel::before { content:none; }
+        body.editorial-interior .editorial-card { z-index:6; left:46px; top:91px; bottom:auto; width:270px; color:var(--ivory); mix-blend-mode:normal; text-shadow:0 2px 24px #000; }
+        body.editorial-interior .editorial-card.visible { opacity:1; }
+        body.editorial-interior .editorial-kicker { margin:0 0 20px; padding-left:15px; border-left:1px solid var(--gold); color:var(--gold); font-family:var(--font-editorial); font-size:10px; font-weight:600; letter-spacing:.28em; }
+        body.editorial-interior .editorial-kicker::after { content:""; display:inline-block; vertical-align:middle; width:62px; height:1px; margin-left:14px; background:var(--gold-soft); }
+        body.editorial-interior .editorial-card h2 { margin:0 0 14px; color:#e8c887; font-size:clamp(60px,5.8vw,88px); letter-spacing:-.06em; line-height:.82; }
+        body.editorial-interior[data-room="primary_bedroom"] .editorial-card h2,
+        body.editorial-interior[data-room="secondary_bedroom"] .editorial-card h2,
+        body.editorial-interior[data-room="primary_bath"] .editorial-card h2,
+        body.editorial-interior[data-room="guest_bath"] .editorial-card h2,
+        body.editorial-interior[data-room="kids_room"] .editorial-card h2 { font-size:clamp(38px,4vw,60px); line-height:.88; }
+        body.editorial-interior .editorial-headline { max-width:24ch; margin:0 0 13px; color:var(--ivory); font-family:var(--font-editorial); font-size:11px; font-weight:500; letter-spacing:.31em; line-height:1.55; }
+        body.editorial-interior .editorial-card > p:not(.editorial-kicker):not(.editorial-headline) { max-width:29ch; color:rgba(242,234,220,.86); font-size:12px; line-height:1.36; }
+        body.editorial-interior .editorial-detalles { max-width:255px; margin-top:13px; padding-top:10px; border-top-color:var(--gold-soft); color:rgba(242,234,220,.68); font-family:var(--font-editorial); font-size:10px; letter-spacing:0; line-height:1.38; }
+        body.editorial-interior .editorial-detalles-label { margin-bottom:7px; color:var(--gold); font-family:var(--font-ui); font-size:8px; letter-spacing:.26em; }
+        body.editorial-interior .title { z-index:6; left:44px; bottom:38px; width:460px; padding-left:15px; border-left:1px solid var(--gold-soft); color:var(--ivory); }
+        body.editorial-interior .title .eyebrow { margin:0 0 7px; font-family:var(--font-editorial); font-size:9px; font-weight:500; letter-spacing:.23em; }
+        body.editorial-interior .title h1 { font-size:clamp(70px,9vw,124px); letter-spacing:-.075em; line-height:.76; }
+        body.editorial-interior .title h1 span { color:#d4ad64; }
+        body.editorial-interior .title::after { content:attr(data-folio); display:block; margin-top:28px; color:var(--gold); font-family:var(--font-editorial); font-size:20px; letter-spacing:.08em; }
+        body.editorial-interior .rooms { z-index:6; right:36px; top:94px; width:190px; gap:0; }
+        body.editorial-interior .rooms::before { content:"INVENTARIO INTERIOR"; display:block; margin-bottom:30px; padding-bottom:18px; border-bottom:1px solid var(--gold-soft); color:var(--gold); font-family:var(--font-ui); font-size:8px; letter-spacing:.27em; }
+        body.editorial-interior .rooms button { position:relative; padding:11px 0; border-bottom-color:rgba(185,148,87,.26); color:rgba(242,234,220,.72); font-size:9px; font-weight:500; letter-spacing:.08em; }
+        body.editorial-interior .rooms button.active { padding-left:17px; color:#e8c887; border-bottom-color:rgba(242,234,220,.76); }
+        body.editorial-interior .rooms button.active::before { content:""; position:absolute; left:0; top:9px; bottom:9px; width:1px; background:var(--gold); }
+        body.editorial-interior .dock { z-index:7; left:55%; bottom:33px; gap:34px; backdrop-filter:none; }
+        body.editorial-interior .dock button { padding:8px 3px; border-bottom-color:transparent; color:rgba(242,234,220,.74); font-size:9px; font-weight:500; letter-spacing:.16em; }
+        body.editorial-interior .dock button.active { color:#e8c887; border-bottom-color:var(--gold); }
+        body.editorial-interior .tools { z-index:8; right:36px; bottom:30px; gap:22px; }
+        body.editorial-interior .tools button { color:rgba(242,234,220,.82); border-bottom-color:rgba(185,148,87,.46); font-size:8px; font-weight:500; letter-spacing:.18em; }
+        body.editorial-interior .tools .save-btn { display:none !important; }
+        body.editorial-interior .map-panel { z-index:7; right:36px; bottom:79px; width:190px; border-color:rgba(185,148,87,.72); background:rgba(6,6,5,.28); backdrop-filter:none; }
+        body.editorial-interior .map-head { padding:10px 11px; border-bottom-color:rgba(185,148,87,.42); color:var(--gold); font-size:7px; font-weight:500; }
+        body.editorial-interior .map-body { min-height:100px; background:rgba(4,4,3,.5); }
+        body.editorial-interior .map-body img { height:100px; padding:8px; filter:sepia(.5) contrast(1.1); }
+        body.editorial-interior .map-pin { font-size:0; border:0; }
+        body.editorial-interior .map-panel.expanded { width:390px; background:rgba(6,6,5,.84); backdrop-filter:blur(12px); }
+      }
+      @media (min-width:769px) and (max-height:760px) {
+        body.editorial-interior .editorial-card { top:74px; width:245px; }
+        body.editorial-interior .editorial-card h2 { font-size:48px; margin-bottom:10px; }
+        body.editorial-interior .editorial-headline { margin-bottom:9px; font-size:9px; line-height:1.4; }
+        body.editorial-interior .editorial-card > p:not(.editorial-kicker):not(.editorial-headline) { font-size:10px; line-height:1.28; }
+        body.editorial-interior .editorial-detalles { margin-top:9px; padding-top:7px; font-size:8px; line-height:1.25; }
+        body.editorial-interior .title { bottom:20px; }
+        body.editorial-interior .title h1 { font-size:76px; }
+        body.editorial-interior .title::after { margin-top:13px; font-size:15px; }
+        body.editorial-interior .rooms { top:76px; }
+        body.editorial-interior .rooms::before { margin-bottom:12px; padding-bottom:10px; }
+        body.editorial-interior .rooms button { padding:7px 0; font-size:8px; }
+      }
+      @media (min-width:769px) {
+        body.editorial-interior .editorial-card { top:82px; width:300px; }
+        body.editorial-interior .editorial-card h2 { font-size:clamp(48px,4.6vw,70px); margin-bottom:13px; }
+        body.editorial-interior header,
+        body.editorial-interior header span:first-child a::before,
+        body.editorial-interior header span:nth-child(2),
+        body.editorial-interior #sceneLabel { font-size:11px; }
+        body.editorial-interior .editorial-kicker { font-size:11px; }
+        body.editorial-interior .editorial-headline { font-size:13px; line-height:1.48; margin-bottom:14px; }
+        body.editorial-interior .editorial-card > p:not(.editorial-kicker):not(.editorial-headline) { font-size:15px; line-height:1.46; }
+        body.editorial-interior .editorial-detalles { margin-top:15px; padding-top:12px; font-size:12.5px; line-height:1.44; }
+        body.editorial-interior .editorial-detalles-label { font-size:9.5px; }
+        body.editorial-interior .title { bottom:28px; border-left:0; padding-left:0; }
+        body.editorial-interior .title h1 { font-size:clamp(66px,7.4vw,104px); }
+        body.editorial-interior .title .eyebrow { font-size:10.5px; }
+        body.editorial-interior .title::after { display:none; }
+        body.editorial-interior .rooms::before { font-size:9.5px; }
+        body.editorial-interior .rooms button { font-size:11px; }
+        body.editorial-interior .dock button { font-size:10.5px; }
+        body.editorial-interior .tools button { font-size:9.5px; }
+        body.editorial-interior .map-head { font-size:8.5px; }
+        body.editorial-interior .map-pin {
+          width:7px;
+          height:7px;
+          padding:0;
+          overflow:hidden;
+          border:1px solid rgba(232,200,135,.92);
+          border-radius:50%;
+          background:rgba(8,7,5,.8);
+          color:transparent;
+          font-size:0;
+          box-shadow:0 0 0 3px rgba(185,148,87,.12), 0 0 12px rgba(232,200,135,.26);
+        }
+        body.editorial-interior .map-pin:hover,
+        body.editorial-interior .map-pin:focus-visible { background:#e8c887; outline:none; }
+      }
+      @media (min-width:769px) and (max-height:760px) {
+        body.editorial-interior .editorial-card { top:72px; width:270px; }
+        body.editorial-interior .editorial-card h2 { font-size:46px; }
+        body.editorial-interior .editorial-kicker { font-size:10px; }
+        body.editorial-interior .editorial-headline { font-size:11.5px; line-height:1.42; }
+        body.editorial-interior .editorial-card > p:not(.editorial-kicker):not(.editorial-headline) { font-size:13.5px; line-height:1.38; }
+        body.editorial-interior .editorial-detalles { font-size:11.5px; line-height:1.36; }
+        body.editorial-interior .editorial-detalles-label { font-size:9px; }
+        body.editorial-interior .rooms button { font-size:9.5px; }
+        body.editorial-interior .dock button { font-size:9.5px; }
+        body.editorial-interior .tools button { font-size:9px; }
+        body.editorial-interior .title h1 { font-size:72px; }
+      }
+      @media (max-width:768px) {
+        body.editorial-interior .chrome {
+          background:linear-gradient(180deg,rgba(6,6,5,.78) 0%,transparent 18%,transparent 70%,rgba(6,6,5,.8) 100%);
+        }
+        body.editorial-interior .m-room-bar {
+          padding:18px 20px 24px;
+          background:linear-gradient(180deg,rgba(7,7,6,.92),rgba(7,7,6,0));
+          border-top:1px solid rgba(185,148,87,.55);
+        }
+        body.editorial-interior .m-room-name {
+          font-family:var(--font-editorial);
+          font-size:11px;
+          font-weight:500;
+          letter-spacing:.24em;
+          color:#f2eadc;
+        }
+        body.editorial-interior .m-room-count { color:#b99457; }
+        body.editorial-interior .m-room-menu { color:#d6bd8a !important; }
+        body.editorial-interior .m-intro {
+          padding:74px 28px 116px;
+          background:linear-gradient(180deg,rgba(6,6,5,.2),rgba(6,6,5,.64) 38%,rgba(6,6,5,.86) 100%);
+        }
+        body.editorial-interior .m-intro-kicker { color:#b99457; font-size:9px; }
+        body.editorial-interior .m-intro-title { color:#f2eadc; font-size:50px; line-height:.9; }
+        body.editorial-interior .m-intro-headline { color:rgba(242,234,220,.8); font-family:var(--font-editorial); font-weight:500; }
+        body.editorial-interior .m-intro-copy { color:rgba(242,234,220,.74); font-size:15px; }
+        body.editorial-interior .m-intro-hint,
+        body.editorial-interior .m-detalles-trigger { color:#b99457 !important; }
+        body.editorial-interior .m-sheet {
+          background:rgba(8,8,7,.97);
+          border-top:1px solid rgba(185,148,87,.55);
+          border-radius:0;
+        }
+        body.editorial-interior .m-sheet-title { color:#e8c887; font-size:40px; }
+        body.editorial-interior .m-sheet-headline { color:rgba(242,234,220,.76); }
+        body.editorial-interior .m-sheet-copy { color:rgba(242,234,220,.72); font-size:15px; }
+        body.editorial-interior .m-sheet-detalles { color:rgba(242,234,220,.62); border-top-color:rgba(185,148,87,.35); }
+        body.editorial-interior .m-sheet-detalles-label { color:#b99457; }
+        body.editorial-interior .m-espacios { background:#080807; }
+        body.editorial-interior .m-espacios-title { color:#b99457; }
+        body.editorial-interior .m-espacios-count { color:rgba(185,148,87,.28); }
+        body.editorial-interior .m-espacios-item { border-bottom-color:rgba(185,148,87,.16) !important; }
+        body.editorial-interior .m-espacios-item.active,
+        body.editorial-interior .m-espacios-item.active .m-espacios-num { color:#e8c887 !important; }
+        body.editorial-interior .tools button { color:rgba(242,234,220,.78); border-bottom-color:rgba(185,148,87,.4); }
+        body.editorial-interior .map-panel { border-color:rgba(185,148,87,.6); background:rgba(8,8,7,.88); }
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id="viewer" title="Visor InteriorGS"></iframe>
+    <div class="chrome"></div>
+    <div class="veil" aria-hidden="true"></div>
+
+    <header>
+      <span><a href="/" aria-label="Volver al edificio Torres del Norte">Torres del Norte · Edificio</a></span>
+      <span>MMXXVI</span>
+      <span id="sceneLabel">Unidad 48</span>
+    </header>
+
+    <section class="title">
+      <p class="eyebrow" id="roomEyebrow">Recorrido · Sala</p>
+      <h1 id="headline">Unidad 48</h1>
+    </section>
+
+    <nav class="rooms" id="rooms" aria-label="Ambientes"></nav>
+
+    <nav class="dock" id="units" aria-label="Unidades"></nav>
+
+    <article class="editorial-card visible" id="editorialCard" role="dialog" aria-modal="false" aria-label="Introducción editorial del ambiente">
+      <p class="editorial-kicker" id="editorialKicker">Torres del Norte · Revista inmobiliaria</p>
+      <h2 id="editorialTitle">Sala</h2>
+      <p class="editorial-headline" id="editorialHeadline"></p>
+      <p id="editorialCopy"></p>
+      <div class="editorial-detalles" id="editorialDetalles"></div>
+      <div class="editorial-dismiss">Clic para entrar</div>
+    </article>
+
+    <section class="map-panel" id="mapPanel" title="Ampliar plano">
+      <div class="map-head">
+        <span id="mapTitle">Plano</span>
+        <span id="toggleMapMode">Dollhouse · en poda</span>
+      </div>
+      <div class="map-body">
+        <img id="mapImage" alt="Plano de la unidad" />
+        <div class="map-pins" id="mapPins"></div>
+      </div>
+      <div class="map-note" id="mapNote">Plano derivado del occupancy real de InteriorGS. Los atajos viajan a cámaras por ambiente.</div>
+    </section>
+
+    <nav class="tools" aria-label="Herramientas">
+      <button id="togglePanel" type="button">Plano</button>
+      <button id="soundToggle" type="button">Audio</button>
+      <button id="toggleMode" class="save-btn hidden" type="button" style="background:rgba(80,140,220,0.85)!important;border-color:rgba(80,140,220,0.6)!important">Fly</button>
+      <button id="saveView" class="save-btn hidden" type="button">Save Current View</button>
+    </nav>
+    <div id="saveStatus" class="save-status"></div>
+
+    <!-- Mobile -->
+    <div class="m-room-bar" id="mRoomBar">
+      <span class="m-room-name" id="mRoomName"></span>
+      <span class="m-room-count" id="mRoomCount"></span>
+      <button class="m-room-menu" id="mRoomMenu" type="button" aria-label="Abrir índice de espacios">≡</button>
+    </div>
+
+    <div class="m-intro" id="mIntro">
+      <p class="m-intro-kicker" id="mIntroKicker"></p>
+      <h2 class="m-intro-title" id="mIntroTitle"></h2>
+      <p class="m-intro-headline" id="mIntroHeadline"></p>
+      <p class="m-intro-copy" id="mIntroCopy"></p>
+      <span class="m-intro-hint">Toca para explorar</span>
+    </div>
+
+    <button class="m-detalles-trigger" id="mDetallesTrigger" type="button">Detalles +</button>
+
+    <div class="m-sheet-backdrop" id="mSheetBackdrop"></div>
+    <div class="m-sheet" id="mSheet">
+      <div class="m-sheet-handle" id="mSheetHandle"></div>
+      <button class="m-sheet-close" id="mSheetClose" type="button">Cerrar</button>
+      <div class="m-sheet-content">
+        <h3 class="m-sheet-title" id="mSheetTitle"></h3>
+        <p class="m-sheet-headline" id="mSheetHeadline"></p>
+        <p class="m-sheet-copy" id="mSheetCopy"></p>
+        <div class="m-sheet-detalles" id="mSheetDetalles"></div>
+      </div>
+    </div>
+
+    <div class="m-espacios" id="mEspacios">
+      <div class="m-espacios-head">
+        <span class="m-espacios-title">Espacios</span>
+        <span class="m-espacios-count" id="mEspaciosCount"></span>
+      </div>
+      <button class="m-espacios-close" id="mEspaciosClose" type="button" aria-label="Cerrar">×</button>
+      <div class="m-espacios-list" id="mEspaciosList"></div>
+    </div>
+
+    <script>
+      const inventory = [
+        {
+          unit: "inventory-48",
+          title: "Unidad 48",
+          scene: "0303_840566",
+          collision: "/assets/interior-inventory/0303_840566/occupancy.collision.glb",
+          occupancy: "/assets/interior-inventory/0303_840566/plan-editorial.png",
+          dollhouse: "",
+          bounds: { minX: -5.1608, maxX: 5.1608, minZ: -7.7104, maxZ: 6.8018 },
+          rooms: ["living", "dining", "kitchen", "primary_bedroom", "secondary_bedroom", "bath"],
+        },
+        {
+          unit: "inventory-50",
+          title: "Unidad 50",
+          scene: "0306_840556",
+          collision: "/assets/interior-inventory/0306_840556/occupancy.collision.glb",
+          occupancy: "/assets/interior-inventory/0306_840556/plan-editorial.png",
+          dollhouse: "",
+          bounds: { minX: -4.8701, maxX: 5.8348, minZ: -5.2930, maxZ: 6.2520 },
+          rooms: ["living", "dining", "kitchen", "primary_bedroom", "secondary_bedroom", "primary_bath", "guest_bath", "laundry"],
+        },
+        {
+          unit: "inventory-47",
+          title: "Unidad 47",
+          scene: "0300_840573",
+          collision: "/assets/interior-inventory/0300_840573/occupancy.collision.glb",
+          occupancy: "/assets/interior-inventory/0300_840573/plan-editorial.png",
+          dollhouse: "",
+          bounds: { minX: -6.0041, maxX: 5.7459, minZ: -6.7275, maxZ: 4.9205 },
+          rooms: ["living", "dining", "kitchen", "primary_bedroom", "secondary_bedroom", "kids_room", "primary_bath"],
+        },
+      ];
+
+      const roomLabels = {
+        living: "Sala",
+        dining: "Comedor",
+        kitchen: "Cocina",
+        bedroom: "Dormitorio",
+        primary_bedroom: "Dormitorio principal",
+        secondary_bedroom: "Dormitorio secundario",
+        bath: "Baño",
+        primary_bath: "Baño principal",
+        guest_bath: "Baño secundario",
+        study: "Estudio",
+        kids_room: "Dormitorio infantil",
+        laundry: "Lavandería",
+        suite: "Suite",
+        media: "Sala TV",
+      };
+
+      const roomEditorial = {
+        "inventory-48": {
+          living: {
+            title: "Sala",
+            headline: "EL PUNTO DE ENCUENTRO DE LA VIVIENDA",
+            copy: "La sala concentra la actividad social del departamento y establece una relación abierta con el comedor. Un espacio pensado tanto para el uso cotidiano como para recibir, manteniendo una conexión directa con las demás áreas comunes.",
+            detalles: "Área social abierta · Integración con comedor · Iluminación natural · Conexión con las áreas comunes",
+          },
+          dining: {
+            title: "Comedor",
+            headline: "UN ESPACIO QUE CONECTA",
+            copy: "Ubicado entre las principales áreas de uso diario, el comedor funciona como una extensión natural de la sala y mantiene una relación inmediata con la cocina.",
+            detalles: "Integrado al área social · Conexión con sala · Relación directa con cocina · Iluminación natural",
+          },
+          kitchen: {
+            title: "Cocina",
+            headline: "EL ESPACIO DE TRABAJO COTIDIANO",
+            copy: "La cocina reúne preparación y almacenamiento dentro de un ambiente definido, conectado directamente con el comedor y próximo al resto del área social.",
+            detalles: "Área de preparación · Mesón de trabajo · Espacio de almacenamiento · Conexión con comedor · Ventilación e iluminación",
+          },
+          primary_bedroom: {
+            title: "Dormitorio principal",
+            headline: "UN ESPACIO PARA DESCONECTAR",
+            copy: "El dormitorio principal se integra a la zona privada del departamento como su principal espacio de descanso, separado de la actividad cotidiana de las áreas sociales.",
+            detalles: "Dormitorio principal · Área de descanso · Espacio de almacenamiento · Iluminación natural · Zona privada",
+          },
+          secondary_bedroom: {
+            title: "Dormitorio secundario",
+            headline: "UNA HABITACIÓN QUE PUEDE CAMBIAR CONTIGO",
+            copy: "El segundo dormitorio incorpora un espacio privado adicional que puede destinarse al descanso, recibir huéspedes o adaptarse a otras necesidades de quienes habitan el departamento.",
+            detalles: "Dormitorio independiente · Área de descanso · Espacio de almacenamiento · Iluminación natural · Uso flexible",
+          },
+          bath: {
+            title: "Baño",
+            headline: "LO ESENCIAL, EN UN SOLO ESPACIO",
+            copy: "El baño reúne las funciones esenciales de uso diario dentro de un ambiente compacto y claramente organizado, integrado a la zona privada del departamento.",
+            detalles: "Área de ducha · Lavamanos · Inodoro · Área húmeda diferenciada · Ventilación e iluminación",
+          },
+        },
+        "inventory-50": {
+          living: {
+            title: "Sala",
+            headline: "UN INTERIOR CÁLIDO Y RESUELTO",
+            copy: "La sala abre el recorrido por un departamento donde el almacenamiento y el mobiliario integrado forman parte de la arquitectura. El acabado cálido del piso acompaña un área social cómoda, conectada naturalmente con el comedor.",
+            detalles: "Área social abierta · Mobiliario integrado · Espacios de almacenamiento · Acabado de piso de apariencia cálida · Conexión con comedor",
+          },
+          dining: {
+            title: "Comedor",
+            headline: "EL CORAZÓN DEL ÁREA SOCIAL",
+            copy: "El comedor ocupa una posición central dentro de las áreas compartidas, manteniendo una relación inmediata con la sala y la cocina. La continuidad entre los ambientes permite que funcionen como un solo espacio social.",
+            detalles: "Integración con sala · Conexión directa con cocina · Área social continua · Mobiliario integrado",
+          },
+          kitchen: {
+            title: "Cocina",
+            headline: "TODO EN SU LUGAR",
+            copy: "La cocina continúa el carácter funcional del departamento con una importante presencia de gabinetes y superficies de trabajo. Preparación, almacenamiento y uso cotidiano se concentran en un espacio conectado directamente con el área social.",
+            detalles: "Gabinetes integrados · Amplio almacenamiento · Superficies de trabajo · Área de preparación · Conexión con comedor",
+          },
+          primary_bedroom: {
+            title: "Dormitorio principal",
+            headline: "DESCANSO, TRABAJO Y PRIVACIDAD",
+            copy: "El dormitorio principal reúne varias funciones dentro de un mismo ambiente privado. Además del área de descanso, incorpora espacio de trabajo, almacenamiento integrado y conexión directa con su baño.",
+            detalles: "Baño integrado · Workspace · Mobiliario incorporado · Clóset · Área de descanso · Almacenamiento",
+          },
+          secondary_bedroom: {
+            title: "Dormitorio secundario",
+            headline: "MÁS QUE UN SEGUNDO DORMITORIO",
+            copy: "El dormitorio secundario está planteado como un espacio completo para la vida diaria. Integra descanso, almacenamiento y una estación de trabajo propia, permitiendo estudiar o trabajar sin abandonar la privacidad de la habitación.",
+            detalles: "Workspace integrado · Mobiliario incorporado · Clóset · Área de descanso · Almacenamiento",
+          },
+          primary_bath: {
+            title: "Baño principal",
+            headline: "UN BAÑO CON CARÁCTER CONTEMPORÁNEO",
+            copy: "Integrado al dormitorio principal, este baño lleva el nivel de equipamiento del departamento también a la zona más privada. Su diseño contemporáneo y sus elementos sanitarios de apariencia tecnológica refuerzan la sensación de un interior cuidadosamente equipado.",
+            detalles: "Integrado al dormitorio principal · Ducha · Lavamanos · Inodoro de diseño tecnológico · Mobiliario de baño · Acabados contemporáneos",
+          },
+          guest_bath: {
+            title: "Baño secundario",
+            headline: "DISEÑO HASTA EN LOS ESPACIOS COTIDIANOS",
+            copy: "El segundo baño mantiene el mismo lenguaje cuidado del departamento, resolviendo las funciones esenciales dentro de un ambiente contemporáneo y claramente organizado.",
+            detalles: "Ducha · Lavamanos · Inodoro · Mobiliario de baño · Área húmeda diferenciada",
+          },
+          laundry: {
+            title: "Lavandería",
+            headline: "UNA LAVANDERÍA QUE REALMENTE TIENE ESPACIO",
+            copy: "Más que un espacio técnico reducido, la lavandería destaca por sus dimensiones y por la comodidad que ofrece para organizar las tareas domésticas. Un ambiente amplio que suma funcionalidad real al departamento.",
+            detalles: "Lavandería amplia · Espacio para equipos · Área de trabajo · Capacidad de almacenamiento · Ambiente independiente",
+          },
+        },
+        "inventory-47": {
+          living: {
+            title: "Sala",
+            headline: "El centro social del departamento",
+            copy: "Un espacio amplio y abierto que organiza la vida social de la vivienda. La sala se integra visualmente con el comedor y mantiene una circulación directa hacia el resto de las áreas comunes.",
+            detalles: "Área social abierta · Integración con comedor · Iluminación natural · Circulación directa hacia las áreas comunes",
+          },
+          dining: {
+            title: "Comedor",
+            headline: "Entre la sala y la cocina",
+            copy: "El comedor ocupa el punto de encuentro entre las principales áreas sociales. Su posición permite mantener una relación inmediata con la sala y la cocina, formando un ambiente continuo para el uso cotidiano.",
+            detalles: "Integrado al área social · Conexión directa con cocina · Relación abierta con sala · Iluminación natural",
+          },
+          kitchen: {
+            title: "Cocina",
+            headline: "Una cocina conectada a la vida diaria",
+            copy: "Integrada al área social, la cocina mantiene una relación directa con el comedor y concentra las funciones de preparación y almacenamiento en un espacio claramente definido.",
+            detalles: "Mesón de trabajo · Mobiliario de almacenamiento · Área de preparación · Conexión directa con comedor · Iluminación y ventilación",
+          },
+          primary_bedroom: {
+            title: "Dormitorio principal",
+            headline: "El espacio más privado de la vivienda",
+            copy: "Separado de la actividad del área social, el dormitorio principal establece una zona de descanso más íntima dentro del departamento, con espacio suficiente para organizar descanso y almacenamiento.",
+            detalles: "Dormitorio principal · Área de descanso · Espacio de almacenamiento · Iluminación natural · Zona privada del departamento",
+          },
+          secondary_bedroom: {
+            title: "Dormitorio secundario",
+            headline: "Un espacio privado y flexible",
+            copy: "Un segundo dormitorio que amplía las posibilidades de la vivienda. Puede funcionar como habitación permanente, dormitorio para huéspedes o adaptarse a nuevas necesidades de sus habitantes.",
+            detalles: "Dormitorio independiente · Área de descanso · Espacio de almacenamiento · Iluminación natural · Uso flexible",
+          },
+          primary_bath: {
+            title: "Baño principal",
+            headline: "Funcionalidad en la zona privada",
+            copy: "El baño principal concentra las funciones esenciales de uso diario dentro de un ambiente compacto y directamente relacionado con la zona privada del departamento.",
+            detalles: "Área de ducha · Lavamanos · Inodoro · Área húmeda diferenciada · Ventilación e iluminación",
+          },
+          kids_room: {
+            title: "Dormitorio infantil",
+            headline: "Un espacio para dormir, estudiar y crecer",
+            copy: "Una habitación pensada para admitir más de una actividad. El espacio puede combinar descanso, almacenamiento y una zona dedicada al estudio o al juego sin perder su carácter privado.",
+            detalles: "Área de descanso · Espacio de almacenamiento · Posibilidad de zona de estudio · Iluminación natural · Ambiente privado",
+          },
+        },
+      };
+
+      const params = new URLSearchParams(location.search);
+      const initialUnit = inventory.find((item) => item.unit === params.get("unit")) || inventory[0];
+      const initialRoom = initialUnit.rooms.includes(params.get("room")) ? params.get("room") : initialUnit.rooms[0];
+
+      const state = {
+        unit: initialUnit,
+        room: initialRoom,
+        panel: "plan",
+        muted: false,
+        audio: null,
+      };
+
+      const viewer = document.querySelector("#viewer");
+      const units = document.querySelector("#units");
+      const rooms = document.querySelector("#rooms");
+      const sceneLabel = document.querySelector("#sceneLabel");
+      const headline = document.querySelector("#headline");
+      const titleBlock = document.querySelector(".title");
+      const roomEyebrow = document.querySelector("#roomEyebrow");
+      const mapPanel = document.querySelector("#mapPanel");
+      const mapTitle = document.querySelector("#mapTitle");
+      const mapImage = document.querySelector("#mapImage");
+      const mapNote = document.querySelector("#mapNote");
+      const mapPins = document.querySelector("#mapPins");
+      const toggleMapMode = document.querySelector("#toggleMapMode");
+      const togglePanel = document.querySelector("#togglePanel");
+      const soundToggle = document.querySelector("#soundToggle");
+      const editorialCard = document.querySelector("#editorialCard");
+      const editorialKicker = document.querySelector("#editorialKicker");
+      const editorialTitle = document.querySelector("#editorialTitle");
+      const editorialCopy = document.querySelector("#editorialCopy");
+      const editorialHeadline = document.querySelector("#editorialHeadline");
+      const editorialDetalles = document.querySelector("#editorialDetalles");
+
+      // Mobile elements
+      const mRoomName = document.querySelector('#mRoomName');
+      const mRoomCount = document.querySelector('#mRoomCount');
+      const mRoomMenu = document.querySelector('#mRoomMenu');
+      const mIntro = document.querySelector('#mIntro');
+      const mIntroKicker = document.querySelector('#mIntroKicker');
+      const mIntroTitle = document.querySelector('#mIntroTitle');
+      const mIntroHeadline = document.querySelector('#mIntroHeadline');
+      const mIntroCopy = document.querySelector('#mIntroCopy');
+      const mDetallesTrigger = document.querySelector('#mDetallesTrigger');
+      const mSheet = document.querySelector('#mSheet');
+      const mSheetBackdrop = document.querySelector('#mSheetBackdrop');
+      const mSheetTitle = document.querySelector('#mSheetTitle');
+      const mSheetHeadline = document.querySelector('#mSheetHeadline');
+      const mSheetCopy = document.querySelector('#mSheetCopy');
+      const mSheetDetalles = document.querySelector('#mSheetDetalles');
+      const mEspacios = document.querySelector('#mEspacios');
+      const mEspaciosList = document.querySelector('#mEspaciosList');
+      const mEspaciosCount = document.querySelector('#mEspaciosCount');
+
+      const ensureAudio = () => {
+        if (!state.audio) state.audio = new (window.AudioContext || window.webkitAudioContext)();
+        if (state.audio.state === "suspended") state.audio.resume();
+      };
+
+      const blip = (type = "tick") => {
+        if (state.muted) return;
+        ensureAudio();
+        const ctx = state.audio;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        const now = ctx.currentTime;
+        const isWhoosh = type === "whoosh";
+        osc.type = isWhoosh ? "sine" : "triangle";
+        osc.frequency.setValueAtTime(isWhoosh ? 180 : 760, now);
+        osc.frequency.exponentialRampToValueAtTime(isWhoosh ? 92 : 520, now + (isWhoosh ? 0.28 : 0.055));
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(isWhoosh ? 0.075 : 0.038, now + 0.012);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + (isWhoosh ? 0.32 : 0.075));
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + (isWhoosh ? 0.34 : 0.08));
+      };
+
+      const authoringUnits = new Set(["inventory-47", "inventory-48", "inventory-50"]);
+      let viewCacheBust = Date.now();
+      const viewerUrl = () => {
+        const bust = authoringUnits.has(state.unit.unit) ? viewCacheBust : "rooms-20260907";
+        const settings = `/viewer-settings/${state.unit.unit}-${state.room}.json`;
+        return `/viewers/${state.unit.unit}/index.html?noui&nofx&noanim&v=${bust}&collision=${encodeURIComponent(state.unit.collision)}&settings=${encodeURIComponent(settings + "?v=" + bust)}`;
+      };
+
+      const showEditorial = () => {
+        if (mobileCheck()) {
+          showMobileIntro();
+          updateMobileRoomBar();
+          return;
+        }
+        const entry = roomEditorial[state.unit.unit]?.[state.room];
+        editorialKicker.textContent = state.unit.title;
+        editorialTitle.textContent = entry?.title || roomLabels[state.room] || state.room;
+        editorialHeadline.textContent = entry?.headline || "";
+        editorialHeadline.hidden = !entry?.headline;
+        editorialCopy.textContent = entry?.copy || "Ambiente seleccionado dentro del inventario editorial de Torres del Norte.";
+        if (entry?.detalles) {
+          editorialDetalles.innerHTML = `<span class="editorial-detalles-label">Detalles</span>${entry.detalles}`;
+          editorialDetalles.hidden = false;
+        } else {
+          editorialDetalles.hidden = true;
+        }
+        editorialCard.classList.add("visible");
+      };
+
+      const render = (sound = "tick") => {
+        try { closeMobileSheet(); closeMobileEspacios(); } catch(e) {}
+        document.body.classList.add("editorial-interior");
+        document.body.dataset.room = state.room;
+        document.body.dataset.unit = state.unit.unit;
+        sceneLabel.textContent = state.unit.title;
+        const unitNumber = state.unit.title.replace(/\D+/g, "");
+        headline.innerHTML = `Unidad <span>${unitNumber}</span>`;
+        const roomIndex = Math.max(0, state.unit.rooms.indexOf(state.room));
+        titleBlock.dataset.folio = `${String(roomIndex + 1).padStart(2, "0")}  /  ${String(state.unit.rooms.length).padStart(2, "0")}`;
+        roomEyebrow.textContent = `Recorrido · ${roomLabels[state.room]}`;
+        const pageUrl = `/inventory/?unit=${encodeURIComponent(state.unit.unit)}&room=${encodeURIComponent(state.room)}`;
+        if (location.pathname + location.search !== pageUrl) history.replaceState(null, "", pageUrl);
+        const nextUrl = viewerUrl();
+        document.body.classList.add("transitioning");
+        if (viewer.getAttribute("src") !== nextUrl) viewer.src = nextUrl;
+        window.setTimeout(() => {
+          document.body.classList.remove("transitioning");
+          showEditorial();
+        }, 680);
+        mapImage.src = state.unit.occupancy;
+        renderMapPins();
+        mapTitle.textContent = state.panel === "plan" ? "Plano" : "Dollhouse";
+        toggleMapMode.textContent = "Dollhouse · en poda";
+        mapNote.textContent = state.panel === "plan"
+          ? "Plano editorial derivado de la planta técnica. Los ambientes visibles aquí son solo los verificados para navegación."
+          : "Dollhouse pendiente de crop fino para no mostrar geometría sobrante.";
+
+        [...units.children].forEach((button) => button.classList.toggle("active", button.dataset.unit === state.unit.unit));
+        [...rooms.children].forEach((button) => button.classList.toggle("active", button.dataset.room === state.room));
+        blip(sound);
+      };
+
+      const roomTargets = {
+        "inventory-48": {
+          living: [1.50, 1.50],
+          dining: [-4.14, 3.45],
+          kitchen: [-4.10, 5.30],
+          primary_bedroom: [3.92, -3.83],
+          secondary_bedroom: [-0.26, -4.01],
+          bath: [-4.54, -0.18],
+        },
+        "inventory-50": {
+          living: [-1.53, 2.43],
+          dining: [-2.07, -1.40],
+          kitchen: [-2.72, -3.80],
+          primary_bedroom: [3.32, 2.55],
+          secondary_bedroom: [0.93, 2.86],
+          primary_bath: [5.25, -1.66],
+          guest_bath: [-0.54, -1.87],
+          laundry: [1.66, 5.24],
+        },
+        "inventory-47": {
+          living: [-2.86, 1.56],
+          dining: [2.06, -2.35],
+          kitchen: [4.05, -1.22],
+          primary_bedroom: [4.42, 1.42],
+          secondary_bedroom: [0.73, 2.37],
+          primary_bath: [0.66, -5.01],
+          kids_room: [3.56, -5.91],
+        },
+      };
+
+      function renderMapPins() {
+        mapPins.innerHTML = "";
+        const bounds = state.unit.bounds;
+        const targets = roomTargets[state.unit.unit] || {};
+        state.unit.rooms.forEach((room) => {
+          const target = targets[room];
+          if (!target) return;
+          const x = ((target[0] - bounds.minX) / (bounds.maxX - bounds.minX)) * 100;
+          const y = (1 - ((target[1] - bounds.minZ) / (bounds.maxZ - bounds.minZ))) * 100;
+          const pin = document.createElement("button");
+          pin.className = "map-pin";
+          pin.type = "button";
+          pin.dataset.room = room;
+          pin.textContent = roomLabels[room] || room;
+          pin.style.left = `${Math.max(5, Math.min(95, x))}%`;
+          pin.style.top = `${Math.max(8, Math.min(92, y))}%`;
+          pin.addEventListener("click", (event) => {
+            event.stopPropagation();
+            state.room = room;
+            render("whoosh");
+          });
+          mapPins.appendChild(pin);
+        });
+      }
+
+      inventory.forEach((unit) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.unit = unit.unit;
+        button.textContent = unit.title;
+        button.addEventListener("mouseenter", () => blip("tick"));
+        button.addEventListener("click", () => {
+          state.unit = unit;
+          state.room = unit.rooms[0];
+          buildRooms();
+          render("whoosh");
+        });
+        units.appendChild(button);
+      });
+
+      function buildRooms() {
+        rooms.innerHTML = "";
+        state.unit.rooms.forEach((room) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.dataset.room = room;
+          button.textContent = roomLabels[room];
+          button.addEventListener("mouseenter", () => blip("tick"));
+          button.addEventListener("click", () => {
+            state.room = room;
+            render("whoosh");
+          });
+          rooms.appendChild(button);
+        });
+      }
+
+      toggleMapMode.addEventListener("click", () => {
+        state.panel = "plan";
+        render("tick");
+      });
+
+      window.addEventListener("click", (event) => {
+        if (mobileCheck()) return;
+        if (event.target.closest("button") || event.target.closest(".map-panel")) return;
+        if (!editorialCard.classList.contains("visible")) return;
+        editorialCard.classList.remove("visible");
+        blip("tick");
+      });
+
+      viewer.addEventListener("load", () => {
+        window.setTimeout(() => document.body.classList.remove("transitioning"), 180);
+      });
+
+      togglePanel.addEventListener("click", () => {
+        if (mobileCheck()) {
+          mapPanel.classList.toggle("m-visible");
+          if (mapPanel.classList.contains("m-visible")) mapPanel.classList.add("expanded");
+          else mapPanel.classList.remove("expanded");
+        } else {
+          mapPanel.classList.toggle("expanded");
+        }
+        blip("tick");
+      });
+
+      mapPanel.addEventListener("click", (event) => {
+        if (event.target.closest("#toggleMapMode")) return;
+        mapPanel.classList.toggle("expanded");
+        blip("tick");
+      });
+
+      soundToggle.addEventListener("click", () => {
+        state.muted = !state.muted;
+        soundToggle.textContent = state.muted ? "Mute" : "Audio";
+        if (!state.muted) blip("tick");
+      });
+
+      window.addEventListener("pointerdown", ensureAudio, { once: true });
+      buildRooms();
+      render("tick");
+
+      // --- Viewpoint authoring (inventory-47) ---
+      const saveBtn = document.querySelector("#saveView");
+      const saveStatus = document.querySelector("#saveStatus");
+
+      function computeTarget(position, angles, distance) {
+        const D = Math.PI / 180;
+        const ex = angles[0] * D * 0.5, ey = angles[1] * D * 0.5, ez = angles[2] * D * 0.5;
+        const sx = Math.sin(ex), cx = Math.cos(ex);
+        const sy = Math.sin(ey), cy = Math.cos(ey);
+        const sz = Math.sin(ez), cz = Math.cos(ez);
+        const qx = sx*cy*cz - cx*sy*sz;
+        const qy = cx*sy*cz + sx*cy*sz;
+        const qz = cx*cy*sz - sx*sy*cz;
+        const qw = cx*cy*cz + sx*sy*sz;
+        const tx = -qy, ty = qx, tz = 0;
+        const ux = -qz*qx, uy = -qz*qy, uz = qx*qx + qy*qy;
+        const dx = 2*qw*tx + 2*ux;
+        const dy = 2*qw*ty + 2*uy;
+        const dz = -1 + 2*qw*tz + 2*uz;
+        return [
+          position[0] + dx * distance,
+          position[1] + dy * distance,
+          position[2] + dz * distance,
+        ];
+      }
+
+      const modeBtn = document.querySelector("#toggleMode");
+
+      function updateSaveVisibility() {
+        const show = authoringUnits.has(state.unit.unit);
+        saveBtn.classList.toggle("hidden", !show);
+        modeBtn.classList.toggle("hidden", !show);
+      }
+
+      function flash(msg) {
+        saveStatus.textContent = msg;
+        saveStatus.classList.add("show");
+        clearTimeout(flash._t);
+        flash._t = setTimeout(() => saveStatus.classList.remove("show"), 2200);
+      }
+
+      saveBtn.addEventListener("click", async () => {
+        const iframeWin = viewer.contentWindow;
+        if (!iframeWin || typeof iframeWin.__getCameraState !== "function") {
+          flash("Viewer not ready — wait for scene to load");
+          return;
+        }
+        const cam = iframeWin.__getCameraState();
+        const target = computeTarget(cam.position, cam.angles, cam.distance);
+        const body = {
+          unit: state.unit.unit,
+          room: state.room,
+          position: cam.position,
+          target: target,
+          fov: cam.fov,
+        };
+        try {
+          const res = await fetch("/api/save-viewpoint", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          const data = await res.json();
+          if (data.ok) {
+            viewCacheBust = Date.now();
+            flash(`Saved: ${roomLabels[state.room]} → ${data.file}`);
+          } else {
+            flash("Error saving viewpoint");
+          }
+        } catch (err) {
+          flash("Server error — is serve.py running?");
+        }
+      });
+
+      modeBtn.addEventListener("click", () => {
+        const iframeWin = viewer.contentWindow;
+        if (!iframeWin || typeof iframeWin.__setCameraMode !== "function") {
+          flash("Viewer not ready");
+          return;
+        }
+        const cur = iframeWin.__getCameraMode();
+        const next = cur === "fly" ? "walk" : "fly";
+        iframeWin.__setCameraMode(next);
+        modeBtn.textContent = next === "fly" ? "Fly" : "Walk";
+        modeBtn.style.background = next === "fly"
+          ? "rgba(80,140,220,0.85)" : "rgba(100,180,100,0.85)";
+      });
+
+      // ── Mobile ──
+      function mobileCheck() {
+        return window.matchMedia('(max-width: 768px)').matches;
+      }
+
+      function showMobileIntro() {
+        const entry = roomEditorial[state.unit.unit]?.[state.room];
+        const label = roomLabels[state.room] || state.room;
+        mIntroKicker.textContent = `${state.unit.title} · Torres del Norte`;
+        mIntroTitle.textContent = entry?.title || label;
+        mIntroHeadline.textContent = entry?.headline || '';
+        mIntroHeadline.hidden = !entry?.headline;
+        mIntroCopy.textContent = entry?.copy || '';
+        mIntroCopy.hidden = !entry?.copy;
+        mIntro.classList.remove('fading');
+        mDetallesTrigger.classList.remove('visible');
+        requestAnimationFrame(() => mIntro.classList.add('visible'));
+      }
+
+      function dismissMobileIntro() {
+        if (!mIntro.classList.contains('visible')) return;
+        mIntro.classList.add('fading');
+        mIntro.classList.remove('visible');
+        setTimeout(() => mDetallesTrigger.classList.add('visible'), 500);
+      }
+
+      function updateMobileRoomBar() {
+        const label = roomLabels[state.room] || state.room;
+        const idx = state.unit.rooms.indexOf(state.room) + 1;
+        const total = state.unit.rooms.length;
+        mRoomName.textContent = label;
+        mRoomCount.textContent = `${String(idx).padStart(2,'0')}/${String(total).padStart(2,'0')}`;
+      }
+
+      function openMobileSheet() {
+        const entry = roomEditorial[state.unit.unit]?.[state.room];
+        const label = roomLabels[state.room] || state.room;
+        mSheetTitle.textContent = entry?.title || label;
+        mSheetHeadline.textContent = entry?.headline || '';
+        mSheetHeadline.hidden = !entry?.headline;
+        mSheetCopy.textContent = entry?.copy || '';
+        if (entry?.detalles) {
+          mSheetDetalles.innerHTML = `<span class="m-sheet-detalles-label">Detalles</span>${entry.detalles}`;
+          mSheetDetalles.hidden = false;
+        } else {
+          mSheetDetalles.hidden = true;
+        }
+        mSheetBackdrop.classList.add('open');
+        mSheet.classList.add('open');
+        mDetallesTrigger.classList.remove('visible');
+        blip('tick');
+      }
+
+      function closeMobileSheet() {
+        if (mSheet) mSheet.classList.remove('open');
+        if (mSheetBackdrop) mSheetBackdrop.classList.remove('open');
+      }
+
+      function closeMobileEspacios() {
+        if (mEspacios) mEspacios.classList.remove('open');
+      }
+
+      function buildMobileEspacios() {
+        mEspaciosList.innerHTML = '';
+        mEspaciosCount.textContent = String(state.unit.rooms.length).padStart(2,'0');
+        state.unit.rooms.forEach((room, i) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'm-espacios-item' + (room === state.room ? ' active' : '');
+          btn.innerHTML = `<span class="m-espacios-num">${String(i + 1).padStart(2,'0')}</span><span class="m-espacios-label">${roomLabels[room] || room}</span>`;
+          btn.addEventListener('click', () => {
+            state.room = room;
+            closeMobileEspacios();
+            render('whoosh');
+          });
+          mEspaciosList.appendChild(btn);
+        });
+      }
+
+      mIntro.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        dismissMobileIntro();
+      });
+
+      mDetallesTrigger.addEventListener('click', () => openMobileSheet());
+
+      document.querySelector('#mSheetClose').addEventListener('click', () => {
+        closeMobileSheet();
+        mDetallesTrigger.classList.add('visible');
+        blip('tick');
+      });
+
+      mSheetBackdrop.addEventListener('click', () => {
+        closeMobileSheet();
+        mDetallesTrigger.classList.add('visible');
+        blip('tick');
+      });
+
+      // Sheet swipe-to-dismiss
+      let sheetTouchY = 0;
+      document.querySelector('#mSheetHandle').addEventListener('touchstart', (e) => {
+        sheetTouchY = e.touches[0].clientY;
+      }, { passive: true });
+      document.querySelector('#mSheetHandle').addEventListener('touchmove', (e) => {
+        const dy = e.touches[0].clientY - sheetTouchY;
+        if (dy > 0) mSheet.style.transform = `translateY(${dy}px)`;
+      }, { passive: true });
+      document.querySelector('#mSheetHandle').addEventListener('touchend', (e) => {
+        const dy = e.changedTouches[0].clientY - sheetTouchY;
+        mSheet.style.transform = '';
+        if (dy > 80) {
+          closeMobileSheet();
+          mDetallesTrigger.classList.add('visible');
+          blip('tick');
+        }
+      });
+
+      mRoomMenu.addEventListener('click', () => {
+        closeMobileSheet();
+        buildMobileEspacios();
+        mEspacios.classList.add('open');
+        blip('tick');
+      });
+
+      document.querySelector('#mEspaciosClose').addEventListener('click', () => {
+        closeMobileEspacios();
+        blip('tick');
+      });
+
+      if (mobileCheck()) {
+        updateMobileRoomBar();
+      }
+
+      updateSaveVisibility();
+      document.querySelector("#units").addEventListener("click", () => {
+        setTimeout(updateSaveVisibility, 0);
+      });
+    </script>
+  </body>
+</html>
+

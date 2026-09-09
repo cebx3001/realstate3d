@@ -1,0 +1,84 @@
+{
+  "version": 2,
+  "tonemapping": "none",
+  "highPrecisionRendering": false,
+  "background": {
+    "color": [
+      0.05,
+      0.05,
+      0.045
+    ]
+  },
+  "postEffectSettings": {
+    "sharpness": {
+      "enabled": true,
+      "amount": 0.18
+    },
+    "bloom": {
+      "enabled": false,
+      "intensity": 1,
+      "blurLevel": 2
+    },
+    "grading": {
+      "enabled": true,
+      "brightness": 0.02,
+      "contrast": 1.04,
+      "saturation": 1.02,
+      "tint": [
+        1,
+        0.98,
+        0.92
+      ]
+    },
+    "vignette": {
+      "enabled": true,
+      "intensity": 0.22,
+      "inner": 0.18,
+      "outer": 0.86,
+      "curvature": 1
+    },
+    "fringing": {
+      "enabled": false,
+      "intensity": 0.5
+    }
+  },
+  "animTracks": [],
+  "annotations": [
+    {
+      "name": "Dormitorio",
+      "position": [
+        -3.23,
+        1.22,
+        1.08
+      ],
+      "cameraPosition": [
+        -2.05,
+        1.52,
+        1.14
+      ],
+      "cameraTarget": [
+        -3.23,
+        1.22,
+        1.08
+      ]
+    }
+  ],
+  "startMode": "walk",
+  "cameras": [
+    {
+      "initial": {
+        "position": [
+          -2.05,
+          1.52,
+          1.14
+        ],
+        "target": [
+          -3.23,
+          1.22,
+          1.08
+        ],
+        "fov": 96
+      }
+    }
+  ]
+}
