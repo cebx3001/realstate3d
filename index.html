@@ -816,7 +816,7 @@
         const buildIframeSrc = () => {
           const { position, target, fov } = computeCameraParams();
           const cam = [...position, ...target, fov].map((n) => n.toFixed(4)).join(",");
-          return `/viewers/exterior-382a1520/index.html?noui&nofx&content=/assets/exterior/382a1520/v1/meta.json&cam=${cam}&bg=${PLATE_BG}`;
+          return `/viewers/exterior-382a1520/index.html?noui&nofx&content=/assets/exterior/382a1520/v1-streamed/lod-meta.json&cam=${cam}&bg=${PLATE_BG}`;
         };
 
         const iframeEl = document.querySelector("iframe");

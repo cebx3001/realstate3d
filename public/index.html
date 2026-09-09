@@ -845,7 +845,7 @@
           const { position, target, fov } = computeCameraParams();
           const cam = [...position, ...target, fov].map((n) => n.toFixed(4)).join(",");
           const viewer = publicUrl("viewers/exterior-382a1520/index.html");
-          const content = publicUrl("assets/exterior/382a1520/v1/meta.json");
+          const content = publicUrl("assets/exterior/382a1520/v1-streamed/lod-meta.json");
           return `${viewer}?noui&nofx&content=${encodeURIComponent(content)}&cam=${cam}&bg=${PLATE_BG}`;
         };
 
