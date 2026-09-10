@@ -80,6 +80,8 @@
       body.editorial-interior #unitNav { color:var(--ivory); }
       #unitNavHome { color:inherit; text-decoration:none; }
       #unitNavHome:hover { color:#fff; }
+      #unitNav { appearance:none; border:0; background:transparent; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; cursor:pointer; padding:4px 18px 4px 0; }
+      #unitNav option { color:#171512; background:#f2eadc; }
       .interior-loading { display:none; }
       @media (max-width:768px) {
         body.editorial-interior .interior-loading { display:flex; position:fixed; z-index:19; inset:0; align-items:center; justify-content:center; pointer-events:none; color:#b99457; background:#080807; font-size:9px; letter-spacing:.28em; text-transform:uppercase; transition:opacity .35s ease; }
@@ -886,7 +888,7 @@
       <header>
       <span><a href="../" aria-label="Volver al edificio Torres del Norte">Torres del Norte · Edificio</a></span>
       <span>MMXXVI</span>
-      <span><button id="unitNav" type="button" aria-expanded="false"><a id="unitNavHome" href="../">Torres del Norte</a> / <span id="unitNavLabel">Unidad 48</span></button></span>
+      <span><a id="unitNavHome" href="../">Torres del Norte</a> / <select id="unitNav" aria-label="Seleccionar unidad"><option value="inventory-47">Unidad 47</option><option value="inventory-48">Unidad 48</option><option value="inventory-50">Unidad 50</option></select></span>
     </header>
 
     <section class="title">
@@ -1167,9 +1169,8 @@
       const interiorLoading = document.querySelector("#interiorLoading");
       const units = document.querySelector("#units");
       const unitNav = document.querySelector("#unitNav");
-      const unitNavLabel = document.querySelector("#unitNavLabel");
       const rooms = document.querySelector("#rooms");
-      const sceneLabel = unitNavLabel;
+      const sceneLabel = unitNav;
       const headline = document.querySelector("#headline");
       const titleBlock = document.querySelector(".title");
       const roomEyebrow = document.querySelector("#roomEyebrow");
@@ -1270,8 +1271,7 @@
         document.body.classList.add("editorial-interior");
         document.body.dataset.room = state.room;
         document.body.dataset.unit = state.unit.unit;
-        sceneLabel.textContent = state.unit.title;
-        unitNavLabel.textContent = state.unit.title;
+        unitNav.value = state.unit.unit;
         const unitNumber = state.unit.title.replace(/\D+/g, "");
         headline.innerHTML = `Unidad <span>${unitNumber}</span>`;
         const roomIndex = Math.max(0, state.unit.rooms.indexOf(state.room));
@@ -1446,13 +1446,10 @@
       buildRooms();
       render("tick");
 
-      unitNav.addEventListener("click", (event) => {
-        if (event.target.closest("#unitNavHome")) return;
-        event.preventDefault();
-        event.stopPropagation();
-        const open = units.classList.toggle("expanded");
-        unitNav.setAttribute("aria-expanded", String(open));
-        blip("tick");
+      unitNav.addEventListener("change", () => {
+        const unit = inventory.find((item) => item.unit === unitNav.value);
+        if (!unit) return;
+        window.location.href = publicUrl(`./?unit=${encodeURIComponent(unit.unit)}&room=${encodeURIComponent(unit.rooms[0])}`);
       });
 
       // --- Viewpoint authoring (inventory-47) ---
