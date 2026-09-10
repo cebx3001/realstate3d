@@ -40,6 +40,8 @@
           linear-gradient(90deg, rgba(5, 5, 4, 0.72), transparent 30%, transparent 70%, rgba(5, 5, 4, 0.5)),
           linear-gradient(0deg, rgba(5, 5, 4, 0.72), transparent 24%, transparent 70%, rgba(5, 5, 4, 0.44));
       }
+      body.editorial-interior .chrome { background: none !important; }
+      body.editorial-interior .chrome::after { display: none !important; }
 
       .veil {
         position: fixed;
@@ -78,6 +80,13 @@
       #unitNav { border:0; background:none; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; cursor:pointer; padding:4px 0; }
       #unitNav::after { content:' ▾'; color:var(--gold, #b99457); }
       body.editorial-interior #unitNav { color:var(--ivory); }
+      #unitNavHome { color:inherit; text-decoration:none; }
+      #unitNavHome:hover { color:#fff; }
+      .interior-loading { display:none; }
+      @media (max-width:768px) {
+        body.editorial-interior .interior-loading { display:flex; position:fixed; z-index:19; inset:0; align-items:center; justify-content:center; pointer-events:none; color:#b99457; background:#080807; font-size:9px; letter-spacing:.28em; text-transform:uppercase; transition:opacity .35s ease; }
+        body.editorial-interior .interior-loading.hidden { opacity:0; }
+      }
 
       header a {
         color: inherit;
@@ -820,6 +829,8 @@
         body.editorial-interior #unitNav { font-size:10px; letter-spacing:.18em; }
         body.editorial-interior .dock { display:none; }
         body.editorial-interior .dock.expanded { display:flex; left:20px; right:20px; bottom:74px; transform:none; justify-content:flex-start; gap:18px; padding:10px 14px; background:rgba(8,8,7,.9); border:1px solid rgba(185,148,87,.45); }
+        body.editorial-interior .m-room-bar { top:42px; }
+        body.editorial-interior .chrome { background:none !important; }
         body.editorial-interior .chrome {
           background:linear-gradient(180deg,rgba(6,6,5,.78) 0%,transparent 18%,transparent 70%,rgba(6,6,5,.8) 100%);
         }
@@ -870,13 +881,14 @@
   </head>
   <body>
     <iframe id="viewer" title="Visor InteriorGS"></iframe>
+    <div class="interior-loading" id="interiorLoading">Cargando espacio</div>
     <div class="chrome"></div>
     <div class="veil" aria-hidden="true"></div>
 
-    <header>
+      <header>
       <span><a href="../" aria-label="Volver al edificio Torres del Norte">Torres del Norte · Edificio</a></span>
       <span>MMXXVI</span>
-      <span><button id="unitNav" type="button" aria-expanded="false">Torres del Norte / <span id="unitNavLabel">Unidad 48</span></button></span>
+      <span><button id="unitNav" type="button" aria-expanded="false"><a id="unitNavHome" href="../">Torres del Norte</a> / <span id="unitNavLabel">Unidad 48</span></button></span>
     </header>
 
     <section class="title">
@@ -1154,6 +1166,7 @@
       };
 
       const viewer = document.querySelector("#viewer");
+      const interiorLoading = document.querySelector("#interiorLoading");
       const units = document.querySelector("#units");
       const unitNav = document.querySelector("#unitNav");
       const unitNavLabel = document.querySelector("#unitNavLabel");
@@ -1411,6 +1424,12 @@
 
       viewer.addEventListener("load", () => {
         window.setTimeout(() => document.body.classList.remove("transitioning"), 180);
+      });
+      window.addEventListener("message", (event) => {
+        if (event.source === viewer.contentWindow && event.data?.type === "tdn:first-frame") {
+          interiorLoading.classList.add("hidden");
+          window.setTimeout(() => interiorLoading.remove(), 400);
+        }
       });
 
       togglePanel.addEventListener("click", () => {

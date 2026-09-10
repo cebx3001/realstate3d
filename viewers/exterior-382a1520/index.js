@@ -90834,7 +90834,8 @@ class Viewer {
                 // Mobile can reveal and start its existing rotation as soon as the coarse
                 // streamed LOD is renderable; waiting for every initial request defeats
                 // progressive loading on slower phone connections.
-                if (ready && (loading === 0 || platform.mobile)) {
+                // Reveal mobile only after the three coarse LOD chunks form a coherent silhouette.
+                if (ready && (loading === 0 || (platform.mobile && current >= 3))) {
                     // scene is done with initial/reveal loading
                     eventHandler.off('frame:ready', readyHandler);
                     // switch to on-demand rendering (frame:request + camera-change detection)
