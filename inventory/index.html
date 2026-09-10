@@ -826,7 +826,8 @@
         body.editorial-interior header > span:last-child { display:block; justify-self:start; }
         body.editorial-interior #unitNav { font-size:10px; letter-spacing:.18em; }
         body.editorial-interior .dock { display:none; }
-        body.editorial-interior .dock.expanded { display:flex; left:20px; right:20px; bottom:74px; transform:none; justify-content:flex-start; gap:18px; padding:10px 14px; background:rgba(8,8,7,.9); border:1px solid rgba(185,148,87,.45); }
+        body.editorial-interior .dock.expanded { display:flex !important; position:fixed; z-index:40; left:20px; right:auto; top:64px; bottom:auto; transform:none; flex-direction:column; align-items:flex-start; gap:0; min-width:180px; padding:8px 14px; background:rgba(8,8,7,.96); border:1px solid rgba(185,148,87,.45); pointer-events:auto; }
+        body.editorial-interior .dock.expanded button { display:block; width:100%; text-align:left; padding:8px 0; }
         body.editorial-interior .m-room-bar { top:42px; }
         body.editorial-interior .chrome {
           background:linear-gradient(180deg,rgba(6,6,5,.42) 0%,transparent 18%,transparent 70%,rgba(6,6,5,.4) 100%);
@@ -1445,7 +1446,10 @@
       buildRooms();
       render("tick");
 
-      unitNav.addEventListener("click", () => {
+      unitNav.addEventListener("click", (event) => {
+        if (event.target.closest("#unitNavHome")) return;
+        event.preventDefault();
+        event.stopPropagation();
         const open = units.classList.toggle("expanded");
         unitNav.setAttribute("aria-expanded", String(open));
         blip("tick");
