@@ -84367,14 +84367,14 @@ class CameraManager {
         state.hasAnimation = !!controllers.anim;
         state.animationDuration = controllers.anim ? controllers.anim.animState.cursor.duration : 0;
         // initialize camera mode and initial camera position
-        state.cameraMode = state.hasAnimation ? 'anim' : (isObjectExperience ? 'orbit' : (walkAllowed ? 'walk' : 'fly'));
+        state.cameraMode = state.hasAnimation ? 'anim' : (walkAllowed ? 'walk' : 'orbit');
         this.camera.copy(resetCamera);
         const target = new Camera(this.camera); // the active controller updates this
         const from = new Camera(this.camera); // stores the previous camera state during transition
-        const defaultMode = isObjectExperience ? 'orbit' : (walkAllowed ? 'walk' : 'fly');
+        const defaultMode = walkAllowed ? 'walk' : 'orbit';
         let fromMode = defaultMode;
         // tracks the mode to restore when exiting walk
-        let preWalkMode = isObjectExperience ? 'orbit' : 'fly';
+        let preWalkMode = 'orbit';
         // enter the initial controller
         getController(state.cameraMode).onEnter(this.camera);
         // transition state

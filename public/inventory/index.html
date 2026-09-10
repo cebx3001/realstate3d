@@ -877,6 +877,16 @@
         body.editorial-interior .tools button { color:rgba(242,234,220,.78); border-bottom-color:rgba(185,148,87,.4); }
         body.editorial-interior .map-panel { border-color:rgba(185,148,87,.6); background:rgba(8,8,7,.88); }
       }
+      /* Interior legibility: subtle four-edge shading, never a dark tunnel. */
+      body.editorial-interior .chrome {
+        background: linear-gradient(90deg,rgba(6,6,5,.16),transparent 20%,transparent 80%,rgba(6,6,5,.16)),linear-gradient(180deg,rgba(6,6,5,.14),transparent 18%,transparent 82%,rgba(6,6,5,.16)) !important;
+      }
+      body.editorial-interior .chrome::after { content:""; display:block !important; position:absolute; inset:0; background:radial-gradient(ellipse at center,transparent 58%,rgba(4,4,3,.12) 100%); }
+      @media (max-width:768px) {
+        body.editorial-interior header { border:0 !important; background:transparent !important; padding-top:10px; }
+        body.editorial-interior .m-room-bar { top:44px; padding-top:8px; background:transparent; border:0; }
+        body.editorial-interior .chrome { background:linear-gradient(180deg,rgba(6,6,5,.12),transparent 18%,transparent 82%,rgba(6,6,5,.14)) !important; }
+      }
     </style>
   </head>
   <body>
@@ -1412,14 +1422,6 @@
       toggleMapMode.addEventListener("click", () => {
         state.panel = "plan";
         render("tick");
-      });
-
-      window.addEventListener("click", (event) => {
-        if (mobileCheck()) return;
-        if (event.target.closest("button") || event.target.closest(".map-panel")) return;
-        if (!editorialCard.classList.contains("visible")) return;
-        editorialCard.classList.remove("visible");
-        blip("tick");
       });
 
       viewer.addEventListener("load", () => {
