@@ -76,14 +76,15 @@
       header span:nth-child(2) { color: rgba(248, 244, 236, 0.62); }
       header span:nth-child(3) { justify-self: end; }
       #unitNav { border:0; background:none; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; cursor:pointer; padding:4px 0; }
-      #unitNav::after { content:' ▾'; color:var(--gold, #b99457); }
       body.editorial-interior #unitNav { color:var(--ivory); }
       #unitNavHome { color:inherit; text-decoration:none; }
       #unitNavHome:hover { color:#fff; }
-      #unitNav { appearance:none; border:0; background:transparent; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; cursor:pointer; padding:4px 18px 4px 0; }
-      #unitNav option { color:#171512; background:#f2eadc; }
+      #unitNav { appearance:none; border:0; background:transparent; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; cursor:pointer; padding:4px 0; }
       .unit-picker-wrap { position:relative; display:inline-flex; align-items:center; }
-      .unit-picker-wrap::after { content:'▾'; position:absolute; right:2px; top:50%; transform:translateY(-52%); pointer-events:none; color:var(--gold, #b99457); font-size:.8em; }
+      .unit-menu { position:absolute; z-index:50; top:100%; right:0; display:grid; min-width:130px; padding:5px 10px; background:rgba(8,8,7,.96); border:1px solid rgba(185,148,87,.45); }
+      .unit-menu[hidden] { display:none; }
+      .unit-menu button { width:100%; padding:7px 0; border:0; background:transparent; color:var(--ivory,#f2eadc); text-align:left; font:inherit; font-size:10px; letter-spacing:.12em; cursor:pointer; }
+      .unit-menu button:hover { color:var(--gold,#b99457); }
       .interior-loading { display:none; }
       @media (max-width:768px) {
         body.editorial-interior .interior-loading { display:flex; position:fixed; z-index:19; inset:0; align-items:center; justify-content:center; pointer-events:none; color:#b99457; background:#080807; font-size:9px; letter-spacing:.28em; text-transform:uppercase; transition:opacity .35s ease; }
@@ -890,7 +891,7 @@
       <header>
       <span><a href="../" aria-label="Volver al edificio Torres del Norte">Torres del Norte · Edificio</a></span>
       <span>MMXXVI</span>
-      <span><a id="unitNavHome" href="../">Torres del Norte</a> / <span class="unit-picker-wrap"><select id="unitNav" aria-label="Seleccionar unidad"><option value="inventory-47">Unidad 47</option><option value="inventory-48">Unidad 48</option><option value="inventory-50">Unidad 50</option></select></span></span>
+      <span><a id="unitNavHome" href="../">Torres del Norte</a> / <span class="unit-picker-wrap"><button id="unitNav" type="button" aria-expanded="false">Unidad 48 ▾</button><span class="unit-menu" id="unitMenu" hidden><button type="button" data-unit="inventory-47">Unidad 47</button><button type="button" data-unit="inventory-48">Unidad 48</button><button type="button" data-unit="inventory-50">Unidad 50</button></span></span></span>
     </header>
 
     <section class="title">
@@ -1171,6 +1172,7 @@
       const interiorLoading = document.querySelector("#interiorLoading");
       const units = document.querySelector("#units");
       const unitNav = document.querySelector("#unitNav");
+      const unitMenu = document.querySelector("#unitMenu");
       const rooms = document.querySelector("#rooms");
       const sceneLabel = unitNav;
       const headline = document.querySelector("#headline");
@@ -1273,7 +1275,7 @@
         document.body.classList.add("editorial-interior");
         document.body.dataset.room = state.room;
         document.body.dataset.unit = state.unit.unit;
-        unitNav.value = state.unit.unit;
+        unitNav.textContent = `${state.unit.title} ▾`;
         const unitNumber = state.unit.title.replace(/\D+/g, "");
         headline.innerHTML = `Unidad <span>${unitNumber}</span>`;
         const roomIndex = Math.max(0, state.unit.rooms.indexOf(state.room));
@@ -1448,10 +1450,17 @@
       buildRooms();
       render("tick");
 
-      unitNav.addEventListener("change", () => {
-        const unit = inventory.find((item) => item.unit === unitNav.value);
-        if (!unit) return;
-        window.location.href = publicUrl(`./?unit=${encodeURIComponent(unit.unit)}&room=${encodeURIComponent(unit.rooms[0])}`);
+      unitNav.addEventListener("click", () => {
+        const open = unitMenu.hidden;
+        unitMenu.hidden = !open;
+        unitNav.setAttribute("aria-expanded", String(open));
+      });
+      unitMenu.querySelectorAll("button[data-unit]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const unit = inventory.find((item) => item.unit === button.dataset.unit);
+          if (!unit) return;
+          window.location.href = publicUrl(`./?unit=${encodeURIComponent(unit.unit)}&room=${encodeURIComponent(unit.rooms[0])}`);
+        });
       });
 
       // --- Viewpoint authoring (inventory-47) ---
