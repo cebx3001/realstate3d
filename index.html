@@ -397,17 +397,32 @@
       /* ── Opening ───────────────────────────────────────────────── */
       .cinema {
         position: fixed;
-        inset: 0;
+        left: 50%;
+        bottom: 34px;
         z-index: 30;
+        display: flex;
+        align-items: center;
+        gap: 9px;
         pointer-events: none;
-        background: var(--field-deep);
-        animation: reveal 2400ms cubic-bezier(.2,.8,.2,1) forwards;
+        color: rgba(222, 192, 133, .78);
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: .28em;
+        text-transform: uppercase;
+        transform: translateX(-50%);
+        transition: opacity 220ms ease, visibility 220ms ease;
       }
-      @keyframes reveal {
-        0% { opacity: 1; }
-        60% { opacity: .3; }
-        100% { opacity: 0; visibility: hidden; }
+      .cinema::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border: 1px solid rgba(185, 148, 87, .24);
+        border-top-color: rgba(222, 192, 133, .86);
+        border-radius: 50%;
+        animation: loading-turn 900ms linear infinite;
       }
+      .cinema.loaded { opacity: 0; visibility: hidden; }
+      @keyframes loading-turn { to { transform: rotate(360deg); } }
 
       /* ── Portrait: the same publication, bound as a single column ── */
       @media (max-width: 860px) {
@@ -705,7 +720,7 @@
     <div class="grade"></div>
     <div class="grain"></div>
     <div class="edge-gild"></div>
-    <div class="cinema"></div>
+    <div class="cinema" role="status" aria-live="polite"><span>Loading</span></div>
 
     <header class="mast">
       <span class="lead">Torres del Norte</span>
@@ -856,6 +871,11 @@
         };
 
         const iframeEl = document.querySelector("iframe");
+        const exteriorLoading = document.querySelector(".cinema");
+        window.addEventListener("message", (event) => {
+          if (event.source !== iframeEl.contentWindow || event.data?.type !== "tdn:first-useful-frame") return;
+          requestAnimationFrame(() => exteriorLoading.classList.add("loaded"));
+        });
         iframeEl.src = buildIframeSrc();
 
         // Reload with a recomputed pose only on a real shape change (e.g.
@@ -869,6 +889,7 @@
             const bucket = window.innerWidth > window.innerHeight ? "landscape" : "portrait";
             if (bucket !== lastAspectBucket) {
               lastAspectBucket = bucket;
+              exteriorLoading.classList.remove("loaded");
               iframeEl.src = buildIframeSrc();
             }
           }, 400);
