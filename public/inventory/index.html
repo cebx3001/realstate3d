@@ -82,6 +82,8 @@
       #unitNavHome:hover { color:#fff; }
       #unitNav { appearance:none; border:0; background:transparent; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; cursor:pointer; padding:4px 18px 4px 0; }
       #unitNav option { color:#171512; background:#f2eadc; }
+      .unit-picker-wrap { position:relative; display:inline-flex; align-items:center; }
+      .unit-picker-wrap::after { content:'▾'; position:absolute; right:2px; top:50%; transform:translateY(-52%); pointer-events:none; color:var(--gold, #b99457); font-size:.8em; }
       .interior-loading { display:none; }
       @media (max-width:768px) {
         body.editorial-interior .interior-loading { display:flex; position:fixed; z-index:19; inset:0; align-items:center; justify-content:center; pointer-events:none; color:#b99457; background:#080807; font-size:9px; letter-spacing:.28em; text-transform:uppercase; transition:opacity .35s ease; }
@@ -888,7 +890,7 @@
       <header>
       <span><a href="../" aria-label="Volver al edificio Torres del Norte">Torres del Norte · Edificio</a></span>
       <span>MMXXVI</span>
-      <span><a id="unitNavHome" href="../">Torres del Norte</a> / <select id="unitNav" aria-label="Seleccionar unidad"><option value="inventory-47">Unidad 47</option><option value="inventory-48">Unidad 48</option><option value="inventory-50">Unidad 50</option></select></span>
+      <span><a id="unitNavHome" href="../">Torres del Norte</a> / <span class="unit-picker-wrap"><select id="unitNav" aria-label="Seleccionar unidad"><option value="inventory-47">Unidad 47</option><option value="inventory-48">Unidad 48</option><option value="inventory-50">Unidad 50</option></select></span></span>
     </header>
 
     <section class="title">
