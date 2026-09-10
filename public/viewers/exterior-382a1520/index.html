@@ -910,6 +910,9 @@
                         return;
                     }
                     sentFirstFrame = true;
+                    if (window.parent !== window) {
+                        window.parent.postMessage({ type: 'tdn:first-useful-frame' }, location.origin);
+                    }
                     sendMetric('experience.first_frame');
                 };
 
