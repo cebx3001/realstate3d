@@ -122,6 +122,28 @@
         line-height: 0.82;
       }
 
+      .unit-spec {
+        margin-top: 18px;
+        text-transform: uppercase;
+      }
+      .unit-spec-meta {
+        margin: 0;
+        color: rgba(242, 234, 220, 0.72);
+        font-family: var(--font-ui);
+        font-size: 9px;
+        font-weight: 650;
+        letter-spacing: 0.17em;
+        line-height: 1.4;
+      }
+      .unit-spec-price {
+        margin: 7px 0 0;
+        color: #d4ad64;
+        font-family: var(--font-editorial);
+        font-size: 16px;
+        letter-spacing: 0.11em;
+        line-height: 1;
+      }
+
       .dock,
       .rooms,
       .map-panel,
@@ -831,6 +853,13 @@
         body.editorial-interior .desktop-unit-label { display:none; }
         body.editorial-interior .mobile-unit-nav { display:inline; }
         body.editorial-interior #unitNav { font-size:10px; letter-spacing:.18em; pointer-events:auto; }
+        body.editorial-interior .title { display:block !important; left:20px; right:20px; bottom:62px; width:auto; color:var(--ivory); }
+        body.editorial-interior .title .eyebrow,
+        body.editorial-interior .title::after { display:none; }
+        body.editorial-interior .title h1 { font-size:38px; letter-spacing:-.055em; line-height:.86; }
+        body.editorial-interior .unit-spec { margin-top:13px; }
+        body.editorial-interior .unit-spec-meta { font-size:7.5px; letter-spacing:.13em; }
+        body.editorial-interior .unit-spec-price { margin-top:6px; font-size:14px; }
         body.editorial-interior .dock { display:none; }
         body.editorial-interior .dock.expanded { display:flex !important; position:fixed; z-index:40; left:20px; right:auto; top:64px; bottom:auto; transform:none; flex-direction:column; align-items:flex-start; gap:0; min-width:180px; padding:8px 14px; background:rgba(8,8,7,.96); border:1px solid rgba(185,148,87,.45); pointer-events:auto; }
         body.editorial-interior .dock.expanded button { display:block; width:100%; text-align:left; padding:8px 0; }
@@ -898,6 +927,10 @@
     <section class="title">
       <p class="eyebrow" id="roomEyebrow">Recorrido · Sala</p>
       <h1 id="headline">Unidad 48</h1>
+      <div class="unit-spec" aria-label="Ficha técnica de la unidad">
+        <p class="unit-spec-meta" id="unitSpecMeta"></p>
+        <p class="unit-spec-price" id="unitSpecPrice"></p>
+      </div>
     </section>
 
     <nav class="rooms" id="rooms" aria-label="Ambientes"></nav>
@@ -976,6 +1009,10 @@
         {
           unit: "inventory-48",
           title: "Unidad 48",
+          area: 123,
+          bedrooms: 3,
+          baths: 2,
+          price: "135.000",
           scene: "0303_840566",
           collision: "../assets/interior-inventory/0303_840566/occupancy.collision.glb",
           occupancy: "../assets/interior-inventory/0303_840566/plan-editorial.png",
@@ -986,6 +1023,10 @@
         {
           unit: "inventory-50",
           title: "Unidad 50",
+          area: 107,
+          bedrooms: 3,
+          baths: 2,
+          price: "139.000",
           scene: "0306_840556",
           collision: "../assets/interior-inventory/0306_840556/occupancy.collision.glb",
           occupancy: "../assets/interior-inventory/0306_840556/plan-editorial.png",
@@ -996,6 +1037,10 @@
         {
           unit: "inventory-47",
           title: "Unidad 47",
+          area: 120,
+          bedrooms: 3,
+          baths: 2,
+          price: "127.000",
           scene: "0300_840573",
           collision: "../assets/interior-inventory/0300_840573/occupancy.collision.glb",
           occupancy: "../assets/interior-inventory/0300_840573/plan-editorial.png",
@@ -1177,6 +1222,8 @@
       const rooms = document.querySelector("#rooms");
       const sceneLabel = unitNav;
       const headline = document.querySelector("#headline");
+      const unitSpecMeta = document.querySelector("#unitSpecMeta");
+      const unitSpecPrice = document.querySelector("#unitSpecPrice");
       const titleBlock = document.querySelector(".title");
       const roomEyebrow = document.querySelector("#roomEyebrow");
       const mapPanel = document.querySelector("#mapPanel");
@@ -1280,6 +1327,8 @@
         desktopUnitLabel.textContent = state.unit.title;
         const unitNumber = state.unit.title.replace(/\D+/g, "");
         headline.innerHTML = `Unidad <span>${unitNumber}</span>`;
+        unitSpecMeta.textContent = `${state.unit.area} m² · ${state.unit.bedrooms} habitaciones · ${state.unit.baths} baños`;
+        unitSpecPrice.textContent = `USD ${state.unit.price}`;
         const roomIndex = Math.max(0, state.unit.rooms.indexOf(state.room));
         titleBlock.dataset.folio = `${String(roomIndex + 1).padStart(2, "0")}  /  ${String(state.unit.rooms.length).padStart(2, "0")}`;
         roomEyebrow.textContent = `Recorrido · ${roomLabels[state.room]}`;
