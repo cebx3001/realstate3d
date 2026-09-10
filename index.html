@@ -693,6 +693,10 @@
           mask-image:linear-gradient(90deg,transparent 0 58%,rgba(0,0,0,.12) 68%,#000 92%);
         }
       }
+      @media (max-width:900px) {
+        .matrix { grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 5px; }
+        .matrix-unit, .matrix-unit:nth-child(9n), .matrix-unit.has-interior { font-size: 11px; }
+      }
     </style>
   </head>
   <body>
@@ -805,9 +809,9 @@
         ];
         const LANDSCAPE_MAGNITUDE_PER_ASPECT = 76.4047; // slope beyond the last calibration point (verified proportional)
         // Mobile reference framing: closer portrait camera, desktop calibration untouched.
-        const PORTRAIT_POSITION = [-14.4081, 111.2993, -122.8990];
+        const PORTRAIT_POSITION = [-10.9, 126.4, -90.0];
         // Preserve portrait scale; raise the look target to lower the building in frame.
-        const PORTRAIT_TARGET = [-1.202680182821469, 29.5, 2.9718346269194775];
+        const PORTRAIT_TARGET = [-1.202680182821469, 66.0, 2.9718346269194775];
         const CAMERA_FOV = 98;
         // Clear colour handed to the viewer so the splat is printed onto the
         // same field as the page rather than a pale studio backdrop.
