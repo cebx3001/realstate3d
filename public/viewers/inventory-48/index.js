@@ -88557,6 +88557,7 @@ class Viewer {
                         events.fire('firstFrame');
                         // emit first frame event on window
                         window.firstFrame?.();
+                        window.parent !== window && window.parent.postMessage({ type: 'tdn:first-frame' }, '*');
                         if (platform.mobile) applyPerfSettings();
                     });
                 }
