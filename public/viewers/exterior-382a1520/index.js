@@ -90831,20 +90831,29 @@ class Viewer {
             let current = 0;
             let watermark = 1;
             const readyHandler = (camera, layer, ready, loading) => {
-                if (ready && loading === 0) {
+                // Mobile can reveal and start its existing rotation as soon as the coarse
+                // streamed LOD is renderable; waiting for every initial request defeats
+                // progressive loading on slower phone connections.
+                if (ready && (loading === 0 || platform.mobile)) {
                     // scene is done with initial/reveal loading
                     eventHandler.off('frame:ready', readyHandler);
                     // switch to on-demand rendering (frame:request + camera-change detection)
                     app.autoRender = false;
                     // handle quality mode changes
                     events.on('performanceMode:changed', applyPerfSettings);
-                    applyPerfSettings();
+                    if (!platform.mobile) {
+                        applyPerfSettings();
+                    }
                     gsplat.renderer = rendererTable[renderer];
                     // wait for the first valid frame to complete rendering
                     app.once('frameend', () => {
                         events.fire('firstFrame');
                         // emit first frame event on window
                         window.firstFrame?.();
+                        if (platform.mobile) {
+                            // Release the coarse reveal clamp only after it has reached the screen.
+                            applyPerfSettings();
+                        }
                     });
                 }
                 // update loading status
