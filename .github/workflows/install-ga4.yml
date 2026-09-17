@@ -1,0 +1,33 @@
+name: Install GA4 analytics
+on:
+  push:
+    branches: [analytics-ga4-final]
+    paths: ['.github/workflows/install-ga4.yml']
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Google Analytics and catalog events
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('public/inventory/index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = '<meta name="viewport" content="width=device-width, initial-scale=1" />'
+          ga = '''\n    <!-- Google tag (gtag.js) -->\n    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GD8W54PSG"></script>\n    <script>\n      window.dataLayer = window.dataLayer || [];\n      function gtag(){dataLayer.push(arguments);}\n      gtag('js', new Date());\n      gtag('config', 'G-8GD8W54PSG');\n\n      // Spatial Catalog analytics: entry context + UTM attribution.\n      (function () {\n        const q = new URLSearchParams(window.location.search);\n        window.addEventListener('load', function () {\n          gtag('event', 'spatial_catalog_open', {\n            catalog: 'realstate3d',\n            unit: q.get('unit') || 'unknown',\n            room: q.get('room') || 'unknown',\n            traffic_source: q.get('utm_source') || 'direct',\n            traffic_medium: q.get('utm_medium') || 'none',\n            campaign: q.get('utm_campaign') || 'none'\n          });\n        });\n\n        // Track unit/room changes when the app updates the URL.\n        let previous = window.location.href;\n        const emitNavigation = function () {\n          if (window.location.href === previous) return;\n          previous = window.location.href;\n          const current = new URLSearchParams(window.location.search);\n          gtag('event', 'spatial_catalog_navigation', {\n            unit: current.get('unit') || 'unknown',\n            room: current.get('room') || 'unknown'\n          });\n        };\n        const push = history.pushState;\n        history.pushState = function () { const r = push.apply(this, arguments); emitNavigation(); return r; };\n        const replace = history.replaceState;\n        history.replaceState = function () { const r = replace.apply(this, arguments); emitNavigation(); return r; };\n        window.addEventListener('popstate', emitNavigation);\n      })();\n    </script>'''
+          if 'G-8GD8W54PSG' not in s:
+              if marker not in s:
+                  raise SystemExit('viewport marker not found')
+              s = s.replace(marker, marker + ga, 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit instrumentation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/inventory/index.html
+          git diff --cached --quiet || git commit -m "Add GA4 analytics to spatial catalog"
+          git push
