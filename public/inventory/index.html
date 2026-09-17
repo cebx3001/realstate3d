@@ -3,6 +3,46 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GD8W54PSG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8GD8W54PSG');
+
+      // Spatial Catalog analytics: entry context + UTM attribution.
+      (function () {
+        const q = new URLSearchParams(window.location.search);
+        window.addEventListener('load', function () {
+          gtag('event', 'spatial_catalog_open', {
+            catalog: 'realstate3d',
+            unit: q.get('unit') || 'unknown',
+            room: q.get('room') || 'unknown',
+            traffic_source: q.get('utm_source') || 'direct',
+            traffic_medium: q.get('utm_medium') || 'none',
+            campaign: q.get('utm_campaign') || 'none'
+          });
+        });
+
+        // Track unit/room changes when the app updates the URL.
+        let previous = window.location.href;
+        const emitNavigation = function () {
+          if (window.location.href === previous) return;
+          previous = window.location.href;
+          const current = new URLSearchParams(window.location.search);
+          gtag('event', 'spatial_catalog_navigation', {
+            unit: current.get('unit') || 'unknown',
+            room: current.get('room') || 'unknown'
+          });
+        };
+        const push = history.pushState;
+        history.pushState = function () { const r = push.apply(this, arguments); emitNavigation(); return r; };
+        const replace = history.replaceState;
+        history.replaceState = function () { const r = replace.apply(this, arguments); emitNavigation(); return r; };
+        window.addEventListener('popstate', emitNavigation);
+      })();
+    </script>
     <title>Torres del Norte — Inventario Interior</title>
     <style>
       :root {
