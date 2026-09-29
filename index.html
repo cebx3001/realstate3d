@@ -639,6 +639,92 @@
         .detail-number { font-family:var(--font-display); }
       }
       @media (max-width:768px) {
+        .apartamentos-toggle {
+          justify-content: flex-start;
+          align-items: baseline;
+          gap: 10px;
+          width: auto;
+          max-width: 100%;
+          padding: 15px 0 13px;
+          border-top: 1px solid var(--rule);
+          border-bottom: 1px solid var(--rule-faint);
+          font-size: clamp(12px, 3.35vw, 16px);
+          line-height: 1.25;
+          letter-spacing: .18em;
+          text-align: left;
+        }
+        .apartamentos-toggle::after { display: none; }
+        .apartamentos-toggle span {
+          flex: 0 0 auto;
+          font-size: 1.15em;
+          letter-spacing: 0;
+          transition: transform .2s ease;
+        }
+        .apartamentos-toggle:active span { transform: translateX(3px); }
+
+        .matrix-container {
+          display: none;
+          position: fixed;
+          inset: 0;
+          z-index: 20;
+          padding: 88px 24px 40px 22px;
+          background: rgba(7,6,5,.985);
+          overflow-y: auto;
+        }
+        .matrix-container.active { display: block; }
+        .mobile-available {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 28px;
+          margin-top: 12px;
+        }
+        .mobile-tower-title {
+          margin-bottom: 14px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid var(--rule);
+          font-family: var(--font-ui);
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: .24em;
+          text-transform: uppercase;
+          color: var(--gold);
+        }
+        .mobile-units {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .mobile-unit {
+          display: block;
+          width: 100%;
+          padding: 8px 0;
+          border: 0;
+          border-bottom: 1px solid var(--rule-faint);
+          background: transparent;
+          font-family: var(--font-display);
+          font-size: 25px;
+          font-weight: 400;
+          line-height: 1;
+          text-align: left;
+          color: var(--cream);
+          cursor: pointer;
+        }
+        .mobile-unit:active { color: var(--gold-bright); }
+        .mobile-available + .matrix { display: none; }
+        .matrix-close {
+          display: block;
+          position: fixed;
+          top: 24px;
+          right: 20px;
+          z-index: 21;
+          width: 34px;
+          height: 34px;
+          background: none;
+          border: 1px solid var(--rule);
+          color: var(--gold-bright);
+          font-size: 14px;
+          cursor: pointer;
+        }
         :root { --edge:0px; }
         iframe { filter:contrast(1.1) saturate(.7) brightness(.8) sepia(.3); }
         .edge-gild, .marginalia { display:none; }
@@ -701,9 +787,13 @@
         <i class="rule"></i>
         <span class="count">54</span>
       </div>
-      <button class="apartamentos-toggle" aria-label="Abrir índice de residencias">Índice de residencias</button>
+      <button class="apartamentos-toggle" aria-label="Visita los últimos departamentos disponibles">Visita los últimos departamentos disponibles <span aria-hidden="true">→</span></button>
       <div class="matrix-container">
-        <button class="matrix-close" aria-label="Cerrar índice de residencias">✕</button>
+        <button class="matrix-close" aria-label="Cerrar selección">✕</button>
+        <div class="mobile-available" id="mobileAvailable">
+          <div class="mobile-tower"><div class="mobile-tower-title">Torre A</div><div class="mobile-units" id="mobileTowerA"></div></div>
+          <div class="mobile-tower"><div class="mobile-tower-title">Torre B</div><div class="mobile-units" id="mobileTowerB"></div></div>
+        </div>
         <div class="matrix" id="apartmentMatrix"></div>
       </div>
       <p class="index-legend">
@@ -922,9 +1012,47 @@
           if (firstAvailable) selectApartment(firstAvailable);
         });
 
+        // Mobile POC: show only the last available apartments.
+        // The full inventory above remains untouched for desktop.
+        const mobileAvailable = [
+          { code: "7A", tower: "A", source: apartments[6] },
+          { code: "35B", tower: "A", source: apartments[34] },
+          { code: "14C", tower: "B", source: apartments[13] },
+        ].map(item => ({
+          ...item.source,
+          number: item.code,
+          available: true,
+          hasInterior: false,
+          interiorUnit: null,
+        }));
+
+        const renderMobileAvailable = () => {
+          const towerA = document.getElementById("mobileTowerA");
+          const towerB = document.getElementById("mobileTowerB");
+          towerA.innerHTML = "";
+          towerB.innerHTML = "";
+          mobileAvailable.forEach(apt => {
+            const btn = document.createElement("button");
+            btn.className = "mobile-unit";
+            btn.type = "button";
+            btn.textContent = apt.number;
+            btn.addEventListener("click", () => {
+              whoosh();
+              selectApartment(apt);
+            });
+            (apt.tower === "A" ? towerA : towerB).appendChild(btn);
+          });
+        };
+        renderMobileAvailable();
+
         // Mobile toggle
         toggleBtn.addEventListener("click", () => {
-          matrixContainer.classList.toggle("active");
+          if (window.innerWidth <= 768) {
+            renderMobileAvailable();
+            matrixContainer.classList.add("active");
+          } else {
+            matrixContainer.classList.toggle("active");
+          }
         });
         document.querySelector(".matrix-close").addEventListener("click", () => {
           matrixContainer.classList.remove("active");
