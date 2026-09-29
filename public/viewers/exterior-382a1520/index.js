@@ -86112,12 +86112,6 @@ class OrbitController {
         p.position.copy(camera.position);
         p.angles.copy(camera.angles);
         p.distance = Math.max(camera.distance, this.controller.zoomRange.x);
-
-        // Exterior plate: preserve the approved initial framing as the
-        // maximum camera distance. The user can zoom in, but never zoom out
-        // beyond the original scale. Pitch remains locked by the exterior
-        // axis lock above.
-        this.controller.zoomRange = new Vec2(this.controller.zoomRange.x, p.distance);
         this.controller.attach(p, false);
     }
 }
