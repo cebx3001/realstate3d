@@ -392,6 +392,7 @@
       .detail-interior:hover::after { width: 44px; }
 
       .apartamentos-toggle { display: none; }
+      .mobile-available { display: none; }
       .matrix-close { display: none; }
 
       /* ── Opening ───────────────────────────────────────────────── */
@@ -728,7 +729,7 @@
         .mobile-units {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 18px;
         }
         .mobile-unit {
           display: block;
@@ -746,6 +747,27 @@
           cursor: pointer;
         }
         .mobile-unit:active { color: var(--gold-bright); }
+        .mobile-unit-code { display: block; }
+        .mobile-unit-meta {
+          display: block;
+          margin-top: 10px;
+          font-family: var(--font-ui);
+          font-size: 8.5px;
+          font-weight: 600;
+          letter-spacing: .08em;
+          line-height: 1.6;
+          text-transform: uppercase;
+          color: rgba(242,234,220,.62);
+        }
+        .mobile-unit-price {
+          display: block;
+          margin-top: 6px;
+          font-family: var(--font-ui);
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: .14em;
+          color: var(--gold-bright);
+        }
         .mobile-available + .matrix { display: none; }
         .matrix-close {
           display: block;
@@ -1077,9 +1099,9 @@
         // Cada código abre el recorrido interior de su unidad. La cuadrícula completa
         // de arriba se mantiene para escritorio.
         const mobileAvailable = [
-          { code: "17A", tower: 1, source: apartments[46], interiorUnit: "inventory-47" },
-          { code: "35B", tower: 1, source: apartments[47], interiorUnit: "inventory-48" },
-          { code: "28C", tower: 2, source: apartments[49], interiorUnit: "inventory-50" },
+          { code: "17A", tower: 1, source: apartments[46], interiorUnit: "inventory-47", area: 120, bedrooms: 3, baths: 2, price: "127.000" },
+          { code: "35B", tower: 1, source: apartments[47], interiorUnit: "inventory-48", area: 123, bedrooms: 3, baths: 2, price: "135.000" },
+          { code: "28C", tower: 2, source: apartments[49], interiorUnit: "inventory-50", area: 107, bedrooms: 3, baths: 2, price: "139.000" },
         ].map(item => ({
           ...item.source,
           tower: item.tower,
@@ -1087,6 +1109,10 @@
           available: true,
           hasInterior: true,
           interiorUnit: item.interiorUnit,
+          area: item.area,
+          bedrooms: item.bedrooms,
+          baths: item.baths,
+          price: item.price,
         }));
 
         const renderMobileAvailable = () => {
@@ -1097,7 +1123,22 @@
             const btn = document.createElement("button");
             btn.className = "mobile-unit";
             btn.type = "button";
-            btn.textContent = apt.number;
+            const code = document.createElement("span");
+            code.className = "mobile-unit-code";
+            code.textContent = apt.number;
+            const meta = document.createElement("span");
+            meta.className = "mobile-unit-meta";
+            const line1 = document.createElement("span");
+            line1.style.display = "block";
+            line1.textContent = `${apt.area} m²`;
+            const line2 = document.createElement("span");
+            line2.style.display = "block";
+            line2.textContent = `${apt.bedrooms} habitaciones · ${apt.baths} baños`;
+            meta.append(line1, line2);
+            const price = document.createElement("span");
+            price.className = "mobile-unit-price";
+            price.textContent = `USD ${apt.price}`;
+            btn.append(code, meta, price);
             btn.addEventListener("click", () => {
               whoosh();
               window.location.href = publicUrl(`inventory/?unit=${apt.interiorUnit}&room=living`);
