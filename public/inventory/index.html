@@ -678,7 +678,8 @@
         /* ── Ambientes: el nombre del ambiente (dorado, con flecha) es el botón que despliega la lista ── */
         .m-room-name {
           flex: 0 1 auto;
-          margin-right: auto;
+          order: 2;
+          margin-left: 0;
           position: relative; z-index: 35;
           display: inline-flex; align-items: center; gap: 9px;
           appearance: none;
@@ -698,6 +699,7 @@
           transition: transform 240ms ease, opacity 320ms ease;
         }
         .m-room-name[aria-expanded="true"]::after { transform: rotate(180deg); }
+        .m-room-count { order: 1; margin-left: auto; margin-right: 14px; }
         .m-room-name.attention::after { animation: m-chevron-bob 1s ease-in-out 3; }
         @keyframes m-chevron-bob {
           0%, 100% { transform: translateY(0); }
@@ -711,11 +713,11 @@
           position: fixed;
           z-index: 34;
           top: 92px;
-          left: 0;
-          right: auto;
+          left: auto;
+          right: 0;
           width: max-content;
           max-width: 88%;
-          padding: 6px 20px 12px;
+          padding: 6px 20px 12px 12px;
           background: none;
           opacity: 0;
           visibility: hidden;
