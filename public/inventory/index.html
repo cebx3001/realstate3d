@@ -675,48 +675,80 @@
           color: rgba(248,244,236,0.25); font-size: 8px;
         }
 
-        /* ── Lista de ambientes en columna, lado derecho (sin menú de hamburguesa) ──
-           Texto limpio, sin fondo. Se muestra al tocar la descripción del ambiente;
-           mientras la descripción está en pantalla se mantiene oculta para no encimarse. */
+        /* ── Ambientes: el nombre del ambiente (dorado, con flecha) es el botón que despliega la lista ── */
+        .m-room-name {
+          flex: 0 1 auto;
+          margin-right: auto;
+          position: relative; z-index: 35;
+          display: inline-flex; align-items: center; gap: 9px;
+          appearance: none;
+          background: none !important;
+          border: 0 !important;
+          padding: 6px 0 !important;
+          color: #e8c887;
+          text-align: left;
+          cursor: pointer;
+          pointer-events: auto;
+        }
+        .m-room-name::after {
+          content: "";
+          flex: none;
+          width: 17px; height: 17px;
+          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23e8c887' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+          transition: transform 240ms ease, opacity 320ms ease;
+        }
+        .m-room-name[aria-expanded="true"]::after { transform: rotate(180deg); }
+        .m-room-name.attention::after { animation: m-chevron-bob 1s ease-in-out 3; }
+        @keyframes m-chevron-bob {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(5px); }
+        }
+        body:has(.m-intro.visible) .m-room-name { pointer-events: none; }
+        body:has(.m-intro.visible) .m-room-name::after { opacity: 0; }
+
         .m-espacios {
           display: block;
           position: fixed;
           z-index: 34;
-          top: 84px;
-          right: 0;
-          left: auto;
+          top: 92px;
+          left: 0;
+          right: auto;
           width: max-content;
-          max-width: 78%;
-          padding: 8px 20px 12px 12px;
+          max-width: 88%;
+          padding: 6px 20px 12px;
           background: none;
-          opacity: 1;
-          transition: opacity 280ms ease;
-          pointer-events: auto;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transition: opacity 260ms ease, visibility 0s linear 260ms;
         }
-        body:has(.m-intro.visible) .m-espacios { opacity: 0; pointer-events: none; }
+        .m-espacios.open { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity 260ms ease; }
+        /* velo suave detrás de la lista, solo mientras está abierta (tocarlo la cierra) */
+        .m-espacios::before { content: ""; position: fixed; inset: 0; z-index: -1; background: rgba(8,8,7,0.74); }
+        body:has(.m-intro.visible) .m-espacios { opacity: 0; visibility: hidden; pointer-events: none; }
         .m-espacios-list { display: block; padding: 0; }
         .m-espacios-item {
           display: flex;
           align-items: baseline;
-          gap: 14px;
-          padding: 9px 0;
+          gap: 16px;
+          padding: 11px 0;
           appearance: none;
           background: none !important;
           border: 0 !important;
-          color: rgba(248,244,236,0.72) !important;
+          color: rgba(248,244,236,0.78) !important;
           cursor: pointer; text-align: left; width: 100%;
         }
-        .m-espacios-item.active { color: rgba(248,244,236,1) !important; }
+        .m-espacios-item.active { color: #e8c887 !important; }
         .m-espacios-num {
           font-family: var(--font-display);
-          font-size: 18px; font-weight: 400;
+          font-size: 20px; font-weight: 400;
           letter-spacing: -0.02em;
-          color: rgba(248,244,236,0.4);
-          min-width: 28px;
+          color: rgba(248,244,236,0.35);
+          min-width: 30px;
         }
         .m-espacios-label {
           font-family: var(--font-ui);
-          font-size: 10px; font-weight: 700;
+          font-size: 11px; font-weight: 700;
           letter-spacing: 0.16em; text-transform: uppercase;
         }
 
@@ -888,7 +920,7 @@
         body.editorial-interior header > span:last-child { display:block; justify-self:start; }
         body.editorial-interior .desktop-unit-label { display:none; }
         body.editorial-interior .mobile-unit-nav { display:inline; }
-        body.editorial-interior #unitNav { font-size:10px; letter-spacing:.18em; pointer-events:auto; }
+        body.editorial-interior #unitNav { appearance:none; -webkit-appearance:none; color:#e8c887; font-size:12px; letter-spacing:.18em; pointer-events:auto; padding:6px 24px 6px 2px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23e8c887' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right center / 17px 17px no-repeat; }
         body.editorial-interior .title { display:block !important; left:20px; right:20px; bottom:62px; width:auto; color:var(--ivory); }
         body.editorial-interior .title .eyebrow,
         body.editorial-interior .title::after { display:none; }
@@ -910,12 +942,13 @@
         }
         body.editorial-interior .m-room-name {
           font-family:var(--font-editorial);
-          font-size:11px;
-          font-weight:500;
-          letter-spacing:.24em;
-          color:#f2eadc;
+          font-size:13px;
+          font-weight:700;
+          letter-spacing:.22em;
+          color:#e8c887;
+          text-shadow:0 1px 10px rgba(0,0,0,.55);
         }
-        body.editorial-interior .m-room-count { color:#b99457; }
+        body.editorial-interior .m-room-count { color:#d6bd8a; font-weight:700; text-shadow:0 1px 10px rgba(0,0,0,.55); }
         body.editorial-interior .m-room-menu { color:#d6bd8a !important; }
         body.editorial-interior .m-intro {
           padding:74px 28px 116px;
@@ -1002,7 +1035,7 @@
 
     <!-- Mobile -->
     <div class="m-room-bar" id="mRoomBar">
-      <span class="m-room-name" id="mRoomName"></span>
+      <button class="m-room-name" id="mRoomName" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Elegir ambiente"></button>
       <span class="m-room-count" id="mRoomCount"></span>
       <nav class="m-espacios" id="mEspacios" aria-label="Seleccionar ambiente">
         <div class="m-espacios-list" id="mEspaciosList"></div>
@@ -1643,6 +1676,7 @@
         mIntro.classList.remove('fading');
         mDetallesTrigger.classList.remove('visible');
         mWalkHint.classList.remove('visible');
+        closeMobileEspacios();
         requestAnimationFrame(() => mIntro.classList.add('visible'));
       }
 
@@ -1651,6 +1685,9 @@
         mIntro.classList.add('fading');
         mIntro.classList.remove('visible');
         setTimeout(() => mDetallesTrigger.classList.add('visible'), 500);
+        mRoomName.classList.remove('attention');
+        void mRoomName.offsetWidth;
+        mRoomName.classList.add('attention');
         mWalkHint.classList.add('visible');
         clearTimeout(walkHintTimer);
         walkHintTimer = setTimeout(() => mWalkHint.classList.remove('visible'), 7000);
@@ -1691,6 +1728,7 @@
 
       function closeMobileEspacios() {
         if (mEspacios) mEspacios.classList.remove('open');
+        mRoomName.setAttribute('aria-expanded', 'false');
       }
 
       function buildMobileEspacios() {
@@ -1708,6 +1746,16 @@
           mEspaciosList.appendChild(btn);
         });
       }
+
+      mRoomName.addEventListener('click', () => {
+        if (mIntro.classList.contains('visible')) return;
+        const open = mEspacios.classList.toggle('open');
+        mRoomName.setAttribute('aria-expanded', String(open));
+        blip('tick');
+      });
+      mEspacios.addEventListener('click', (e) => {
+        if (e.target === mEspacios) closeMobileEspacios();
+      });
 
       mIntro.addEventListener('pointerdown', (e) => {
         e.preventDefault();
