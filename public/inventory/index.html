@@ -675,62 +675,49 @@
           color: rgba(248,244,236,0.25); font-size: 8px;
         }
 
-        /* ── Always-visible room navigation ── */
+        /* ── Lista de ambientes en columna (sin menú de hamburguesa) ──
+           Se muestra al tocar la descripción del ambiente; mientras la
+           descripción está en pantalla se mantiene oculta para no encimarse. */
         .m-espacios {
           display: block;
           position: fixed;
           z-index: 34;
-          top: 48px;
+          top: 84px;
           left: 0;
-          right: 0;
-          padding: 0 20px 10px;
-          background: linear-gradient(180deg, rgba(8,8,7,0.64) 0%, rgba(8,8,7,0) 100%);
+          width: 72%;
+          max-width: 300px;
+          padding: 8px 20px 12px;
+          background: linear-gradient(90deg, rgba(8,8,7,0.6) 0%, rgba(8,8,7,0) 100%);
+          opacity: 1;
+          transition: opacity 280ms ease;
           pointer-events: auto;
         }
-        .m-espacios-list {
-          display: flex;
-          align-items: center;
-          gap: 18px;
-          overflow-x: auto;
-          scrollbar-width: none;
-          padding: 2px 0 8px;
-        }
-        .m-espacios-list::-webkit-scrollbar { display: none; }
-        /* La barra de ambientes ya muestra cuál está activo: se oculta el nombre repetido y el contador para que no se encimen. */
-        .m-room-name, .m-room-count { display: none; }
+        body:has(.m-intro.visible) .m-espacios { opacity: 0; pointer-events: none; }
+        .m-espacios-list { display: block; padding: 0; }
         .m-espacios-item {
-          flex: 0 0 auto;
-          display: inline-flex;
+          display: flex;
           align-items: baseline;
-          gap: 7px;
-          padding: 5px 0;
+          gap: 14px;
+          padding: 9px 0;
+          border-bottom: 1px solid rgba(248,244,236,0.05) !important;
           appearance: none;
           background: none !important;
-          border: 0 !important;
-          border-bottom: 1px solid transparent !important;
-          color: rgba(248,244,236,0.42) !important;
-          cursor: pointer;
-          text-align: left;
-          width: auto;
+          border-top: 0 !important; border-left: 0 !important; border-right: 0 !important;
+          color: rgba(248,244,236,0.55) !important;
+          cursor: pointer; text-align: left; width: 100%;
         }
-        .m-espacios-item.active {
-          color: rgba(248,244,236,0.95) !important;
-          border-bottom-color: rgba(248,244,236,0.72) !important;
-        }
+        .m-espacios-item.active { color: rgba(248,244,236,0.92) !important; }
         .m-espacios-num {
-          font-family: var(--font-ui);
-          font-size: 7px;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-          color: rgba(248,244,236,0.22);
+          font-family: var(--font-display);
+          font-size: 18px; font-weight: 400;
+          letter-spacing: -0.02em;
+          color: rgba(248,244,236,0.25);
+          min-width: 28px;
         }
         .m-espacios-label {
           font-family: var(--font-ui);
-          font-size: 9px;
-          font-weight: 750;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          white-space: nowrap;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.16em; text-transform: uppercase;
         }
 
         /* ── Tools on mobile ── */
@@ -928,8 +915,8 @@
         body.editorial-interior .m-sheet-copy { color:rgba(242,234,220,.72); font-size:15px; }
         body.editorial-interior .m-sheet-detalles { color:rgba(242,234,220,.62); border-top-color:rgba(185,148,87,.35); }
         body.editorial-interior .m-sheet-detalles-label { color:#b99457; }
-        body.editorial-interior .m-espacios { background:linear-gradient(180deg,rgba(8,8,7,.82) 0%,rgba(8,8,7,0) 100%); }
-        body.editorial-interior .m-espacios-item { border-bottom-color:transparent !important; }
+        body.editorial-interior .m-espacios { background:linear-gradient(90deg,rgba(8,8,7,.7) 0%,rgba(8,8,7,0) 100%); }
+        body.editorial-interior .m-espacios-item { border-bottom-color:rgba(185,148,87,.16) !important; }
         body.editorial-interior .m-espacios-item.active,
         body.editorial-interior .m-espacios-item.active .m-espacios-num { color:#e8c887 !important; }
         body.editorial-interior .tools button { color:rgba(242,234,220,.78); border-bottom-color:rgba(185,148,87,.4); }
