@@ -601,7 +601,7 @@
         .m-sheet-backdrop {
           display: block;
           position: fixed; z-index: 37; inset: 0;
-          background: rgba(0,0,0,0.4);
+          background: rgba(0,0,0,0.15);
           opacity: 0; pointer-events: none;
           transition: opacity 360ms ease;
         }
@@ -612,8 +612,9 @@
           position: fixed; z-index: 38;
           left: 0; right: 0; bottom: 0;
           max-height: 72vh;
-          background: rgba(14,14,12,0.95);
-          backdrop-filter: blur(28px);
+          background: rgba(8,8,7,0.74);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
           border-top: 1px solid rgba(248,244,236,0.08);
           border-radius: 16px 16px 0 0;
           transform: translateY(100%);
@@ -640,7 +641,7 @@
           letter-spacing: 0.2em; text-transform: uppercase;
           padding: 4px 0 !important; cursor: pointer;
         }
-        .m-sheet-content { padding: 4px 32px 48px; }
+        .m-sheet-content { padding: 4px 32px 48px; text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 2px 16px rgba(0,0,0,0.6); }
         .m-sheet-title {
           margin: 0 0 12px;
           font-family: var(--font-display);
@@ -731,6 +732,8 @@
         .m-espacios-list { display: block; padding: 0; }
         .m-espacios-item {
           display: flex;
+          flex-direction: row-reverse;
+          justify-content: flex-start;
           align-items: baseline;
           gap: 16px;
           padding: 11px 0;
@@ -738,7 +741,7 @@
           background: none !important;
           border: 0 !important;
           color: rgba(248,244,236,0.78) !important;
-          cursor: pointer; text-align: left; width: 100%;
+          cursor: pointer; text-align: right; width: 100%;
         }
         .m-espacios-item.active { color: #e8c887 !important; }
         .m-espacios-num {
@@ -747,6 +750,7 @@
           letter-spacing: -0.02em;
           color: rgba(248,244,236,0.35);
           min-width: 30px;
+          text-align: right;
         }
         .m-espacios-label {
           font-family: var(--font-ui);
@@ -766,15 +770,17 @@
           max-width: 84%;
           text-align: center;
           font-family: var(--font-ui);
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.22em; text-transform: uppercase;
-          line-height: 1.6;
-          color: rgba(248,244,236,0.9);
+          font-size: 12px; font-weight: 700;
+          letter-spacing: 0.18em; text-transform: uppercase;
+          line-height: 1.7;
+          color: rgba(248,244,236,0.96);
+          text-shadow: 0 1px 3px rgba(0,0,0,0.75), 0 2px 18px rgba(0,0,0,0.65);
           opacity: 0;
           pointer-events: none;
           transition: opacity 500ms ease;
         }
         .m-walk-hint.visible { opacity: 1; }
+        .m-walk-hint span { display: block; }
 
         /* ── Tools on mobile ── */
         .tools {
@@ -963,7 +969,7 @@
         body.editorial-interior .m-intro-hint,
         body.editorial-interior .m-detalles-trigger { color:#b99457 !important; }
         body.editorial-interior .m-sheet {
-          background:rgba(8,8,7,.97);
+          background:rgba(8,8,7,.74);
           border-top:1px solid rgba(185,148,87,.55);
           border-radius:0;
         }
@@ -1052,7 +1058,7 @@
       <span class="m-intro-hint">Toca para explorar</span>
     </div>
 
-    <div class="m-walk-hint" id="mWalkHint" aria-live="polite">Toca un punto del espacio para recorrerlo</div>
+    <div class="m-walk-hint" id="mWalkHint" aria-live="polite"><span>Toca en algún espacio</span><span>para navegar</span></div>
 
     <button class="m-detalles-trigger" id="mDetallesTrigger" type="button">Detalles +</button>
 
