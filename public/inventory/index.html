@@ -958,12 +958,12 @@
       <header>
       <span><a href="../" aria-label="Volver al edificio Torres del Norte">Torres del Norte · Edificio</a></span>
       <span>MMXXVI</span>
-      <span><span class="desktop-unit-label" id="desktopUnitLabel">Unidad 47</span><span class="mobile-unit-nav"><a id="unitNavHome" href="../">Torres del Norte</a> / <select id="unitNav" aria-label="Seleccionar unidad"><option value="inventory-47">Unidad 47</option><option value="inventory-48">Unidad 48</option><option value="inventory-50">Unidad 50</option></select></span></span>
+      <span><span class="desktop-unit-label" id="desktopUnitLabel">Unidad 47</span><span class="mobile-unit-nav"><a id="unitNavHome" href="../">Torres del Norte</a> / <select id="unitNav" aria-label="Seleccionar unidad"><option value="inventory-47">Unidad 7A</option><option value="inventory-48">Unidad 35B</option><option value="inventory-50">Unidad 14C</option></select></span></span>
     </header>
 
     <section class="title">
       <p class="eyebrow" id="roomEyebrow">Recorrido · Sala</p>
-      <h1 id="headline">Unidad 48</h1>
+      <h1 id="headline">Unidad 35B</h1>
       <div class="unit-spec" aria-label="Ficha técnica de la unidad">
         <p class="unit-spec-meta" id="unitSpecMeta"></p>
         <p class="unit-spec-price" id="unitSpecPrice"></p>
@@ -1362,8 +1362,8 @@
         document.body.dataset.unit = state.unit.unit;
         unitNav.value = state.unit.unit;
         desktopUnitLabel.textContent = state.unit.title;
-        const unitNumber = state.unit.title.replace(/\D+/g, "");
-        headline.innerHTML = `Unidad <span>${unitNumber}</span>`;
+        const unitCode = state.unit.title.replace(/^Unidad\s+/i, "");
+        headline.innerHTML = `Unidad <span>${unitCode}</span>`;
         unitSpecMeta.textContent = `${state.unit.area} m² · ${state.unit.bedrooms} habitaciones · ${state.unit.baths} baños`;
         unitSpecPrice.textContent = `USD ${state.unit.price}`;
         const roomIndex = Math.max(0, state.unit.rooms.indexOf(state.room));
