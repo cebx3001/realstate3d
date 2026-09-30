@@ -820,6 +820,14 @@
         .matrix { grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 5px; }
         .matrix-unit, .matrix-unit:nth-child(9n), .matrix-unit.has-interior { font-size: 11px; }
       }
+      /* Marca GD (Gemelos Digitales): esquina superior derecha del encabezado */
+      .mast { padding-right: 50px; }
+      .mast .brand-mark { position: absolute; right: 0; top: 50%; width: 30px; transform: translateY(-50%); color: var(--cream); opacity: .92; pointer-events: none; }
+      .mast .brand-mark svg { display: block; width: 100%; height: auto; }
+      @media (max-width: 860px) {
+        .mast { padding-right: 40px; }
+        .mast .brand-mark { width: 26px; }
+      }
     </style>
   </head>
   <body>
@@ -834,6 +842,7 @@
       <span class="lead">Torres del Norte</span>
       <span class="opt">Cuenca — Ecuador</span>
       <span class="opt">MMXXVI</span>
+      <div class="brand-mark" role="img" aria-label="Gemelos Digitales"><svg viewBox="139 524 784 585" aria-hidden="true" focusable="false"><path fill="currentColor" d="M503.0,524.0 L139.0,816.5 L503.0,1109.0 L503.0,816.5 L474.0,816.5 L474.0,1048.5 L185.3,816.5 L503.0,561.2Z M503.0,598.4 L231.6,816.5 L450.5,992.4 L450.5,816.5 L421.5,816.5 L421.5,931.9 L277.9,816.5 L503.0,635.6Z M559.0,1109.0 L923.0,816.5 L559.0,524.0 L559.0,816.5 L588.0,816.5 L588.0,584.5 L876.7,816.5 L559.0,1071.8Z M559.0,1034.6 L830.4,816.5 L611.5,640.6 L611.5,816.5 L640.5,816.5 L640.5,701.1 L784.1,816.5 L559.0,997.4Z"/></svg></div>
     </header>
 
     <p class="marginalia">Colección Residencial</p>

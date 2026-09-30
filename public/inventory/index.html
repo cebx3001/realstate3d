@@ -985,6 +985,13 @@
         body.editorial-interior .tools button { color:rgba(242,234,220,.78); border-bottom-color:rgba(185,148,87,.4); }
         body.editorial-interior .map-panel { border-color:rgba(185,148,87,.6); background:rgba(8,8,7,.88); }
       }
+      /* Marca GD (Gemelos Digitales): esquina superior derecha del encabezado */
+      header .brand-mark { position: absolute; right: 44px; top: 50%; width: 30px; transform: translateY(-50%); color: #f1ece2; opacity: .92; pointer-events: none; }
+      header .brand-mark svg { display: block; width: 100%; height: auto; }
+      body.editorial-interior header { padding-right: 96px; }
+      @media (max-width: 820px) {
+        header .brand-mark { right: 18px; width: 26px; }
+      }
     </style>
   </head>
   <body>
@@ -997,6 +1004,7 @@
       <span><a href="../" aria-label="Volver al edificio Torres del Norte">Torres del Norte · Edificio</a></span>
       <span>MMXXVI</span>
       <span><span class="desktop-unit-label" id="desktopUnitLabel">Unidad 35B</span><span class="mobile-unit-nav"><a id="unitNavHome" href="../">Torres del Norte</a> / <select id="unitNav" aria-label="Seleccionar unidad"><option value="inventory-47">Unidad 17A</option><option value="inventory-48">Unidad 35B</option><option value="inventory-50">Unidad 28C</option></select></span></span>
+      <div class="brand-mark" role="img" aria-label="Gemelos Digitales"><svg viewBox="139 524 784 585" aria-hidden="true" focusable="false"><path fill="currentColor" d="M503.0,524.0 L139.0,816.5 L503.0,1109.0 L503.0,816.5 L474.0,816.5 L474.0,1048.5 L185.3,816.5 L503.0,561.2Z M503.0,598.4 L231.6,816.5 L450.5,992.4 L450.5,816.5 L421.5,816.5 L421.5,931.9 L277.9,816.5 L503.0,635.6Z M559.0,1109.0 L923.0,816.5 L559.0,524.0 L559.0,816.5 L588.0,816.5 L588.0,584.5 L876.7,816.5 L559.0,1071.8Z M559.0,1034.6 L830.4,816.5 L611.5,640.6 L611.5,816.5 L640.5,816.5 L640.5,701.1 L784.1,816.5 L559.0,997.4Z"/></svg></div>
     </header>
 
     <section class="title">
