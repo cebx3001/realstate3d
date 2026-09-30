@@ -1002,6 +1002,11 @@
         /* «Detalles +» viaja junto a Plano y Audio, abajo a la izquierda */
         body.editorial-interior .tools .m-detalles-trigger { position: static !important; right: auto !important; bottom: auto !important; z-index: auto !important; color: rgba(242,234,220,.82) !important; border-bottom: 1px solid rgba(185,148,87,.46) !important; font-size: 9px; font-weight: 500; letter-spacing: .18em; }
       }
+          /* Plano: botón Cerrar (visible solo con el plano abierto) */
+      .map-close { display: none; appearance: none; -webkit-appearance: none; background: none; border: 0; margin: -12px -6px -12px 6px; padding: 12px 6px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: rgba(242,234,220,.94); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+      .map-panel.expanded .map-close { display: inline-block; }
+      .map-close:hover { color: #fff; }
+      .map-close:focus-visible { outline: 1px solid #b99457; outline-offset: 2px; }
     </style>
   </head>
   <body>
@@ -1043,6 +1048,7 @@
       <div class="map-head">
         <span id="mapTitle">Plano</span>
         <span id="toggleMapMode">Dollhouse · en poda</span>
+        <button class="map-close" id="mapClose" type="button">Cerrar</button>
       </div>
       <div class="map-body">
         <img id="mapImage" alt="Plano de la unidad" />
@@ -1579,6 +1585,13 @@
       mapPanel.addEventListener("click", (event) => {
         if (event.target.closest("#toggleMapMode")) return;
         mapPanel.classList.toggle("expanded");
+        blip("tick");
+      });
+
+      document.querySelector("#mapClose").addEventListener("click", (event) => {
+        event.stopPropagation();
+        mapPanel.classList.remove("expanded");
+        if (mobileCheck()) mapPanel.classList.remove("m-visible");
         blip("tick");
       });
 
