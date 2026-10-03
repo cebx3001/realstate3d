@@ -258,8 +258,8 @@
     '.tdn-lang button{appearance:none;-webkit-appearance:none;background:none;border:0;border-bottom:1px solid transparent;margin:0;padding:10px 3px;' +
     'font:inherit;letter-spacing:inherit;color:inherit;opacity:.5;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
     '.tdn-lang button:hover{opacity:.85}' +
-    '.tdn-lang button[aria-pressed="true"]{opacity:1;color:var(--gold,#b99457);border-bottom-color:currentColor}' +
-    '.tdn-lang button:focus-visible{outline:1px solid var(--gold,#b99457);outline-offset:2px}' +
+    '.tdn-lang button[aria-pressed="true"]{opacity:1;color:var(--gold,#718078);border-bottom-color:currentColor}' +
+    '.tdn-lang button:focus-visible{outline:1px solid var(--gold,#718078);outline-offset:2px}' +
     '.tdn-lang span{opacity:.35}' +
     /* portada */
     '.mast{padding-right:124px!important}' +

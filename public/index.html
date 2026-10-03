@@ -15,15 +15,15 @@
          No cards, no panels, no shadows-on-glass.
          ─────────────────────────────────────────────────────────────── */
       :root {
-        --field: #0a0908;          /* the paper: warm near-black */
-        --field-deep: #050403;
-        --cream: #efe9dd;          /* ink on black */
-        --gold: #c09a5e;
-        --gold-bright: #e0c58c;
-        --gold-deep: #8a6d3a;
-        --rule: rgba(192,154,94,.30);
-        --rule-faint: rgba(192,154,94,.13);
-        --muted: rgba(239,233,221,.52);
+        --field: #263437;          /* the paper: azul petróleo */
+        --field-deep: #1c2729;
+        --cream: #e7e3d8;          /* ink: marfil */
+        --gold: #718078;           /* detalles y títulos: verde salvia */
+        --gold-bright: #718078;
+        --gold-deep: #56625c;
+        --rule: rgba(113,128,120,.30);
+        --rule-faint: rgba(113,128,120,.13);
+        --muted: rgba(231,227,216,.52);
         --font-display: Didot, "Bodoni 72", "Bodoni MT", "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
         --font-ui: "Avenir Next", "Neue Haas Grotesk Text Pro", "Segoe UI Variable Text", "Segoe UI", Tahoma, sans-serif;
         --edge: clamp(30px, 2.8vw, 54px);
@@ -52,7 +52,7 @@
         background: transparent;
         /* mild warm-neutral press grade, applied to the plate's own pixels
            (filters are reliable on an iframe; blend modes are not) */
-        filter: contrast(1.05) saturate(.66) brightness(.97) sepia(.13);
+        filter: contrast(1.05) saturate(.66) brightness(.97) sepia(0);
       }
       /* low horizon haze — kept wide and low so it reads as atmosphere at
          the towers' base without washing the plate's upper values */
@@ -62,10 +62,10 @@
         z-index: 1;
         pointer-events: none;
         background:
-          radial-gradient(58% 88% at 51% 47%, rgba(206,172,118,.20) 0%, rgba(170,135,89,.13) 27%, rgba(111,84,55,.055) 55%, transparent 76%),
-          radial-gradient(96% 48% at 51% 76%, rgba(191,151,91,.15) 0%, rgba(117,87,50,.07) 42%, transparent 76%),
-          radial-gradient(34% 62% at 20% 50%, rgba(101,78,55,.055), transparent 72%),
-          radial-gradient(38% 66% at 82% 49%, rgba(92,69,47,.05), transparent 74%);
+          radial-gradient(58% 88% at 51% 47%, rgba(113,128,120,.20) 0%, rgba(113,128,120,.13) 27%, rgba(86,98,92,.055) 55%, transparent 76%),
+          radial-gradient(96% 48% at 51% 76%, rgba(113,128,120,.15) 0%, rgba(86,98,92,.07) 42%, transparent 76%),
+          radial-gradient(34% 62% at 20% 50%, rgba(86,98,92,.055), transparent 72%),
+          radial-gradient(38% 66% at 82% 49%, rgba(86,98,92,.05), transparent 74%);
         filter: blur(.35px);
       }
       /* printed vignette — plain alpha, no blend mode */
@@ -75,9 +75,9 @@
         z-index: 2;
         pointer-events: none;
         background:
-          linear-gradient(90deg, rgba(4,3,2,.78) 0%, rgba(5,4,3,.46) 14%, rgba(6,5,4,.12) 34%, transparent 45%, transparent 59%, rgba(5,4,3,.18) 72%, rgba(4,3,2,.54) 88%, rgba(3,2,2,.82) 100%),
-          radial-gradient(102% 112% at 51% 47%, transparent 34%, rgba(7,5,4,.12) 58%, rgba(5,4,3,.43) 82%, rgba(3,2,2,.67) 100%),
-          linear-gradient(180deg, rgba(4,3,2,.42) 0%, rgba(8,6,4,.08) 17%, transparent 37%, transparent 73%, rgba(4,3,2,.42) 100%);
+          linear-gradient(90deg, rgba(38,52,55,.78) 0%, rgba(38,52,55,.46) 14%, rgba(38,52,55,.12) 34%, transparent 45%, transparent 59%, rgba(38,52,55,.18) 72%, rgba(38,52,55,.54) 88%, rgba(38,52,55,.82) 100%),
+          radial-gradient(102% 112% at 51% 47%, transparent 34%, rgba(38,52,55,.12) 58%, rgba(38,52,55,.43) 82%, rgba(38,52,55,.67) 100%),
+          linear-gradient(180deg, rgba(38,52,55,.42) 0%, rgba(38,52,55,.08) 17%, transparent 37%, transparent 73%, rgba(38,52,55,.42) 100%);
       }
       .grade::after {
         content: "";
@@ -113,7 +113,7 @@
         pointer-events: none;
         background:
           repeating-linear-gradient(90deg, rgba(255,255,255,.055) 0 1px, transparent 1px 5px),
-          linear-gradient(96deg, #5f4a22 0%, #a5843f 13%, #dcc189 33%, #c2a066 49%, #9b7c3d 68%, #6b5326 86%, #4c3a1a 100%);
+          linear-gradient(96deg, #56625c 0%, #718078 13%, #718078 33%, #718078 49%, #718078 68%, #56625c 86%, #3f4a45 100%);
         box-shadow: inset -1px 0 0 rgba(0,0,0,.6), 10px 0 34px rgba(0,0,0,.5);
       }
 
@@ -215,7 +215,7 @@
         font-size: 12.5px;
         line-height: 1.9;
         letter-spacing: .012em;
-        color: rgba(239,233,221,.58);
+        color: rgba(231,227,216,.58);
         max-width: 40ch;
       }
       .cover-cta {
@@ -292,13 +292,13 @@
       .matrix-unit:hover:not(.occupied) {
         border-color: var(--gold);
         color: var(--gold-bright);
-        background: rgba(192,154,94,.07);
+        background: rgba(113,128,120,.07);
       }
       /* Occupied units keep their number but lose their frame entirely, so
          the index reads as a drawn field of what is actually available —
          the inventory itself becomes the pattern. */
       .matrix-unit.occupied {
-        color: rgba(239,233,221,.17);
+        color: rgba(231,227,216,.17);
         border-color: var(--rule-faint);
         cursor: not-allowed;
       }
@@ -306,7 +306,7 @@
       .matrix-unit.featured {
         border-color: var(--gold);
         color: var(--gold-bright);
-        background: rgba(192,154,94,.045);
+        background: rgba(113,128,120,.045);
       }
       .matrix-unit.has-interior:not(.occupied)::after {
         content: "";
@@ -318,8 +318,8 @@
       .matrix-unit.selected {
         border-color: var(--gold-bright);
         color: var(--gold-bright);
-        background: rgba(192,154,94,.13);
-        box-shadow: inset 0 0 0 1px rgba(224,197,140,.24);
+        background: rgba(113,128,120,.13);
+        box-shadow: inset 0 0 0 1px rgba(113,128,120,.24);
       }
       @media (min-width: 769px) {
         .index { width: clamp(272px, 29vw, 494px); }
@@ -336,7 +336,7 @@
         font-weight: 700;
         letter-spacing: .24em;
         text-transform: uppercase;
-        color: rgba(239,233,221,.34);
+        color: rgba(231,227,216,.34);
       }
       .index-legend b { font-weight: 700; color: var(--gold); }
 
@@ -405,7 +405,7 @@
         align-items: center;
         gap: 9px;
         pointer-events: none;
-        color: rgba(222, 192, 133, .78);
+        color: rgba(113, 128, 120, .78);
         font-size: 8px;
         font-weight: 700;
         letter-spacing: .28em;
@@ -417,8 +417,8 @@
         content: "";
         width: 12px;
         height: 12px;
-        border: 1px solid rgba(185, 148, 87, .24);
-        border-top-color: rgba(222, 192, 133, .86);
+        border: 1px solid rgba(113, 128, 120, .24);
+        border-top-color: rgba(113, 128, 120, .86);
         border-radius: 50%;
         animation: loading-turn 900ms linear infinite;
       }
@@ -523,7 +523,7 @@
           margin-top: 0;
           padding-top: 14px;
           border-top: 1px solid var(--rule);
-          background: linear-gradient(180deg, rgba(10,9,8,.86), rgba(10,9,8,.5));
+          background: linear-gradient(180deg, rgba(38,52,55,.86), rgba(38,52,55,.5));
         }
         .detail-number { font-size: 38px; }
       }
@@ -533,11 +533,11 @@
           --edge: 0px;
           --font-display: Didot, "Bodoni 72", "Bodoni MT", "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
           --font-ui: "Segoe UI Variable Text", "Segoe UI", Arial, sans-serif;
-          --cream: #eee8dc;
-          --gold: #a9854d;
-          --gold-bright: #c9aa73;
-          --rule: rgba(169,133,77,.34);
-          --rule-faint: rgba(238,232,220,.12);
+          --cream: #e7e3d8;
+          --gold: #718078;           /* detalles y títulos: verde salvia */
+          --gold-bright: #718078;
+          --rule: rgba(113,128,120,.34);
+          --rule-faint: rgba(231,227,216,.12);
         }
         .edge-gild, .marginalia { display: none; }
         .mast, .folio { left: clamp(44px,5vw,96px); right: clamp(44px,5vw,96px); }
@@ -554,7 +554,7 @@
         h1 em { color:var(--cream); }
         .cover-lede { margin-top:24px; font-size:clamp(19px,1.45vw,26px); line-height:1.35; max-width:21ch; }
         .cover hr { margin:24px 0; width:180px; }
-        .cover-body { font-family:"Palatino Linotype", Palatino, Georgia, serif; font-size:12px; line-height:1.72; max-width:38ch; color:rgba(238,232,220,.62); }
+        .cover-body { font-family:"Palatino Linotype", Palatino, Georgia, serif; font-size:12px; line-height:1.72; max-width:38ch; color:rgba(231,227,216,.62); }
         .cover-cta { margin-top:24px; font-size:9px; letter-spacing:.35em; }
         .index {
           right:clamp(58px,6.5vw,124px);
@@ -574,7 +574,7 @@
           border:0;
           border-bottom:1px solid var(--rule-faint);
           background:transparent;
-          color:rgba(238,232,220,.72);
+          color:rgba(231,227,216,.72);
           font-family:var(--font-display);
           font-size:12px;
           font-weight:400;
@@ -610,7 +610,7 @@
         .edge-gild {
           display:block;
           width:3px;
-          background:linear-gradient(90deg,#6f5428,#b18b4b,#6f5428);
+          background:linear-gradient(90deg,#56625c,#718078,#56625c);
           box-shadow:none;
           opacity:.72;
         }
@@ -627,22 +627,22 @@
           aspect-ratio:1;
           height:auto;
           padding:0;
-          border:1px solid rgba(238,232,220,.11);
-          background:rgba(8,7,6,.08);
-          color:rgba(238,232,220,.62);
+          border:1px solid rgba(231,227,216,.11);
+          background:rgba(38,52,55,.08);
+          color:rgba(231,227,216,.62);
           font-family:var(--font-display);
           font-size:clamp(10px,1vw,15px);
           box-shadow:none;
         }
         .matrix-unit:nth-child(9n) { display:none; }
-        .matrix-unit.occupied { border-color:rgba(238,232,220,.07); color:rgba(238,232,220,.24); }
+        .matrix-unit.occupied { border-color:rgba(231,227,216,.07); color:rgba(231,227,216,.24); }
         .matrix-unit.featured,
         .matrix-unit.featured.occupied,
         .matrix-unit.has-interior,
         .matrix-unit.selected {
-          border-color:rgba(185,148,87,.78);
-          color:#d0b071;
-          background:rgba(185,148,87,.025);
+          border-color:rgba(113,128,120,.78);
+          color:#718078;
+          background:rgba(113,128,120,.025);
         }
         .matrix-unit.has-interior::after { top:5px; right:5px; }
       }
@@ -655,7 +655,7 @@
           --font-display: Didot, "Bodoni 72", "Bodoni MT", "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
           --font-ui: "Avenir Next", "Neue Haas Grotesk Text Pro", "Segoe UI Variable Text", "Segoe UI", Tahoma, sans-serif;
         }
-        iframe { filter:contrast(1.08) saturate(.76) brightness(.88) sepia(.27); }
+        iframe { filter:contrast(1.08) saturate(.76) brightness(.88) sepia(0); }
         .edge-gild, .marginalia { display:none; }
         .mast { justify-content:space-between; }
         .mast .rule, .mast span:nth-of-type(2) { display:none; }
@@ -672,7 +672,7 @@
         .matrix-unit.featured,
         .matrix-unit.featured.occupied,
         .matrix-unit.has-interior,
-        .matrix-unit.selected { border-color:rgba(185,148,87,.74); }
+        .matrix-unit.selected { border-color:rgba(113,128,120,.74); }
         .detail-number { font-family:var(--font-display); }
       }
       @media (max-width:768px) {
@@ -705,7 +705,7 @@
           inset: 0;
           z-index: 20;
           padding: 88px 24px 40px 22px;
-          background: rgba(7,6,5,.985);
+          background: rgba(38,52,55,.985);
           overflow-y: auto;
         }
         .matrix-container.active { display: block; }
@@ -757,7 +757,7 @@
           letter-spacing: .08em;
           line-height: 1.6;
           text-transform: uppercase;
-          color: rgba(242,234,220,.62);
+          color: rgba(231,227,216,.62);
         }
         .mobile-unit-price {
           display: block;
@@ -784,17 +784,17 @@
           cursor: pointer;
         }
         :root { --edge:0px; }
-        iframe { filter:contrast(1.08) saturate(.74) brightness(.87) sepia(.26); }
+        iframe { filter:contrast(1.08) saturate(.74) brightness(.87) sepia(0); }
         .edge-gild, .marginalia { display:none; }
         .mast, .folio { left:20px; right:20px; }
-        .mast { color:rgba(239,233,221,.82); }
+        .mast { color:rgba(231,227,216,.82); }
         .cover { left:20px; right:20px; }
         .cover h1 { color:var(--cream); letter-spacing:-.035em; }
         .cover h1 em { color:var(--gold-bright); }
-        .cover-lede { color:rgba(239,233,221,.84); }
+        .cover-lede { color:rgba(231,227,216,.84); }
         .index { left:20px; right:20px; }
-        .apartamentos-toggle { color:var(--gold-bright); border-color:rgba(192,154,94,.28); }
-        .matrix-container { padding-left:22px; background:rgba(7,6,5,.985); }
+        .apartamentos-toggle { color:var(--gold-bright); border-color:rgba(113,128,120,.28); }
+        .matrix-container { padding-left:22px; background:rgba(38,52,55,.985); }
         .matrix { gap:10px 8px; }
         .matrix-unit,
         .matrix-unit:nth-child(9n),
@@ -802,14 +802,14 @@
           font-family:var(--font-display);
           border-color:transparent;
           background:transparent;
-          color:rgba(239,233,221,.65);
+          color:rgba(231,227,216,.65);
         }
-        .matrix-unit.occupied { border-color:transparent; color:rgba(239,233,221,.25); }
+        .matrix-unit.occupied { border-color:transparent; color:rgba(231,227,216,.25); }
         .matrix-unit.featured,
         .matrix-unit.featured.occupied,
         .matrix-unit.has-interior,
-        .matrix-unit.selected { border-color:rgba(192,154,94,.72); color:var(--gold-bright); }
-        .matrix-close { border-color:rgba(192,154,94,.35); color:var(--gold-bright); }
+        .matrix-unit.selected { border-color:rgba(113,128,120,.72); color:var(--gold-bright); }
+        .matrix-close { border-color:rgba(113,128,120,.35); color:var(--gold-bright); }
         .grade::after {
           opacity:.22;
           -webkit-mask-image:linear-gradient(90deg,transparent 0 58%,rgba(0,0,0,.12) 68%,#000 92%);
@@ -958,7 +958,7 @@
         const CAMERA_FOV = 98;
         // Clear colour handed to the viewer so the splat is printed onto the
         // same field as the page rather than a pale studio backdrop.
-        const PLATE_BG = "0.039,0.035,0.031";
+        const PLATE_BG = "0.149,0.204,0.216";
 
         const interpolateLandscapeCamera = (aspect) => {
           const points = LANDSCAPE_CALIBRATION;
