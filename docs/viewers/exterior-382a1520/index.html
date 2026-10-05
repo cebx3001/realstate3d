@@ -1555,7 +1555,12 @@
             document.addEventListener('DOMContentLoaded', async () => {
                 const canvas = document.getElementById('application-canvas');
                 const settingsJson = await settings;
-                const viewer = await main(canvas, settingsJson, config);
+                try {
+                    await main(canvas, settingsJson, config);
+                } catch (error) {
+                    console.error(error);
+                    if (window.parent !== window) window.parent.postMessage({type:'tdn:render-error'}, location.origin);
+                }
             });
         </script>
     </body>
