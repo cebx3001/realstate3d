@@ -8,10 +8,14 @@ export function prepareHudEngine(source) {
      'const initUI = (global) => {\n    if (global.config.headless) return;\n    const { config, events, state } = global;'],
     ["deviceTypes: useWebGPU ? ['webgpu'] : [],\n        antialias: false,",
      "deviceTypes: useWebGPU ? ['webgpu'] : [],\n        alpha: !!config.transparent,\n        premultipliedAlpha: true,\n        antialias: false,"],
+    ["xrCompatible: true,\n        powerPreference: 'high-performance'",
+     "xrCompatible: !config.headless,\n        powerPreference: config.headless ? 'default' : 'high-performance'"],
     ['this.inputController.update(deltaTime, this.cameraManager.camera.distance);\n                // update cameras\n                this.cameraManager.update(deltaTime, this.inputController.frame);',
      'if (!global.config.lockedCamera) {\n                    this.inputController.update(deltaTime, this.cameraManager.camera.distance);\n                    this.cameraManager.update(deltaTime, this.inputController.frame);\n                }'],
     ['this.cameraManager = new CameraManager(global, sceneBound, collision);\n            applyCamera(this.cameraManager.camera);',
      "this.cameraManager = new CameraManager(global, sceneBound, collision);\n            events.fire('camera:ready');\n            applyCamera(this.cameraManager.camera);"],
+    ['    initXr(global);\n    // Initialize user interface',
+     '    if (!config.headless) initXr(global);\n    // Initialize user interface'],
   ];
   for (const [anchor, replacement] of patches) {
     if (source.split(anchor).length !== 2) throw new Error('SuperSplat HUD integration: export anchor changed');

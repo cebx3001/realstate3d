@@ -164,13 +164,17 @@ window.__tdnExperience = Object.freeze({
 });
 
 async function startScene() {
+  const canvas = document.getElementById('scene-canvas');
+  canvas.addEventListener('webglcontextcreationerror', event => {
+    console.error('Torres del Norte: graphics context creation failed:', event.statusMessage || 'No platform details');
+  });
   const [{ main }, response] = await Promise.all([
     loadHudEngine(), fetch('viewers/exterior-382a1520/settings.json'),
   ]);
   if (!response.ok) throw new Error(`SuperSplat settings: HTTP ${response.status}`);
   const settings = await response.json();
   settings.background.color = [0, 0, 0, 0];
-  viewer = await main(document.getElementById('scene-canvas'), settings, {
+  viewer = await main(canvas, settings, {
     contentUrl: new URL('assets/exterior/382a1520/v1-streamed/lod-meta.json', location.href).href,
     renderer: 'webgl', headless: true, lockedCamera: true, transparent: true,
     noui: true, noanim: true, nofx: true, lang,
