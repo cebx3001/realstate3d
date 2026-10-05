@@ -809,7 +809,7 @@
             if (bgParam && bootstrap.settings?.background) {
                 const parts = bgParam.split(',').map(Number);
                 if (parts.length === 3 && parts.every((n) => Number.isFinite(n))) {
-                    bootstrap.settings.background.color = parts;
+                    bootstrap.settings.background.color = url.searchParams.has('transparent') ? [...parts, 0] : parts;
                 }
             }
 
@@ -825,6 +825,15 @@
             // ?content= override replaces the url it describes.
             const contentFilename = url.searchParams.has('content') ? null : (bootstrap.contentFilename ?? null);
 
+            if (url.searchParams.has('transparent')) {
+                document.documentElement.style.background = 'transparent';
+                document.body.style.background = 'transparent';
+                const originalGetContext = HTMLCanvasElement.prototype.getContext;
+                HTMLCanvasElement.prototype.getContext = function(type, options) {
+                    if (type === 'webgl' || type === 'webgl2') options = {...options, alpha: true, premultipliedAlpha: true};
+                    return originalGetContext.call(this, type, options);
+                };
+            }
             const renderer = url.searchParams.has('webgl') ? 'webgl' : 'webgpu';
 
             const budgetParam = url.searchParams.get('budget');
