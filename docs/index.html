@@ -885,7 +885,7 @@ iframe{position:absolute;inset:0;width:100%;height:100%;z-index:2;background:tra
     <section class="cover">
       <p class="kicker">Historias desde arriba</p>
       <h1>Torres<br />del <em>Norte</em></h1>
-      <p class="engine-status">3D ENGINE ACTIVE</p><p class="cover-lede"><span>Historias desde arriba</span><span aria-hidden="true">. </span><span>Una diferente visión de la ciudad comienza aquí.</span></p>
+      <p class="engine-status">Cargando espacio</p><p class="cover-lede"><span>Historias desde arriba</span><span aria-hidden="true">. </span><span>Una diferente visión de la ciudad comienza aquí.</span></p>
       <hr />
       <p class="cover-body">Dos torres se elevan sobre el paisaje, reuniendo hogares, terrazas y vidas cotidianas en una única dirección vertical. Elige una residencia. Encuentra su lugar en el edificio. Entra dentro.</p>
       <hr />
@@ -1032,7 +1032,13 @@ iframe{position:absolute;inset:0;width:100%;height:100%;z-index:2;background:tra
         const iframeEl = document.querySelector("iframe");
         const exteriorLoading = document.querySelector(".cinema");
         window.addEventListener("message", (event) => {
-          if (event.source !== iframeEl.contentWindow || event.data?.type !== "tdn:first-useful-frame") return;
+          if (event.source !== iframeEl.contentWindow) return;
+          if (event.data?.type === 'tdn:render-error') {
+            document.querySelector('.engine-status').textContent = '3D no disponible en este navegador';
+            exteriorLoading.classList.add('loaded');
+          }
+          if (event.data?.type !== 'tdn:first-useful-frame') return;
+          document.querySelector('.engine-status').textContent = '3D ENGINE ACTIVE';
           requestAnimationFrame(() => exteriorLoading.classList.add("loaded"));
         });
         iframeEl.src = buildIframeSrc();
