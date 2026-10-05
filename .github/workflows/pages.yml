@@ -1,5 +1,7 @@
-name: Deploy GitHub Pages (versión estable)
+name: Deploy GitHub Pages
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -15,10 +17,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout (versión estable del 17 de septiembre)
+      - name: Checkout current main
         uses: actions/checkout@v4
-        with:
-          ref: 560a9a6ce0b0384eae6ee85e27748e639feb4f14
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload public
