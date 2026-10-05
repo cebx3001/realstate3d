@@ -108,33 +108,37 @@ function canScrollManifesto(target, direction) {
 
 // A trackpad burst advances exactly one state. The lock releases after the burst,
 // not after a CSS animation. Only the manifesto may use a native inner scrollbar.
-let wheelLocked = false;
+let wheelMode = null;
 let wheelQuiet;
 document.addEventListener('wheel', event => {
   if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX) || !event.deltaY) return;
   const direction = Math.sign(event.deltaY);
-  if (!wheelLocked && canScrollManifesto(event.target, direction)) return;
+  clearTimeout(wheelQuiet);
+  wheelQuiet = setTimeout(() => { wheelMode = null; }, 180);
+  if (!wheelMode && canScrollManifesto(event.target, direction)) wheelMode = 'panel';
+  if (wheelMode === 'panel') return;
   event.preventDefault();
   event.stopPropagation();
-  clearTimeout(wheelQuiet);
-  wheelQuiet = setTimeout(() => { wheelLocked = false; }, 180);
-  if (wheelLocked) return;
-  wheelLocked = true;
+  if (wheelMode === 'state') return;
+  wheelMode = 'state';
   step(direction);
 }, { passive: false, capture: true });
 
 let touchOrigin;
 let touchMoved = false;
+let touchScrolling = false;
 document.addEventListener('touchstart', event => {
   if (event.touches.length !== 1) { touchOrigin = undefined; return; }
   touchOrigin = { x: event.touches[0].clientX, y: event.touches[0].clientY, target: event.target };
   touchMoved = false;
+  touchScrolling = false;
 }, { passive: true });
 document.addEventListener('touchmove', event => {
   if (!touchOrigin || event.touches.length !== 1) return;
   const delta = touchOrigin.y - event.touches[0].clientY;
   const dx = touchOrigin.x - event.touches[0].clientX;
-  if (!touchMoved && canScrollManifesto(touchOrigin.target, Math.sign(delta))) return;
+  if (!touchMoved && canScrollManifesto(touchOrigin.target, Math.sign(delta))) touchScrolling = true;
+  if (touchScrolling) return;
   event.preventDefault();
   event.stopPropagation();
   if (touchMoved || Math.abs(delta) < 24 || Math.abs(delta) <= Math.abs(dx)) return;

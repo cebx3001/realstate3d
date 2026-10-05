@@ -29,7 +29,8 @@ button[aria-pressed="true"]{color:var(--gold)}
 .nav-control{border:0;padding:12px 0;white-space:nowrap}
 .language{margin-left:auto;border:0;white-space:nowrap;padding:12px 0}
 .stream{position:absolute;right:40px;top:106px;z-index:4;color:var(--gold);font-size:10px}
-.status-dot{display:inline-block;width:6px;height:6px;background:var(--gold);margin-right:7px;vertical-align:1px}
+.status-dot{display:inline-block;color:var(--gold);margin-right:7px;vertical-align:0}
+.status-dot::before{content:"●"}
 .cover-card{position:absolute;z-index:4;left:50%;bottom:98px;transform:translateX(-50%);width:min(830px,calc(100% - 80px));padding:22px 28px 0;background:rgba(15,21,31,.86);backdrop-filter:blur(8px);border:1px solid var(--line)}
 .engine-status{margin:0 0 12px;color:var(--gold);font-size:9px}
 .cover-headline{font-family:var(--serif);font-weight:400;letter-spacing:-.045em;line-height:1.05;font-size:clamp(28px,3.6vw,49px);color:var(--gold);margin:0 0 20px}
@@ -78,7 +79,7 @@ body[data-state="technical"] .spine,body[data-state="manifesto"] .spine{display:
  .brand{width:22px;margin-right:17px}.brand svg{width:22px;height:20px}
  .primary-nav{gap:17px}.nav-control,.language{font-size:8px}
  .stream{top:92px;right:33px;font-size:8px}
- .monument{inset:16% 20px 30%;font-size:21.5vw;line-height:1.04}
+ .monument{inset:16% 20px 30%;font-size:26.2vw;line-height:1.04}
  .cover-card{width:calc(100% - 40px);bottom:88px;padding:17px 16px 0}
  .engine-status{font-size:8px;margin-bottom:13px}
  .cover-headline{font-size:clamp(21px,6.25vw,37px);line-height:1.14;margin-bottom:18px;letter-spacing:-.05em}
