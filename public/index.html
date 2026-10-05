@@ -835,41 +835,39 @@
       .folio .wa-link:hover svg { opacity: 1; transform: scale(1.07); }
       @media (max-width: 860px) { .folio { padding-right: 48px; } .folio .wa-link svg { width: 24px; height: 24px; } .folio .wa-link { width: 24px; height: 24px; } }
     
-/* === TORRES DEL NORTE / APPROVED COVER SYSTEM === */
-:root{--field:#0F151F;--field-deep:#0F151F;--cream:#F1EEE6;--gold:#D2B16B;--gold-bright:#D2B16B;--gold-deep:#8f7848;--rule:rgba(210,177,107,.34);--rule-faint:rgba(210,177,107,.18);--muted:rgba(173,187,201,.62);--font-ui:"Courier New",monospace;--edge:0px}
-body{background:var(--field)}
-.edge-gild,.halo,.grain,.marginalia{display:none!important}
-.grade{background:linear-gradient(180deg,rgba(15,21,31,.04),rgba(15,21,31,.16))!important}
-.grade::after{display:none!important}
-iframe{filter:none;background:transparent;z-index:3}
-body::before{content:"TORRES\\A DEL\\A NORTE";white-space:pre;position:fixed;z-index:5;left:4vw;right:2vw;top:15vh;font-family:var(--font-display);font-size:clamp(100px,17vw,310px);font-weight:400;line-height:.72;letter-spacing:-.045em;color:rgba(210,177,107,.34);pointer-events:none;text-shadow:0 0 1px rgba(210,177,107,.18)}
-body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-image:linear-gradient(rgba(210,177,107,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(210,177,107,.13) 1px,transparent 1px);background-size:12.5% 20%;border:1px solid rgba(210,177,107,.25);pointer-events:none}
-.mast{left:0;right:0;top:0;height:82px;padding:0 30px!important;border-bottom:1px solid var(--rule);background:rgba(15,21,31,.82);backdrop-filter:blur(8px);z-index:12;pointer-events:auto;font-family:var(--font-ui);font-size:11px;letter-spacing:.18em}
-.mast .lead{font-size:0;width:36px;height:36px;border:1px solid var(--gold);transform:rotate(45deg);margin-right:18px}
-.mast .lead::after{content:"◇";font-size:25px;position:absolute;transform:rotate(-45deg);color:var(--cream);margin:-1px 0 0 4px}
-.mast .opt{color:var(--cream)}
-.mast .opt:nth-of-type(2)::before{content:"[ PROJECTS ]";font-size:11px}.mast .opt:nth-of-type(2){font-size:0}
-.mast .opt:nth-of-type(3)::before{content:"[ UNITS ]";font-size:11px}.mast .opt:nth-of-type(3){font-size:0}
-.mast::after{content:"[ TEAM ]     [ EN/SP ]";margin-left:auto;color:var(--cream);white-space:pre}
-.mast .brand-mark{display:none}
-.cover{z-index:11;left:30px;right:30px;top:auto;bottom:88px;transform:none;width:min(850px,calc(100vw - 60px));padding:24px 0 18px;pointer-events:none}
-.cover .kicker,.cover h1,.cover-body,.cover hr{display:none}
-.cover-lede{margin:0!important;max-width:18ch!important;font-family:var(--font-display);font-size:clamp(38px,5vw,72px);line-height:1.02;text-transform:uppercase;color:var(--cream)}
-.cover-lede::before{content:"STORIES FROM ABOVE.\\A";white-space:pre}
-.cover-cta{display:inline-flex!important;margin-top:28px!important;font-size:11px;letter-spacing:.24em;color:var(--cream);pointer-events:auto}
-.cover-cta::before{content:"VISIT THE AVAILABLE APARTMENTS  →"}.cover-cta{font-size:0}.cover-cta::before{font-size:11px}.cover-cta::after{display:none}
-.index{z-index:13;right:30px;top:96px;width:auto}.index>.matrix-container,.index>.index-head,.index>.index-legend,.index>.selection-detail{display:none!important}
-.index::before{content:"● UNIT 35B DATA STREAM";font-family:var(--font-ui);font-size:10px;letter-spacing:.08em;color:var(--gold)}
-.folio{left:0;right:0;bottom:0;height:74px;padding:0 78px 0 30px!important;border-top:1px solid var(--rule);background:rgba(15,21,31,.88);z-index:14;font-family:var(--font-ui);font-size:10px;letter-spacing:.18em}
-.folio>span:first-child::before{content:"[ COVER ]";font-size:10px}.folio>span:first-child{font-size:0}.folio .opt{margin-left:auto}.folio .wa-link{right:18px}
-.folio::before{content:"● 3D ENGINE ACTIVE";position:fixed;left:30px;bottom:calc(74px + 16px);color:var(--muted);font-size:10px;letter-spacing:.08em}
-.folio::after{content:"[ LAT: 2°53'S | LON: 79°00'W ]";position:fixed;left:30px;bottom:calc(74px + 48px);color:var(--gold);font-size:10px;letter-spacing:.08em}
-@media(max-width:860px){body::before{left:26px;top:155px;font-size:clamp(92px,25vw,150px);line-height:.86}body::after{inset:82px 16px 74px;background-size:25% 20%}.mast{padding:0 24px!important;gap:18px}.mast .lead{width:26px;height:26px;margin-right:2px}.mast .opt{display:inline!important}.mast .opt:nth-of-type(3){display:none!important}.mast::after{content:"[ TEAM ]   [ EN/SP ]";font-size:9px}.cover{left:30px;right:30px;bottom:92px;width:auto;padding-bottom:18px}.cover-lede{font-size:clamp(36px,10vw,58px)!important;max-width:17ch!important}.index{right:30px;top:auto;bottom:43vh}.folio::before{bottom:calc(74px + 18px)}.folio::after{bottom:calc(74px + 54px)}.folio .opt{display:inline!important;font-size:9px}}
+/* Approved reference: monumental type / transparent building / technical foreground. */
+:root{--field:#0F151F;--field-deep:#0F151F;--cream:#F1EEE6;--gold:#D2B16B;--gold-bright:#D2B16B;--rule:rgba(210,177,107,.34);--rule-faint:rgba(210,177,107,.16);--muted:#9e9c8e;--font-ui:Arial,sans-serif;--edge:0px;--head:64px;--foot:56px}
+html{background:var(--field);scroll-behavior:smooth}body{height:auto;min-height:100svh;overflow-x:hidden;overflow-y:auto;background:var(--field)}
+*{border-radius:0!important}body::before,body::after,.edge-gild,.halo,.grade,.grain,.marginalia{display:none!important}
+.hero-stage{position:relative;height:calc(100svh - var(--head) - var(--foot));margin-top:var(--head);isolation:isolate}
+.hero-grid{position:absolute;inset:0 24px 18px;z-index:0;border:1px solid var(--rule);background-image:linear-gradient(var(--rule-faint) 1px,transparent 1px),linear-gradient(90deg,var(--rule-faint) 1px,transparent 1px);background-size:100% 25%,8.3333% 100%;pointer-events:none}
+.hero-grid::before,.hero-grid::after{content:'+';position:absolute;color:var(--gold);font:24px monospace;left:-10px;top:-14px}.hero-grid::after{top:auto;bottom:-14px;left:auto;right:-10px}
+.hero-type{position:absolute;inset:20px 24px auto;z-index:1;margin:0;color:var(--gold);font-family:var(--font-display);font-weight:400;line-height:.83;letter-spacing:-.065em;pointer-events:none}
+.hero-type .type-line{display:flex;justify-content:space-between;height:calc((100svh - 150px)/3.5);font-size:clamp(100px,16.9vw,300px)}
+.hero-type .type-line:nth-child(2){justify-content:flex-start;gap:.03em}.hero-type span{display:inline-block;will-change:transform;transform-origin:center;backface-visibility:visible}
+iframe{position:absolute;inset:0;width:100%;height:100%;z-index:2;background:transparent;filter:none}
+.stage-coordinate,.stage-stream{position:absolute;z-index:4;color:var(--gold);font:10px/1.4 monospace;letter-spacing:.03em;pointer-events:none}.stage-coordinate{left:28px;bottom:28px}.stage-stream{right:32px;bottom:34%;border-bottom:1px solid var(--rule);padding-bottom:8px}.stage-stream::before{content:'●';margin-right:6px}
+.mast{position:fixed;left:0;right:0;top:0;height:var(--head);padding:0 28px!important;display:flex;gap:38px;z-index:20;background:var(--field);border-bottom:1px solid var(--rule);font:12px/1 monospace;letter-spacing:.04em;pointer-events:auto}
+.mast .lead,.mast::after{display:none}.mast .brand-mark{display:block;position:static;transform:none;width:32px;height:28px;margin:0;color:var(--cream)}.mast .brand-mark svg{width:100%;height:100%}.mast a,.mast button{color:var(--cream);background:none;border:0;text-decoration:none;font:inherit;cursor:pointer;padding:12px 0}.mast .tdn-lang{position:static!important;transform:none!important;margin-left:auto;font:inherit!important;gap:5px!important}.mast .tdn-lang button{font:inherit;padding:10px 2px}.mast .tdn-lang::before{content:'['}.mast .tdn-lang::after{content:']'}
+.cover{position:absolute;top:auto;bottom:calc(var(--foot) + 50px);left:28px;width:min(580px,44vw);padding:22px 24px 20px;transform:none;z-index:7;background:rgba(15,21,31,.8);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);pointer-events:none}
+.cover .kicker,.cover h1,.cover-body,.cover hr{display:none}.engine-status{margin:0 0 16px;color:var(--muted);font:10px monospace;letter-spacing:.03em}.engine-status::before{content:'●';color:var(--gold);margin-right:6px}
+.cover-lede{margin:0!important;max-width:none;font-family:var(--font-display);font-size:clamp(24px,2.8vw,44px);line-height:1.12;letter-spacing:-.025em;color:var(--gold);text-transform:uppercase}.cover-lede::before{content:none}.cover-cta{display:flex!important;width:100%;justify-content:space-between;align-items:center;margin:22px 0 0!important;padding:12px 0 0!important;border:0!important;background:none;font:11px/1.4 Arial,sans-serif;letter-spacing:.16em;color:var(--cream);text-align:left;pointer-events:auto;cursor:pointer}.cover-cta::before{content:none}.cover-cta::after{content:'→';font:24px Arial;margin-left:12px}
+.index{position:fixed;z-index:30;inset:auto 28px calc(var(--foot) + 12px) auto;width:400px;transform:none;pointer-events:auto}.index::before,.apartamentos-toggle,.index-head,.index-legend{display:none!important}.matrix-container{display:none!important}.matrix-container.active{display:block!important;position:fixed;inset:calc(var(--head) + 16px) 28px calc(var(--foot) + 16px);width:auto;overflow-y:auto;padding:46px 22px 22px;background:var(--field);border:1px solid var(--gold);z-index:50}.matrix-close{display:block!important;position:absolute;right:12px;top:8px;background:none;color:var(--gold);border:0;font-size:24px;cursor:pointer}.matrix{display:grid;grid-template-columns:repeat(9,1fr);gap:8px}.matrix-unit{aspect-ratio:1;background:transparent;color:var(--cream);border:1px solid var(--rule);cursor:pointer}.matrix-unit.occupied{opacity:.35}.matrix-unit.featured{border-color:var(--gold);color:var(--gold)}.mobile-available{display:none}.selection-detail{background:var(--field);padding:12px;border:1px solid var(--rule)}
+.folio{position:relative;left:0;right:0;bottom:0;height:var(--foot);padding:0 28px!important;margin:0;z-index:15;border-top:1px solid var(--rule);background:var(--field);font:10px/1.2 monospace;letter-spacing:.12em;display:flex;align-items:center;gap:20px}.folio::before,.folio::after{content:none}.folio .opt{margin-left:auto;margin-right:54px;display:block!important}.folio .wa-link{right:24px;width:28px;height:28px;top:50%;transform:translateY(-50%);bottom:auto;background:none;box-shadow:none;border:0}.folio .wa-link svg{width:26px;height:26px}
+.cinema{background:transparent;backdrop-filter:none;pointer-events:none}.cinema::before{display:none}.cinema span{font:10px monospace;color:var(--gold)}
+.story-track{height:100svh;position:relative}.story-track .story-copy{position:sticky;top:30vh;margin:0 10vw 0 16vw;padding-top:18vh;max-width:650px}.story-copy .kicker{display:block;font:11px monospace;color:var(--gold)}.story-copy p{font:clamp(24px,3.5vw,50px)/1.18 var(--font-display);color:var(--cream)}
+@media(max-width:860px){:root{--head:56px;--foot:54px}.mast{padding:0 16px!important;gap:0;justify-content:space-between;font-size:10px}.mast .brand-mark{width:24px;height:24px}.mast .tdn-lang{margin-left:0}.mast a,.mast button{font-size:10px}.hero-stage{height:calc(100svh - var(--head) - var(--foot) - 224px);min-height:440px}.hero-grid{inset:0 16px 12px;background-size:100% 25%,8.3333% 100%}.hero-type{inset:28px 16px auto;letter-spacing:-.055em}.hero-type .type-line{font-size:26vw;height:calc((100svh - 170px)/4.1);min-height:112px}.hero-type .type-line:nth-child(2){font-size:30vw}.cover{position:relative;left:auto;bottom:auto;top:auto;width:auto;padding:18px 16px 16px;margin:0;background:var(--field);border-top:1px solid var(--rule);border-bottom:0;transform:none}.engine-status{font-size:9px;margin-bottom:12px}.cover-lede{font-size:clamp(24px,5.8vw,40px);line-height:1.16;letter-spacing:-.035em}.cover-cta{margin-top:18px!important;padding:8px 0 8px!important;font-size:10px;letter-spacing:.13em}.stage-coordinate{left:16px;bottom:22px;font-size:8px}.stage-stream{right:16px;bottom:20%;font-size:8px}.folio{padding:0 16px!important;font-size:8px;letter-spacing:.08em}.folio .opt{margin-right:34px;font-size:7px}.folio .wa-link{right:14px;width:22px;height:22px}.folio .wa-link svg{width:22px;height:22px}.index{width:auto;left:16px;right:16px}.matrix-container.active{inset:72px 16px 70px;padding:42px 16px 20px}.matrix{display:none}.mobile-available{display:block!important}.mobile-tower{margin-bottom:24px}.mobile-tower-title{color:var(--gold);font:12px monospace;margin-bottom:10px}.mobile-units{display:grid;gap:12px}.mobile-unit{padding:14px;background:none;color:var(--cream);border:1px solid var(--rule);text-align:left}.story-track .story-copy{margin-left:72px;margin-right:24px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-type span{will-change:auto}}
 
 </style>
   </head>
   <body>
-    <iframe title="Torres del Norte — lámina arquitectónica"></iframe>
+    <div class="hero-stage" id="portada">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-type" aria-label="Torres del Norte"><div class="type-line">TORRES</div><div class="type-line">DEL</div><div class="type-line">NORTE</div></div>
+      <iframe title="Torres del Norte — lámina arquitectónica"></iframe>
+      <div class="stage-coordinate">[ LAT: 2°53'S | LON: 79°00'W ]</div><div class="stage-stream">UNIT 35B DATA STREAM</div>
+    </div>
     <div class="halo"></div>
     <div class="grade"></div>
     <div class="grain"></div>
@@ -877,10 +875,9 @@ body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-
     <div class="cinema" role="status" aria-live="polite"><span>Loading</span></div>
 
     <header class="mast">
-      <span class="lead">Torres del Norte</span>
-      <span class="opt">Cuenca — Ecuador</span>
-      <span class="opt">MMXXVI</span>
       <div class="brand-mark" role="img" aria-label="Gemelos Digitales"><svg viewBox="139 524 784 585" aria-hidden="true" focusable="false"><path fill="currentColor" d="M503.0,524.0 L139.0,816.5 L503.0,1109.0 L503.0,816.5 L474.0,816.5 L474.0,1048.5 L185.3,816.5 L503.0,561.2Z M503.0,598.4 L231.6,816.5 L450.5,992.4 L450.5,816.5 L421.5,816.5 L421.5,931.9 L277.9,816.5 L503.0,635.6Z M559.0,1109.0 L923.0,816.5 L559.0,524.0 L559.0,816.5 L588.0,816.5 L588.0,584.5 L876.7,816.5 L559.0,1071.8Z M559.0,1034.6 L830.4,816.5 L611.5,640.6 L611.5,816.5 L640.5,816.5 L640.5,701.1 L784.1,816.5 L559.0,997.4Z"/></svg></div>
+
+      <a href="#portada">[ PROJECTS ]</a><button class="units-nav">[ UNITS ]</button><a href="https://wa.me/593992730095" target="_blank" rel="noopener">[ TEAM ]</a>
     </header>
 
     <p class="marginalia">Colección Residencial</p>
@@ -888,11 +885,11 @@ body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-
     <section class="cover">
       <p class="kicker">Historias desde arriba</p>
       <h1>Torres<br />del <em>Norte</em></h1>
-      <p class="cover-lede">Una diferente visión de la ciudad comienza aquí.</p>
+      <p class="engine-status">3D ENGINE ACTIVE</p><p class="cover-lede"><span>Historias desde arriba</span>. Una diferente visión de la ciudad comienza aquí.</p>
       <hr />
       <p class="cover-body">Dos torres se elevan sobre el paisaje, reuniendo hogares, terrazas y vidas cotidianas en una única dirección vertical. Elige una residencia. Encuentra su lugar en el edificio. Entra dentro.</p>
       <hr />
-      <button class="cover-cta">Explorar las residencias</button>
+      <button class="cover-cta">Visita los departamentos disponibles</button>
     </section>
 
     <section class="index">
@@ -929,6 +926,7 @@ body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-
       <span class="opt">Arquitectura / Vida / Ciudad</span>
       <a class="wa-link" href="https://wa.me/593992730095" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp" title="WhatsApp +593 99 273 0095"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#ffffff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     </footer>
+    <section class="story-track"><div class="story-copy"><p class="kicker">Historias desde arriba</p><p>Dos torres se elevan sobre el paisaje, reuniendo hogares, terrazas y vidas cotidianas en una única dirección vertical. Elige una residencia. Encuentra su lugar en el edificio. Entra dentro.</p></div></section>
 
     <script>
       (() => {
@@ -990,7 +988,7 @@ body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-
         const CAMERA_FOV = 98;
         // Clear colour handed to the viewer so the splat is printed onto the
         // same field as the page rather than a pale studio backdrop.
-        const PLATE_BG = "0.039,0.035,0.031";
+        const PLATE_BG = "0.059,0.082,0.122";
 
         const interpolateLandscapeCamera = (aspect) => {
           const points = LANDSCAPE_CALIBRATION;
@@ -1008,7 +1006,8 @@ body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-
         };
 
         const computeCameraParams = () => {
-          const aspect = window.innerWidth / window.innerHeight;
+          const stage = document.querySelector(".hero-stage");
+          const aspect = stage.clientWidth / stage.clientHeight;
           if (aspect < 1) {
             // Portrait: original camera already verified to frame the full
             // building beautifully — left untouched.
@@ -1027,7 +1026,7 @@ body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-
           const cam = [...position, ...target, fov].map((n) => n.toFixed(4)).join(",");
           const viewer = publicUrl("viewers/exterior-382a1520/index.html");
           const content = publicUrl("assets/exterior/382a1520/v1-streamed/lod-meta.json");
-          return `${viewer}?release=axis-lock-2&noui&nofx&content=${encodeURIComponent(content)}&cam=${cam}&bg=${PLATE_BG}`;
+          return `${viewer}?release=cover-3&noui&nofx&transparent&webgl&noanim&content=${encodeURIComponent(content)}&cam=${cam}&bg=${PLATE_BG}`;
         };
 
         const iframeEl = document.querySelector("iframe");
@@ -1139,8 +1138,8 @@ body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-
 
         // Editorial CTA
         document.querySelector(".cover-cta").addEventListener("click", () => {
-          const firstAvailable = apartments.find(a => a.available);
-          if (firstAvailable) selectApartment(firstAvailable);
+          renderMobileAvailable();
+          matrixContainer.classList.add("active");
         });
 
         // Mobile: solo los departamentos disponibles, en dos columnas (Torre 1 y Torre 2).
@@ -1196,6 +1195,8 @@ body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-
         };
         renderMobileAvailable();
 
+        document.querySelector(".units-nav").addEventListener("click", () => { renderMobileAvailable(); matrixContainer.classList.add("active"); });
+
         // Mobile toggle
         toggleBtn.addEventListener("click", () => {
           if (window.innerWidth <= 768) {
@@ -1210,6 +1211,18 @@ body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-
         });
       })();
     </script>
+<script>
+(() => {
+ const type = document.querySelector('.hero-type');
+ const stage = document.querySelector('.hero-stage');
+ const letters = [];
+ for (const line of type.children) {const word = line.textContent;line.textContent = '';for (const c of word) {const el=document.createElement('span');el.textContent=c;line.append(el);letters.push(el);}}
+ let origins=[];
+ const measure=()=>{letters.forEach(el=>el.style.transform='');origins=letters.map(el=>{const r=el.getBoundingClientRect();return {x:r.left+r.width/2+scrollX,y:r.top+r.height/2+scrollY,w:r.width,h:r.height};});update();};
+ const update=()=>{const p=Math.min(1,Math.max(0,scrollY/(innerHeight*.72)));letters.forEach((el,i)=>{const o=origins[i];if(!o)return;const x=innerWidth<861?35:54;const y=110+i*28;const scale=Math.min(1,24/o.h);el.style.transform=`translate(${(x-o.x)*p}px,${(y+scrollY-o.y)*p}px) rotateY(${360*p}deg) rotateZ(${-90*p}deg) scale(${1+(scale-1)*p})`;});};
+ window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',measure);measure();
+})();
+</script>
       <script src="i18n.js" defer></script>
   </body>
 </html>
