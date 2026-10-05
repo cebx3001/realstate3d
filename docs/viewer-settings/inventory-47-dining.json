@@ -1,0 +1,84 @@
+{
+  "version": 2,
+  "tonemapping": "none",
+  "highPrecisionRendering": false,
+  "background": {
+    "color": [
+      0.05,
+      0.05,
+      0.045
+    ]
+  },
+  "postEffectSettings": {
+    "sharpness": {
+      "enabled": true,
+      "amount": 0.18
+    },
+    "bloom": {
+      "enabled": false,
+      "intensity": 1,
+      "blurLevel": 2
+    },
+    "grading": {
+      "enabled": true,
+      "brightness": 0.02,
+      "contrast": 1.04,
+      "saturation": 1.02,
+      "tint": [
+        1,
+        0.98,
+        0.92
+      ]
+    },
+    "vignette": {
+      "enabled": true,
+      "intensity": 0.22,
+      "inner": 0.18,
+      "outer": 0.86,
+      "curvature": 1
+    },
+    "fringing": {
+      "enabled": false,
+      "intensity": 0.5
+    }
+  },
+  "animTracks": [],
+  "annotations": [
+    {
+      "name": "Comedor",
+      "position": [
+        -0.516,
+        1.096,
+        -2.628
+      ],
+      "cameraPosition": [
+        -1.513,
+        1.54,
+        -2.665
+      ],
+      "cameraTarget": [
+        -0.516,
+        1.096,
+        -2.628
+      ]
+    }
+  ],
+  "startMode": "walk",
+  "cameras": [
+    {
+      "initial": {
+        "position": [
+          -1.513,
+          1.54,
+          -2.665
+        ],
+        "target": [
+          -0.516,
+          1.096,
+          -2.628
+        ],
+        "fov": 90
+      }
+    }
+  ]
+}
