@@ -834,7 +834,39 @@
       .folio .wa-link svg { display: block; width: 26px; height: 26px; filter:drop-shadow(0 1px 3px rgba(0,0,0,.45)); opacity: .95; transition: opacity .2s ease, transform .2s ease; }
       .folio .wa-link:hover svg { opacity: 1; transform: scale(1.07); }
       @media (max-width: 860px) { .folio { padding-right: 48px; } .folio .wa-link svg { width: 24px; height: 24px; } .folio .wa-link { width: 24px; height: 24px; } }
-    </style>
+    
+/* === TORRES DEL NORTE / APPROVED COVER SYSTEM === */
+:root{--field:#0F151F;--field-deep:#0F151F;--cream:#F1EEE6;--gold:#D2B16B;--gold-bright:#D2B16B;--gold-deep:#8f7848;--rule:rgba(210,177,107,.34);--rule-faint:rgba(210,177,107,.18);--muted:rgba(173,187,201,.62);--font-ui:"Courier New",monospace;--edge:0px}
+body{background:var(--field)}
+.edge-gild,.halo,.grain,.marginalia{display:none!important}
+.grade{background:linear-gradient(180deg,rgba(15,21,31,.04),rgba(15,21,31,.16))!important}
+.grade::after{display:none!important}
+iframe{filter:none;background:transparent;z-index:3}
+body::before{content:"TORRES\\A DEL\\A NORTE";white-space:pre;position:fixed;z-index:1;left:4vw;right:2vw;top:15vh;font-family:var(--font-display);font-size:clamp(100px,17vw,310px);font-weight:400;line-height:.72;letter-spacing:-.045em;color:rgba(210,177,107,.17);pointer-events:none}
+body::after{content:"";position:fixed;z-index:2;inset:82px 18px 74px;background-image:linear-gradient(rgba(210,177,107,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(210,177,107,.13) 1px,transparent 1px);background-size:12.5% 20%;border:1px solid rgba(210,177,107,.25);pointer-events:none}
+.mast{left:0;right:0;top:0;height:82px;padding:0 30px!important;border-bottom:1px solid var(--rule);background:rgba(15,21,31,.82);backdrop-filter:blur(8px);z-index:12;pointer-events:auto;font-family:var(--font-ui);font-size:11px;letter-spacing:.18em}
+.mast .lead{font-size:0;width:36px;height:36px;border:1px solid var(--gold);transform:rotate(45deg);margin-right:18px}
+.mast .lead::after{content:"◇";font-size:25px;position:absolute;transform:rotate(-45deg);color:var(--cream);margin:-1px 0 0 4px}
+.mast .opt{color:var(--cream)}
+.mast .opt:nth-of-type(2)::before{content:"[ PROJECTS ]";font-size:11px}.mast .opt:nth-of-type(2){font-size:0}
+.mast .opt:nth-of-type(3)::before{content:"[ UNITS ]";font-size:11px}.mast .opt:nth-of-type(3){font-size:0}
+.mast::after{content:"[ TEAM ]     [ EN/SP ]";margin-left:auto;color:var(--cream);white-space:pre}
+.mast .brand-mark{display:none}
+.cover{z-index:11;left:30px;right:30px;top:auto;bottom:88px;transform:none;width:min(850px,calc(100vw - 60px));padding:24px 0 18px;pointer-events:none}
+.cover .kicker,.cover h1,.cover-body,.cover hr{display:none}
+.cover-lede{margin:0!important;max-width:18ch!important;font-family:var(--font-display);font-size:clamp(38px,5vw,72px);line-height:1.02;text-transform:uppercase;color:var(--cream)}
+.cover-lede::before{content:"STORIES FROM ABOVE.\\A";white-space:pre}
+.cover-cta{display:inline-flex!important;margin-top:28px!important;font-size:11px;letter-spacing:.24em;color:var(--cream);pointer-events:auto}
+.cover-cta::before{content:"VISIT THE AVAILABLE APARTMENTS  →"}.cover-cta{font-size:0}.cover-cta::before{font-size:11px}.cover-cta::after{display:none}
+.index{z-index:13;right:30px;top:96px;width:auto}.index>.matrix-container,.index>.index-head,.index>.index-legend,.index>.selection-detail{display:none!important}
+.index::before{content:"● UNIT 35B DATA STREAM";font-family:var(--font-ui);font-size:10px;letter-spacing:.08em;color:var(--gold)}
+.folio{left:0;right:0;bottom:0;height:74px;padding:0 78px 0 30px!important;border-top:1px solid var(--rule);background:rgba(15,21,31,.88);z-index:14;font-family:var(--font-ui);font-size:10px;letter-spacing:.18em}
+.folio>span:first-child::before{content:"[ COVER ]";font-size:10px}.folio>span:first-child{font-size:0}.folio .opt{margin-left:auto}.folio .wa-link{right:18px}
+.folio::before{content:"● 3D ENGINE ACTIVE";position:fixed;left:30px;bottom:calc(74px + 16px);color:var(--muted);font-size:10px;letter-spacing:.08em}
+.folio::after{content:"[ LAT: 2°53'S | LON: 79°00'W ]";position:fixed;left:30px;bottom:calc(74px + 48px);color:var(--gold);font-size:10px;letter-spacing:.08em}
+@media(max-width:860px){body::before{left:26px;top:155px;font-size:clamp(92px,25vw,150px);line-height:.86}body::after{inset:82px 16px 74px;background-size:25% 20%}.mast{padding:0 24px!important;gap:18px}.mast .lead{width:26px;height:26px;margin-right:2px}.mast .opt{display:inline!important}.mast .opt:nth-of-type(3){display:none!important}.mast::after{content:"[ TEAM ]   [ EN/SP ]";font-size:9px}.cover{left:30px;right:30px;bottom:92px;width:auto;padding-bottom:18px}.cover-lede{font-size:clamp(36px,10vw,58px)!important;max-width:17ch!important}.index{right:30px;top:auto;bottom:43vh}.folio::before{bottom:calc(74px + 18px)}.folio::after{bottom:calc(74px + 54px)}.folio .opt{display:inline!important;font-size:9px}}
+
+</style>
   </head>
   <body>
     <iframe title="Torres del Norte — lámina arquitectónica"></iframe>
