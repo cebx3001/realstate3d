@@ -5,7 +5,7 @@
 <label>VIEWPORT <select id="viewport"><option value="390,844">390 × 844</option><option value="360,640">360 × 640</option><option value="430,932">430 × 932</option><option value="1280,800">1280 × 800</option></select></label>
 <button data-state="cover">COVER</button><button data-state="neighborhood">ENTORNO</button><button data-state="technical">UNITS</button>
 <label>CATEGORÍA <select id="category"><option value="education">01 EDUCACIÓN</option><option value="commerce">02 COMERCIO</option><option value="parks">03 PARQUES</option><option value="culture">04 CULTURA</option><option value="mobility">05 MOVILIDAD</option><option value="services">06 SERVICIOS</option></select></label>
-<output id="status">LOADING</output></header><iframe id="preview" src="./?qa=grid-1" title="Torres del Norte — live viewport"></iframe><script>
+<output id="status">LOADING</output></header><iframe id="preview" src="./?qa=grid-3" title="Torres del Norte — live viewport"></iframe><script>
 const frame=document.getElementById('preview');
 document.getElementById('viewport').addEventListener('change',event=>{const [width,height]=event.target.value.split(',');frame.style.width=width+'px';frame.style.height=height+'px';});
 document.querySelectorAll('[data-state]').forEach(button=>button.addEventListener('click',()=>frame.contentDocument.querySelector(`[data-go="${button.dataset.state}"]`)?.click()));
