@@ -45,9 +45,9 @@
       :root {
         color: #f8f4ec;
         background: #0b0b09;
-        --font-display: Didot, "Bodoni 72", "Bodoni MT", "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
-        --font-editorial: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-        --font-ui: "Avenir Next", "Neue Haas Grotesk Text Pro", "Segoe UI Variable Text", "Segoe UI", Tahoma, sans-serif;
+        --font-display: "TDN HUD", ui-monospace, SFMono-Regular, Consolas, monospace;
+        --font-editorial: "TDN HUD", ui-monospace, SFMono-Regular, Consolas, monospace;
+        --font-ui: "TDN HUD", ui-monospace, SFMono-Regular, Consolas, monospace;
         font-family: var(--font-ui);
       }
 
@@ -1008,7 +1008,7 @@
       .map-close:hover { color: #fff; }
       .map-close:focus-visible { outline: 1px solid #b99457; outline-offset: 2px; }
     </style>
-    <link rel="stylesheet" href="../ui/interior-hud.css?v=grid-4">
+    <link rel="stylesheet" href="../ui/interior-hud.css?v=unified-header-1">
   </head>
   <body>
     <iframe id="viewer" title="Visor InteriorGS"></iframe>
@@ -1759,6 +1759,7 @@
           mSheetDetalles.hidden = true;
         }
         mSheetBackdrop.classList.add('open');
+        document.body.classList.add('details-open');
         mSheet.classList.add('open');
         mDetallesTrigger.classList.remove('visible');
         blip('tick');
@@ -1767,6 +1768,7 @@
       function closeMobileSheet() {
         if (mSheet) mSheet.classList.remove('open');
         if (mSheetBackdrop) mSheetBackdrop.classList.remove('open');
+        document.body.classList.remove('details-open');
       }
 
       function closeMobileEspacios() {
@@ -1796,8 +1798,11 @@
         mRoomName.setAttribute('aria-expanded', String(open));
         blip('tick');
       });
-      mEspacios.addEventListener('click', (e) => {
-        if (e.target === mEspacios) closeMobileEspacios();
+      // Close the compact menu on outside taps, without covering the scene.
+      document.addEventListener('pointerdown', (event) => {
+        if (mEspacios.classList.contains('open') && !mEspacios.contains(event.target) && !mRoomName.contains(event.target)) {
+          closeMobileEspacios();
+        }
       });
 
       mIntro.addEventListener('pointerdown', (e) => {
