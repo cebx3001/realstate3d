@@ -95,12 +95,13 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior .m-room-name::after{width:10px;height:10px;background:none;border-right:1px solid var(--tdn-gold);border-bottom:1px solid var(--tdn-gold);transform:rotate(45deg);transition:none}
  body.editorial-interior .m-room-name[aria-expanded="true"]::after{transform:rotate(225deg)}
  body.editorial-interior .m-room-count{font:11px var(--tdn-mono);color:var(--tdn-gold);text-shadow:none}
- body.editorial-interior .m-espacios{top:calc(74px + max(var(--tdn-row),66px));right:20px;left:20px;width:auto;max-width:none;padding:0;background:var(--tdn-ink);border:1px solid var(--tdn-line);transition:none}
+ body.editorial-interior .m-espacios{top:calc(74px + max(var(--tdn-row),66px));right:20px;left:auto;width:max-content;max-width:calc(100vw - 40px);max-height:calc(100dvh - 174px);overflow-y:auto;overflow-x:hidden;padding:4px 0;background:var(--tdn-ink);border:1px solid var(--tdn-line);transition:none}
  body.editorial-interior .m-espacios.open{transition:none}
- body.editorial-interior .m-espacios::before{background:rgba(15,21,31,.8)}
- body.editorial-interior .m-espacios-item{flex-direction:row;justify-content:flex-start;padding:11px 12px;border-bottom:1px solid var(--tdn-line)!important;text-align:left;color:var(--tdn-ivory)!important}
- body.editorial-interior .m-espacios-num{min-width:28px;text-align:left;color:var(--tdn-gold);font:11px var(--tdn-mono)}
- body.editorial-interior .m-espacios-label{font:11px var(--tdn-mono);letter-spacing:.05em}
+ body.editorial-interior .m-espacios::before{content:none!important;display:none!important}
+ body.editorial-interior .m-espacios-list{display:grid;width:max-content;min-width:100%}
+ body.editorial-interior .m-espacios-item{display:grid;grid-template-columns:24px max-content;justify-content:end;align-items:center;gap:12px;width:100%;padding:11px 14px;border-bottom:1px solid var(--tdn-line)!important;text-align:right;color:var(--tdn-ivory)!important}
+ body.editorial-interior .m-espacios-num{min-width:0;text-align:right;color:var(--tdn-gold);font:11px var(--tdn-mono)}
+ body.editorial-interior .m-espacios-label{text-align:right;white-space:nowrap;font:11px var(--tdn-mono);letter-spacing:.05em}
  body.editorial-interior .m-intro{padding:calc(74px + max(var(--tdn-row),66px) + 18px) 32px 120px;background:rgba(15,21,31,.82);transition:none;justify-content:flex-start}
  body.editorial-interior .m-intro.visible{opacity:1}
  body.editorial-interior .m-intro-kicker{margin:0 0 18px;color:var(--tdn-gold);font:11px var(--tdn-mono);letter-spacing:.05em}
@@ -114,10 +115,11 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior .wa-link{right:47px;bottom:30px;width:23px;height:23px;padding:4px}
  body.editorial-interior .map-panel{left:20px;right:20px;bottom:72px;width:calc(var(--tdn-cell)*3);background:var(--tdn-ink);border:1px solid var(--tdn-line)}
  body.editorial-interior .map-panel.expanded{width:calc(100vw - 40px)}
- body.editorial-interior .m-sheet{left:20px;right:20px;bottom:20px;max-height:calc(100dvh - 130px);background:var(--tdn-ink);border:1px solid var(--tdn-line);backdrop-filter:none;transition:none}
+ body.editorial-interior .m-sheet{left:0;right:0;bottom:0;width:100%;max-height:calc(100dvh - 74px);background:rgba(15,21,31,.60);border:0;border-top:1px solid var(--tdn-gold);border-radius:0!important;backdrop-filter:none;-webkit-backdrop-filter:none;transition:transform 360ms cubic-bezier(.32,.72,0,1)}
  body.editorial-interior .m-sheet-handle{display:none}
- body.editorial-interior .m-sheet-close{top:16px;right:16px;color:var(--tdn-gold)!important;font:11px var(--tdn-mono)}
- body.editorial-interior .m-sheet-content{padding:24px 16px 30px;text-shadow:none}
+ body.editorial-interior .m-sheet-close{top:16px;right:20px;color:var(--tdn-gold)!important;font:11px var(--tdn-mono)}
+ body.editorial-interior .m-sheet-content{padding:52px 20px calc(28px + env(safe-area-inset-bottom,0px));text-shadow:none}
+ body.editorial-interior .m-sheet-backdrop{background:transparent}
  body.editorial-interior .m-sheet-title{margin:0 0 12px;color:var(--tdn-ivory);font:400 clamp(22px,6vw,27px)/1.16 var(--tdn-mono);letter-spacing:-.04em}
  body.editorial-interior .m-sheet-headline{color:var(--tdn-gold);font:400 11.5px/1.45 var(--tdn-mono);letter-spacing:0;text-transform:none}
  body.editorial-interior .m-sheet-copy{color:var(--tdn-ivory);font:400 13px/1.45 var(--tdn-mono)}
