@@ -8,8 +8,7 @@
 <title>Torres del Norte</title>
 <link rel="preload" href="assets/fonts/playfair-display.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="ui/cover.css?v=depth-2">
-<link rel="stylesheet" href="ui/narrative.css?v=depth-2">
+<link rel="stylesheet" href="ui/cover.css?v=grid-1">
 </head>
 <body data-state="cover">
 <main class="experience" aria-label="Torres del Norte">
@@ -35,11 +34,11 @@
   </section>
   <footer class="bottom-hud hero-hud">
     <span class="coordinates">[ LAT: 2°53'S | LON: 79°00'W ]</span>
+    <button class="environment-access" data-go="neighborhood" aria-label="Explorar el entorno" aria-expanded="false" aria-controls="environment-lower-third"><span class="env-access-full" data-en="[ NEIGHBORHOOD ]" data-es="[ ENTORNO ]">[ NEIGHBORHOOD ]</span><span class="env-access-short">[ ENV ]</span></button>
     <button class="cover-button" data-go="cover">[ COVER ]</button>
     <span class="copyright">© 2024 TDS ARQ</span>
     <a class="whatsapp" href="https://wa.me/593992730095" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +593 99 273 0095"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
   </footer>
-  <p class="spine" aria-hidden="true">TORRES DEL NORTE</p>
   <aside class="editorial" id="editorial" aria-label="Project information" hidden>
     <nav class="panel-nav" aria-label="Editorial navigation">
       <button data-go="cover">[ COVER ]</button>
@@ -68,58 +67,29 @@
       <footer class="panel-footer"><span id="selection-status">UNIT 35B / DATA STREAM</span><button data-go="manifesto" data-en="MANIFESTO →" data-es="MANIFIESTO →">MANIFESTO →</button></footer>
     </section>
   </aside>
-  <article class="editorial-flow" lang="es" aria-label="Torres del Norte — entorno urbano">
-    <p class="story-kicker">TORRES DEL NORTE</p>
-    <h2 class="story-headline" data-kinetic>VIVIR EN EL CENTRO DE UNA CIUDAD QUE SE MUEVE.</h2>
-    <p class="story-copy">Torres del Norte se eleva en el centro norte de Quito, dentro de una de las zonas donde la ciudad concentra buena parte de su vida contemporánea. Arquitectura, espacio público, comercio, movilidad y paisaje convergen alrededor de La Carolina para formar un sector que funciona a una escala distinta: la del peatón, la del barrio y la de la ciudad.</p>
-    <p class="story-copy">Aquí, el parque no es simplemente una referencia en el mapa. <strong>LA CAROLINA ES PARTE DE LA VIDA COTIDIANA.</strong> Sus áreas verdes, espacios deportivos y equipamientos culturales introducen una pausa dentro de uno de los principales núcleos empresariales y financieros de la capital.</p>
-    <p class="story-copy">A su alrededor, las avenidas República, Naciones Unidas, Amazonas, Shyris y República del Salvador articulan una red de oficinas, instituciones, hoteles, restaurantes y servicios. El Jardín y Quicentro forman parte del circuito comercial; el Jardín Botánico y el Estadio Olímpico Atahualpa amplían la oferta recreativa y cultural del sector.</p>
-    <h2 class="story-headline city-headline" data-kinetic>LA CIUDAD, A DISTANCIA COTIDIANA.</h2>
-    <p class="story-copy">La Línea 1 del Metro atraviesa este eje mediante las estaciones La Carolina e Iñaquito, conectándolo con el norte, el centro histórico y el sur de Quito. La movilidad deja así de depender de una única forma de recorrer la ciudad.</p>
-    <div class="story-category"><h3>01 / ESPACIO PÚBLICO</h3><ul><li>Parque La Carolina</li><li>Jardín Botánico de Quito</li><li>Bulevar Naciones Unidas</li></ul></div>
-    <div class="story-category"><h3>02 / COMERCIO</h3><ul><li>Quicentro Shopping</li><li>Centro Comercial El Jardín</li><li>Iñaquito</li></ul></div>
-    <div class="story-category"><h3>03 / CULTURA + RECREACIÓN</h3><ul><li>Estadio Olímpico Atahualpa</li><li>Vivarium</li><li>Equipamientos deportivos de La Carolina</li></ul></div>
-    <div class="story-category"><h3>04 / MOVILIDAD</h3><ul><li>Metro de Quito / Línea 1</li><li>Estación La Carolina</li><li>Estación Iñaquito</li><li>Ejes Amazonas / Shyris / Naciones Unidas / República</li></ul></div>
-    <div class="story-category"><h3>05 / CIUDAD</h3><ul><li>Distrito financiero</li><li>Instituciones públicas</li><li>Hoteles</li><li>Restaurantes</li><li>Servicios</li><li>Educación</li></ul></div>
-    <h2 class="story-headline closing-headline" data-kinetic>TORRES DEL NORTE NO SE ENTIENDE SOLAMENTE DESDE EL EDIFICIO. SE ENTIENDE DESDE TODO LO QUE OCURRE A SU ALREDEDOR.</h2>
-    <button class="neighborhood-link" data-go="map">[ EXPLORE THE NEIGHBORHOOD → ]</button>
-  </article>
-  <aside class="neighborhood-map" lang="es" aria-label="Mapa conceptual del entorno de La Carolina" aria-hidden="true" inert>
-    <header class="map-heading"><div><p class="panel-number">QUITO / CENTRO NORTE</p><h2>La ciudad, alrededor.</h2></div><span class="map-index">01—05 / ENTORNO</span></header>
-    <nav class="map-filters" aria-label="Categorías del entorno">
-      <button data-map-filter="all" aria-pressed="true">[ TODO ]</button><button data-map-filter="public" aria-pressed="false">01 / ESPACIO PÚBLICO</button><button data-map-filter="commerce" aria-pressed="false">02 / COMERCIO</button><button data-map-filter="culture" aria-pressed="false">03 / CULTURA</button><button data-map-filter="mobility" aria-pressed="false">04 / MOVILIDAD</button><button data-map-filter="city" aria-pressed="false">05 / CIUDAD</button>
+  <section class="environment-lower-third" id="environment-lower-third" lang="es" aria-label="Entorno de Torres del Norte" hidden>
+    <nav class="environment-categories" aria-label="Categorías del entorno">
+      <button type="button" data-category="education" aria-pressed="false" aria-controls="environment-detail">[ 01_EDUCACIÓN ]</button>
+      <button type="button" data-category="commerce" aria-pressed="false" aria-controls="environment-detail">[ 02_COMERCIO ]</button>
+      <button type="button" data-category="parks" aria-pressed="false" aria-controls="environment-detail">[ 03_PARQUES + ESPACIO PÚBLICO ]</button>
+      <button type="button" data-category="culture" aria-pressed="false" aria-controls="environment-detail">[ 04_CULTURA + RECREACIÓN ]</button>
+      <button type="button" data-category="mobility" aria-pressed="false" aria-controls="environment-detail">[ 05_MOVILIDAD ]</button>
+      <button type="button" data-category="services" aria-pressed="false" aria-controls="environment-detail">[ 06_CIUDAD + SERVICIOS ]</button>
+      <label class="environment-mobile-category"><span class="sr-only">Categoría del entorno</span><select id="environment-mobile-select" aria-label="Categoría del entorno">
+        <option value="education">01 / EDUCACIÓN</option>
+        <option value="commerce">02 / COMERCIO</option>
+        <option value="parks">03 / PARQUES + ESPACIO PÚBLICO</option>
+        <option value="culture">04 / CULTURA + RECREACIÓN</option>
+        <option value="mobility">05 / MOVILIDAD</option>
+        <option value="services">06 / CIUDAD + SERVICIOS</option>
+      </select></label>
     </nav>
-    <div class="map-field">
-      <svg class="map-drawing" viewBox="0 0 1000 650" role="group" aria-label="Retícula conceptual: La Carolina, comercio, cultura y Metro de Quito">
-        <defs><pattern id="map-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#e9e8e2" stroke-opacity=".07" stroke-width="1"/></pattern></defs>
-        <rect width="1000" height="650" fill="url(#map-grid)"/>
-        <g class="map-geography">
-          <g class="map-blocks" fill="none" stroke="#e9e8e2" stroke-opacity=".12"><path d="M55 55h195v100H55zM55 210h195v110H55zM55 375h195v105H55zM55 535h195v65H55zM760 55h185v100H760zM760 210h185v110H760zM760 375h185v105H760zM760 535h185v65H760zM320 55h335v100H320zM320 535h335v65H320z"/></g>
-          <rect class="park-field" x="330" y="235" width="270" height="245" fill="#D2B16B" fill-opacity=".07" stroke="#D2B16B" stroke-opacity=".45"/>
-          <g class="map-roads" fill="none" stroke="#e9e8e2" stroke-opacity=".28" stroke-width="2"><path d="M280 0V650M710 0V650M0 180H1000M0 505H1000M0 345H305M630 345H1000M810 180V505"/></g>
-          <g class="road-labels"><text x="290" y="85" transform="rotate(90 290 85)">AMAZONAS</text><text x="725" y="415" transform="rotate(-90 725 415)">SHYRIS</text><text x="445" y="170">NACIONES UNIDAS</text><text x="420" y="525">REPÚBLICA</text><text x="830" y="470" transform="rotate(-90 830 470)">REP. DEL SALVADOR</text></g>
-          <path class="metro-route" d="M170 600V550H300V220H245V55" fill="none" stroke="#D2B16B" stroke-width="2" stroke-dasharray="6 7"/>
-          <g class="map-marker" data-place="public" data-label="Parque La Carolina"><rect x="450" y="280" width="7" height="7"/><text x="350" y="315">PARQUE LA CAROLINA</text></g>
-          <g class="map-marker" data-place="public" data-label="Jardín Botánico de Quito"><rect x="480" y="415" width="7" height="7"/><text x="355" y="450">JARDÍN BOTÁNICO</text></g>
-          <g class="map-marker" data-place="public" data-label="Bulevar Naciones Unidas"><rect x="555" y="190" width="7" height="7"/><text x="365" y="212">BULEVAR NACIONES UNIDAS</text></g>
-          <g class="map-marker" data-place="commerce" data-label="Quicentro Shopping"><rect x="595" y="100" width="7" height="7"/><text x="355" y="95">QUICENTRO SHOPPING</text></g>
-          <g class="map-marker" data-place="commerce" data-label="Centro Comercial El Jardín"><rect x="350" y="555" width="7" height="7"/><text x="365" y="580">EL JARDÍN</text></g>
-          <g class="map-marker" data-place="commerce" data-label="Iñaquito"><rect x="155" y="265" width="7" height="7"/><text x="75" y="252">IÑAQUITO</text></g>
-          <g class="map-marker" data-place="culture" data-label="Estadio Olímpico Atahualpa"><rect x="855" y="100" width="7" height="7"/><text x="775" y="80">ATAHUALPA</text></g>
-          <g class="map-marker" data-place="culture" data-label="Vivarium / equipamientos deportivos"><rect x="550" y="370" width="7" height="7"/><text x="350" y="392">VIVARIUM / DEPORTE</text></g>
-          <g class="map-marker" data-place="mobility" data-label="Metro / Estación La Carolina"><rect x="295" y="540" width="9" height="9"/><text x="60" y="568">METRO / LA CAROLINA</text></g>
-          <g class="map-marker" data-place="mobility" data-label="Metro / Estación Iñaquito"><rect x="240" y="130" width="9" height="9"/><text x="55" y="120">METRO / IÑAQUITO</text></g>
-          <g class="map-marker" data-place="city" data-label="Distrito financiero / instituciones / servicios"><rect x="805" y="265" width="7" height="7"/><text x="755" y="250">DISTRITO FINANCIERO</text></g>
-          <g class="map-property"><path d="M650 275v-15h15M690 275v-15h-15M650 300v15h15M690 300v15h-15" fill="none" stroke="#D2B16B"/><rect x="665" y="281" width="10" height="10"/><text x="690" y="335" text-anchor="end">TORRES DEL NORTE</text></g>
-        </g>
-      </svg>
-      <div class="map-zoom" aria-label="Escala del mapa"><button data-map-zoom="1" aria-label="Acercar mapa">+</button><button data-map-zoom="-1" aria-label="Alejar mapa">−</button></div>
-      <span class="map-north">N ↑</span>
+    <div class="environment-detail" id="environment-detail" aria-live="polite">
+      <div class="environment-information"><p class="environment-number" id="environment-number"></p><ul class="environment-items" id="environment-items"></ul><p class="environment-summary" id="environment-summary"></p></div>
+      <div class="environment-controls"><button type="button" data-category-step="-1" aria-label="Categoría anterior">[ ← ]</button><button type="button" data-category-step="1" aria-label="Categoría siguiente">[ → ]</button><button type="button" data-go="close-neighborhood" aria-label="Cerrar entorno"><span class="close-full">[ CLOSE X ]</span><span class="close-short">[ X ]</span></button></div>
     </div>
-    <footer class="map-caption"><span id="map-selection" role="status">LA CAROLINA / ENTORNO URBANO</span><span>MAPA CONCEPTUAL</span></footer>
-  </aside>
+  </section>
 </main>
-<script src="ui/vendor/gsap.min.js"></script>
-<script type="module" src="ui/cover.js?v=depth-2"></script>
+<script type="module" src="ui/cover.js?v=grid-1"></script>
 </body>
 </html>

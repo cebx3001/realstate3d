@@ -1,14 +1,18 @@
 import { loadHudEngine } from './supersplat-hud.js';
-import { cameraPose, clamp } from './scroll-model.mjs';
-import { createNarrative } from './narrative.js?v=depth-2';
-import { initializeMap } from './neighborhood.js?v=depth-2';
+import { categories } from './environment-data.js';
 
 const editorial = document.getElementById('editorial');
+const neighborhood = document.getElementById('environment-lower-third');
+const trigger = document.querySelector('.environment-access');
 const status = document.getElementById('engine-status');
-let selectedUnit = '35B', viewer, narrative;
-let engineState = 'loading', progress = 0, manualOrbit = 0;
+const number = document.getElementById('environment-number');
+const items = document.getElementById('environment-items');
+const summary = document.getElementById('environment-summary');
+const picker = document.getElementById('environment-mobile-select');
+let selectedUnit = '35B', selectedCategory = 2, viewer, engineState = 'loading', manualOrbit = 0;
 let lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('tdn-lang') || 'en';
 if (!['en', 'es'].includes(lang)) lang = 'en';
+
 function refreshEngineStatus() {
   const labels = {
     en: { loading: '3D ENGINE LOADING', active: '3D ENGINE ACTIVE', error: '3D ENGINE UNAVAILABLE' },
@@ -23,25 +27,64 @@ function setLanguage(next) {
   document.getElementById('language-switch').setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
   refreshEngineStatus();
 }
-/** Only the existing SuperSplat camera API moves the Gaussian. */
+
+// The cover pose is independent of category state. User drag is the only orbit input.
+function coverPose() {
+  const aspect = innerWidth / innerHeight, portrait = aspect < 1;
+  const target = [-1.202680182821469, portrait ? 66 : 82.01817408535366, 2.9718346269194775];
+  let position;
+  if (portrait) position = [-10.9, 126.4, -90];
+  else {
+    const distance = aspect < 1.333 ? 97 : aspect < 1.778
+      ? 97 + (aspect - 1.333) / .445 * 38.83 : 76.4047 * aspect;
+    const vertical = aspect < 1.778 ? Math.max(0, (1.778 - aspect) / .445 * 10.6) : 0;
+    position = [target[0] - .094629484 * distance, target[1] + .424707888 * distance + vertical, target[2] - .9003713 * distance];
+  }
+  const angle = manualOrbit * Math.PI / 180;
+  const x = position[0] - target[0], z = position[2] - target[2];
+  position[0] = target[0] + x * Math.cos(angle) + z * Math.sin(angle);
+  position[2] = target[2] - x * Math.sin(angle) + z * Math.cos(angle);
+  return { position, target };
+}
 function applyCameraState() {
   const manager = viewer?.cameraManager;
   if (!manager) return;
-  const pose = cameraPose(innerWidth, innerHeight, progress, manualOrbit);
+  const { position, target } = coverPose();
   viewer.global.state.cameraMode = 'orbit'; viewer.global.state.animationPaused = true;
-  manager.camera.look(manager.camera.position.clone().set(...pose.position), manager.camera.position.clone().set(...pose.target));
-  manager.camera.fov = pose.fov; manager.snap(); viewer.global.app.renderNextFrame = true;
+  manager.camera.look(manager.camera.position.clone().set(...position), manager.camera.position.clone().set(...target));
+  manager.camera.fov = 98; manager.snap(); viewer.global.app.renderNextFrame = true;
 }
-function closeUnits() { editorial.hidden = true; document.body.dataset.units = 'closed'; }
+function selectCategory(index) {
+  selectedCategory = (index + categories.length) % categories.length;
+  const category = categories[selectedCategory];
+  number.textContent = `${category.code} / ${category.title}`;
+  items.replaceChildren(...category.items.map(value => {
+    const item = document.createElement('li'); item.textContent = value; return item;
+  }));
+  summary.textContent = category.summary;
+  picker.value = category.key;
+  neighborhood.querySelectorAll('[data-category]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.category === category.key));
+  });
+}
+function closeNeighborhood() {
+  neighborhood.hidden = true; document.body.dataset.neighborhood = 'closed'; trigger.setAttribute('aria-expanded', 'false');
+}
+function openNeighborhood() {
+  editorial.hidden = true; document.body.dataset.units = 'closed';
+  selectCategory(selectedCategory);
+  neighborhood.hidden = false; document.body.dataset.neighborhood = 'open'; trigger.setAttribute('aria-expanded', 'true');
+}
 function go(destination) {
   if (destination === 'technical') {
-    editorial.hidden = false; document.body.dataset.units = 'open';
+    closeNeighborhood(); editorial.hidden = false; document.body.dataset.units = 'open';
     document.querySelector('.panel-nav [data-go="technical"]').setAttribute('aria-pressed', 'true');
-  } else {
-    closeUnits();
-    if (destination === 'cover') { manualOrbit = 0; narrative?.seek(0); }
-    else if (destination === 'manifesto') narrative?.seek(.065);
-    else if (destination === 'map') narrative?.seek(1);
+  } else if (destination === 'neighborhood' || destination === 'manifesto') {
+    if (destination === 'neighborhood' && !neighborhood.hidden) closeNeighborhood();
+    else openNeighborhood();
+  } else if (destination === 'close-neighborhood') closeNeighborhood();
+  else if (destination === 'cover') {
+    editorial.hidden = true; document.body.dataset.units = 'closed'; closeNeighborhood();
   }
 }
 function selectUnit(code) {
@@ -56,23 +99,36 @@ function selectUnit(code) {
 }
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => go(button.dataset.go)));
 document.querySelectorAll('[data-select]').forEach(button => button.addEventListener('click', () => selectUnit(button.dataset.select)));
+document.querySelectorAll('[data-category]').forEach(button => button.addEventListener('click', () => selectCategory(categories.findIndex(category => category.key === button.dataset.category))));
+document.querySelectorAll('[data-category-step]').forEach(button => button.addEventListener('click', () => selectCategory(selectedCategory + Number(button.dataset.categoryStep))));
+picker.addEventListener('change', () => selectCategory(categories.findIndex(category => category.key === picker.value)));
 document.getElementById('language-switch').addEventListener('click', () => setLanguage(lang === 'en' ? 'es' : 'en'));
-document.addEventListener('keydown', event => { if (event.key === 'Escape') { if (!editorial.hidden) closeUnits(); else go('cover'); } });
-setLanguage(lang);
-const neighborhood = initializeMap();
-window.__tdnExperience = Object.freeze({
-  get state() { return !editorial.hidden ? 'technical' : document.body.dataset.narrative || 'cover'; },
-  get progress() { return progress; }, get unit() { return selectedUnit; }, get engine() { return engineState; },
-  get camera() { const c = viewer?.cameraManager?.camera; return c ? { position: [c.position.x,c.position.y,c.position.z], fov: c.fov } : null; },
-  // Also used by the separate, visible viewport QA fixture; no automatic playback.
-  seek(value) { if (Number.isFinite(value)) { closeUnits(); narrative?.seek(clamp(value)); } },
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    if (!neighborhood.hidden) closeNeighborhood();
+    else if (!editorial.hidden) go('cover');
+  }
 });
-createNarrative({
-  onProgress(value) { progress = value; applyCameraState(); },
-  onMapPan(dx) { neighborhood.pan(dx); },
-  onOrbit(delta) { manualOrbit = clamp(manualOrbit + delta, -35, 35); applyCameraState(); },
-  isModalOpen: () => !editorial.hidden,
-}).then(value => { narrative = value; }).catch(error => console.error('Torres del Norte: narrative initialization failed', error));
+let drag;
+const scene = document.querySelector('.scene');
+scene.addEventListener('pointerdown', event => {
+  if (event.button !== 0 && event.pointerType === 'mouse') return;
+  drag = event.clientX; scene.setPointerCapture(event.pointerId);
+});
+scene.addEventListener('pointermove', event => {
+  if (drag == null) return;
+  manualOrbit = Math.max(-35, Math.min(35, manualOrbit + (event.clientX - drag) * .12));
+  drag = event.clientX; applyCameraState();
+});
+scene.addEventListener('pointerup', () => { drag = null; });
+scene.addEventListener('lostpointercapture', () => { drag = null; });
+window.addEventListener('resize', applyCameraState);
+setLanguage(lang); selectCategory(selectedCategory); closeNeighborhood();
+window.__tdnExperience = Object.freeze({
+  get state() { return !editorial.hidden ? 'technical' : !neighborhood.hidden ? 'neighborhood' : 'cover'; },
+  get category() { return categories[selectedCategory].key; }, get unit() { return selectedUnit; }, get engine() { return engineState; },
+  get camera() { const c = viewer?.cameraManager?.camera; return c ? { position: [c.position.x,c.position.y,c.position.z], fov: c.fov } : null; },
+});
 
 async function startScene() {
   const canvas = document.getElementById('scene-canvas');
