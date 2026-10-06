@@ -132,4 +132,4 @@ body[data-neighborhood="open"] .cover-card{visibility:hidden}
  .environment-controls button{font-size:8px;padding:0}
 }
 @media(max-width:374px){.environment-access{font-size:7px}.environment-summary{display:none}}
-@media(max-height:690px){.environment-summary{display:none}}
+@media(max-height:690px){.environment-summary{display:none}.environment-number{display:none}}
