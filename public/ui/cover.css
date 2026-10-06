@@ -69,9 +69,6 @@ button[aria-pressed="true"]{color:var(--gold)}
 .manifesto-headline span{display:block}
 .manifesto-copy{font-family:var(--serif);font-size:clamp(24px,2.6vw,37px);font-weight:400;letter-spacing:-.035em;text-transform:none;line-height:1.35;margin:0 0 32px}
 .manifesto-body .cover-cta{margin-top:40px;color:var(--gold)}
-body[data-state="technical"] .hero-hud,body[data-state="manifesto"] .hero-hud{opacity:0;pointer-events:none;visibility:hidden}
-body[data-state="technical"] .monument,body[data-state="manifesto"] .monument{display:none}
-body[data-state="technical"] .spine,body[data-state="manifesto"] .spine{display:block}
 @media(min-width:1600px){.cover-card{bottom:110px}}
 @media(max-width:700px){
  :root{--spine:52px}
