@@ -1008,7 +1008,7 @@
       .map-close:hover { color: #fff; }
       .map-close:focus-visible { outline: 1px solid #b99457; outline-offset: 2px; }
     </style>
-    <link rel="stylesheet" href="../ui/interior-hud.css?v=menus-1">
+    <link rel="stylesheet" href="../ui/interior-hud.css?v=layers-1">
   </head>
   <body>
     <iframe id="viewer" title="Visor InteriorGS"></iframe>
@@ -1759,6 +1759,7 @@
           mSheetDetalles.hidden = true;
         }
         mSheetBackdrop.classList.add('open');
+        document.body.classList.add('details-open');
         mSheet.classList.add('open');
         mDetallesTrigger.classList.remove('visible');
         blip('tick');
@@ -1767,6 +1768,7 @@
       function closeMobileSheet() {
         if (mSheet) mSheet.classList.remove('open');
         if (mSheetBackdrop) mSheetBackdrop.classList.remove('open');
+        document.body.classList.remove('details-open');
       }
 
       function closeMobileEspacios() {
