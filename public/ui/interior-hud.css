@@ -81,7 +81,7 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior .desktop-unit-label{display:none}
  body.editorial-interior .mobile-unit-nav{display:inline}
  body.editorial-interior #unitNavHome{display:none}
- body.editorial-interior #unitNav{color:var(--tdn-gold);font:11px var(--tdn-mono);letter-spacing:.05em;padding:7px 19px 7px 2px;background:none;border:0}
+ body.editorial-interior #unitNav{color:var(--tdn-gold);font:11px var(--tdn-mono);letter-spacing:.05em;appearance:none;-webkit-appearance:none;padding:7px 26px 7px 2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23D2B16B' stroke-width='2.5' stroke-linejoin='miter'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;background-size:15px 15px;border:0;cursor:pointer}
  body.editorial-interior header .brand-mark{right:12px;width:22px}
  body.editorial-interior .chrome{inset:20px}
  /* Clear portion starts below the mobile room selector; footer starts 64px from bottom. */
@@ -98,7 +98,7 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior .dock.expanded button{padding:14px 12px;border-bottom:1px solid var(--tdn-line);border-left:0;text-align:left}
  body.editorial-interior .m-room-bar{top:54px;left:0;right:0;width:100%;box-sizing:border-box;height:calc(var(--tdn-row));min-height:66px;padding:0 20px;background:rgba(15,21,31,.55);border:0;border-bottom:1px solid var(--tdn-line)}
  body.editorial-interior .m-room-name{font:11px var(--tdn-mono);letter-spacing:.05em;color:var(--tdn-gold);text-shadow:none}
- body.editorial-interior .m-room-name::after{width:10px;height:10px;background:none;border-right:1px solid var(--tdn-gold);border-bottom:1px solid var(--tdn-gold);transform:rotate(45deg);transition:none}
+ body.editorial-interior .m-room-name::after{width:12px;height:12px;background:none;border-right:2px solid var(--tdn-gold);border-bottom:2px solid var(--tdn-gold);transform:rotate(45deg);transition:transform 180ms ease;opacity:1;margin-right:2px}
  body.editorial-interior .m-room-name[aria-expanded="true"]::after{transform:rotate(225deg)}
  body.editorial-interior .m-room-count{font:11px var(--tdn-mono);color:var(--tdn-gold);text-shadow:none}
  body.editorial-interior .m-espacios{top:calc(54px + max(var(--tdn-row),66px));right:20px;left:auto;width:max-content;max-width:calc(100vw - 40px);max-height:calc(100dvh - 174px);overflow-y:auto;overflow-x:hidden;padding:4px 0;background:var(--tdn-ink);border:1px solid var(--tdn-line);transition:none}
