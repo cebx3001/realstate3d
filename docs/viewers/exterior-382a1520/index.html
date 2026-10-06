@@ -1588,7 +1588,8 @@
                                 send('tdn:camera', { requestId, camera: cameraSnapshot() });
                             } else if (action === 'fly-to') {
                                 if (!annotation?.camera?.initial || !Array.isArray(annotation.position)) throw new Error('Anotación incompleta.');
-                                viewer.cameraManager.selectAnnotation(annotation);
+                                // v1.30.2 routes native annotation fly-to through this camera-manager event.
+                                viewer.global.events.fire('annotation.activate', annotation);
                                 send('tdn:fly-to', { requestId });
                             }
                         } catch (error) {
@@ -1614,7 +1615,7 @@
                             send('tdn:bridge-error', { message: String(error.message || error) });
                         }
                     });
-                    send('tdn:viewer-ready');
+                    viewer.global.events.once('firstFrame', () => send('tdn:viewer-ready'));
                 } catch (error) {
                     console.error(error);
                     if (window.parent !== window) window.parent.postMessage({type:'tdn:render-error'}, location.origin);
