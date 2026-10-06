@@ -1008,7 +1008,7 @@
       .map-close:hover { color: #fff; }
       .map-close:focus-visible { outline: 1px solid #b99457; outline-offset: 2px; }
     </style>
-    <link rel="stylesheet" href="../ui/interior-hud.css?v=bars-1">
+    <link rel="stylesheet" href="../ui/interior-hud.css?v=menus-1">
   </head>
   <body>
     <iframe id="viewer" title="Visor InteriorGS"></iframe>
@@ -1796,8 +1796,11 @@
         mRoomName.setAttribute('aria-expanded', String(open));
         blip('tick');
       });
-      mEspacios.addEventListener('click', (e) => {
-        if (e.target === mEspacios) closeMobileEspacios();
+      // Close the compact menu on outside taps, without covering the scene.
+      document.addEventListener('pointerdown', (event) => {
+        if (mEspacios.classList.contains('open') && !mEspacios.contains(event.target) && !mRoomName.contains(event.target)) {
+          closeMobileEspacios();
+        }
       });
 
       mIntro.addEventListener('pointerdown', (e) => {
