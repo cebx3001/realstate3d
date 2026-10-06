@@ -18,7 +18,7 @@ button[aria-pressed="true"]{color:var(--gold)}
 .monument span{display:block}
 .scene{position:fixed;inset:0;z-index:2;pointer-events:auto;touch-action:none;cursor:grab}
 .scene:active{cursor:grabbing}
-.scene canvas{display:block;width:100%;height:100%;background:transparent}
+.scene iframe{display:block;width:100%;height:100%;border:0;background:transparent}
 .crosshair{position:absolute;width:15px;height:15px;z-index:8;pointer-events:none;color:var(--gold)}
 .crosshair::before,.crosshair::after{content:"";position:absolute;background:currentColor;opacity:.65}
 .crosshair::before{width:15px;height:1px;top:7px;left:0}

@@ -1,4 +1,3 @@
-import { loadHudEngine } from './supersplat-hud.js';
 import { categories } from './environment-data.js';
 
 const editorial = document.getElementById('editorial');
@@ -9,7 +8,7 @@ const number = document.getElementById('environment-number');
 const items = document.getElementById('environment-items');
 const summary = document.getElementById('environment-summary');
 const picker = document.getElementById('environment-mobile-select');
-let selectedUnit = '35B', selectedCategory = 2, viewer, engineState = 'loading', manualOrbit = 0;
+let selectedUnit = '35B', selectedCategory = 2, engineState = 'loading';
 let lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('tdn-lang') || 'en';
 if (!['en', 'es'].includes(lang)) lang = 'en';
 
@@ -40,19 +39,7 @@ function coverPose() {
     const vertical = aspect < 1.778 ? Math.max(0, (1.778 - aspect) / .445 * 10.6) : 0;
     position = [target[0] - .094629484 * distance, target[1] + .424707888 * distance + vertical, target[2] - .9003713 * distance];
   }
-  const angle = manualOrbit * Math.PI / 180;
-  const x = position[0] - target[0], z = position[2] - target[2];
-  position[0] = target[0] + x * Math.cos(angle) + z * Math.sin(angle);
-  position[2] = target[2] - x * Math.sin(angle) + z * Math.cos(angle);
   return { position, target };
-}
-function applyCameraState() {
-  const manager = viewer?.cameraManager;
-  if (!manager) return;
-  const { position, target } = coverPose();
-  viewer.global.state.cameraMode = 'orbit'; viewer.global.state.animationPaused = true;
-  manager.camera.look(manager.camera.position.clone().set(...position), manager.camera.position.clone().set(...target));
-  manager.camera.fov = 98; manager.snap(); viewer.global.app.renderNextFrame = true;
 }
 function selectCategory(index) {
   selectedCategory = (index + categories.length) % categories.length;
@@ -109,50 +96,38 @@ document.addEventListener('keydown', event => {
     else if (!editorial.hidden) go('cover');
   }
 });
-let drag;
-const scene = document.querySelector('.scene');
-scene.addEventListener('pointerdown', event => {
-  if (event.button !== 0 && event.pointerType === 'mouse') return;
-  drag = event.clientX; scene.setPointerCapture(event.pointerId);
-});
-scene.addEventListener('pointermove', event => {
-  if (drag == null) return;
-  manualOrbit = Math.max(-35, Math.min(35, manualOrbit + (event.clientX - drag) * .12));
-  drag = event.clientX; applyCameraState();
-});
-scene.addEventListener('pointerup', () => { drag = null; });
-scene.addEventListener('lostpointercapture', () => { drag = null; });
-window.addEventListener('resize', applyCameraState);
 setLanguage(lang); selectCategory(selectedCategory); closeNeighborhood();
 window.__tdnExperience = Object.freeze({
   get state() { return !editorial.hidden ? 'technical' : !neighborhood.hidden ? 'neighborhood' : 'cover'; },
   get category() { return categories[selectedCategory].key; }, get unit() { return selectedUnit; }, get engine() { return engineState; },
-  get camera() { const c = viewer?.cameraManager?.camera; return c ? { position: [c.position.x,c.position.y,c.position.z], fov: c.fov } : null; },
+  get camera() { return { position: coverPose().position, fov: 98 }; },
 });
 
-async function startScene() {
-  const canvas = document.getElementById('scene-canvas');
-  canvas.addEventListener('webglcontextcreationerror', event => {
-    console.error('Torres del Norte: graphics context creation failed:', event.statusMessage || 'No platform details');
-  });
-  const [{ main }, response] = await Promise.all([
-    loadHudEngine(), fetch('viewers/exterior-382a1520/settings.json'),
-  ]);
-  if (!response.ok) throw new Error(`SuperSplat settings: HTTP ${response.status}`);
-  const settings = await response.json();
-  settings.background.color = [0, 0, 0, 0];
-  viewer = await main(canvas, settings, {
-    contentUrl: new URL('assets/exterior/382a1520/v1-streamed/lod-meta.json', location.href).href,
-    renderer: 'webgl', headless: true, lockedCamera: true, transparent: true,
-    noui: true, noanim: true, nofx: true, lang,
-  });
-  viewer.global.events.on('camera:ready', applyCameraState);
-  viewer.global.events.on('firstFrame', () => {
-    applyCameraState(); engineState = 'active'; refreshEngineStatus();
-  });
-  viewer.global.events.on('error', error => { console.error(error); engineState = 'error'; refreshEngineStatus(); });
+const sceneViewer = document.getElementById('scene-viewer');
+function viewerUrl() {
+  const { position, target } = coverPose();
+  const camera = [...position, ...target, 98].map(value => value.toFixed(4)).join(',');
+  const url = new URL('viewers/exterior-382a1520/index.html', location.href);
+  url.searchParams.set('content', new URL('assets/exterior/382a1520/v1-streamed/lod-meta.json', location.href).href);
+  url.searchParams.set('cam', camera);
+  url.searchParams.set('bg', '0.0588,0.08235,0.12157');
+  url.searchParams.set('lang', lang);
+  for (const flag of ['noui', 'nofx', 'noanim', 'transparent']) url.searchParams.set(flag, '');
+  return url.href;
 }
-startScene().catch(error => {
-  console.error('Torres del Norte: SuperSplat initialization failed', error);
-  engineState = 'error'; refreshEngineStatus();
+window.addEventListener('message', event => {
+  if (event.origin !== location.origin || event.source !== sceneViewer.contentWindow) return;
+  if (event.data?.type === 'tdn:first-useful-frame') {
+    engineState = 'active'; refreshEngineStatus();
+  }
+});
+sceneViewer.addEventListener('error', () => { engineState = 'error'; refreshEngineStatus(); });
+sceneViewer.src = viewerUrl();
+let lastOrientation = innerWidth < innerHeight ? 'portrait' : 'landscape';
+window.addEventListener('resize', () => {
+  const orientation = innerWidth < innerHeight ? 'portrait' : 'landscape';
+  if (orientation === lastOrientation) return;
+  lastOrientation = orientation;
+  engineState = 'loading'; refreshEngineStatus();
+  sceneViewer.src = viewerUrl();
 });
