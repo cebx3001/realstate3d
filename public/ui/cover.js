@@ -1,5 +1,5 @@
 import { categories } from './environment-data.js';
-import { initUnitEditor } from './unit-editor.js';
+import { initUnitEditor } from './unit-editor.js?v=unit-capture-3';
 
 const editorial = document.getElementById('editorial');
 const neighborhood = document.getElementById('environment-lower-third');
@@ -112,7 +112,7 @@ function viewerUrl() {
   const { position, target } = coverPose();
   const camera = [...position, ...target, 98].map(value => value.toFixed(4)).join(',');
   const url = new URL('viewers/exterior-382a1520/index.html', location.href);
-  url.searchParams.set('bridge', 'unit-capture-2');
+  url.searchParams.set('bridge', 'unit-capture-3');
   url.searchParams.set('content', new URL('assets/exterior/382a1520/v1-streamed/lod-meta.json', location.href).href);
   url.searchParams.set('cam', camera);
   url.searchParams.set('bg', '0.0588,0.08235,0.12157');

@@ -74,6 +74,9 @@ export function initUnitEditor(sceneViewer) {
     if (data?.type === 'tdn:viewer-ready') {
       ready = true;
       if (queuedUnit && settings) { const code = queuedUnit; queuedUnit = null; flyTo(code); }
+    } else if (data?.type === 'tdn:render-error' && active) {
+      ready = false;
+      say('EL VISOR 3D NO ESTÁ DISPONIBLE EN ESTE NAVEGADOR.');
     } else if (data?.type === 'tdn:point' && active) {
       if (!finiteVec(data.position)) return;
       point = data.position;
@@ -104,6 +107,7 @@ export function initUnitEditor(sceneViewer) {
     }
   });
 
+  sceneViewer.addEventListener('load', () => { ready = false; });
   load();
   if (active) {
     document.body.dataset.edit = 'true';
