@@ -56,7 +56,7 @@ body.editorial-interior .map-head{padding:10px 12px;border-bottom:1px solid var(
 body.editorial-interior .map-body{background:var(--tdn-ink)}
 body.editorial-interior .map-body img{filter:none}
 body.editorial-interior .map-pin{border-radius:0!important;background:var(--tdn-ink);box-shadow:none}
-body.editorial-interior .wa-link{z-index:40;right:28px;bottom:32px;width:26px;height:26px;padding:4px;border:1px solid var(--tdn-line)}
+body.editorial-interior .wa-link{z-index:40;right:43px;bottom:32px;width:26px;height:26px;padding:4px;border:1px solid var(--tdn-line)}
 body.editorial-interior .wa-link svg{width:18px;height:18px;filter:none}
 body.editorial-interior .map-close{color:var(--tdn-gold);text-decoration:none;font:8px var(--tdn-mono)}
 body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--tdn-gold)}
@@ -106,9 +106,9 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior .m-intro-copy{color:var(--tdn-ivory);font:400 13px/1.45 var(--tdn-sans)}
  body.editorial-interior .m-intro-hint{left:32px;bottom:92px;color:var(--tdn-gold);font:9px var(--tdn-mono);letter-spacing:.05em;animation:none}
  body.editorial-interior .m-walk-hint{bottom:180px;color:var(--tdn-gold);font:9px/1.4 var(--tdn-mono);letter-spacing:.05em}
- body.editorial-interior .tools{left:20px;right:58px;bottom:20px;height:50px;gap:0;align-items:center;border-top:1px solid var(--tdn-line)}
+ body.editorial-interior .tools{left:20px;right:73px;bottom:20px;height:50px;gap:0;align-items:center;border-top:1px solid var(--tdn-line)}
  body.editorial-interior .tools button,body.editorial-interior .tools .m-detalles-trigger{font:8px var(--tdn-mono);letter-spacing:.05em;color:var(--tdn-ivory)!important;border:0!important;border-right:1px solid var(--tdn-line)!important;padding:10px 8px!important}
- body.editorial-interior .wa-link{right:24px;bottom:30px;width:23px;height:23px;padding:4px}
+ body.editorial-interior .wa-link{right:39px;bottom:30px;width:23px;height:23px;padding:4px}
  body.editorial-interior .map-panel{left:20px;right:20px;bottom:72px;width:calc(var(--tdn-cell)*3);background:var(--tdn-ink);border:1px solid var(--tdn-line)}
  body.editorial-interior .map-panel.expanded{width:calc(100vw - 40px)}
  body.editorial-interior .m-sheet{left:20px;right:20px;bottom:20px;max-height:calc(100dvh - 130px);background:var(--tdn-ink);border:1px solid var(--tdn-line);backdrop-filter:none;transition:none}
