@@ -14,7 +14,8 @@ body.editorial-interior .crosshair{position:fixed;width:15px;height:15px;z-index
 body.editorial-interior .crosshair::before,body.editorial-interior .crosshair::after{content:"";position:absolute;background:currentColor;opacity:.65}
 body.editorial-interior .crosshair::before{width:15px;height:1px;top:7px;left:0}
 body.editorial-interior .crosshair::after{width:1px;height:15px;top:0;left:7px}
-body.editorial-interior .crosshair.tl{top:20px;left:20px}body.editorial-interior .crosshair.tr{top:20px;right:20px}body.editorial-interior .crosshair.bl{bottom:20px;left:20px}body.editorial-interior .crosshair.br{bottom:20px;right:20px}
+/* Reticle corners belong to the clear viewer area, never the header/footer rails. */
+body.editorial-interior .crosshair.tl{top:76px;left:20px}body.editorial-interior .crosshair.tr{top:76px;right:20px}body.editorial-interior .crosshair.bl{bottom:76px;left:20px}body.editorial-interior .crosshair.br{bottom:76px;right:20px}
 body.editorial-interior .veil{background:var(--tdn-ink)}
 body.editorial-interior header{z-index:36;top:0;left:0;right:0;height:64px;padding:0 24px;display:grid;grid-template-columns:4fr 4fr 4fr;background:var(--tdn-bar-bg);border:0;border-bottom:1px solid var(--tdn-line);color:var(--tdn-ivory);font:10px var(--tdn-mono);letter-spacing:.05em}
 body.editorial-interior header span,body.editorial-interior header a,body.editorial-interior header select{font-family:var(--tdn-mono);font-weight:400;letter-spacing:.05em;text-shadow:none}
@@ -83,6 +84,11 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior #unitNav{color:var(--tdn-gold);font:11px var(--tdn-mono);letter-spacing:.05em;padding:7px 19px 7px 2px;background:none;border:0}
  body.editorial-interior header .brand-mark{right:12px;width:22px}
  body.editorial-interior .chrome{inset:20px}
+ /* Clear portion starts below the mobile room selector; footer starts 64px from bottom. */
+ body.editorial-interior .crosshair.tl,body.editorial-interior .crosshair.tr{top:calc(54px + max(var(--tdn-row),66px) + 12px)}
+ body.editorial-interior .crosshair.bl,body.editorial-interior .crosshair.br{bottom:76px}
+ body.editorial-interior:has(.m-espacios.open) .crosshair.tl,body.editorial-interior:has(.m-espacios.open) .crosshair.tr{opacity:0}
+ body.editorial-interior:has(.m-intro.visible) .crosshair,body.editorial-interior.details-open .crosshair.bl,body.editorial-interior.details-open .crosshair.br{opacity:0}
  body.editorial-interior .title{left:32px;right:32px;bottom:92px;width:auto;padding:0}
  body.editorial-interior .title h1{font-size:clamp(24px,6.8vw,31px);line-height:1.12}
  body.editorial-interior .unit-spec{margin-top:8px}
