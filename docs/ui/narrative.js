@@ -4,7 +4,7 @@ import { clamp, createScrollClock, letterWindow, wheelPixels } from './scroll-mo
  * The document is fixed: scroll is animation time, never section navigation.
  * Both title representations are separate DOM objects; x/y never transport glyphs.
  */
-export async function createNarrative({ onProgress, onOrbit, isModalOpen }) {
+export async function createNarrative({ onProgress, onOrbit, onMapPan, isModalOpen }) {
   await document.fonts.ready;
   const gsap = window.gsap;
   if (!gsap) throw new Error('Torres del Norte: local GSAP could not load');
@@ -60,6 +60,19 @@ export async function createNarrative({ onProgress, onOrbit, isModalOpen }) {
     timeline?.kill();
     gsap.set([flow, map, cover, spine, ...spineCharacters], { clearProps: 'transform,opacity,visibility' });
     const letters = layoutLetters();
+    flow.querySelectorAll('[data-kinetic]').forEach(heading => {
+      if (!heading.dataset.split) {
+        const text = heading.textContent.trim();
+        heading.setAttribute('aria-label', text); heading.textContent = '';
+        text.split(/(\s+)/).forEach(word => {
+          const unit = document.createElement('span'); unit.className = 'story-word'; unit.setAttribute('aria-hidden', 'true');
+          [...word].forEach(character => {
+            const glyph = document.createElement('span'); glyph.className = 'story-char'; glyph.textContent = character;
+            unit.append(glyph);
+          }); heading.append(unit);
+        }); heading.dataset.split = 'true';
+      }
+    });
     measuredHeight = innerHeight;
     const startY = innerHeight * 1.08;
     const travel = flow.offsetHeight + startY + innerHeight * .35;
@@ -85,17 +98,6 @@ export async function createNarrative({ onProgress, onOrbit, isModalOpen }) {
     // Foreground headlines also use independently turning glyphs. Their timing is
     // derived from the measured position in the ONE flow, never per-section triggers.
     flow.querySelectorAll('[data-kinetic]').forEach(heading => {
-      if (!heading.dataset.split) {
-        const text = heading.textContent.trim();
-        heading.setAttribute('aria-label', text); heading.textContent = '';
-        text.split(/(\s+)/).forEach(word => {
-          const unit = document.createElement('span'); unit.className = 'story-word'; unit.setAttribute('aria-hidden', 'true');
-          [...word].forEach(character => {
-            const glyph = document.createElement('span'); glyph.className = 'story-char'; glyph.textContent = character;
-            unit.append(glyph);
-          }); heading.append(unit);
-        }); heading.dataset.split = 'true';
-      }
       gsap.set(heading.querySelectorAll('.story-char'), { clearProps: 'transform,opacity' });
       const entry = clamp((startY + heading.offsetTop - innerHeight * .89) / travel * .91 + .004, .005, .9);
       timeline.fromTo(heading.querySelectorAll('.story-char'), {
@@ -109,6 +111,7 @@ export async function createNarrative({ onProgress, onOrbit, isModalOpen }) {
     frame = undefined;
     const progress = clock.progress;
     timeline.progress(progress);
+    document.body.dataset.progress = progress.toFixed(6);
     document.body.dataset.scrolled = progress > .005 ? 'true' : 'false';
     document.body.dataset.narrative = progress > .915 ? 'map' : progress > .005 ? 'editorial' : 'cover';
     cover.inert = progress >= .052;
@@ -128,7 +131,7 @@ export async function createNarrative({ onProgress, onOrbit, isModalOpen }) {
   let touch;
   document.addEventListener('touchstart', event => {
     if (event.touches.length !== 1 || isModalOpen() || event.target.closest('button,a')) { touch = null; return; }
-    const point = event.touches[0]; touch = { x: point.clientX, y: point.clientY, axis: null };
+    const point = event.touches[0]; touch = { x: point.clientX, y: point.clientY, axis: null, map: Boolean(event.target.closest('.neighborhood-map')) };
   }, { passive: true, capture: true });
   document.addEventListener('touchmove', event => {
     if (!touch || event.touches.length !== 1) return;
@@ -136,10 +139,11 @@ export async function createNarrative({ onProgress, onOrbit, isModalOpen }) {
     if (!touch.axis && Math.max(Math.abs(dx), Math.abs(dy)) > 3) touch.axis = Math.abs(dy) >= Math.abs(dx) ? 'scroll' : 'orbit';
     event.preventDefault(); event.stopPropagation();
     if (touch.axis === 'scroll') { clock.advance(dy); schedule(); }
-    else if (touch.axis === 'orbit') onOrbit(dx * .12);
-    touch.x = point.clientX; touch.y = point.clientY;
+    else if (touch.axis === 'orbit') { if (touch.map) onMapPan(dx); else onOrbit(dx * .12); }
+    if (touch.axis) { touch.x = point.clientX; touch.y = point.clientY; }
   }, { passive: false, capture: true });
   document.addEventListener('touchend', () => { touch = null; }, { passive: true });
+  document.addEventListener('touchcancel', () => { touch = null; }, { passive: true });
   let drag;
   document.querySelector('.scene').addEventListener('pointerdown', event => {
     if (event.pointerType !== 'mouse' || event.button !== 0 || isModalOpen()) return;

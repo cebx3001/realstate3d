@@ -1,7 +1,7 @@
 import { loadHudEngine } from './supersplat-hud.js';
 import { cameraPose, clamp } from './scroll-model.mjs';
-import { createNarrative } from './narrative.js';
-import { initializeMap } from './neighborhood.js';
+import { createNarrative } from './narrative.js?v=depth-2';
+import { initializeMap } from './neighborhood.js?v=depth-2';
 
 const editorial = document.getElementById('editorial');
 const status = document.getElementById('engine-status');
@@ -59,7 +59,7 @@ document.querySelectorAll('[data-select]').forEach(button => button.addEventList
 document.getElementById('language-switch').addEventListener('click', () => setLanguage(lang === 'en' ? 'es' : 'en'));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') { if (!editorial.hidden) closeUnits(); else go('cover'); } });
 setLanguage(lang);
-initializeMap();
+const neighborhood = initializeMap();
 window.__tdnExperience = Object.freeze({
   get state() { return !editorial.hidden ? 'technical' : document.body.dataset.narrative || 'cover'; },
   get progress() { return progress; }, get unit() { return selectedUnit; }, get engine() { return engineState; },
@@ -69,6 +69,7 @@ window.__tdnExperience = Object.freeze({
 });
 createNarrative({
   onProgress(value) { progress = value; applyCameraState(); },
+  onMapPan(dx) { neighborhood.pan(dx); },
   onOrbit(delta) { manualOrbit = clamp(manualOrbit + delta, -35, 35); applyCameraState(); },
   isModalOpen: () => !editorial.hidden,
 }).then(value => { narrative = value; }).catch(error => console.error('Torres del Norte: narrative initialization failed', error));

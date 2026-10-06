@@ -8,8 +8,8 @@
 <title>Torres del Norte</title>
 <link rel="preload" href="assets/fonts/playfair-display.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="ui/cover.css?v=depth-1">
-<link rel="stylesheet" href="ui/narrative.css?v=depth-1">
+<link rel="stylesheet" href="ui/cover.css?v=depth-2">
+<link rel="stylesheet" href="ui/narrative.css?v=depth-2">
 </head>
 <body data-state="cover">
 <main class="experience" aria-label="Torres del Norte">
@@ -90,7 +90,7 @@
       <button data-map-filter="all" aria-pressed="true">[ TODO ]</button><button data-map-filter="public" aria-pressed="false">01 / ESPACIO PÚBLICO</button><button data-map-filter="commerce" aria-pressed="false">02 / COMERCIO</button><button data-map-filter="culture" aria-pressed="false">03 / CULTURA</button><button data-map-filter="mobility" aria-pressed="false">04 / MOVILIDAD</button><button data-map-filter="city" aria-pressed="false">05 / CIUDAD</button>
     </nav>
     <div class="map-field">
-      <svg class="map-drawing" viewBox="0 0 1000 650" role="img" aria-label="Retícula conceptual: La Carolina, comercio, cultura y Metro de Quito">
+      <svg class="map-drawing" viewBox="0 0 1000 650" role="group" aria-label="Retícula conceptual: La Carolina, comercio, cultura y Metro de Quito">
         <defs><pattern id="map-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#e9e8e2" stroke-opacity=".07" stroke-width="1"/></pattern></defs>
         <rect width="1000" height="650" fill="url(#map-grid)"/>
         <g class="map-geography">
@@ -110,7 +110,7 @@
           <g class="map-marker" data-place="mobility" data-label="Metro / Estación La Carolina"><rect x="295" y="540" width="9" height="9"/><text x="60" y="568">METRO / LA CAROLINA</text></g>
           <g class="map-marker" data-place="mobility" data-label="Metro / Estación Iñaquito"><rect x="240" y="130" width="9" height="9"/><text x="55" y="120">METRO / IÑAQUITO</text></g>
           <g class="map-marker" data-place="city" data-label="Distrito financiero / instituciones / servicios"><rect x="805" y="265" width="7" height="7"/><text x="755" y="250">DISTRITO FINANCIERO</text></g>
-          <g class="map-property"><path d="M650 275v-15h15M690 275v-15h-15M650 300v15h15M690 300v15h-15" fill="none" stroke="#D2B16B"/><rect x="665" y="281" width="10" height="10"/><text x="655" y="335">TORRES DEL NORTE</text></g>
+          <g class="map-property"><path d="M650 275v-15h15M690 275v-15h-15M650 300v15h15M690 300v15h-15" fill="none" stroke="#D2B16B"/><rect x="665" y="281" width="10" height="10"/><text x="690" y="335" text-anchor="end">TORRES DEL NORTE</text></g>
         </g>
       </svg>
       <div class="map-zoom" aria-label="Escala del mapa"><button data-map-zoom="1" aria-label="Acercar mapa">+</button><button data-map-zoom="-1" aria-label="Alejar mapa">−</button></div>
@@ -120,6 +120,6 @@
   </aside>
 </main>
 <script src="ui/vendor/gsap.min.js"></script>
-<script type="module" src="ui/cover.js?v=depth-1"></script>
+<script type="module" src="ui/cover.js?v=depth-2"></script>
 </body>
 </html>
