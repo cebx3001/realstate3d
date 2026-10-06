@@ -8,7 +8,7 @@ body.editorial-interior{--ivory:var(--tdn-ivory);--paper:var(--tdn-ivory);--gold
 body.editorial-interior *,body.editorial-interior *::before,body.editorial-interior *::after{border-radius:0!important}
 /* Full-bleed lower HUD rail, matching the header. Controls remain interactive above it. */
 body.editorial-interior::after{content:"";position:fixed;z-index:7;left:0;right:0;bottom:0;height:64px;background:var(--tdn-bar-bg);border-top:1px solid var(--tdn-line);pointer-events:none}
-body.editorial-interior .chrome{z-index:3;inset:20px;border:1px solid var(--tdn-line);background-image:linear-gradient(to right,var(--tdn-line) 1px,transparent 1px),linear-gradient(to bottom,var(--tdn-line) 1px,transparent 1px);background-size:calc(100% / 12) calc(100% / 8);opacity:.48}
+body.editorial-interior .chrome{z-index:3;inset:20px;border:1px solid var(--tdn-line);background-image:none;opacity:.48}
 body.editorial-interior .chrome::after{display:none}
 body.editorial-interior .crosshair{position:fixed;width:15px;height:15px;z-index:39;pointer-events:none;color:var(--tdn-gold)}
 body.editorial-interior .crosshair::before,body.editorial-interior .crosshair::after{content:"";position:absolute;background:currentColor;opacity:.65}
