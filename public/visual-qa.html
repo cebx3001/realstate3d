@@ -9,7 +9,7 @@
 <output id="status">LOADING</output></header><iframe id="preview" src="./?qa=grid-3" title="Torres del Norte — live viewport"></iframe><script>
 const frame=document.getElementById('preview');
 document.getElementById('viewport').addEventListener('change',event=>{const [width,height]=event.target.value.split(',');frame.style.width=width+'px';frame.style.height=height+'px';});
-document.getElementById('target').addEventListener('change',event=>{frame.src=event.target.value==='cover'?'./?qa=grid-3':`./inventory/?unit=${event.target.value}&room=living&qa=grid-1`;document.getElementById('status').textContent=event.target.value.toUpperCase();});
+document.getElementById('target').addEventListener('change',event=>{frame.src=event.target.value==='cover'?'./?qa=grid-3':`./inventory/?unit=${event.target.value}&room=living&qa=grid-2`;document.getElementById('status').textContent=event.target.value.toUpperCase();});
 document.querySelectorAll('[data-state]').forEach(button=>button.addEventListener('click',()=>frame.contentDocument.querySelector(`[data-go="${button.dataset.state}"]`)?.click()));
 document.getElementById('category').addEventListener('change',event=>{const trigger=frame.contentDocument.querySelector('[data-go="neighborhood"]');if(trigger?.getAttribute('aria-expanded')==='false')trigger.click();frame.contentDocument.querySelector(`[data-category="${event.target.value}"]`)?.click();});
 setInterval(()=>{const experience=frame.contentWindow.__tdnExperience;if(experience)document.getElementById('status').textContent=`${experience.state.toUpperCase()} / ${experience.category.toUpperCase()} / 3D ${experience.engine.toUpperCase()}`;},500);
