@@ -1,4 +1,5 @@
 import { categories } from './environment-data.js';
+import { initUnitEditor } from './unit-editor.js';
 
 const editorial = document.getElementById('editorial');
 const neighborhood = document.getElementById('environment-lower-third');
@@ -9,6 +10,7 @@ const items = document.getElementById('environment-items');
 const summary = document.getElementById('environment-summary');
 const picker = document.getElementById('environment-mobile-select');
 let selectedUnit = '35B', selectedCategory = 2, engineState = 'loading';
+let unitEditor;
 let lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('tdn-lang') || 'en';
 if (!['en', 'es'].includes(lang)) lang = 'en';
 
@@ -83,6 +85,7 @@ function selectUnit(code) {
     row.dataset.selected = String(row.dataset.unit === code);
     row.querySelector('[data-select]').setAttribute('aria-pressed', row.dataset.selected);
   });
+  unitEditor?.flyTo(code);
 }
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => go(button.dataset.go)));
 document.querySelectorAll('[data-select]').forEach(button => button.addEventListener('click', () => selectUnit(button.dataset.select)));
@@ -104,6 +107,7 @@ window.__tdnExperience = Object.freeze({
 });
 
 const sceneViewer = document.getElementById('scene-viewer');
+unitEditor = initUnitEditor(sceneViewer);
 function viewerUrl() {
   const { position, target } = coverPose();
   const camera = [...position, ...target, 98].map(value => value.toFixed(4)).join(',');
@@ -119,6 +123,8 @@ window.addEventListener('message', event => {
   if (event.origin !== location.origin || event.source !== sceneViewer.contentWindow) return;
   if (event.data?.type === 'tdn:first-useful-frame') {
     engineState = 'active'; refreshEngineStatus();
+  } else if (event.data?.type === 'tdn:render-error') {
+    engineState = 'error'; refreshEngineStatus();
   }
 });
 sceneViewer.addEventListener('error', () => { engineState = 'error'; refreshEngineStatus(); });
