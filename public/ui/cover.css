@@ -112,7 +112,11 @@ body[data-neighborhood="open"] .cover-card{visibility:hidden}
 .environment-controls button:last-child{border-right:0}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:700px){
- .environment-access{font-size:8px}
+ .bottom-hud{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0}
+ .bottom-hud .coordinates{grid-column:1/7;white-space:nowrap}
+ .environment-access{position:static;grid-column:7/9;transform:none;font-size:8px;justify-self:center}
+ .bottom-hud .cover-button{grid-column:9/11;margin:0;justify-self:center}
+ .bottom-hud .whatsapp{grid-column:12/13;justify-self:end}
  .env-access-full,.close-full{display:none}
  .env-access-short,.close-short{display:inline}
  .environment-lower-third{bottom:70px}
@@ -120,11 +124,11 @@ body[data-neighborhood="open"] .cover-card{visibility:hidden}
  .environment-mobile-category{grid-column:1/-1;display:block;min-width:0;height:100%}
  .environment-mobile-category select{display:block;width:100%;height:100%;border:0;border-radius:0;background:transparent;color:var(--gold);font:9px var(--mono);letter-spacing:.05em;padding:0 12px;appearance:auto}
  .environment-mobile-category option{background:var(--ink);color:var(--paper)}
- .environment-information{padding:9px 10px;grid-column:span 9}
+ .environment-information{padding:9px 10px;grid-column:span 8}
  .environment-number{font-size:8px;margin-bottom:7px}
  .environment-items{font-size:clamp(11px,3.25vw,14px);line-height:1.2}
  .environment-summary{font-size:10px;line-height:1.18;margin-top:6px}
- .environment-controls{grid-column:span 3}
+ .environment-controls{grid-column:span 4}
  .environment-controls button{font-size:8px;padding:0}
 }
 @media(max-width:374px){.environment-access{font-size:7px}.environment-summary{display:none}}
