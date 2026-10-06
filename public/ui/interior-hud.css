@@ -73,7 +73,7 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior .title{bottom:84px}
 }
 @media(max-width:768px){
- body.editorial-interior header{display:grid!important;font-size:11px;top:0;left:0;right:0;height:54px;padding:0 12px;grid-template-columns:auto 1fr auto;gap:0;background:var(--tdn-bar-bg);border-bottom:0}
+ body.editorial-interior header{display:grid!important;font-size:11px;top:0;left:0;right:0;height:54px;padding:0 12px;grid-template-columns:auto 1fr auto;gap:0;background:var(--tdn-bar-bg);border-bottom:1px solid var(--tdn-line)}
  body.editorial-interior header > span:first-child{display:block;grid-column:1;white-space:nowrap}
  body.editorial-interior header > span:first-child a::before{content:"[ COVER ]";font-size:11px}
  body.editorial-interior header > span:nth-child(2){display:none}
@@ -96,7 +96,7 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior .unit-spec-price{font-size:13px;line-height:1.5}
  body.editorial-interior .dock.expanded{left:20px;right:20px;top:74px;bottom:auto;min-width:0;width:auto;padding:0;background:var(--tdn-ink);border:1px solid var(--tdn-line);gap:0}
  body.editorial-interior .dock.expanded button{padding:14px 12px;border-bottom:1px solid var(--tdn-line);border-left:0;text-align:left}
- body.editorial-interior .m-room-bar{top:54px;left:0;right:0;height:calc(var(--tdn-row));min-height:66px;padding:0 20px;background:var(--tdn-bar-bg);border:0;border-bottom:1px solid var(--tdn-line)}
+ body.editorial-interior .m-room-bar{top:54px;left:20px;right:20px;height:calc(var(--tdn-row));min-height:66px;padding:0 12px;background:rgba(15,21,31,.55);border-bottom:1px solid var(--tdn-line)}
  body.editorial-interior .m-room-name{font:11px var(--tdn-mono);letter-spacing:.05em;color:var(--tdn-gold);text-shadow:none}
  body.editorial-interior .m-room-name::after{width:10px;height:10px;background:none;border-right:1px solid var(--tdn-gold);border-bottom:1px solid var(--tdn-gold);transform:rotate(45deg);transition:none}
  body.editorial-interior .m-room-name[aria-expanded="true"]::after{transform:rotate(225deg)}
