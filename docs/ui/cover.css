@@ -13,7 +13,7 @@ button:focus-visible,a:focus-visible{outline:1px solid var(--gold);outline-offse
 button[aria-pressed="true"]{color:var(--gold)}
 [hidden]{display:none!important}
 .experience{position:fixed;inset:0;height:100dvh;isolation:isolate;overflow:hidden}
-.reticle-grid{position:absolute;inset:20px;z-index:0;pointer-events:none;border:1px solid var(--line);background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);background-size:calc(100% / 12) calc(100% / 8);opacity:.48}
+.reticle-grid{position:absolute;inset:20px;z-index:0;pointer-events:none;border:1px solid var(--line);background-image:none;opacity:.48}
 .monument{position:absolute;inset:12% 24px 20%;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;margin:0;font-family:var(--serif);font-size:min(21.5vw,24vh);font-weight:400;line-height:.92;letter-spacing:-.065em;color:var(--gold);opacity:.48;pointer-events:none}
 .monument span{display:block}
 .scene{position:fixed;inset:0;z-index:2;pointer-events:auto;touch-action:none;cursor:grab}
@@ -43,8 +43,8 @@ button[aria-pressed="true"]{color:var(--gold)}
 .coordinates{color:var(--gold);font-size:9px}
 .cover-button{border:0;padding:12px;margin-left:auto;font-size:10px;color:var(--gold)}
 .copyright{color:var(--gold);opacity:.65;font-size:9px}
-.whatsapp{border:1px solid var(--line);padding:7px;display:flex;align-items:center;justify-content:center;width:34px;height:34px}
-.whatsapp svg{width:20px;height:20px;fill:currentColor}
+.whatsapp{border:0;padding:7px 0;display:flex;align-items:center;justify-content:center;width:auto;height:34px;color:var(--gold);font:10px var(--mono);letter-spacing:.04em;white-space:nowrap;text-decoration:none}
+.whatsapp:hover,.whatsapp:focus-visible{color:var(--paper)}
 .editorial{position:absolute;z-index:4;right:20px;top:20px;bottom:20px;width:min(55vw,760px);border:1px solid var(--line);background:rgba(15,21,31,.91);backdrop-filter:blur(8px);display:flex;flex-direction:column;overflow:hidden}
 .panel-nav{flex-shrink:0;min-height:62px;display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--line)}
 .panel-nav button{border-width:0 1px 0 0;font-size:9px;padding:16px 8px}
@@ -77,7 +77,7 @@ button[aria-pressed="true"]{color:var(--gold)}
  .cover-cta{font-size:8px;letter-spacing:.08em;padding:16px 0;gap:9px}.arrow{font-size:18px}
  .bottom-hud{height:50px;padding:0 13px;gap:10px}
  .coordinates{font-size:7px}.copyright{display:none}.cover-button{font-size:8px;padding:9px 0}
- .whatsapp{width:29px;height:29px;padding:5px;flex-shrink:0}
+ .whatsapp{width:auto;height:auto;padding:5px 0;flex-shrink:0;font-size:8px}
  .editorial{left:20px;right:20px;width:auto}
  .panel-nav{min-height:52px}.panel-nav button{font-size:7px;padding:13px 4px}
  .panel-heading{padding:20px 16px}.panel-heading h2{font-size:32px}
@@ -116,7 +116,7 @@ body[data-neighborhood="open"] .cover-card{visibility:hidden}
  .bottom-hud .coordinates{grid-column:1/7;white-space:nowrap}
  .environment-access{position:static;grid-column:7/9;transform:none;font-size:8px;justify-self:center}
  .bottom-hud .cover-button{grid-column:9/11;margin:0;justify-self:center}
- .bottom-hud .whatsapp{grid-column:12/13;justify-self:end}
+ .bottom-hud .whatsapp{grid-column:11/13;justify-self:end}
  .env-access-full,.close-full{display:none}
  .env-access-short,.close-short{display:inline}
  .environment-lower-third{bottom:70px}
