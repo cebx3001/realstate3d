@@ -21,12 +21,14 @@ export function initUnitEditor(sceneViewer) {
   let settings = null;
   let point = null;
   let ready = false;
+  let renderFailed = false;
   let queuedUnit = null;
   let request = 0;
   let pendingCapture = null;
 
   const say = message => { output.textContent = message; };
   const send = (action, payload = {}) => {
+    if (renderFailed) { if (active) say('EL VISOR 3D NO ESTÁ DISPONIBLE EN ESTE NAVEGADOR.'); return false; }
     if (!ready) { if (active) say('ESPERANDO VISOR SUPER SPLAT…'); return false; }
     sceneViewer.contentWindow.postMessage({ scope: 'tdn:viewer', action, requestId: ++request, ...payload }, location.origin);
     return request;
@@ -60,7 +62,7 @@ export function initUnitEditor(sceneViewer) {
           const draft = JSON.parse(localStorage.getItem(DRAFT_KEY));
           if (draft?.version === 2 && Array.isArray(draft.annotations)) settings = draft;
         } catch { /* Invalid local draft: retain published file. */ }
-        say('ENCUADRA LA UNIDAD Y MARCA UN PUNTO EN LA ESCENA.');
+        if (!renderFailed) say('ENCUADRA LA UNIDAD Y MARCA UN PUNTO EN LA ESCENA.');
       }
       if (queuedUnit) { const code = queuedUnit; queuedUnit = null; flyTo(code); }
     } catch (error) {
@@ -72,10 +74,10 @@ export function initUnitEditor(sceneViewer) {
     if (event.origin !== location.origin || event.source !== sceneViewer.contentWindow) return;
     const data = event.data;
     if (data?.type === 'tdn:viewer-ready') {
-      ready = true;
+      ready = true; renderFailed = false;
       if (queuedUnit && settings) { const code = queuedUnit; queuedUnit = null; flyTo(code); }
     } else if (data?.type === 'tdn:render-error' && active) {
-      ready = false;
+      ready = false; renderFailed = true;
       say('EL VISOR 3D NO ESTÁ DISPONIBLE EN ESTE NAVEGADOR.');
     } else if (data?.type === 'tdn:point' && active) {
       if (!finiteVec(data.position)) return;

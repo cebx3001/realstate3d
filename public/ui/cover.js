@@ -1,5 +1,5 @@
 import { categories } from './environment-data.js';
-import { initUnitEditor } from './unit-editor.js?v=unit-capture-3';
+import { initUnitEditor } from './unit-editor.js?v=unit-capture-4';
 
 const editorial = document.getElementById('editorial');
 const neighborhood = document.getElementById('environment-lower-third');
