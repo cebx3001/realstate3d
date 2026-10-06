@@ -84165,14 +84165,10 @@ const initUI = (global) => {
         state.cameraMode = 'orbit';
     });
     dom.flyCamera.addEventListener('click', () => {
-        if (!EXTERIOR_AXIS_LOCK) {
-            state.cameraMode = 'fly';
-        }
+        state.cameraMode = 'fly';
     });
     dom.fpsCamera.addEventListener('click', () => {
-        if (!EXTERIOR_AXIS_LOCK) {
-            events.fire('inputEvent', 'toggleWalk');
-        }
+        events.fire('inputEvent', 'toggleWalk');
     });
     dom.reset.addEventListener('click', (event) => {
         events.fire('inputEvent', 'reset', event);
@@ -84977,9 +84973,6 @@ const vecToAngles = (result, vec) => {
  * which has different tuning needs.
  */
 const DEFAULT_CONTROLLER_DAMPING = 0.95;
-// This bundle is used only by the exterior plate. Keep its framing immutable:
-// interaction may change yaw, but never pitch, orbit target or distance.
-const EXTERIOR_AXIS_LOCK = true;
 const rotation$1 = new Quat();
 /**
  * Apply a CameraFrame rotate delta to camera Euler angles.
@@ -86091,10 +86084,6 @@ class OrbitController {
         this._attach(camera);
     }
     update(deltaTime, inputFrame, camera) {
-        if (EXTERIOR_AXIS_LOCK) {
-            const { rotate } = inputFrame.read();
-            inputFrame.deltas.rotate.append([rotate[0], 0, 0]);
-        }
         const pose = this.controller.update(inputFrame, deltaTime);
         camera.position.copy(pose.position);
         camera.angles.copy(pose.angles);
@@ -86112,12 +86101,6 @@ class OrbitController {
         p.position.copy(camera.position);
         p.angles.copy(camera.angles);
         p.distance = Math.max(camera.distance, this.controller.zoomRange.x);
-
-        // Exterior plate: preserve the approved initial framing as the
-        // maximum camera distance. The user can zoom in, but never zoom out
-        // beyond the original scale. Pitch remains locked by the exterior
-        // axis lock above.
-        this.controller.zoomRange = new Vec2(this.controller.zoomRange.x, p.distance);
         this.controller.attach(p, false);
     }
 }
@@ -86730,12 +86713,10 @@ class CameraManager {
                     }
                     break;
                 case 'requestFirstPerson':
-                    if (!EXTERIOR_AXIS_LOCK) {
-                        state.cameraMode = 'fly';
-                    }
+                    state.cameraMode = 'fly';
                     break;
                 case 'toggleWalk':
-                    if (!EXTERIOR_AXIS_LOCK && walkAllowed) {
+                    if (walkAllowed) {
                         if (state.cameraMode === 'walk') {
                             state.cameraMode = preWalkMode;
                         }
@@ -87458,14 +87439,10 @@ class ModeShortcuts {
                 state.cameraMode = 'orbit';
                 break;
             case '2':
-                if (!EXTERIOR_AXIS_LOCK) {
-                    state.cameraMode = 'fly';
-                }
+                state.cameraMode = 'fly';
                 break;
             case '3':
-                if (!EXTERIOR_AXIS_LOCK) {
-                    events.fire('inputEvent', 'toggleWalk');
-                }
+                events.fire('inputEvent', 'toggleWalk');
                 break;
             case 'v':
                 if (state.hasCollisionOverlay) {
@@ -87482,7 +87459,7 @@ class ModeShortcuts {
                 events.fire('inputEvent', 'reset', event);
                 break;
             default:
-                if (!EXTERIOR_AXIS_LOCK && isWasdKey(event) && state.inputMode === 'desktop') {
+                if (isWasdKey(event) && state.inputMode === 'desktop') {
                     if (!isCaptureMode$1(state.cameraMode)) {
                         state.cameraMode = 'fly';
                     }
@@ -87673,7 +87650,7 @@ class NavInteraction {
     }
     async _focusPickedPosition(offsetX, offsetY) {
         const global = this._global;
-        if (!global || global.state.cameraMode !== 'orbit' || EXTERIOR_AXIS_LOCK)
+        if (!global || global.state.cameraMode !== 'orbit')
             return;
         const request = ++this._targetPickRequest;
         const target = await this._pickSceneTarget(offsetX, offsetY);
@@ -87770,8 +87747,6 @@ class NavInteraction {
         const { events, state } = global;
         // dblclick in captured walk mode does nothing, like click
         if (state.cameraMode === 'walk' && state.gamingControls)
-            return;
-        if (state.cameraMode === 'orbit' && EXTERIOR_AXIS_LOCK)
             return;
         const request = ++this._targetPickRequest;
         const target = await this._pickSceneTarget(event.offsetX, event.offsetY);

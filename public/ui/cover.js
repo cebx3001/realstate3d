@@ -112,12 +112,12 @@ function viewerUrl() {
   const { position, target } = coverPose();
   const camera = [...position, ...target, 98].map(value => value.toFixed(4)).join(',');
   const url = new URL('viewers/exterior-382a1520/index.html', location.href);
-  url.searchParams.set('bridge', 'unit-capture-3');
+  url.searchParams.set('bridge', 'free-navigation-1');
   url.searchParams.set('content', new URL('assets/exterior/382a1520/v1-streamed/lod-meta.json', location.href).href);
   url.searchParams.set('cam', camera);
   url.searchParams.set('bg', '0.0588,0.08235,0.12157');
   url.searchParams.set('lang', lang);
-  for (const flag of ['noui', 'nofx', 'noanim', 'transparent']) url.searchParams.set(flag, '');
+  for (const flag of ['noui', 'nofx', 'transparent']) url.searchParams.set(flag, '');
   return url.href;
 }
 window.addEventListener('message', event => {

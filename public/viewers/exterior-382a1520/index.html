@@ -8,6 +8,7 @@
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
         />
         <base href="./">
+        <link rel="modulepreload" href="./index.js?v=free-navigation-1">
         <style>
             :root {
               --canvas-opacity: 1;
@@ -869,44 +870,8 @@
             };
         </script>
         
-    <script
-        src="https://browser.sentry-cdn.com/10.29.0/bundle.min.js"
-        integrity="sha384-ik2TZN6tbVWrf0Y5KNqrVRPZhA8BVxdg6iOJbfcf/ORz9YWzv6P1ydWuEsemxM2P"
-        crossorigin="anonymous"
-    ></script>
-    <script>
-        (function () {
-            function initSentry() {
-                if (typeof Sentry === 'undefined' || typeof Sentry.init !== 'function') {
-                    return;
-                }
-                Sentry.init({"enabled":true,"environment":"browser_live","release":"supersplat-viewer@unknown","maxBreadcrumbs":50,"dsn":"https://4e14be7db980d9107fa7242f37f576fd@sentry.sc-prod.net/305","initialScope":{"tags":{"package_version":"unknown","dist":"8021900ccdab78fdf26b0f9195c58afb00e447be"},"contexts":{"splat":{"splat_hash":"382a1520"}}}});
-            }
-
-            if (typeof Sentry !== 'undefined' && typeof Sentry.onLoad === 'function') {
-                Sentry.onLoad(initSentry);
-            } else {
-                initSentry();
-            }
-        })();
-    </script>
-
         <script>
             (() => {
-                const telemetry = {
-                    splatHash: "382a1520",
-                    viewerSessionId: "3122253f-dc9d-4243-83ea-d0f05fa27830"
-                };
-
-                const sendMetric = (type) => {
-                    try {
-                        const data = JSON.stringify({ type, ...telemetry });
-                        navigator.sendBeacon('/metrics', new Blob([data], { type: 'application/json' }));
-                    } catch {
-                        // Ignore telemetry errors; the viewer path should stay uninterrupted.
-                    }
-                };
-
                 const previousFirstFrame = window.firstFrame;
                 let sentFirstFrame = false;
 
@@ -922,21 +887,7 @@
                     if (window.parent !== window) {
                         window.parent.postMessage({ type: 'tdn:first-useful-frame' }, location.origin);
                     }
-                    sendMetric('experience.first_frame');
                 };
-
-                let sentFirstInteraction = false;
-                const sendFirstInteraction = () => {
-                    if (sentFirstInteraction) {
-                        return;
-                    }
-                    sentFirstInteraction = true;
-                    sendMetric('experience.first_interaction');
-                };
-
-                for (const eventName of ['pointerdown', 'keydown', 'wheel', 'touchstart']) {
-                    window.addEventListener(eventName, sendFirstInteraction, { capture: true, passive: true });
-                }
             })();
         </script>
 <style>body { background-color: rgb(0, 0, 0); }</style>
@@ -1536,7 +1487,7 @@
 
         <!-- Application Script -->
         <script type="module">
-            import { main } from './index.js?v=axis-lock-2';
+            import { main } from './index.js?v=free-navigation-1';
 
             const { config, settings } = window.sse;
             const { poster } = config;
