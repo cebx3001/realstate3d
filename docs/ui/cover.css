@@ -14,6 +14,20 @@ button[aria-pressed="true"]{color:var(--gold)}
 [hidden]{display:none!important}
 .experience{position:fixed;inset:0;height:100dvh;isolation:isolate;overflow:hidden}
 .reticle-grid{position:absolute;inset:20px;z-index:0;pointer-events:none;border:1px solid var(--line);background-image:none;opacity:.48}
+.desktop-micro{display:block}
+.audio-toggle{margin-left:18px;border:0;color:var(--gold);font:9px var(--mono);letter-spacing:.05em;white-space:nowrap}
+.audio-toggle[aria-pressed="false"]{color:var(--paper)}
+.micro-spec{position:absolute;z-index:5;display:grid;gap:4px;color:var(--gold);font:8px/1.15 var(--mono);letter-spacing:.08em;pointer-events:none}
+.micro-spec-a{left:44px;top:112px}.micro-spec-b{left:44px;bottom:104px}
+.micro-axis{position:absolute;z-index:3;color:var(--gold);font:7px var(--mono);opacity:.72;pointer-events:none}
+.micro-axis-left{left:20px;top:18%;bottom:18%;display:flex;flex-direction:column;justify-content:space-between;transform:translateX(-50%)}
+.micro-axis-bottom{left:15%;right:15%;bottom:20px;display:flex;justify-content:space-between;transform:translateY(50%)}
+@media(min-width:701px){
+ .reticle-grid{background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);background-size:calc(100% / 12) 100%,100% calc(100% / 8);opacity:.34}
+ .top-hud::after,.bottom-hud::before{content:"";position:absolute;left:0;right:0;height:1px;background:var(--line);pointer-events:none}
+ .top-hud::after{bottom:0}.bottom-hud::before{top:0}
+ .stream::before{content:"[ SYS_03 ]  ";font:8px var(--mono);color:var(--paper)}
+}
 .monument{position:absolute;inset:12% 24px 20%;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;margin:0;font-family:var(--serif);font-size:min(21.5vw,24vh);font-weight:400;line-height:.92;letter-spacing:-.065em;color:var(--gold);opacity:1;pointer-events:none}
 .monument span{display:block}
 .scene{position:fixed;inset:0;z-index:2;pointer-events:none;touch-action:auto;cursor:default}
@@ -56,6 +70,7 @@ body[data-edit="true"] .edit-entry{display:none}
 .whatsapp{border:0;padding:7px 0;display:flex;align-items:center;justify-content:center;width:auto;height:34px;color:var(--gold);font:10px var(--mono);letter-spacing:.04em;white-space:nowrap;text-decoration:none}
 .whatsapp:hover,.whatsapp:focus-visible{color:var(--paper)}
 @media(max-width:700px){
+ .desktop-micro{display:none!important}
  .top-hud{height:54px;padding:0 14px}
  .brand{width:22px;margin-right:17px}.brand svg{width:22px;height:20px}
  .primary-nav{gap:17px}.nav-control,.language{font-size:8px}

@@ -8,7 +8,7 @@
 <title>Torres del Norte</title>
 <link rel="preload" href="assets/fonts/playfair-display.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="ui/cover.css?v=cover-cleanup-1">
+<link rel="stylesheet" href="ui/cover.css?v=desktop-micro-audio-1">
 </head>
 <body data-state="cover">
 <main class="experience" aria-label="Torres del Norte">
@@ -32,7 +32,12 @@
       <a class="nav-control" href="https://wa.me/593992730095" target="_blank" rel="noopener noreferrer">[ TEAM ]</a>
     </nav>
     <button class="language" id="language-switch" aria-label="Change language">[ EN/SP ]</button>
+    <button class="audio-toggle desktop-micro" id="audio-toggle" type="button" aria-pressed="true">[ AUDIO ]</button>
   </header>
+  <div class="desktop-micro micro-spec micro-spec-a" aria-hidden="true"><span>[ EXT_01 ]</span><span>GAUSSIAN FIELD</span><span>CUENCA / EC</span></div>
+  <div class="desktop-micro micro-spec micro-spec-b" aria-hidden="true"><span>VIEW / EXTERIOR</span><span>SPATIAL CATALOG</span><span>LIVE 3D</span></div>
+  <div class="desktop-micro micro-axis micro-axis-left" aria-hidden="true"><span>00</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+  <div class="desktop-micro micro-axis micro-axis-bottom" aria-hidden="true"><span>01</span><span>03</span><span>06</span><span>09</span><span>12</span></div>
   <div class="stream hero-hud"><span class="status-dot" aria-hidden="true"></span><span id="unit-stream">UNIT 35B DATA STREAM</span></div>
   <a class="edit-entry" href="?edit=true" aria-label="Activar edición de los tres puntos del edificio">[ EDITAR PUNTOS ]</a>
   <section class="cover-card hero-hud" aria-label="Acceso a departamentos">
@@ -52,6 +57,6 @@
     <div class="unit-editor-files"><button type="button" id="editor-export">[ DESCARGAR settings.json ]</button><label class="unit-editor-import">[ IMPORTAR ]<input id="editor-import" type="file" accept=".json,application/json"></label></div>
   </aside>
 </main>
-<script type="module" src="ui/cover.js?v=clean-cover-1"></script>
+<script type="module" src="ui/cover.js?v=desktop-micro-audio-1"></script>
 </body>
 </html>

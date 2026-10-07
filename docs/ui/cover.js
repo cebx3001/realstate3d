@@ -2,6 +2,22 @@ import { initUnitEditor } from './unit-editor.js?v=annotation-single-1';
 
 const unitsTrigger = document.getElementById('units-trigger');
 const unitsMenu = document.getElementById('units-menu');
+const audioToggle = document.getElementById('audio-toggle');
+let audioMuted = false, audioContext = null;
+const ensureAudio = () => {
+  if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioContext.state === 'suspended') audioContext.resume();
+};
+const blip = (type = 'tick') => {
+  if (audioMuted) return;
+  ensureAudio();
+  const ctx = audioContext, osc = ctx.createOscillator(), gain = ctx.createGain(), now = ctx.currentTime, whoosh = type === 'whoosh';
+  osc.type = whoosh ? 'sine' : 'triangle';
+  osc.frequency.setValueAtTime(whoosh ? 180 : 760, now);
+  osc.frequency.exponentialRampToValueAtTime(whoosh ? 92 : 520, now + (whoosh ? .28 : .055));
+  gain.gain.setValueAtTime(.0001, now); gain.gain.exponentialRampToValueAtTime(whoosh ? .075 : .038, now + .012); gain.gain.exponentialRampToValueAtTime(.0001, now + (whoosh ? .32 : .075));
+  osc.connect(gain); gain.connect(ctx.destination); osc.start(now); osc.stop(now + (whoosh ? .34 : .08));
+};
 let selectedUnit = '35B', engineState = 'loading';
 let unitEditor;
 let lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('tdn-lang') || 'en';
@@ -65,6 +81,14 @@ function selectUnit(code) {
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => go(button.dataset.go)));
 document.querySelectorAll('[data-select]').forEach(button => button.addEventListener('click', () => selectUnit(button.dataset.select)));
 document.getElementById('language-switch').addEventListener('click', () => setLanguage(lang === 'en' ? 'es' : 'en'));
+audioToggle?.addEventListener('click', () => {
+  audioMuted = !audioMuted;
+  audioToggle.setAttribute('aria-pressed', String(!audioMuted));
+  audioToggle.textContent = audioMuted ? '[ MUTE ]' : '[ AUDIO ]';
+  if (!audioMuted) blip('tick');
+});
+document.querySelectorAll('button,a').forEach(control => control.addEventListener('pointerdown', () => blip(control.dataset.go ? 'whoosh' : 'tick')));
+window.addEventListener('pointerdown', ensureAudio, { once: true });
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && !unitsMenu.hidden) closeUnits();
 });
