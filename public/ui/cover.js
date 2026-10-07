@@ -79,7 +79,9 @@ function selectUnit(code) {
   unitEditor?.flyTo(code);
 }
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => go(button.dataset.go)));
-document.querySelectorAll('[data-select]').forEach(button => button.addEventListener('click', () => selectUnit(button.dataset.select)));
+unitsTrigger.addEventListener('click', event => { event.stopPropagation(); toggleUnits(); });
+document.querySelectorAll('.units-menu [data-select]').forEach(button => button.addEventListener('click', event => { event.stopPropagation(); selectUnit(button.dataset.select); }));
+document.addEventListener('pointerdown', event => { if (!unitsMenu.hidden && !event.target.closest('.units-nav')) closeUnits(); });
 document.getElementById('language-switch').addEventListener('click', () => setLanguage(lang === 'en' ? 'es' : 'en'));
 audioToggle?.addEventListener('click', () => {
   audioMuted = !audioMuted;
