@@ -3,6 +3,10 @@ import { initUnitEditor } from './unit-editor.js?v=annotation-single-1';
 const unitsTrigger = document.getElementById('units-trigger');
 const unitsMenu = document.getElementById('units-menu');
 const audioToggle = document.getElementById('audio-toggle');
+const engineStatus = document.getElementById('engine-status');
+const loadingPercent = document.getElementById('loading-percent');
+const loadingFill = document.getElementById('loading-fill');
+let modelProgress = 0;
 let audioMuted = false, audioContext = null;
 const ensureAudio = () => {
   if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -25,11 +29,14 @@ if (!['en', 'es'].includes(lang)) lang = 'en';
 
 function refreshEngineStatus() {
   const labels = {
-    en: { loading: '3D ENGINE LOADING', active: '3D ENGINE ACTIVE', error: '3D ENGINE UNAVAILABLE' },
-    es: { loading: 'CARGANDO MOTOR 3D', active: 'MOTOR 3D ACTIVO', error: 'MOTOR 3D NO DISPONIBLE' },
+    en: { loading: 'LOADING MODEL', active: 'MODEL READY', error: 'MODEL UNAVAILABLE' },
+    es: { loading: 'CARGANDO MODELO', active: 'MODELO LISTO', error: 'MODELO NO DISPONIBLE' },
   };
-  status.textContent = labels[lang][engineState];
+  engineStatus.textContent = labels[lang][engineState];
   document.body.dataset.engine = engineState;
+  const shown = engineState === 'active' ? 100 : Math.max(0, Math.min(100, Math.round(modelProgress)));
+  loadingPercent.textContent = String(shown).padStart(3, '0') + '%';
+  loadingFill.style.width = shown + '%';
 }
 function setLanguage(next) {
   lang = next; document.documentElement.lang = lang; localStorage.setItem('tdn-lang', lang);
@@ -58,11 +65,12 @@ function closeUnits() {
   unitsTrigger.setAttribute('aria-expanded', 'false');
   document.body.dataset.units = 'closed';
 }
-function toggleUnits() {
-  const open = unitsMenu.hidden;
+function toggleUnits(force) {
+  const open = typeof force === 'boolean' ? force : unitsMenu.hidden;
   unitsMenu.hidden = !open;
   unitsTrigger.setAttribute('aria-expanded', String(open));
   document.body.dataset.units = open ? 'open' : 'closed';
+  if (open) blip('tick');
 }
 function go(destination) {
   if (destination === 'technical') toggleUnits();
@@ -79,7 +87,7 @@ function selectUnit(code) {
   unitEditor?.flyTo(code);
 }
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => go(button.dataset.go)));
-unitsTrigger.addEventListener('click', event => { event.stopPropagation(); toggleUnits(); });
+unitsTrigger.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); toggleUnits(); });
 document.querySelectorAll('.units-menu [data-select]').forEach(button => button.addEventListener('click', event => { event.stopPropagation(); selectUnit(button.dataset.select); }));
 document.addEventListener('pointerdown', event => { if (!unitsMenu.hidden && !event.target.closest('.units-nav')) closeUnits(); });
 document.getElementById('language-switch').addEventListener('click', () => setLanguage(lang === 'en' ? 'es' : 'en'));
@@ -89,7 +97,10 @@ audioToggle?.addEventListener('click', () => {
   audioToggle.textContent = audioMuted ? '[ MUTE ]' : '[ AUDIO ]';
   if (!audioMuted) blip('tick');
 });
-document.querySelectorAll('button,a').forEach(control => control.addEventListener('pointerdown', () => blip(control.dataset.go ? 'whoosh' : 'tick')));
+document.querySelectorAll('button,a').forEach(control => control.addEventListener('pointerdown', () => {
+  if (control === unitsTrigger || control === audioToggle) return;
+  blip(control.dataset.go ? 'whoosh' : 'tick');
+}));
 window.addEventListener('pointerdown', ensureAudio, { once: true });
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && !unitsMenu.hidden) closeUnits();
@@ -117,8 +128,11 @@ function viewerUrl() {
 }
 window.addEventListener('message', event => {
   if (event.origin !== location.origin || event.source !== sceneViewer.contentWindow) return;
-  if (event.data?.type === 'tdn:first-useful-frame') {
-    engineState = 'active'; refreshEngineStatus();
+  if (event.data?.type === 'tdn:progress') {
+    modelProgress = Number(event.data.progress) || 0;
+    if (engineState === 'loading') refreshEngineStatus();
+  } else if (event.data?.type === 'tdn:first-useful-frame') {
+    modelProgress = 100; engineState = 'active'; refreshEngineStatus();
   } else if (event.data?.type === 'tdn:render-error') {
     engineState = 'error'; refreshEngineStatus();
   }
@@ -130,6 +144,6 @@ window.addEventListener('resize', () => {
   const orientation = innerWidth < innerHeight ? 'portrait' : 'landscape';
   if (orientation === lastOrientation) return;
   lastOrientation = orientation;
-  engineState = 'loading'; refreshEngineStatus();
+  modelProgress = 0; engineState = 'loading'; refreshEngineStatus();
   sceneViewer.src = viewerUrl();
 });

@@ -1522,6 +1522,12 @@
                     const send = (type, payload = {}) => {
                         if (host !== window) host.postMessage({ type, ...payload }, location.origin);
                     };
+                    const reportProgress = value => {
+                        const progress = Math.max(0, Math.min(100, Number(value) || 0));
+                        send('tdn:progress', { progress });
+                    };
+                    reportProgress(viewer.global.state?.progress ?? 0);
+                    viewer.global.events.on('progress:changed', reportProgress);
                     const vec = value => [value.x, value.y, value.z];
                     const cameraSnapshot = () => {
                         const camera = viewer.cameraManager?.camera;
