@@ -58,7 +58,7 @@ body[data-edit="true"] .scene:active{cursor:grabbing}
 body[data-edit="true"] .edit-entry{display:none}
 .status-dot{display:inline-block;color:var(--gold);margin-right:7px;vertical-align:0}
 .status-dot::before{content:"●"}
-.cover-card{position:absolute;z-index:4;left:50%;bottom:98px;transform:translateX(-50%);width:min(830px,calc(100% - 80px));padding:22px 28px 0;background:transparent;border-bottom:1px solid var(--line)}
+.cover-card{position:absolute;z-index:4;left:50%;bottom:98px;transform:translateX(-50%);width:min(830px,calc(100% - 80px));padding:22px 28px 0;background:transparent;border:0}
 .engine-status{margin:0 0 12px;color:var(--gold);font-size:9px}
 .cover-headline{font-family:var(--sans);font-weight:400;letter-spacing:-.045em;line-height:1.05;font-size:clamp(28px,3.6vw,49px);color:var(--gold);margin:0 0 20px}
 .cover-headline span{display:block}
