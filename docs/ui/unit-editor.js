@@ -1,4 +1,4 @@
-const UNIT_CODES = ['17A', '35B', '28C'];
+const UNIT_CODES = ['BUILDING', '17A', '35B', '28C'];
 const DRAFT_KEY = 'tdn-unit-settings-v1';
 
 const finiteVec = value => Array.isArray(value) && value.length === 3 && value.every(Number.isFinite);
@@ -80,7 +80,7 @@ export function initUnitEditor(sceneViewer) {
       }
       const code = unitSelect.value;
       const annotation = {
-        position: [...position], title: `Unit ${code}`, text: '',
+        position: [...position], title: code === 'BUILDING' ? 'Edificio' : `Unit ${code}`, text: '',
         camera: { initial: { position: [...camera.position], target: [...camera.target], fov: camera.fov } },
         extras: { unit: code },
       };
@@ -89,7 +89,7 @@ export function initUnitEditor(sceneViewer) {
       settings.annotations.sort((a, b) => UNIT_CODES.indexOf(unitOf(a)) - UNIT_CODES.indexOf(unitOf(b)));
       persist();
       const count = settings.annotations.filter(item => UNIT_CODES.includes(unitOf(item)) && validAnnotation(item)).length;
-      say(`ANOTACIÓN ${code} GUARDADA / ${count} DE 3. DESCARGA settings.json CUANDO TERMINES.`);
+      say(`ANOTACIÓN ${code} GUARDADA / ${count} DE 4. DESCARGA settings.json CUANDO TERMINES.`);
       setCollapsed(false);
     } else if (data?.type === 'tdn:bridge-error' && active) {
       say(`ERROR DEL VISOR: ${data.message}`);
@@ -129,7 +129,7 @@ export function initUnitEditor(sceneViewer) {
       const link = document.createElement('a');
       link.href = url; link.download = 'settings.json'; link.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
-      say(`settings.json DESCARGADO / ${settings.annotations.filter(a => UNIT_CODES.includes(unitOf(a)) && validAnnotation(a)).length} UNIDADES`);
+      say(`settings.json DESCARGADO / ${settings.annotations.filter(a => UNIT_CODES.includes(unitOf(a)) && validAnnotation(a)).length} ANOTACIONES`);
     });
     document.getElementById('editor-import').addEventListener('change', async event => {
       const file = event.target.files?.[0];
