@@ -114,9 +114,18 @@ export function initUnitEditor(sceneViewer) {
   if (active) {
     document.body.dataset.edit = 'true';
     panel.hidden = false;
+    const toggle = document.getElementById('editor-collapse');
+    const setCollapsed = collapsed => {
+      panel.classList.toggle('is-collapsed', collapsed);
+      toggle.textContent = collapsed ? '[ ABRIR ]' : '[ OCULTAR ]';
+      toggle.setAttribute('aria-expanded', String(!collapsed));
+      toggle.setAttribute('aria-label', collapsed ? 'Abrir controles de edición' : 'Contraer controles de edición');
+    };
+    toggle.addEventListener('click', () => setCollapsed(!panel.classList.contains('is-collapsed')));
+    setCollapsed(window.matchMedia('(max-width: 700px)').matches);
     document.getElementById('editor-mark').addEventListener('click', () => {
       point = null; marker.hidden = true;
-      if (send('arm-point')) say('HAZ UN CLIC SOBRE LA SUPERFICIE DE LA TORRE.');
+      if (send('arm-point')) { say('HAZ UN CLIC SOBRE LA SUPERFICIE DE LA TORRE.'); setCollapsed(true); }
     });
     document.getElementById('editor-capture').addEventListener('click', () => {
       if (!settings) { say('ESPERANDO CONFIGURACIÓN…'); return; }
