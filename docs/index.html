@@ -8,7 +8,7 @@
 <title>Torres del Norte</title>
 <link rel="preload" href="assets/fonts/playfair-display.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="ui/cover.css?v=hud-repair-1">
+<link rel="stylesheet" href="ui/cover.css?v=unit-flyout-1">
 </head>
 <body data-state="cover">
 <main class="experience" aria-label="Torres del Norte">
@@ -22,11 +22,11 @@
     <nav class="primary-nav" aria-label="Main navigation">
       <button class="nav-control" data-go="cover">[ PROJECTS ]</button>
       <div class="units-nav">
-        <button class="nav-control units-trigger" id="units-trigger" type="button" aria-expanded="false" aria-controls="units-menu">[ UNITS ]</button>
-        <div class="units-menu" id="units-menu" hidden>
-          <button type="button" data-select="17A" aria-pressed="false">[ 17A ]</button>
-          <button type="button" data-select="35B" aria-pressed="true">[ 35B ]</button>
-          <button type="button" data-select="28C" aria-pressed="false">[ 28C ]</button>
+        <button class="nav-control units-trigger" id="units-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="units-menu">[ UNITS ]</button>
+        <div class="units-menu" id="units-menu" role="menu" hidden>
+          <button type="button" role="menuitem" data-select="17A" aria-pressed="false">[ 17A ]</button>
+          <button type="button" role="menuitem" data-select="35B" aria-pressed="true">[ 35B ]</button>
+          <button type="button" role="menuitem" data-select="28C" aria-pressed="false">[ 28C ]</button>
         </div>
       </div>
       <a class="nav-control" href="https://wa.me/593992730095" target="_blank" rel="noopener noreferrer">[ TEAM ]</a>
@@ -41,6 +41,12 @@
   <div class="desktop-micro micro-axis micro-axis-left" aria-hidden="true"><span>00</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
   <div class="desktop-micro micro-axis micro-axis-bottom" aria-hidden="true"><span>01</span><span>03</span><span>06</span><span>09</span><span>12</span></div>
   <div class="stream hero-hud"><span class="status-dot" aria-hidden="true"></span><span id="unit-stream">UNIT 35B DATA STREAM</span></div>
+  <aside class="unit-flyout hero-hud" id="unit-flyout" aria-live="polite" hidden>
+    <header class="unit-flyout-head"><span id="unit-flyout-index">[ UNIT 35B ]</span><button type="button" id="unit-flyout-close" aria-label="Cerrar ficha">[ X ]</button></header>
+    <div class="unit-flyout-title"><strong id="unit-flyout-name">35B</strong><span id="unit-flyout-tower">TOWER 1</span></div>
+    <div class="unit-flyout-specs"><span id="unit-flyout-area">123 M²</span><span id="unit-flyout-beds">3 BEDROOMS</span><span id="unit-flyout-baths">2 BATHROOMS</span></div>
+    <footer class="unit-flyout-bottom"><span id="unit-flyout-price">USD 135.000</span><a id="unit-flyout-link" href="inventory/?unit=inventory-48&amp;room=living">VIEW INTERIOR →</a></footer>
+  </aside>
   <section class="cover-card model-loader hero-hud" id="model-loader" aria-label="Estado de carga del modelo">
     <div class="engine-status" role="status"><span class="status-dot" aria-hidden="true"></span><span id="engine-status">LOADING MODEL</span><span class="loading-percent" id="loading-percent">000%</span></div>
     <div class="loading-track" aria-hidden="true"><span id="loading-fill"></span></div>
@@ -59,6 +65,6 @@
     <div class="unit-editor-files"><button type="button" id="editor-export">[ DESCARGAR settings.json ]</button><label class="unit-editor-import">[ IMPORTAR ]<input id="editor-import" type="file" accept=".json,application/json"></label></div>
   </aside>
 </main>
-<script type="module" src="ui/cover.js?v=hud-repair-1"></script>
+<script type="module" src="ui/cover.js?v=unit-flyout-1"></script>
 </body>
 </html>

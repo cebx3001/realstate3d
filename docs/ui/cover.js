@@ -1,6 +1,13 @@
-import { initUnitEditor } from './unit-editor.js?v=annotation-single-1';
+import { initUnitEditor } from './unit-editor.js?v=unit-flyout-1';
 
 const unitsTrigger = document.getElementById('units-trigger');
+const UNIT_INFO = Object.freeze({
+  '17A': { tower: { en: 'TOWER 1', es: 'TORRE 1' }, area: '120 M²', beds: 3, baths: 2, price: 'USD 127.000', href: 'inventory/?unit=inventory-47&room=living' },
+  '35B': { tower: { en: 'TOWER 1', es: 'TORRE 1' }, area: '123 M²', beds: 3, baths: 2, price: 'USD 135.000', href: 'inventory/?unit=inventory-48&room=living' },
+  '28C': { tower: { en: 'TOWER 2', es: 'TORRE 2' }, area: '107 M²', beds: 3, baths: 2, price: 'USD 139.000', href: 'inventory/?unit=inventory-50&room=living' },
+});
+const unitFlyout = document.getElementById('unit-flyout');
+const unitFlyoutClose = document.getElementById('unit-flyout-close');
 const unitsMenu = document.getElementById('units-menu');
 const audioToggle = document.getElementById('audio-toggle');
 const engineStatus = document.getElementById('engine-status');
@@ -43,6 +50,7 @@ function setLanguage(next) {
   document.querySelectorAll('[data-en][data-es]').forEach(el => { el.textContent = el.dataset[lang]; });
   document.getElementById('language-switch').setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
   refreshEngineStatus();
+  if (!unitFlyout.hidden && UNIT_INFO[selectedUnit]) renderUnitFlyout(selectedUnit);
 }
 
 // The cover pose is independent of category state. Public camera input is locked in CSS;
@@ -72,23 +80,50 @@ function toggleUnits(force) {
   document.body.dataset.units = open ? 'open' : 'closed';
   if (open) blip('tick');
 }
+function hideUnitFlyout() { unitFlyout.hidden = true; }
+function renderUnitFlyout(code) {
+  const info = UNIT_INFO[code];
+  if (!info) return;
+  document.getElementById('unit-flyout-index').textContent = `[ UNIT ${code} ]`;
+  document.getElementById('unit-flyout-name').textContent = code;
+  document.getElementById('unit-flyout-tower').textContent = info.tower[lang];
+  document.getElementById('unit-flyout-area').textContent = info.area;
+  document.getElementById('unit-flyout-beds').textContent = lang === 'es' ? `${info.beds} DORMITORIOS` : `${info.beds} BEDROOMS`;
+  document.getElementById('unit-flyout-baths').textContent = lang === 'es' ? `${info.baths} BAÑOS` : `${info.baths} BATHROOMS`;
+  document.getElementById('unit-flyout-price').textContent = info.price;
+  const link = document.getElementById('unit-flyout-link');
+  link.href = info.href;
+  link.textContent = lang === 'es' ? 'VER INTERIOR →' : 'VIEW INTERIOR →';
+  unitFlyout.hidden = false;
+}
 function go(destination) {
   if (destination === 'technical') toggleUnits();
-  else if (destination === 'cover') closeUnits();
+  else if (destination === 'cover') {
+    closeUnits();
+    hideUnitFlyout();
+    unitEditor?.flyTo('BUILDING');
+  }
 }
 function selectUnit(code) {
-  if (!['17A', '35B', '28C'].includes(code)) return;
+  if (!UNIT_INFO[code]) return;
   selectedUnit = code;
   document.getElementById('unit-stream').textContent = `UNIT ${code} DATA STREAM`;
   document.querySelectorAll('.units-menu [data-select]').forEach(button => {
     button.setAttribute('aria-pressed', String(button.dataset.select === code));
   });
   closeUnits();
+  renderUnitFlyout(code);
+  blip('whoosh');
   unitEditor?.flyTo(code);
 }
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => go(button.dataset.go)));
 unitsTrigger.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); toggleUnits(); });
-document.querySelectorAll('.units-menu [data-select]').forEach(button => button.addEventListener('click', event => { event.stopPropagation(); selectUnit(button.dataset.select); }));
+unitsTrigger.addEventListener('pointerdown', event => event.stopPropagation());
+unitsMenu.addEventListener('pointerdown', event => event.stopPropagation());
+document.querySelectorAll('.units-menu [data-select]').forEach(button => button.addEventListener('click', event => {
+  event.preventDefault(); event.stopPropagation(); selectUnit(button.dataset.select);
+}));
+unitFlyoutClose.addEventListener('click', hideUnitFlyout);
 document.addEventListener('pointerdown', event => { if (!unitsMenu.hidden && !event.target.closest('.units-nav')) closeUnits(); });
 document.getElementById('language-switch').addEventListener('click', () => setLanguage(lang === 'en' ? 'es' : 'en'));
 audioToggle?.addEventListener('click', () => {

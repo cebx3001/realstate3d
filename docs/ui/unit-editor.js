@@ -1,5 +1,5 @@
 const UNIT_CODES = ['BUILDING', '17A', '35B', '28C'];
-const DRAFT_KEY = 'tdn-unit-settings-v1';
+const DRAFT_KEY = 'tdn-unit-settings-v2';
 
 const finiteVec = value => Array.isArray(value) && value.length === 3 && value.every(Number.isFinite);
 const validAnnotation = value =>
