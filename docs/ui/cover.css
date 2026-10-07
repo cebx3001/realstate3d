@@ -48,7 +48,7 @@ body[data-edit="true"] .edit-entry{display:none}
 .engine-status{margin:0 0 12px;color:var(--gold);font-size:9px}
 .cover-headline{font-family:var(--sans);font-weight:400;letter-spacing:-.045em;line-height:1.05;font-size:clamp(28px,3.6vw,49px);color:var(--gold);margin:0 0 20px}
 .cover-headline span{display:block}
-.arrow{font-size:22px;line-height:1;font-family:var(--mono);font-weight:400}
+
 .bottom-hud{position:absolute;z-index:5;bottom:20px;left:20px;right:20px;height:58px;display:flex;align-items:center;gap:20px;border:0;background:transparent;padding:0 24px}
 .coordinates{color:var(--gold);font-size:9px}
 .cover-button{border:0;padding:12px;margin-left:auto;font-size:10px;color:var(--gold)}
@@ -70,7 +70,7 @@ body[data-edit="true"] .edit-entry{display:none}
  .whatsapp{width:auto;height:auto;padding:5px 0;flex-shrink:0;font-size:8px}
 }
 @media(max-width:374px){.primary-nav{gap:10px}.brand{margin-right:12px}.nav-control,.language{font-size:7px}.coordinates{font-size:6px}.cover-headline{font-size:6.2vw}}
-@media(max-height:650px) and (min-width:701px){.cover-card{width:min(700px,70vw);bottom:83px;padding:15px 22px 0}.cover-headline{font-size:30px;margin-bottom:13px}.engine-status{margin-bottom:8px}.cover-cta{padding:13px 0}.panel-nav{min-height:50px}}
+@media(max-height:650px) and (min-width:701px){.cover-card{width:min(700px,70vw);bottom:83px;padding:15px 22px 0}.cover-headline{font-size:30px;margin-bottom:13px}.engine-status{margin-bottom:8px}.panel-nav{min-height:50px}}
 
 /* Editor is an opt-in HUD state, built on the same twelve-column reticle. */
 body[data-edit="true"] .cover-card{visibility:hidden}
