@@ -103,7 +103,7 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior .m-room-name::after{width:12px;height:12px;background:none;border-right:2px solid var(--tdn-gold);border-bottom:2px solid var(--tdn-gold);transform:rotate(45deg);transition:transform 180ms ease;opacity:1;margin-right:2px}
  body.editorial-interior .m-room-name[aria-expanded="true"]::after{transform:rotate(225deg)}
  body.editorial-interior .m-room-count{font:11px var(--tdn-mono);color:var(--tdn-gold);text-shadow:none}
- body.editorial-interior .m-espacios{top:108px;right:20px;left:auto;width:max-content;max-width:calc(100vw - 40px);max-height:calc(100dvh - 174px);overflow-y:auto;overflow-x:hidden;padding:4px 0;background:var(--tdn-ink);border:1px solid var(--tdn-line);transition:none}
+ body.editorial-interior .m-espacios{top:108px;right:0;left:auto;width:max-content;max-width:calc(100vw - 40px);max-height:calc(100dvh - 174px);overflow-y:auto;overflow-x:hidden;padding:4px 0;background:var(--tdn-ink);border:1px solid var(--tdn-line);transition:none}
  body.editorial-interior .m-espacios.open{transition:none}
  body.editorial-interior .m-espacios::before{content:none!important;display:none!important}
  body.editorial-interior .m-espacios-list{display:grid;width:max-content;min-width:100%}
