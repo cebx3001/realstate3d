@@ -59,18 +59,18 @@ body[data-edit="true"] .scene:active{cursor:grabbing}
 .language{margin-left:auto;border:0;white-space:nowrap;padding:12px 0}
 .stream{position:absolute;right:40px;top:106px;z-index:5;color:var(--gold);font-size:10px}
 
-.unit-flyout{position:absolute;z-index:18;left:calc(20px + (100vw - 40px)/12);bottom:88px;width:clamp(300px,calc((100vw - 40px)/12*3),420px);border:1px solid var(--line);background:rgba(15,21,31,.94);color:var(--paper);backdrop-filter:blur(2px)}
+.unit-flyout{position:absolute;z-index:18;left:calc(20px + (100vw - 40px)/12);bottom:88px;width:clamp(320px,calc((100vw - 40px)/12*3.25),460px);border:1px solid var(--line);background:rgba(15,21,31,.96);color:var(--paper);backdrop-filter:blur(2px)}
 .unit-flyout-head{height:34px;display:grid;grid-template-columns:1fr auto;align-items:center;border-bottom:1px solid var(--line);color:var(--gold);font:8px var(--mono);letter-spacing:.08em}
 .unit-flyout-head span,.unit-flyout-head button{padding:0 11px}.unit-flyout-head button{height:100%;border-width:0 0 0 1px;color:var(--gold)}
-.unit-flyout-title{display:grid;grid-template-columns:1fr auto;align-items:end;padding:12px 11px 10px;border-bottom:1px solid var(--line)}
-.unit-flyout-title strong{font:32px/.9 var(--sans);font-weight:400;letter-spacing:-.045em;color:var(--gold)}
-.unit-flyout-title span{font:8px var(--mono);color:var(--paper)}
+.unit-flyout-cta{min-height:86px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;padding:15px 12px 13px;border-bottom:1px solid var(--line);color:var(--gold);font:clamp(27px,2.45vw,38px)/.95 var(--sans);font-weight:400;letter-spacing:-.045em;text-transform:uppercase}
+.unit-flyout-cta:hover,.unit-flyout-cta:focus-visible{background:var(--gold);color:var(--ink);outline:0}
+.unit-flyout-arrow{font:32px/1 var(--mono);padding-left:14px}
 .unit-flyout-specs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
 .unit-flyout-specs span{padding:9px 8px;border-right:1px solid var(--line);font:7px/1.2 var(--mono);color:var(--paper);white-space:nowrap}.unit-flyout-specs span:last-child{border-right:0}
-.unit-flyout-bottom{display:grid;grid-template-columns:1fr auto;align-items:center;min-height:38px}
-.unit-flyout-bottom span{padding:0 11px;color:var(--paper);font:9px var(--mono)}
-.unit-flyout-bottom a{height:100%;display:flex;align-items:center;padding:0 11px;border-left:1px solid var(--line);color:var(--gold);font:8px var(--mono);white-space:nowrap}
-.unit-flyout-bottom a:hover,.unit-flyout-bottom a:focus-visible{color:var(--paper)}
+.unit-flyout-bottom{display:grid;grid-template-columns:1fr auto;align-items:center;min-height:36px;padding:0 10px}
+.unit-flyout-bottom>span{color:var(--paper);font:8px var(--mono)}
+.unit-flyout-code{justify-self:end;color:var(--gold)!important;letter-spacing:.08em}
+.unit-flyout-code strong{font-weight:400;color:var(--gold)}
 .status-dot{display:inline-block;color:var(--gold);margin-right:7px;vertical-align:0}
 .status-dot::before{content:"●"}
 .cover-card{position:absolute;z-index:4;left:50%;bottom:98px;transform:translateX(-50%);width:min(830px,calc(100% - 80px));padding:0;background:transparent;border:0}
@@ -104,9 +104,10 @@ body[data-engine="error"] .loading-track{border-color:var(--gold)}
  .whatsapp{width:auto;height:auto;padding:5px 0;flex-shrink:0;font-size:8px}
  .units-menu{left:-8px;min-width:108px}
  .unit-flyout{left:20px;right:20px;bottom:76px;width:auto}
- .unit-flyout-title{padding:10px}.unit-flyout-title strong{font-size:28px}
+ .unit-flyout-cta{min-height:78px;padding:13px 10px 12px;font-size:clamp(24px,7.4vw,32px)}
+ .unit-flyout-arrow{font-size:28px;padding-left:10px}
  .unit-flyout-specs span{font-size:7px;padding:8px 6px}
- .unit-flyout-bottom span{font-size:8px}.unit-flyout-bottom a{font-size:7px;padding:0 9px}
+ .unit-flyout-bottom{min-height:34px;padding:0 8px}.unit-flyout-bottom>span{font-size:7px}
 }
 @media(max-width:374px){.primary-nav{gap:10px}.brand{margin-right:12px}.nav-control,.language{font-size:7px}.coordinates{font-size:6px}.cover-headline{font-size:6.2vw}}
 @media(max-height:650px) and (min-width:701px){.cover-card{width:min(700px,70vw);bottom:83px;padding:15px 22px 0}.cover-headline{font-size:30px;margin-bottom:13px}.engine-status{margin-bottom:8px}.panel-nav{min-height:50px}}

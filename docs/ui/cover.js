@@ -1,4 +1,4 @@
-import { initUnitEditor } from './unit-editor.js?v=unit-flyout-1';
+import { initUnitEditor } from './unit-editor.js?v=responsive-annotations-2';
 
 const unitsTrigger = document.getElementById('units-trigger');
 const UNIT_INFO = Object.freeze({
@@ -84,7 +84,7 @@ function hideUnitFlyout() { unitFlyout.hidden = true; }
 function renderUnitFlyout(code) {
   const info = UNIT_INFO[code];
   if (!info) return;
-  document.getElementById('unit-flyout-index').textContent = `[ UNIT ${code} ]`;
+  document.getElementById('unit-flyout-label').textContent = lang === 'es' ? '[ RESIDENCIA DISPONIBLE ]' : '[ AVAILABLE RESIDENCE ]';
   document.getElementById('unit-flyout-name').textContent = code;
   document.getElementById('unit-flyout-tower').textContent = info.tower[lang];
   document.getElementById('unit-flyout-area').textContent = info.area;
@@ -93,7 +93,7 @@ function renderUnitFlyout(code) {
   document.getElementById('unit-flyout-price').textContent = info.price;
   const link = document.getElementById('unit-flyout-link');
   link.href = info.href;
-  link.textContent = lang === 'es' ? 'VER INTERIOR →' : 'VIEW INTERIOR →';
+  document.getElementById('unit-flyout-action').textContent = lang === 'es' ? 'VER INTERIOR' : 'VIEW INTERIOR';
   unitFlyout.hidden = false;
 }
 function go(destination) {

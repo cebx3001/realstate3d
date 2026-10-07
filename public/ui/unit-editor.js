@@ -41,7 +41,18 @@ export function initUnitEditor(sceneViewer) {
       return;
     }
     if (!ready) { queuedUnit = code; return; }
-    send('fly-to', { annotation });
+    let view = annotation;
+    if (code !== 'BUILDING' && innerWidth < innerHeight) {
+      const initial = annotation.camera.initial;
+      const target = [...annotation.position];
+      const scale = 1.22;
+      const position = target.map((value, index) => value + (initial.position[index] - value) * scale);
+      view = {
+        ...annotation,
+        camera: { initial: { position, target, fov: Math.min(108, initial.fov + 8) } },
+      };
+    }
+    send('fly-to', { annotation: view });
   };
   const load = async () => {
     try {
