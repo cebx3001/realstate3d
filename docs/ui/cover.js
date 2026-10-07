@@ -1,7 +1,8 @@
 import { categories } from './environment-data.js';
 import { initUnitEditor } from './unit-editor.js?v=annotation-single-1';
 
-const editorial = document.getElementById('editorial');
+const unitsTrigger = document.getElementById('units-trigger');
+const unitsMenu = document.getElementById('units-menu');
 const neighborhood = document.getElementById('environment-lower-third');
 const trigger = document.querySelector('.environment-access');
 const status = document.getElementById('engine-status');
@@ -61,31 +62,41 @@ function closeNeighborhood() {
   neighborhood.hidden = true; document.body.dataset.neighborhood = 'closed'; trigger.setAttribute('aria-expanded', 'false');
 }
 function openNeighborhood() {
-  editorial.hidden = true; document.body.dataset.units = 'closed';
+  closeUnits();
   selectCategory(selectedCategory);
   neighborhood.hidden = false; document.body.dataset.neighborhood = 'open'; trigger.setAttribute('aria-expanded', 'true');
 }
+function closeUnits() {
+  unitsMenu.hidden = true;
+  unitsTrigger.setAttribute('aria-expanded', 'false');
+  document.body.dataset.units = 'closed';
+}
+function toggleUnits() {
+  const open = unitsMenu.hidden;
+  closeNeighborhood();
+  unitsMenu.hidden = !open;
+  unitsTrigger.setAttribute('aria-expanded', String(open));
+  document.body.dataset.units = open ? 'open' : 'closed';
+}
 function go(destination) {
-  if (destination === 'technical') {
-    closeNeighborhood(); editorial.hidden = false; document.body.dataset.units = 'open';
-    document.querySelector('.panel-nav [data-go="technical"]').setAttribute('aria-pressed', 'true');
-  } else if (destination === 'neighborhood' || destination === 'manifesto') {
+  if (destination === 'technical') toggleUnits();
+  else if (destination === 'neighborhood' || destination === 'manifesto') {
+    closeUnits();
     if (destination === 'neighborhood' && !neighborhood.hidden) closeNeighborhood();
     else openNeighborhood();
   } else if (destination === 'close-neighborhood') closeNeighborhood();
   else if (destination === 'cover') {
-    editorial.hidden = true; document.body.dataset.units = 'closed'; closeNeighborhood();
+    closeUnits(); closeNeighborhood();
   }
 }
 function selectUnit(code) {
   if (!['17A', '35B', '28C'].includes(code)) return;
   selectedUnit = code;
   document.getElementById('unit-stream').textContent = `UNIT ${code} DATA STREAM`;
-  document.getElementById('selection-status').textContent = `UNIT ${code} / DATA STREAM`;
-  document.querySelectorAll('[data-unit]').forEach(row => {
-    row.dataset.selected = String(row.dataset.unit === code);
-    row.querySelector('[data-select]').setAttribute('aria-pressed', row.dataset.selected);
+  document.querySelectorAll('.units-menu [data-select]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.select === code));
   });
+  closeUnits();
   unitEditor?.flyTo(code);
 }
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => go(button.dataset.go)));
@@ -97,12 +108,12 @@ document.getElementById('language-switch').addEventListener('click', () => setLa
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     if (!neighborhood.hidden) closeNeighborhood();
-    else if (!editorial.hidden) go('cover');
+    else if (!unitsMenu.hidden) closeUnits();
   }
 });
-setLanguage(lang); selectCategory(selectedCategory); closeNeighborhood();
+setLanguage(lang); selectCategory(selectedCategory); closeNeighborhood(); closeUnits();
 window.__tdnExperience = Object.freeze({
-  get state() { return !editorial.hidden ? 'technical' : !neighborhood.hidden ? 'neighborhood' : 'cover'; },
+  get state() { return !unitsMenu.hidden ? 'technical' : !neighborhood.hidden ? 'neighborhood' : 'cover'; },
   get category() { return categories[selectedCategory].key; }, get unit() { return selectedUnit; }, get engine() { return engineState; },
   get camera() { return { position: coverPose().position, fov: 98 }; },
 });

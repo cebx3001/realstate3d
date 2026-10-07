@@ -8,7 +8,7 @@
 <title>Torres del Norte</title>
 <link rel="preload" href="assets/fonts/playfair-display.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="ui/cover.css?v=gold-monument-1">
+<link rel="stylesheet" href="ui/cover.css?v=units-dropdown-1">
 </head>
 <body data-state="cover">
 <main class="experience" aria-label="Torres del Norte">
@@ -21,7 +21,14 @@
     <button class="brand" data-go="cover" aria-label="Torres del Norte — cover"><svg viewBox="139 524 784 585" aria-hidden="true" focusable="false"><path fill="currentColor" d="M503.0,524.0 L139.0,816.5 L503.0,1109.0 L503.0,816.5 L474.0,816.5 L474.0,1048.5 L185.3,816.5 L503.0,561.2Z M503.0,598.4 L231.6,816.5 L450.5,992.4 L450.5,816.5 L421.5,816.5 L421.5,931.9 L277.9,816.5 L503.0,635.6Z M559.0,1109.0 L923.0,816.5 L559.0,524.0 L559.0,816.5 L588.0,816.5 L588.0,584.5 L876.7,816.5 L559.0,1071.8Z M559.0,1034.6 L830.4,816.5 L611.5,640.6 L611.5,816.5 L640.5,816.5 L640.5,701.1 L784.1,816.5 L559.0,997.4Z"/></svg></button>
     <nav class="primary-nav" aria-label="Main navigation">
       <button class="nav-control" data-go="cover">[ PROJECTS ]</button>
-      <button class="nav-control" data-go="technical">[ UNITS ]</button>
+      <div class="units-nav">
+        <button class="nav-control units-trigger" id="units-trigger" type="button" aria-expanded="false" aria-controls="units-menu">[ UNITS ]</button>
+        <div class="units-menu" id="units-menu" hidden>
+          <button type="button" data-select="17A" aria-pressed="false">[ 17A ]</button>
+          <button type="button" data-select="35B" aria-pressed="true">[ 35B ]</button>
+          <button type="button" data-select="28C" aria-pressed="false">[ 28C ]</button>
+        </div>
+      </div>
       <a class="nav-control" href="https://wa.me/593992730095" target="_blank" rel="noopener noreferrer">[ TEAM ]</a>
     </nav>
     <button class="language" id="language-switch" aria-label="Change language">[ EN/SP ]</button>
@@ -40,34 +47,6 @@
     <span class="copyright">© 2024 TDS ARQ</span>
     <a class="whatsapp" href="https://wa.me/593992730095" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" title="Contactar por WhatsApp">CONTACTO</a>
   </footer>
-  <aside class="editorial" id="editorial" aria-label="Project information" hidden>
-    <nav class="panel-nav" aria-label="Editorial navigation">
-      <button data-go="cover">[ COVER ]</button>
-      <button data-go="technical" data-en="[ TECHNICAL ]" data-es="[ FICHA TÉCNICA ]" aria-pressed="false">[ TECHNICAL ]</button>
-      <button data-go="manifesto" data-en="[ MANIFESTO ]" data-es="[ MANIFIESTO ]" aria-pressed="false">[ MANIFESTO ]</button>
-    </nav>
-    <section class="panel-body technical-body" id="technical-panel">
-      <header class="panel-heading"><p class="panel-number" data-en="01 / AVAILABLE RESIDENCES" data-es="01 / RESIDENCIAS DISPONIBLES">01 / AVAILABLE RESIDENCES</p><h2 data-en="Technical dossier" data-es="Ficha técnica">Technical dossier</h2></header>
-      <div class="unit-list">
-        <article class="unit-row" data-unit="17A" data-selected="false">
-          <button class="unit-pick" data-select="17A" aria-pressed="false">Unit 17A</button><span class="unit-tower" data-en="TOWER 1" data-es="TORRE 1">TOWER 1</span>
-          <div class="unit-data"><span>120 M²</span><span data-en="3 BEDROOMS" data-es="3 DORMITORIOS">3 BEDROOMS</span><span data-en="2 BATHROOMS" data-es="2 BAÑOS">2 BATHROOMS</span></div>
-          <div class="unit-bottom"><span>USD 127.000</span><a class="interior-link" href="inventory/?unit=inventory-47&amp;room=living" data-en="VIEW INTERIOR →" data-es="VER INTERIOR →">VIEW INTERIOR →</a></div>
-        </article>
-        <article class="unit-row" data-unit="35B" data-selected="true">
-          <button class="unit-pick" data-select="35B" aria-pressed="true">Unit 35B</button><span class="unit-tower" data-en="TOWER 1" data-es="TORRE 1">TOWER 1</span>
-          <div class="unit-data"><span>123 M²</span><span data-en="3 BEDROOMS" data-es="3 DORMITORIOS">3 BEDROOMS</span><span data-en="2 BATHROOMS" data-es="2 BAÑOS">2 BATHROOMS</span></div>
-          <div class="unit-bottom"><span>USD 135.000</span><a class="interior-link" href="inventory/?unit=inventory-48&amp;room=living" data-en="VIEW INTERIOR →" data-es="VER INTERIOR →">VIEW INTERIOR →</a></div>
-        </article>
-        <article class="unit-row" data-unit="28C" data-selected="false">
-          <button class="unit-pick" data-select="28C" aria-pressed="false">Unit 28C</button><span class="unit-tower" data-en="TOWER 2" data-es="TORRE 2">TOWER 2</span>
-          <div class="unit-data"><span>107 M²</span><span data-en="3 BEDROOMS" data-es="3 DORMITORIOS">3 BEDROOMS</span><span data-en="2 BATHROOMS" data-es="2 BAÑOS">2 BATHROOMS</span></div>
-          <div class="unit-bottom"><span>USD 139.000</span><a class="interior-link" href="inventory/?unit=inventory-50&amp;room=living" data-en="VIEW INTERIOR →" data-es="VER INTERIOR →">VIEW INTERIOR →</a></div>
-        </article>
-      </div>
-      <footer class="panel-footer"><span id="selection-status">UNIT 35B / DATA STREAM</span><button data-go="manifesto" data-en="MANIFESTO →" data-es="MANIFIESTO →">MANIFESTO →</button></footer>
-    </section>
-  </aside>
   <section class="environment-lower-third" id="environment-lower-third" lang="es" aria-label="Entorno de Torres del Norte" hidden>
     <nav class="environment-categories" aria-label="Categorías del entorno">
       <button type="button" data-category="education" aria-pressed="false" aria-controls="environment-detail">[ 01_EDUCACIÓN ]</button>
@@ -99,6 +78,6 @@
     <div class="unit-editor-files"><button type="button" id="editor-export">[ DESCARGAR settings.json ]</button><label class="unit-editor-import">[ IMPORTAR ]<input id="editor-import" type="file" accept=".json,application/json"></label></div>
   </aside>
 </main>
-<script type="module" src="ui/cover.js?v=annotations-final-1"></script>
+<script type="module" src="ui/cover.js?v=units-dropdown-1"></script>
 </body>
 </html>

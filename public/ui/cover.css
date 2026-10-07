@@ -30,6 +30,13 @@ body[data-edit="true"] .scene:active{cursor:grabbing}
 .brand svg{width:30px;height:26px}
 .primary-nav{display:flex;align-items:center;gap:clamp(20px,4vw,72px)}
 .nav-control{border:0;padding:12px 0;white-space:nowrap}
+.units-nav{position:relative}
+.units-menu{position:absolute;top:calc(100% + 5px);left:0;min-width:92px;border:1px solid var(--line);background:var(--ink);display:grid;z-index:8}
+.units-menu[hidden]{display:none}
+.units-menu button{border:0;border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;color:var(--gold);font:9px var(--mono);white-space:nowrap}
+.units-menu button:last-child{border-bottom:0}
+.units-menu button[aria-pressed="true"]{background:var(--gold);color:var(--ink)}
+.units-menu button:hover,.units-menu button:focus-visible{color:var(--paper)}
 .language{margin-left:auto;border:0;white-space:nowrap;padding:12px 0}
 .stream{position:absolute;right:40px;top:106px;z-index:5;color:var(--gold);font-size:10px}
 .edit-entry{position:absolute;z-index:7;top:106px;left:40px;padding:0;border:0;color:var(--gold);background:transparent;font:10px var(--mono);white-space:nowrap;text-decoration:none}
@@ -49,26 +56,6 @@ body[data-edit="true"] .edit-entry{display:none}
 .copyright{color:var(--gold);opacity:.65;font-size:9px}
 .whatsapp{border:0;padding:7px 0;display:flex;align-items:center;justify-content:center;width:auto;height:34px;color:var(--gold);font:10px var(--mono);letter-spacing:.04em;white-space:nowrap;text-decoration:none}
 .whatsapp:hover,.whatsapp:focus-visible{color:var(--paper)}
-.editorial{position:absolute;z-index:4;right:20px;top:20px;bottom:20px;width:min(55vw,760px);border:1px solid var(--line);background:rgba(15,21,31,.91);backdrop-filter:blur(8px);display:flex;flex-direction:column;overflow:hidden}
-.panel-nav{flex-shrink:0;min-height:62px;display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--line)}
-.panel-nav button{border-width:0 1px 0 0;font-size:9px;padding:16px 8px}
-.panel-nav button:last-child{border-right:0}
-.panel-body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
-.panel-heading{padding:24px 28px;border-bottom:1px solid var(--line);flex-shrink:0}
-.panel-number{font-size:9px;color:var(--gold);margin:0 0 10px}
-.panel-heading h2{font-family:var(--sans);font-weight:400;font-size:clamp(30px,3.5vw,50px);letter-spacing:-.045em;margin:0;line-height:1.05;color:var(--gold)}
-.unit-list{flex:1;min-height:0;display:grid;grid-template-rows:repeat(3,1fr)}
-.unit-row{display:grid;grid-template-columns:1fr auto;align-content:center;gap:12px;padding:18px 28px;border-bottom:1px solid var(--line)}
-.unit-row:last-child{border-bottom:0}
-.unit-row[data-selected="true"]{background:rgba(210,177,107,.075)}
-.unit-pick{font-family:var(--sans);font-size:clamp(28px,3.25vw,47px);font-weight:400;letter-spacing:-.045em;text-transform:none;border:0;text-align:left;padding:0;color:var(--gold)}
-.unit-tower{font-size:9px;align-self:center;text-align:right;color:var(--gold)}
-.unit-data{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:9px;color:#aeb0b2}
-.unit-bottom{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:10px}
-.interior-link{border-bottom:1px solid var(--gold);padding:4px 0;color:var(--gold)}
-.panel-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding:16px 28px;font-size:9px;flex-shrink:0;color:var(--gold)}
-.panel-footer button{border:0;padding:0;color:var(--gold)}
-@media(min-width:1600px){.cover-card{bottom:110px}}
 @media(max-width:700px){
  .top-hud{height:54px;padding:0 14px}
  .brand{width:22px;margin-right:17px}.brand svg{width:22px;height:20px}
@@ -83,15 +70,9 @@ body[data-edit="true"] .edit-entry{display:none}
  .bottom-hud{height:50px;padding:0 13px;gap:10px}
  .coordinates{font-size:7px}.copyright{display:none}.cover-button{font-size:8px;padding:9px 0}
  .whatsapp{width:auto;height:auto;padding:5px 0;flex-shrink:0;font-size:8px}
- .editorial{left:20px;right:20px;width:auto}
- .panel-nav{min-height:52px}.panel-nav button{font-size:7px;padding:13px 4px}
- .panel-heading{padding:20px 16px}.panel-heading h2{font-size:32px}
- .unit-row{padding:14px 16px;gap:12px}.unit-pick{font-size:32px}.unit-tower{font-size:8px}
- .unit-data{font-size:8px;gap:7px 11px}.unit-bottom{font-size:9px}.interior-link{font-size:8px}
- .panel-footer{padding:15px 16px;font-size:8px}
 }
-@media(max-width:374px){.primary-nav{gap:10px}.brand{margin-right:12px}.nav-control,.language{font-size:7px}.coordinates{font-size:6px}.cover-headline{font-size:6.2vw}.panel-nav button{font-size:6px}.unit-pick{font-size:28px}.unit-data{font-size:7px}}
-@media(max-height:650px) and (min-width:701px){.cover-card{width:min(700px,70vw);bottom:83px;padding:15px 22px 0}.cover-headline{font-size:30px;margin-bottom:13px}.engine-status{margin-bottom:8px}.cover-cta{padding:13px 0}.unit-row{padding:12px 24px;gap:8px}.unit-pick{font-size:30px}.panel-heading{padding:16px 24px}.panel-heading h2{font-size:32px}.panel-nav{min-height:50px}}
+@media(max-width:374px){.primary-nav{gap:10px}.brand{margin-right:12px}.nav-control,.language{font-size:7px}.coordinates{font-size:6px}.cover-headline{font-size:6.2vw}}
+@media(max-height:650px) and (min-width:701px){.cover-card{width:min(700px,70vw);bottom:83px;padding:15px 22px 0}.cover-headline{font-size:30px;margin-bottom:13px}.engine-status{margin-bottom:8px}.cover-cta{padding:13px 0}.panel-nav{min-height:50px}}
 
 /* The environment swaps an existing lower grid region, aligned to the 12 × 8
    reticle. The fixed HUD and the camera never change with category state. */
