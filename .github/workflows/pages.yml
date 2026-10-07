@@ -4,7 +4,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 concurrency:
@@ -19,37 +19,6 @@ jobs:
     steps:
       - name: Checkout current main
         uses: actions/checkout@v4
-      - name: Check whether lightweight exterior exists
-        id: exterior
-        shell: bash
-        run: |
-          if test -s public/assets/exterior/382a1520/demo-900k/index.sog; then
-            echo "build=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "build=true" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Configure Node for SOG conversion
-        if: steps.exterior.outputs.build == 'true'
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Install SplatTransform
-        if: steps.exterior.outputs.build == 'true'
-        run: npm install -g @playcanvas/splat-transform@3.6.0
-      - name: Build 900k Gaussian SOG demo
-        if: steps.exterior.outputs.build == 'true'
-        timeout-minutes: 45
-        run: bash scripts/build-exterior-demo.sh
-      - name: Save optimized model and viewer reference
-        if: steps.exterior.outputs.build == 'true'
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/assets/exterior/382a1520/demo-900k/ docs/assets/exterior/382a1520/demo-900k/ public/ui/cover.js docs/ui/cover.js public/index.html docs/index.html
-          git diff --cached --check
-          git commit -m "assets(exterior): publish reduced SOG demo at 900k Gaussian splats"
-          git push origin HEAD:main
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload public
@@ -59,5 +28,3 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-
-# redeploy trigger 2026-10-05
