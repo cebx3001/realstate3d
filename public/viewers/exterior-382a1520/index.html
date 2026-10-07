@@ -1530,13 +1530,11 @@
                         if (event.source !== host || event.origin !== location.origin || event.data?.scope !== 'tdn:viewer') return;
                         const { action, annotation, requestId } = event.data;
                         try {
-                            if (action === 'arm-point') {
-                                if (!viewer.picker?.pick) throw new Error('La captura 3D no está disponible.');
+                            if (action === 'arm-annotation') {
+                                if (!viewer.picker?.pick) throw new Error('Las anotaciones 3D no están disponibles.');
                                 armed = true;
                                 pickLayer.style.display = 'block';
                                 send('tdn:armed', { requestId });
-                            } else if (action === 'camera') {
-                                send('tdn:camera', { requestId, camera: cameraSnapshot() });
                             } else if (action === 'fly-to') {
                                 if (!annotation?.camera?.initial || !Array.isArray(annotation.position)) throw new Error('Anotación incompleta.');
                                 // v1.30.2 routes native annotation fly-to through this camera-manager event.
@@ -1561,7 +1559,7 @@
                         try {
                             const point = await viewer.picker.pick(x, y);
                             if (!point) throw new Error('No se detectó una superficie en ese punto.');
-                            send('tdn:point', { position: vec(point), screen: { x: (event.clientX - rect.left) / rect.width, y: (event.clientY - rect.top) / rect.height } });
+                            send('tdn:annotation', { position: vec(point), camera: cameraSnapshot() });
                         } catch (error) {
                             send('tdn:bridge-error', { message: String(error.message || error) });
                         }

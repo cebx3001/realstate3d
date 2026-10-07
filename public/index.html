@@ -8,7 +8,7 @@
 <title>Torres del Norte</title>
 <link rel="preload" href="assets/fonts/playfair-display.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="ui/cover.css?v=editor-compact-1">
+<link rel="stylesheet" href="ui/cover.css?v=annotation-single-1">
 </head>
 <body data-state="cover">
 <main class="experience" aria-label="Torres del Norte">
@@ -93,12 +93,12 @@
   <aside class="unit-editor" id="unit-editor" aria-label="Captura de unidades" hidden>
     <div class="unit-editor-heading"><span>[ EDIT / SUPER SPLAT ]</span><button type="button" id="editor-collapse" aria-expanded="true" aria-label="Contraer controles de edición">[ OCULTAR ]</button><button type="button" id="editor-close" aria-label="Cerrar modo edición">[ X ]</button></div>
     <label class="unit-editor-select">UNIDAD <select id="editor-unit"><option value="17A">UNIT 17A</option><option value="35B">UNIT 35B</option><option value="28C">UNIT 28C</option></select></label>
-    <p class="unit-editor-note">Encuadra la cámara. Marca un punto directamente sobre la torre.</p>
-    <div class="unit-editor-actions"><button type="button" id="editor-mark">[ MARCAR PUNTO ]</button><button type="button" id="editor-capture">[ CAPTURAR VISTA ]</button></div>
+    <p class="unit-editor-note">Encuadra el edificio y añade una anotación. SuperSplat guardará también la cámara.</p>
+    <div class="unit-editor-actions"><button type="button" id="editor-add-annotation">[ AÑADIR ANOTACIÓN ]</button></div>
     <output id="editor-status" class="unit-editor-status" aria-live="polite">Cargando configuración…</output>
     <div class="unit-editor-files"><button type="button" id="editor-copy">[ COPIAR JSON ]</button><button type="button" id="editor-export">[ DESCARGAR settings.json ]</button><label class="unit-editor-import">[ IMPORTAR ]<input id="editor-import" type="file" accept=".json,application/json"></label></div>
   </aside>
 </main>
-<script type="module" src="ui/cover.js?v=editor-compact-1"></script>
+<script type="module" src="ui/cover.js?v=annotation-single-1"></script>
 </body>
 </html>

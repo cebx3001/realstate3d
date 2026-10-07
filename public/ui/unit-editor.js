@@ -13,18 +13,12 @@ export function initUnitEditor(sceneViewer) {
   const panel = document.getElementById('unit-editor');
   const unitSelect = document.getElementById('editor-unit');
   const output = document.getElementById('editor-status');
-  const marker = document.createElement('i');
-  marker.className = 'point-marker';
-  marker.hidden = true;
-  marker.setAttribute('aria-hidden', 'true');
-  document.querySelector('.scene').append(marker);
   let settings = null;
-  let point = null;
   let ready = false;
   let renderFailed = false;
   let queuedUnit = null;
   let request = 0;
-  let pendingCapture = null;
+  let setCollapsed = () => {};
 
   const say = message => { output.textContent = message; };
   const send = (action, payload = {}) => {
@@ -62,7 +56,7 @@ export function initUnitEditor(sceneViewer) {
           const draft = JSON.parse(localStorage.getItem(DRAFT_KEY));
           if (draft?.version === 2 && Array.isArray(draft.annotations)) settings = draft;
         } catch { /* Invalid local draft: retain published file. */ }
-        if (!renderFailed) say('ENCUADRA LA UNIDAD Y MARCA UN PUNTO EN LA ESCENA.');
+        if (!renderFailed) say('ENCUADRA LA VISTA Y AÑADE UNA ANOTACIÓN.');
       }
       if (queuedUnit) { const code = queuedUnit; queuedUnit = null; flyTo(code); }
     } catch (error) {
@@ -79,22 +73,14 @@ export function initUnitEditor(sceneViewer) {
     } else if (data?.type === 'tdn:render-error' && active) {
       ready = false; renderFailed = true;
       say('EL VISOR 3D NO ESTÁ DISPONIBLE EN ESTE NAVEGADOR.');
-    } else if (data?.type === 'tdn:point' && active) {
-      if (!finiteVec(data.position)) return;
-      point = data.position;
-      marker.hidden = false;
-      marker.style.left = `${data.screen?.x * 100 || 0}%`;
-      marker.style.top = `${data.screen?.y * 100 || 0}%`;
-      say(`PUNTO 3D: ${point.map(v => v.toFixed(3)).join(' / ')}. CAPTURA LA VISTA.`);
-    } else if (data?.type === 'tdn:camera' && active && pendingCapture === data.requestId) {
-      pendingCapture = null;
-      const camera = data.camera;
-      if (!point || !validAnnotation({ position: point, camera: { initial: camera } })) {
-        say('CÁMARA O PUNTO 3D INVÁLIDO.'); return;
+    } else if (data?.type === 'tdn:annotation' && active) {
+      const { position, camera } = data;
+      if (!settings || !validAnnotation({ position, camera: { initial: camera } })) {
+        say('NO SE PUDO GUARDAR LA ANOTACIÓN.'); return;
       }
       const code = unitSelect.value;
       const annotation = {
-        position: [...point], title: `Unit ${code}`, text: '',
+        position: [...position], title: `Unit ${code}`, text: '',
         camera: { initial: { position: [...camera.position], target: [...camera.target], fov: camera.fov } },
         extras: { unit: code },
       };
@@ -102,9 +88,10 @@ export function initUnitEditor(sceneViewer) {
       settings.annotations.push(annotation);
       settings.annotations.sort((a, b) => UNIT_CODES.indexOf(unitOf(a)) - UNIT_CODES.indexOf(unitOf(b)));
       persist();
-      say(`UNIT ${code} / VISTA GUARDADA EN ESTE NAVEGADOR. DESCARGA settings.json.`);
+      const count = settings.annotations.filter(item => UNIT_CODES.includes(unitOf(item)) && validAnnotation(item)).length;
+      say(`ANOTACIÓN ${code} GUARDADA / ${count} DE 3. COPIA EL JSON CUANDO TERMINES.`);
+      setCollapsed(false);
     } else if (data?.type === 'tdn:bridge-error' && active) {
-      pendingCapture = null;
       say(`ERROR DEL VISOR: ${data.message}`);
     }
   });
@@ -115,7 +102,7 @@ export function initUnitEditor(sceneViewer) {
     document.body.dataset.edit = 'true';
     panel.hidden = false;
     const toggle = document.getElementById('editor-collapse');
-    const setCollapsed = collapsed => {
+    setCollapsed = collapsed => {
       panel.classList.toggle('is-collapsed', collapsed);
       toggle.textContent = collapsed ? '[ ABRIR ]' : '[ OCULTAR ]';
       toggle.setAttribute('aria-expanded', String(!collapsed));
@@ -123,19 +110,17 @@ export function initUnitEditor(sceneViewer) {
     };
     toggle.addEventListener('click', () => setCollapsed(!panel.classList.contains('is-collapsed')));
     setCollapsed(window.matchMedia('(max-width: 700px)').matches);
-    document.getElementById('editor-mark').addEventListener('click', () => {
-      point = null; marker.hidden = true;
-      if (send('arm-point')) { say('HAZ UN CLIC SOBRE LA SUPERFICIE DE LA TORRE.'); setCollapsed(true); }
-    });
-    document.getElementById('editor-capture').addEventListener('click', () => {
+    document.getElementById('editor-add-annotation').addEventListener('click', () => {
       if (!settings) { say('ESPERANDO CONFIGURACIÓN…'); return; }
-      if (!point) { say('MARCA PRIMERO EL PUNTO 3D EN LA ESCENA.'); return; }
-      pendingCapture = send('camera') || null;
-      if (pendingCapture) say('CAPTURANDO POSICIÓN, TARGET Y FOV…');
+      if (send('arm-annotation')) {
+        say('SELECCIONA LA UBICACIÓN DE LA ANOTACIÓN EN EL EDIFICIO.');
+        setCollapsed(true);
+      }
     });
     unitSelect.addEventListener('change', () => {
-      point = null; marker.hidden = true;
-      say(find(unitSelect.value) ? 'VISTA GUARDADA. PUEDES REEMPLAZARLA.' : 'ENCUADRA Y MARCA UN PUNTO.');
+      say(find(unitSelect.value)
+        ? 'ANOTACIÓN GUARDADA. PUEDES ACTUALIZARLA.'
+        : 'ENCUADRA LA VISTA Y AÑADE UNA ANOTACIÓN.');
     });
     document.getElementById('editor-copy').addEventListener('click', async () => {
       if (!settings) { say('ESPERANDO CONFIGURACIÓN…'); return; }
@@ -177,7 +162,7 @@ export function initUnitEditor(sceneViewer) {
         const imported = JSON.parse(await file.text());
         if (imported.version !== 2 || !Array.isArray(imported.cameras) || !Array.isArray(imported.annotations) ||
             imported.annotations.some(a => UNIT_CODES.includes(unitOf(a)) && !validAnnotation(a))) throw new Error('Formato de SuperSplat inválido.');
-        settings = imported; point = null; marker.hidden = true; persist();
+        settings = imported; persist();
         say('settings.json IMPORTADO. LISTO PARA CONTINUAR.');
       } catch (error) { say(`ERROR AL IMPORTAR: ${error.message}`); }
       event.target.value = '';
