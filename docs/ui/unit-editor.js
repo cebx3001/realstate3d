@@ -89,7 +89,7 @@ export function initUnitEditor(sceneViewer) {
       settings.annotations.sort((a, b) => UNIT_CODES.indexOf(unitOf(a)) - UNIT_CODES.indexOf(unitOf(b)));
       persist();
       const count = settings.annotations.filter(item => UNIT_CODES.includes(unitOf(item)) && validAnnotation(item)).length;
-      say(`ANOTACIÓN ${code} GUARDADA / ${count} DE 3. COPIA EL JSON CUANDO TERMINES.`);
+      say(`ANOTACIÓN ${code} GUARDADA / ${count} DE 3. DESCARGA settings.json CUANDO TERMINES.`);
       setCollapsed(false);
     } else if (data?.type === 'tdn:bridge-error' && active) {
       say(`ERROR DEL VISOR: ${data.message}`);
@@ -121,30 +121,6 @@ export function initUnitEditor(sceneViewer) {
       say(find(unitSelect.value)
         ? 'ANOTACIÓN GUARDADA. PUEDES ACTUALIZARLA.'
         : 'ENCUADRA LA VISTA Y AÑADE UNA ANOTACIÓN.');
-    });
-    document.getElementById('editor-copy').addEventListener('click', async () => {
-      if (!settings) { say('ESPERANDO CONFIGURACIÓN…'); return; }
-      const payload = JSON.stringify(settings, null, 2);
-      const count = settings.annotations.filter(a => UNIT_CODES.includes(unitOf(a)) && validAnnotation(a)).length;
-      let copied = false;
-      try {
-        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
-        await navigator.clipboard.writeText(payload);
-        copied = true;
-      } catch {
-        const field = document.createElement('textarea');
-        field.value = payload;
-        field.setAttribute('readonly', '');
-        field.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
-        document.body.appendChild(field);
-        field.focus();
-        field.select();
-        try { copied = document.execCommand('copy'); } catch { /* blocked by browser */ }
-        field.remove();
-      }
-      say(copied
-        ? `JSON COPIADO / ${count} DE 3 UNIDADES. PÉGALO EN CHATGPT.`
-        : 'NO SE PUDO COPIAR. USA DESCARGAR settings.json.');
     });
     document.getElementById('editor-export').addEventListener('click', () => {
       if (!settings) { say('ESPERANDO CONFIGURACIÓN…'); return; }
