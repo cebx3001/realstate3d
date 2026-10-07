@@ -4,9 +4,9 @@
     "highPrecisionRendering": false,
     "background": {
         "color": [
-            0.68,
-            0.75,
-            0.72
+            0.0588,
+            0.08235,
+            0.12157
         ]
     },
     "postEffectSettings": {

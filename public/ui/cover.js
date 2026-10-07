@@ -1,5 +1,5 @@
 import { categories } from './environment-data.js';
-import { initUnitEditor } from './unit-editor.js?v=unit-capture-4';
+import { initUnitEditor } from './unit-editor.js?v=copy-json-1';
 
 const editorial = document.getElementById('editorial');
 const neighborhood = document.getElementById('environment-lower-third');
@@ -29,7 +29,8 @@ function setLanguage(next) {
   refreshEngineStatus();
 }
 
-// The cover pose is independent of category state. User drag is the only orbit input.
+// The cover pose is independent of category state. Public camera input is locked in CSS;
+// ?edit=true restores native SuperSplat camera interaction to capture annotations.
 function coverPose() {
   const aspect = innerWidth / innerHeight, portrait = aspect < 1;
   const target = [-1.202680182821469, portrait ? 66 : 82.01817408535366, 2.9718346269194775];

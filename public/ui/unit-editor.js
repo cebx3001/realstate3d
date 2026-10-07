@@ -128,6 +128,30 @@ export function initUnitEditor(sceneViewer) {
       point = null; marker.hidden = true;
       say(find(unitSelect.value) ? 'VISTA GUARDADA. PUEDES REEMPLAZARLA.' : 'ENCUADRA Y MARCA UN PUNTO.');
     });
+    document.getElementById('editor-copy').addEventListener('click', async () => {
+      if (!settings) { say('ESPERANDO CONFIGURACIÓN…'); return; }
+      const payload = JSON.stringify(settings, null, 2);
+      const count = settings.annotations.filter(a => UNIT_CODES.includes(unitOf(a)) && validAnnotation(a)).length;
+      let copied = false;
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(payload);
+        copied = true;
+      } catch {
+        const field = document.createElement('textarea');
+        field.value = payload;
+        field.setAttribute('readonly', '');
+        field.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
+        document.body.appendChild(field);
+        field.focus();
+        field.select();
+        try { copied = document.execCommand('copy'); } catch { /* blocked by browser */ }
+        field.remove();
+      }
+      say(copied
+        ? `JSON COPIADO / ${count} DE 3 UNIDADES. PÉGALO EN CHATGPT.`
+        : 'NO SE PUDO COPIAR. USA DESCARGAR settings.json.');
+    });
     document.getElementById('editor-export').addEventListener('click', () => {
       if (!settings) { say('ESPERANDO CONFIGURACIÓN…'); return; }
       const blob = new Blob([JSON.stringify(settings, null, 2) + '\n'], { type: 'application/json' });
