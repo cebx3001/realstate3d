@@ -1554,8 +1554,10 @@
                         armed = false;
                         pickLayer.style.display = 'none';
                         const rect = canvas.getBoundingClientRect();
-                        const x = (event.clientX - rect.left) * canvas.width / rect.width;
-                        const y = (event.clientY - rect.top) * canvas.height / rect.height;
+                        // SuperSplat v1.30.2 Picker.pick expects normalized 0..1 canvas coordinates.
+                        // Passing physical pixels makes the picker clamp taps to the far corner.
+                        const x = (event.clientX - rect.left) / rect.width;
+                        const y = (event.clientY - rect.top) / rect.height;
                         try {
                             const point = await viewer.picker.pick(x, y);
                             if (!point) throw new Error('No se detectó una superficie en ese punto.');
