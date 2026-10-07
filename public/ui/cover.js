@@ -1,16 +1,8 @@
-import { categories } from './environment-data.js';
 import { initUnitEditor } from './unit-editor.js?v=annotation-single-1';
 
 const unitsTrigger = document.getElementById('units-trigger');
 const unitsMenu = document.getElementById('units-menu');
-const neighborhood = document.getElementById('environment-lower-third');
-const trigger = document.querySelector('.environment-access');
-const status = document.getElementById('engine-status');
-const number = document.getElementById('environment-number');
-const items = document.getElementById('environment-items');
-const summary = document.getElementById('environment-summary');
-const picker = document.getElementById('environment-mobile-select');
-let selectedUnit = '35B', selectedCategory = 2, engineState = 'loading';
+let selectedUnit = '35B', engineState = 'loading';
 let unitEditor;
 let lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('tdn-lang') || 'en';
 if (!['en', 'es'].includes(lang)) lang = 'en';
@@ -45,27 +37,6 @@ function coverPose() {
   }
   return { position, target };
 }
-function selectCategory(index) {
-  selectedCategory = (index + categories.length) % categories.length;
-  const category = categories[selectedCategory];
-  number.textContent = `${category.code} / ${category.title}`;
-  items.replaceChildren(...category.items.map(value => {
-    const item = document.createElement('li'); item.textContent = value; return item;
-  }));
-  summary.textContent = category.summary;
-  picker.value = category.key;
-  neighborhood.querySelectorAll('[data-category]').forEach(button => {
-    button.setAttribute('aria-pressed', String(button.dataset.category === category.key));
-  });
-}
-function closeNeighborhood() {
-  neighborhood.hidden = true; document.body.dataset.neighborhood = 'closed'; trigger.setAttribute('aria-expanded', 'false');
-}
-function openNeighborhood() {
-  closeUnits();
-  selectCategory(selectedCategory);
-  neighborhood.hidden = false; document.body.dataset.neighborhood = 'open'; trigger.setAttribute('aria-expanded', 'true');
-}
 function closeUnits() {
   unitsMenu.hidden = true;
   unitsTrigger.setAttribute('aria-expanded', 'false');
@@ -73,21 +44,13 @@ function closeUnits() {
 }
 function toggleUnits() {
   const open = unitsMenu.hidden;
-  closeNeighborhood();
   unitsMenu.hidden = !open;
   unitsTrigger.setAttribute('aria-expanded', String(open));
   document.body.dataset.units = open ? 'open' : 'closed';
 }
 function go(destination) {
   if (destination === 'technical') toggleUnits();
-  else if (destination === 'neighborhood' || destination === 'manifesto') {
-    closeUnits();
-    if (destination === 'neighborhood' && !neighborhood.hidden) closeNeighborhood();
-    else openNeighborhood();
-  } else if (destination === 'close-neighborhood') closeNeighborhood();
-  else if (destination === 'cover') {
-    closeUnits(); closeNeighborhood();
-  }
+  else if (destination === 'cover') closeUnits();
 }
 function selectUnit(code) {
   if (!['17A', '35B', '28C'].includes(code)) return;
@@ -101,20 +64,14 @@ function selectUnit(code) {
 }
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => go(button.dataset.go)));
 document.querySelectorAll('[data-select]').forEach(button => button.addEventListener('click', () => selectUnit(button.dataset.select)));
-document.querySelectorAll('[data-category]').forEach(button => button.addEventListener('click', () => selectCategory(categories.findIndex(category => category.key === button.dataset.category))));
-document.querySelectorAll('[data-category-step]').forEach(button => button.addEventListener('click', () => selectCategory(selectedCategory + Number(button.dataset.categoryStep))));
-picker.addEventListener('change', () => selectCategory(categories.findIndex(category => category.key === picker.value)));
 document.getElementById('language-switch').addEventListener('click', () => setLanguage(lang === 'en' ? 'es' : 'en'));
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    if (!neighborhood.hidden) closeNeighborhood();
-    else if (!unitsMenu.hidden) closeUnits();
-  }
+  if (event.key === 'Escape' && !unitsMenu.hidden) closeUnits();
 });
-setLanguage(lang); selectCategory(selectedCategory); closeNeighborhood(); closeUnits();
+setLanguage(lang); closeUnits();
 window.__tdnExperience = Object.freeze({
-  get state() { return !unitsMenu.hidden ? 'technical' : !neighborhood.hidden ? 'neighborhood' : 'cover'; },
-  get category() { return categories[selectedCategory].key; }, get unit() { return selectedUnit; }, get engine() { return engineState; },
+  get state() { return !unitsMenu.hidden ? 'technical' : 'cover'; },
+  get unit() { return selectedUnit; }, get engine() { return engineState; },
   get camera() { return { position: coverPose().position, fov: 98 }; },
 });
 
