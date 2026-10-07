@@ -802,16 +802,20 @@
                 }
             }
 
-            // Torres del Norte: optional clear-colour override so the embedding
-            // page can print the splat onto its own editorial field instead of
-            // the baked pale studio background. Format: ?bg=r,g,b (0–1 linear).
-            // Ignored when absent or malformed — standalone loading unaffected.
+            // Opaque standalone viewer: an optional background RGB override.
+            // Transparent embed: a fully transparent *black* clear color avoids
+            // nonzero RGB with zero alpha in the premultiplied WebGL/WebGPU canvas.
+            // The parent page alone supplies the #0F151F background, consistently
+            // before and after the splat renders.
             const bgParam = url.searchParams.get('bg');
             if (bgParam && bootstrap.settings?.background) {
                 const parts = bgParam.split(',').map(Number);
                 if (parts.length === 3 && parts.every((n) => Number.isFinite(n))) {
-                    bootstrap.settings.background.color = url.searchParams.has('transparent') ? [...parts, 0] : parts;
+                    bootstrap.settings.background.color = parts;
                 }
+            }
+            if (url.searchParams.has('transparent') && bootstrap.settings?.background) {
+                bootstrap.settings.background.color = [0, 0, 0, 0];
             }
 
             const posterUrl = url.searchParams.get('poster') ?? bootstrap.posterUrl ?? null;
