@@ -1513,6 +1513,14 @@
                 try {
                     // Same-origin host bridge. It observes the stock viewer; rendering and input stay in SuperSplat.
                     const viewer = await main(canvas, settingsJson, config);
+                    // The scan contains very low-opacity peripheral splats that wash the
+                    // petroleum background when the first frame arrives. Clip only that haze;
+                    // the building remains untouched and the parent owns the background color.
+                    const gsplatField = viewer.global?.app?.scene?.gsplat;
+                    if (gsplatField) {
+                        gsplatField.alphaClip = Math.max(Number(gsplatField.alphaClip) || 0, 0.012);
+                        viewer.global.app.renderNextFrame = true;
+                    }
                     const host = window.parent;
                     let armed = false;
                     let down = null;

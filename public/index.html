@@ -8,7 +8,7 @@
 <title>Torres del Norte</title>
 <link rel="preload" href="assets/fonts/playfair-display.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="ui/cover.css?v=unit-cta-2">
+<link rel="stylesheet" href="ui/cover.css?v=hud-stability-1">
 </head>
 <body data-state="cover">
 <main class="experience" aria-label="Torres del Norte">
@@ -24,9 +24,9 @@
       <div class="units-nav">
         <button class="nav-control units-trigger" id="units-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="units-menu">[ UNITS ]</button>
         <div class="units-menu" id="units-menu" role="menu" hidden>
-          <button type="button" role="menuitem" data-select="17A" aria-pressed="false">[ 17A ]</button>
-          <button type="button" role="menuitem" data-select="35B" aria-pressed="true">[ 35B ]</button>
-          <button type="button" role="menuitem" data-select="28C" aria-pressed="false">[ 28C ]</button>
+          <button type="button" role="menuitem" data-select="17A" aria-pressed="false"><span>[ 17A ]</span><small>T1 / 120 M²</small></button>
+          <button type="button" role="menuitem" data-select="35B" aria-pressed="true"><span>[ 35B ]</span><small>T1 / 123 M²</small></button>
+          <button type="button" role="menuitem" data-select="28C" aria-pressed="false"><span>[ 28C ]</span><small>T2 / 107 M²</small></button>
         </div>
       </div>
       <a class="nav-control" href="https://wa.me/593992730095" target="_blank" rel="noopener noreferrer">[ TEAM ]</a>
@@ -40,6 +40,8 @@
   <div class="desktop-micro micro-spec micro-spec-d" aria-hidden="true"><span>[ RENDER_02 ]</span><span>LOD / STREAM</span><span>FIELD / ACTIVE</span></div>
   <div class="desktop-micro micro-axis micro-axis-left" aria-hidden="true"><span>00</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
   <div class="desktop-micro micro-axis micro-axis-bottom" aria-hidden="true"><span>01</span><span>03</span><span>06</span><span>09</span><span>12</span></div>
+  <div class="desktop-micro grid-index grid-index-top" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span></div>
+  <div class="desktop-micro grid-index grid-index-right" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
   <div class="stream hero-hud"><span class="status-dot" aria-hidden="true"></span><span id="unit-stream">UNIT 35B DATA STREAM</span></div>
   <aside class="unit-flyout hero-hud" id="unit-flyout" aria-live="polite" hidden>
     <header class="unit-flyout-head"><span id="unit-flyout-label">[ AVAILABLE RESIDENCE ]</span><button type="button" id="unit-flyout-close" aria-label="Cerrar ficha">[ X ]</button></header>
@@ -62,9 +64,9 @@
     <p class="unit-editor-note">Encuadra el edificio y añade una anotación. SuperSplat guardará también la cámara.</p>
     <div class="unit-editor-actions"><button type="button" id="editor-add-annotation">[ AÑADIR ANOTACIÓN ]</button></div>
     <output id="editor-status" class="unit-editor-status" aria-live="polite">Cargando configuración…</output>
-    <div class="unit-editor-files"><button type="button" id="editor-export">[ DESCARGAR settings.json ]</button><label class="unit-editor-import">[ IMPORTAR ]<input id="editor-import" type="file" accept=".json,application/json"></label></div>
+    <div class="unit-editor-files"><button type="button" id="editor-export">[ DESCARGAR settings.json ]</button></div>
   </aside>
 </main>
-<script type="module" src="ui/cover.js?v=exterior-motion-1"></script>
+<script type="module" src="ui/cover.js?v=hud-stability-1"></script>
 </body>
 </html>

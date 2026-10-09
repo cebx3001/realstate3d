@@ -41,18 +41,7 @@ export function initUnitEditor(sceneViewer) {
       return;
     }
     if (!ready) { queuedUnit = code; return; }
-    let view = annotation;
-    if (code !== 'BUILDING' && innerWidth < innerHeight) {
-      const initial = annotation.camera.initial;
-      const target = [...annotation.position];
-      const scale = 1.22;
-      const position = target.map((value, index) => value + (initial.position[index] - value) * scale);
-      view = {
-        ...annotation,
-        camera: { initial: { position, target, fov: Math.min(108, initial.fov + 8) } },
-      };
-    }
-    send('fly-to', { annotation: view });
+    send('fly-to', { annotation });
   };
   const load = async () => {
     try {
@@ -141,18 +130,6 @@ export function initUnitEditor(sceneViewer) {
       link.href = url; link.download = 'settings.json'; link.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
       say(`settings.json DESCARGADO / ${settings.annotations.filter(a => UNIT_CODES.includes(unitOf(a)) && validAnnotation(a)).length} ANOTACIONES`);
-    });
-    document.getElementById('editor-import').addEventListener('change', async event => {
-      const file = event.target.files?.[0];
-      if (!file) return;
-      try {
-        const imported = JSON.parse(await file.text());
-        if (imported.version !== 2 || !Array.isArray(imported.cameras) || !Array.isArray(imported.annotations) ||
-            imported.annotations.some(a => UNIT_CODES.includes(unitOf(a)) && !validAnnotation(a))) throw new Error('Formato de SuperSplat inválido.');
-        settings = imported; persist();
-        say('settings.json IMPORTADO. LISTO PARA CONTINUAR.');
-      } catch (error) { say(`ERROR AL IMPORTAR: ${error.message}`); }
-      event.target.value = '';
     });
     document.getElementById('editor-close').addEventListener('click', () => {
       const url = new URL(location.href); url.searchParams.delete('edit'); location.assign(url.href);

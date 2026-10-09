@@ -1,4 +1,4 @@
-import { initUnitEditor } from './unit-editor.js?v=responsive-annotations-2';
+import { initUnitEditor } from './unit-editor.js?v=exact-annotations-1';
 
 const unitsTrigger = document.getElementById('units-trigger');
 const UNIT_INFO = Object.freeze({
@@ -16,12 +16,15 @@ const loadingFill = document.getElementById('loading-fill');
 let modelProgress = 0;
 let audioMuted = false, audioContext = null;
 const ensureAudio = () => {
-  if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const AudioCtor = window.AudioContext || window.webkitAudioContext;
+  if (!AudioCtor) return false;
+  if (!audioContext) audioContext = new AudioCtor();
   if (audioContext.state === 'suspended') audioContext.resume();
+  return true;
 };
 const blip = (type = 'tick') => {
   if (audioMuted) return;
-  ensureAudio();
+  if (!ensureAudio()) return;
   const ctx = audioContext, osc = ctx.createOscillator(), gain = ctx.createGain(), now = ctx.currentTime, whoosh = type === 'whoosh';
   osc.type = whoosh ? 'sine' : 'triangle';
   osc.frequency.setValueAtTime(whoosh ? 180 : 760, now);
@@ -153,7 +156,7 @@ function viewerUrl() {
   const { position, target } = coverPose();
   const camera = [...position, ...target, 98].map(value => value.toFixed(4)).join(',');
   const url = new URL('viewers/exterior-382a1520/index.html', location.href);
-  url.searchParams.set('bridge', 'transparent-clear-1');
+  url.searchParams.set('bridge', 'hud-stability-1');
   url.searchParams.set('content', new URL('assets/exterior/382a1520/v1-streamed/lod-meta.json', location.href).href);
   url.searchParams.set('budget', '0.75');
   url.searchParams.set('cam', camera);
@@ -169,6 +172,7 @@ window.addEventListener('message', event => {
     if (engineState === 'loading') refreshEngineStatus();
   } else if (event.data?.type === 'tdn:first-useful-frame') {
     modelProgress = 100; engineState = 'active'; refreshEngineStatus();
+    if (audioContext) blip('tick');
   } else if (event.data?.type === 'tdn:render-error') {
     engineState = 'error'; refreshEngineStatus();
   }
