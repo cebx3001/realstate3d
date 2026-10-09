@@ -1630,7 +1630,7 @@ fn modifySplatColor(center: vec3f, color: ptr<function, vec4f>) {
 `;
                             const lang = app.graphicsDevice?.isWebGPU ? 'wgsl' : 'glsl';
                             material.getShaderChunks(lang).set('gsplatModifyVS', lang === 'wgsl' ? wgsl : glsl);
-                            material.setParameter('uEnergy', [0.8235294, 0.6941176, 0.4196078]); // #D2B16B
+                            material.setParameter('uEnergy', [0.5686275, 0.7882353, 0.8392157]); // #91C9D6 ice blue
                             material.setParameter('uBuild', 0);
                             material.update();
                             const started = performance.now();
@@ -1642,7 +1642,7 @@ fn modifySplatColor(center: vec3f, color: ptr<function, vec4f>) {
                                 if (t < 1) requestAnimationFrame(advance);
                             };
                             requestAnimationFrame(advance);
-                            console.info('[TDN] MCMC crystallization preview active, golden #D2B16B');
+                            console.info('[TDN] MCMC crystallization preview active, ice blue #91C9D6');
                         }
                     }
                     const host = window.parent;
