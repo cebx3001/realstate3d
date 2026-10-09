@@ -189,6 +189,7 @@ function viewerUrl() {
   url.searchParams.set('bridge', 'anchored-units-vignette-1');
   url.searchParams.set('content', new URL('assets/exterior/382a1520/v1-streamed/lod-meta.json', location.href).href);
   url.searchParams.set('budget', '0.75');
+  if (new URLSearchParams(location.search).get('effect') === 'mcmc') url.searchParams.set('effect', 'mcmc');
   url.searchParams.set('cam', camera);
   url.searchParams.set('bg', '0.0588,0.08235,0.12157');
   url.searchParams.set('lang', lang);
