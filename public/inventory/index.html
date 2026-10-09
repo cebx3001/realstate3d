@@ -1014,8 +1014,8 @@
     <iframe id="viewer" title="Visor InteriorGS"></iframe>
     <div class="interior-loading" id="interiorLoading" role="status" aria-live="polite" aria-label="Cargando modelo tridimensional">
       <div class="interior-loading-status">
-        <div class="engine-status"><span class="status-dot" aria-hidden="true"></span><span id="interiorLoadingLabel">LOADING MODEL</span><span class="loading-percent">STREAMING</span></div>
-        <div class="loading-track" aria-hidden="true"><span></span></div>
+        <div class="engine-status"><span class="status-dot" aria-hidden="true"></span><span id="interiorLoadingLabel">LOADING MODEL</span><span class="loading-percent" id="interiorLoadingPercent">000%</span></div>
+        <div class="loading-track" aria-hidden="true"><span id="interiorLoadingFill" style="animation:none;transform:none;width:0;transition:width .16s linear;"></span></div>
       </div>
     </div>
     <div class="chrome" style="inset:0;opacity:1;border:0;background-image:linear-gradient(to right,rgba(15,21,31,.96) 0%,rgba(15,21,31,.80) 7%,rgba(15,21,31,.50) 15%,rgba(15,21,31,.17) 24%,transparent 33%),linear-gradient(to left,rgba(15,21,31,.96) 0%,rgba(15,21,31,.80) 7%,rgba(15,21,31,.50) 15%,rgba(15,21,31,.17) 24%,transparent 33%),linear-gradient(to bottom,rgba(15,21,31,.86) 0%,rgba(15,21,31,.62) 8%,rgba(15,21,31,.27) 18%,transparent 30%),linear-gradient(to top,rgba(15,21,31,.86) 0%,rgba(15,21,31,.62) 8%,rgba(15,21,31,.27) 18%,transparent 30%)"></div>
@@ -1320,44 +1320,75 @@
       const viewer = document.querySelector("#viewer");
       const interiorLoading = document.querySelector("#interiorLoading");
       const interiorLoadingLabel = document.querySelector("#interiorLoadingLabel");
+      const interiorLoadingPercent = document.querySelector("#interiorLoadingPercent");
+      const interiorLoadingFill = document.querySelector("#interiorLoadingFill");
       let activeViewerUrl = "";
       let interiorLoadCycle = 0;
       let interiorReadyPoll = 0;
       let interiorStillLoadingTimer = 0;
-      const startInteriorLoading = (url) => {
-        activeViewerUrl = url;
-        interiorLoadCycle += 1;
+      let interiorLastProgress = 0;
+      const setInteriorLoadingProgress = (value, complete = false) => {
+        const raw = Number(value);
+        if (!Number.isFinite(raw)) return;
+        const progress = Math.max(0, Math.min(complete ? 100 : 99, Math.floor(raw)));
+        interiorLastProgress = Math.max(interiorLastProgress, progress);
+        interiorLoadingPercent.textContent = String(interiorLastProgress).padStart(3, "0") + "%";
+        interiorLoadingFill.style.width = interiorLastProgress + "%";
+      };
+      const isCurrentInteriorFrame = (frame) => {
+        try {
+          return Boolean(frame && activeViewerUrl && frame.location.href === activeViewerUrl);
+        } catch (error) {
+          return false;
+        }
+      };
+      const finishInteriorLoading = (cycle = interiorLoadCycle) => {
+        if (cycle !== interiorLoadCycle || interiorLoading.classList.contains("hidden")) return;
         clearInterval(interiorReadyPoll);
         clearTimeout(interiorStillLoadingTimer);
+        setInteriorLoadingProgress(100, true);
+        // A successful first rendered splat frame is the only ready signal.
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          if (cycle === interiorLoadCycle) interiorLoading.classList.add("hidden");
+        }));
+      };
+      const failInteriorLoading = (cycle = interiorLoadCycle) => {
+        if (cycle !== interiorLoadCycle || interiorLoading.classList.contains("hidden")) return;
+        clearInterval(interiorReadyPoll);
+        clearTimeout(interiorStillLoadingTimer);
+        interiorLoadingLabel.textContent = "MODEL UNAVAILABLE";
+        interiorLoadingPercent.textContent = "ERROR";
+        console.error("[Torres del Norte] Interior model load failed:", activeViewerUrl);
+      };
+      const startInteriorLoading = (url) => {
+        activeViewerUrl = url;
+        const cycle = ++interiorLoadCycle;
+        clearInterval(interiorReadyPoll);
+        clearTimeout(interiorStillLoadingTimer);
+        interiorLastProgress = 0;
         interiorLoadingLabel.textContent = "LOADING MODEL";
+        interiorLoadingPercent.textContent = "000%";
+        interiorLoadingFill.style.width = "0%";
         interiorLoading.classList.remove("hidden");
-        const cycle = interiorLoadCycle;
         interiorStillLoadingTimer = setTimeout(() => {
           if (cycle === interiorLoadCycle && !interiorLoading.classList.contains("hidden")) {
             interiorLoadingLabel.textContent = "STILL LOADING MODEL";
           }
         }, 25000);
+        // SuperSplat updates #loadingText even when its native UI is hidden by ?noui.
+        // #loadingWrap gets .hidden only after its actual first rendered splat frame.
         interiorReadyPoll = setInterval(() => {
           if (cycle !== interiorLoadCycle) return;
           try {
             const frame = viewer.contentWindow;
-            if (!frame || frame.location.href !== activeViewerUrl ||
-                typeof frame.__getCameraState !== "function") return;
-            // main() has resolved: the viewer is initialized and the camera is ready.
-            const cameraState = frame.__getCameraState();
-            if (!cameraState?.position) return;
-            finishInteriorLoading(cycle);
-          } catch (error) { /* Navigation or viewer still initializing. */ }
+            if (!isCurrentInteriorFrame(frame)) return;
+            const doc = frame.document;
+            const loadingText = doc.getElementById("loadingText")?.textContent || "";
+            const progress = Number.parseInt(loadingText, 10);
+            if (Number.isFinite(progress)) setInteriorLoadingProgress(progress);
+            if (doc.getElementById("loadingWrap")?.classList.contains("hidden")) finishInteriorLoading(cycle);
+          } catch (error) { /* The viewer is navigating or still initializing. */ }
         }, 160);
-      };
-      const finishInteriorLoading = (cycle = interiorLoadCycle) => {
-        if (cycle !== interiorLoadCycle) return;
-        clearInterval(interiorReadyPoll);
-        clearTimeout(interiorStillLoadingTimer);
-        // Give the initialized canvas two frames before revealing it.
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-          if (cycle === interiorLoadCycle) interiorLoading.classList.add("hidden");
-        }));
       };
       const units = document.querySelector("#units");
       const unitNav = document.querySelector("#unitNav");
@@ -1614,15 +1645,29 @@
 
       viewer.addEventListener("load", () => {
         window.setTimeout(() => document.body.classList.remove("transitioning"), 180);
+        // Report actual async loader failures instead of silently hiding the canvas.
+        const frame = viewer.contentWindow;
+        if (!isCurrentInteriorFrame(frame)) return;
+        try {
+          const cycle = interiorLoadCycle;
+          frame.addEventListener("unhandledrejection", (event) => {
+            if (cycle !== interiorLoadCycle || !isCurrentInteriorFrame(frame)) return;
+            console.error("[Torres del Norte] SuperSplat rejection:", event.reason);
+            failInteriorLoading(cycle);
+          });
+        } catch (error) { /* Frame navigation in progress. */ }
       });
       window.addEventListener("message", (event) => {
         if (event.origin !== location.origin || event.source !== viewer.contentWindow ||
-            event.data?.type !== "tdn:first-frame") return;
-        try {
-          if (viewer.contentWindow.location.href === activeViewerUrl) {
-            finishInteriorLoading();
-          }
-        } catch (error) { /* The iframe is navigating. */ }
+            !isCurrentInteriorFrame(viewer.contentWindow)) return;
+        if (event.data?.type === "tdn:first-frame") {
+          finishInteriorLoading();
+        } else if (event.data?.type === "tdn:render-error") {
+          console.error("[Torres del Norte] Viewer error:", event.data);
+          failInteriorLoading();
+        } else if (event.data?.type === "tdn:progress") {
+          setInteriorLoadingProgress(event.data.progress);
+        }
       });
 
       togglePanel.addEventListener("click", () => {
