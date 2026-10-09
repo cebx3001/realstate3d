@@ -1509,6 +1509,8 @@
 
             document.addEventListener('DOMContentLoaded', async () => {
                 const canvas = document.getElementById('application-canvas');
+                const mcmcEnabled = new URLSearchParams(location.search).get('effect') === 'mcmc';
+                if (mcmcEnabled) canvas.style.opacity = '0'; // prevents full-model flash before annealing
                 const settingsJson = await settings;
                 try {
                     // Same-origin host bridge. It observes the stock viewer; rendering and input stay in SuperSplat.
@@ -1522,13 +1524,30 @@
                         viewer.global.app.renderNextFrame = true;
                     }
 
-                    // Opt-in Gaussian crystallization preview: ?effect=mcmc on the cover.
-                    // No iframe masking: every splat is animated in the GSplat vertex shader.
-                    if (new URLSearchParams(location.search).get('effect') === 'mcmc') {
+                    // MCMC: initialize only after the streamed Gaussian's first complete frame.
+                    // The transition modifies splats, never the layout, camera, grid or annotations.
+                    if (mcmcEnabled) {
                         const app = viewer.global?.app;
-                        const material = app?.scene?.gsplat?.material;
-                        if (material?.getShaderChunks) {
-                            const glsl = `
+                        let startedEffect = false, materialAttempts = 0;
+                        const startCrystallization = () => {
+                            if (startedEffect) return;
+                            const sceneMaterial = app?.scene?.gsplat?.material;
+                            const components = app?.root?.findComponents?.('gsplat') || [];
+                            const materials = [...new Set(
+                                [sceneMaterial, ...components.map(c => c.material)]
+                                    .filter(m => m && typeof m.getShaderChunks === 'function')
+                            )];
+                            if (!materials.length) {
+                                if (++materialAttempts < 120) {
+                                    setTimeout(startCrystallization, 100);
+                                } else {
+                                    canvas.style.opacity = '';
+                                    console.error('[TDN MCMC] Material not found after loading');
+                                }
+                                return;
+                            }
+                            startedEffect = true;
+const glsl = `
 uniform float uBuild;
 uniform vec3 uEnergy;
 float mcmcLocal = 0.0;
@@ -1543,9 +1562,9 @@ float mcmcWell(vec3 p, vec3 origin) {
 }
 void modifySplatCenter(inout vec3 center) {
     vec3 original = center;
-    float h = clamp(center.y / 165.0, 0.0, 1.0);
+    float h = clamp(abs(center.y) / 150.0, 0.0, 1.0);
     float stagger = mcmcHash(center * 0.39) * 0.015;
-    mcmcLocal = smoothstep(0.0, 1.0, clamp((uBuild - h - stagger) * 13.0, 0.0, 1.0));
+    mcmcLocal = smoothstep(0.0, 1.0, clamp((uBuild * 1.18 - h - stagger) * 13.0, 0.0, 1.0));
     mcmcEdge = sin(3.14159265 * mcmcLocal);
     float disperse = 1.0 - mcmcLocal;
     if (disperse <= 0.001 || mcmcLocal <= 0.001) return;
@@ -1593,9 +1612,9 @@ fn mcmcWell(p: vec3f, origin: vec3f) -> f32 {
 }
 fn modifySplatCenter(center: ptr<function, vec3f>) {
     let original = *center;
-    let h = clamp((*center).y / 165.0, 0.0, 1.0);
+    let h = clamp(abs((*center).y) / 150.0, 0.0, 1.0);
     let stagger = mcmcHash(original * 0.39) * 0.015;
-    mcmcLocal = smoothstep(0.0, 1.0, clamp((uniform.uBuild - h - stagger) * 13.0, 0.0, 1.0));
+    mcmcLocal = smoothstep(0.0, 1.0, clamp((uniform.uBuild * 1.18 - h - stagger) * 13.0, 0.0, 1.0));
     mcmcEdge = sin(3.14159265 * mcmcLocal);
     let disperse = 1.0 - mcmcLocal;
     if (disperse <= 0.001 || mcmcLocal <= 0.001) { return; }
@@ -1628,21 +1647,47 @@ fn modifySplatColor(center: vec3f, color: ptr<function, vec4f>) {
     (*color).rgb = mix((*color).rgb, uniform.uEnergy, glow);
 }
 `;
+                            
                             const lang = app.graphicsDevice?.isWebGPU ? 'wgsl' : 'glsl';
-                            material.getShaderChunks(lang).set('gsplatModifyVS', lang === 'wgsl' ? wgsl : glsl);
-                            material.setParameter('uEnergy', [0.5686275, 0.7882353, 0.8392157]); // #91C9D6 ice blue
-                            material.setParameter('uBuild', 0);
-                            material.update();
-                            const started = performance.now();
+                            for (const material of materials) {
+                                material.getShaderChunks(lang).set('gsplatModifyVS', lang === 'wgsl' ? wgsl : glsl);
+                                material.setParameter('uEnergy', [0.5686275, 0.7882353, 0.8392157]); // #91C9D6
+                                material.setParameter('uBuild', 0);
+                                material.update();
+                            }
+                            canvas.style.opacity = '1';
+                            app.renderNextFrame = true;
+                            const startedAt = performance.now();
                             const duration = 8500;
                             const advance = () => {
-                                const t = Math.min(1, (performance.now() - started) / duration);
-                                material.setParameter('uBuild', t);
+                                const t = Math.min(1, (performance.now() - startedAt) / duration);
+                                for (const material of materials) material.setParameter('uBuild', t);
                                 app.renderNextFrame = true;
-                                if (t < 1) requestAnimationFrame(advance);
+                                if (t < 1) {
+                                    requestAnimationFrame(advance);
+                                } else {
+                                    // Restore the original photographic renderer at completion.
+                                    for (const material of materials) {
+                                        material.getShaderChunks(lang).delete('gsplatModifyVS');
+                                        material.deleteParameter?.('uBuild');
+                                        material.deleteParameter?.('uEnergy');
+                                        material.update();
+                                    }
+                                    app.renderNextFrame = true;
+                                }
                             };
                             requestAnimationFrame(advance);
-                            console.info('[TDN] MCMC crystallization preview active, ice blue #91C9D6');
+                            console.info('[TDN MCMC] Crystallization started, color #91C9D6');
+                        };
+                        if (viewer.global?.state?.loaded) {
+                            startCrystallization();
+                        } else if (viewer.ready && typeof viewer.ready.then === 'function') {
+                            viewer.ready.then(startCrystallization).catch(error => {
+                                canvas.style.opacity = '';
+                                console.error('[TDN MCMC] Viewer readiness failed', error);
+                            });
+                        } else {
+                            viewer.global.events.once('firstFrame', startCrystallization);
                         }
                     }
                     const host = window.parent;
