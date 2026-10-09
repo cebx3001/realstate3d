@@ -20,7 +20,7 @@ body.editorial-interior .veil{background:var(--tdn-ink)}
 body.editorial-interior header{z-index:36;top:0;left:0;right:0;height:64px;padding:0 24px;display:grid;grid-template-columns:4fr 4fr 4fr;background:transparent;border:0;color:var(--tdn-ivory);font:10px var(--tdn-mono);letter-spacing:.05em}
 body.editorial-interior header span,body.editorial-interior header a,body.editorial-interior header select{font-family:var(--tdn-mono);font-weight:400;letter-spacing:.05em;text-shadow:none}
 body.editorial-interior header span:first-child a{font-size:0}
-body.editorial-interior header span:first-child a::before{content:"[ COVER ]";font-size:10px}
+body.editorial-interior header span:first-child a::before{content:"TORRES DEL NORTE";font-size:10px}
 body.editorial-interior header span:nth-child(2){color:var(--tdn-gold);font-size:10px}
 body.editorial-interior header > span:last-child{gap:20px;padding-right:42px}
 body.editorial-interior header .brand-mark{right:24px;width:28px;color:var(--tdn-ivory)}
@@ -82,7 +82,7 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior::after{left:0;right:0;width:100%;height:54px}
  body.editorial-interior header{display:grid!important;font-size:11px;top:0;left:0;right:0;width:100%;box-sizing:border-box;height:54px;padding:0 12px;grid-template-columns:auto 1fr auto;gap:0;background:transparent;border-bottom:0}
  body.editorial-interior header > span:first-child{display:block;grid-column:1;white-space:nowrap}
- body.editorial-interior header > span:first-child a::before{content:"[ COVER ]";font-size:11px}
+ body.editorial-interior header > span:first-child a::before{content:"TORRES DEL NORTE";font-size:11px}
  body.editorial-interior header > span:nth-child(2){display:none}
  body.editorial-interior header > span:last-child{grid-column:2;justify-self:end;display:block;padding-right:30px;white-space:nowrap}
  body.editorial-interior .desktop-unit-label{display:none}
