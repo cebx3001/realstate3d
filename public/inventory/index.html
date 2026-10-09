@@ -1008,12 +1008,18 @@
       .map-close:hover { color: #fff; }
       .map-close:focus-visible { outline: 1px solid #b99457; outline-offset: 2px; }
     </style>
-    <link rel="stylesheet" href="../ui/interior-hud.css?v=bracket-hud-2">
+    <link rel="stylesheet" href="../ui/interior-hud.css?v=interior-loading-vignette-3">
   </head>
   <body>
     <iframe id="viewer" title="Visor InteriorGS"></iframe>
-    <div class="interior-loading" id="interiorLoading">Cargando espacio</div>
+    <div class="interior-loading" id="interiorLoading" role="status" aria-live="polite" aria-label="Cargando modelo tridimensional">
+      <div class="interior-loading-status">
+        <div class="engine-status"><span class="status-dot" aria-hidden="true"></span><span id="interiorLoadingLabel">LOADING MODEL</span><span class="loading-percent">STREAMING</span></div>
+        <div class="loading-track" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
     <div class="chrome"></div>
+    <div class="interior-vignette" aria-hidden="true"></div>
     <i class="crosshair tl" aria-hidden="true"></i><i class="crosshair tr" aria-hidden="true"></i>
     <i class="crosshair bl" aria-hidden="true"></i><i class="crosshair br" aria-hidden="true"></i>
     <div class="veil" aria-hidden="true"></div>
@@ -1314,6 +1320,46 @@
 
       const viewer = document.querySelector("#viewer");
       const interiorLoading = document.querySelector("#interiorLoading");
+      const interiorLoadingLabel = document.querySelector("#interiorLoadingLabel");
+      let activeViewerUrl = "";
+      let interiorLoadCycle = 0;
+      let interiorReadyPoll = 0;
+      let interiorStillLoadingTimer = 0;
+      const startInteriorLoading = (url) => {
+        activeViewerUrl = url;
+        interiorLoadCycle += 1;
+        clearInterval(interiorReadyPoll);
+        clearTimeout(interiorStillLoadingTimer);
+        interiorLoadingLabel.textContent = "LOADING MODEL";
+        interiorLoading.classList.remove("hidden");
+        const cycle = interiorLoadCycle;
+        interiorStillLoadingTimer = setTimeout(() => {
+          if (cycle === interiorLoadCycle && !interiorLoading.classList.contains("hidden")) {
+            interiorLoadingLabel.textContent = "STILL LOADING MODEL";
+          }
+        }, 25000);
+        interiorReadyPoll = setInterval(() => {
+          if (cycle !== interiorLoadCycle) return;
+          try {
+            const frame = viewer.contentWindow;
+            if (!frame || frame.location.href !== activeViewerUrl ||
+                typeof frame.__getCameraState !== "function") return;
+            // main() has resolved: the viewer is initialized and the camera is ready.
+            const cameraState = frame.__getCameraState();
+            if (!cameraState?.position) return;
+            finishInteriorLoading(cycle);
+          } catch (error) { /* Navigation or viewer still initializing. */ }
+        }, 160);
+      };
+      const finishInteriorLoading = (cycle = interiorLoadCycle) => {
+        if (cycle !== interiorLoadCycle) return;
+        clearInterval(interiorReadyPoll);
+        clearTimeout(interiorStillLoadingTimer);
+        // Give the initialized canvas two frames before revealing it.
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          if (cycle === interiorLoadCycle) interiorLoading.classList.add("hidden");
+        }));
+      };
       const units = document.querySelector("#units");
       const unitNav = document.querySelector("#unitNav");
       const desktopUnitLabel = document.querySelector("#desktopUnitLabel");
@@ -1436,7 +1482,10 @@
         if (location.search !== pageUrl) history.replaceState(null, "", pageUrl);
         const nextUrl = viewerUrl();
         document.body.classList.add("transitioning");
-        if (viewer.getAttribute("src") !== nextUrl) viewer.src = nextUrl;
+        if (viewer.getAttribute("src") !== nextUrl) {
+          startInteriorLoading(nextUrl);
+          viewer.src = nextUrl;
+        }
         window.setTimeout(() => {
           document.body.classList.remove("transitioning");
           showEditorial();
@@ -1568,10 +1617,13 @@
         window.setTimeout(() => document.body.classList.remove("transitioning"), 180);
       });
       window.addEventListener("message", (event) => {
-        if (event.source === viewer.contentWindow && event.data?.type === "tdn:first-frame") {
-          interiorLoading.classList.add("hidden");
-          window.setTimeout(() => interiorLoading.remove(), 400);
-        }
+        if (event.origin !== location.origin || event.source !== viewer.contentWindow ||
+            event.data?.type !== "tdn:first-frame") return;
+        try {
+          if (viewer.contentWindow.location.href === activeViewerUrl) {
+            finishInteriorLoading();
+          }
+        } catch (error) { /* The iframe is navigating. */ }
       });
 
       togglePanel.addEventListener("click", () => {
