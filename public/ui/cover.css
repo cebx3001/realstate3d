@@ -14,8 +14,10 @@ button[aria-pressed="true"]{color:var(--gold)}
 [hidden]{display:none!important}
 .experience{position:fixed;inset:0;height:100dvh;isolation:isolate;overflow:hidden}
 .experience::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:
-linear-gradient(to right,rgba(4,7,11,.38) 0%,rgba(4,7,11,.16) 7%,transparent 18%,transparent 82%,rgba(4,7,11,.16) 93%,rgba(4,7,11,.38) 100%),
-linear-gradient(to bottom,rgba(4,7,11,.34) 0%,rgba(4,7,11,.12) 7%,transparent 17%,transparent 83%,rgba(4,7,11,.12) 93%,rgba(4,7,11,.34) 100%)}
+linear-gradient(to right,rgba(3,6,10,.52) 0%,rgba(3,6,10,.24) 8%,rgba(3,6,10,.08) 14%,transparent 22%),
+linear-gradient(to left,rgba(3,6,10,.52) 0%,rgba(3,6,10,.24) 8%,rgba(3,6,10,.08) 14%,transparent 22%),
+linear-gradient(to bottom,rgba(3,6,10,.46) 0%,rgba(3,6,10,.20) 8%,rgba(3,6,10,.07) 14%,transparent 22%),
+linear-gradient(to top,rgba(3,6,10,.46) 0%,rgba(3,6,10,.20) 8%,rgba(3,6,10,.07) 14%,transparent 22%)}
 .reticle-grid{position:absolute;inset:20px;z-index:0;pointer-events:none;border:1px solid var(--line);background-image:none;opacity:.48}
 .desktop-micro{display:block}
 .audio-toggle{margin-left:18px;border:0;color:var(--gold);font:9px var(--mono);letter-spacing:.05em;white-space:nowrap}
