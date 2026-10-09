@@ -103,9 +103,10 @@ function positionUnitFlyout(x, y) {
       left = Math.max(margin, Math.min(innerWidth - margin - w, x - w * .5));
       top = y > innerHeight * .54 ? y - h - gap : y + gap;
     } else {
-      const fitsRight = x + gap + w <= innerWidth - margin;
-      left = fitsRight ? x + gap : x - gap - w;
-      top = y - h * .5;
+      // Desktop: fixed editorial column at the left, independent of unit marker.
+      // Keep the building and monumental lettering clear in the central canvas.
+      left = Math.max(margin, Math.min(innerWidth - margin - w, 36));
+      top = Math.max(topGuard, (innerHeight - h) * .5);
     }
     left = Math.max(margin, Math.min(innerWidth - margin - w, left));
     top = Math.max(topGuard, Math.min(innerHeight - bottomGuard - h, top));
