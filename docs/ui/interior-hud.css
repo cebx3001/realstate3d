@@ -7,7 +7,7 @@
 body.editorial-interior{--ivory:var(--tdn-ivory);--paper:var(--tdn-ivory);--gold:var(--tdn-gold);--gold-soft:var(--tdn-line);--font-display:var(--tdn-mono);--font-editorial:var(--tdn-mono);--font-ui:var(--tdn-mono);background:var(--tdn-ink);color:var(--tdn-ivory);font-family:var(--tdn-mono)}
 body.editorial-interior *,body.editorial-interior *::before,body.editorial-interior *::after{border-radius:0!important}
 /* Full-bleed lower HUD rail, matching the header. Controls remain interactive above it. */
-body.editorial-interior::after{content:"";position:fixed;z-index:7;left:0;right:0;bottom:0;height:64px;background:var(--tdn-bar-bg);border-top:1px solid var(--tdn-line);pointer-events:none}
+body.editorial-interior::after{content:none}
 body.editorial-interior .chrome{z-index:3;inset:20px;border:1px solid var(--tdn-line);background-image:none;opacity:.48}
 body.editorial-interior .chrome::after{display:none}
 body.editorial-interior .crosshair{position:fixed;width:15px;height:15px;z-index:39;pointer-events:none;color:var(--tdn-gold)}
@@ -17,7 +17,7 @@ body.editorial-interior .crosshair::after{width:1px;height:15px;top:0;left:7px}
 /* Reticle corners belong to the clear viewer area, never the header/footer rails. */
 body.editorial-interior .crosshair.tl{top:76px;left:20px}body.editorial-interior .crosshair.tr{top:76px;right:20px}body.editorial-interior .crosshair.bl{bottom:76px;left:20px}body.editorial-interior .crosshair.br{bottom:76px;right:20px}
 body.editorial-interior .veil{background:var(--tdn-ink)}
-body.editorial-interior header{z-index:36;top:0;left:0;right:0;height:64px;padding:0 24px;display:grid;grid-template-columns:4fr 4fr 4fr;background:var(--tdn-bar-bg);border:0;border-bottom:1px solid var(--tdn-line);color:var(--tdn-ivory);font:10px var(--tdn-mono);letter-spacing:.05em}
+body.editorial-interior header{z-index:36;top:0;left:0;right:0;height:64px;padding:0 24px;display:grid;grid-template-columns:4fr 4fr 4fr;background:transparent;border:0;color:var(--tdn-ivory);font:10px var(--tdn-mono);letter-spacing:.05em}
 body.editorial-interior header span,body.editorial-interior header a,body.editorial-interior header select{font-family:var(--tdn-mono);font-weight:400;letter-spacing:.05em;text-shadow:none}
 body.editorial-interior header span:first-child a{font-size:0}
 body.editorial-interior header span:first-child a::before{content:"[ COVER ]";font-size:10px}
@@ -80,7 +80,7 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
 @media(max-width:768px){
  /* All three mobile HUD bands share the same 20px Swiss-grid edges. */
  body.editorial-interior::after{left:0;right:0;width:100%;height:54px}
- body.editorial-interior header{display:grid!important;font-size:11px;top:0;left:0;right:0;width:100%;box-sizing:border-box;height:54px;padding:0 12px;grid-template-columns:auto 1fr auto;gap:0;background:var(--tdn-bar-bg);border-bottom:0}
+ body.editorial-interior header{display:grid!important;font-size:11px;top:0;left:0;right:0;width:100%;box-sizing:border-box;height:54px;padding:0 12px;grid-template-columns:auto 1fr auto;gap:0;background:transparent;border-bottom:0}
  body.editorial-interior header > span:first-child{display:block;grid-column:1;white-space:nowrap}
  body.editorial-interior header > span:first-child a::before{content:"[ COVER ]";font-size:11px}
  body.editorial-interior header > span:nth-child(2){display:none}
@@ -103,7 +103,7 @@ body.editorial-interior .interior-loading{background:var(--tdn-ink);color:var(--
  body.editorial-interior .unit-spec-price{font-size:13px;line-height:1.5}
  body.editorial-interior .dock.expanded{left:20px;right:20px;top:74px;bottom:auto;min-width:0;width:auto;padding:0;background:var(--tdn-ink);border:1px solid var(--tdn-line);gap:0}
  body.editorial-interior .dock.expanded button{padding:14px 12px;border-bottom:1px solid var(--tdn-line);border-left:0;text-align:left}
- body.editorial-interior .m-room-bar{top:54px;left:0;right:0;width:100%;box-sizing:border-box;height:54px;min-height:0;padding:0 20px;background:rgba(15,21,31,.55);border:0;border-bottom:1px solid var(--tdn-line)}
+ body.editorial-interior .m-room-bar{top:54px;left:0;right:0;width:100%;box-sizing:border-box;height:54px;min-height:0;padding:0 20px;background:transparent;border:0}
  body.editorial-interior .m-room-name{font:11px var(--tdn-mono);letter-spacing:.05em;color:var(--tdn-gold);text-shadow:none}
  body.editorial-interior .m-room-name::after{width:12px;height:12px;background:none;border-right:2px solid var(--tdn-gold);border-bottom:2px solid var(--tdn-gold);transform:rotate(45deg);transition:transform 180ms ease;opacity:1;margin-right:2px}
  body.editorial-interior .m-room-name[aria-expanded="true"]::after{transform:rotate(225deg)}
