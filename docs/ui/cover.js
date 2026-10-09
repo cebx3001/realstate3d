@@ -8,6 +8,8 @@ const UNIT_INFO = Object.freeze({
 });
 const unitFlyout = document.getElementById('unit-flyout');
 const unitFlyoutClose = document.getElementById('unit-flyout-close');
+const unitMarker = document.getElementById('unit-annotation-marker');
+const unitMarkerCode = document.getElementById('unit-annotation-code');
 const unitsMenu = document.getElementById('units-menu');
 const audioToggle = document.getElementById('audio-toggle');
 const engineStatus = document.getElementById('engine-status');
@@ -83,7 +85,34 @@ function toggleUnits(force) {
   document.body.dataset.units = open ? 'open' : 'closed';
   if (open) blip('tick');
 }
-function hideUnitFlyout() { unitFlyout.hidden = true; }
+function hideUnitFlyout() {
+  unitFlyout.hidden = true;
+  unitMarker.hidden = true;
+}
+function positionUnitFlyout(x, y) {
+  if (!Number.isFinite(x) || !Number.isFinite(y)) return;
+  unitMarker.hidden = false;
+  unitMarker.style.left = x + 'px';
+  unitMarker.style.top = y + 'px';
+  unitMarkerCode.textContent = '[ ' + selectedUnit + ' ]';
+  requestAnimationFrame(() => {
+    const margin = 20, topGuard = 86, bottomGuard = 72, gap = 22;
+    const w = unitFlyout.offsetWidth || 300, h = unitFlyout.offsetHeight || 130;
+    let left, top;
+    if (innerWidth <= 700) {
+      left = Math.max(margin, Math.min(innerWidth - margin - w, x - w * .5));
+      top = y > innerHeight * .54 ? y - h - gap : y + gap;
+    } else {
+      const fitsRight = x + gap + w <= innerWidth - margin;
+      left = fitsRight ? x + gap : x - gap - w;
+      top = y - h * .5;
+    }
+    left = Math.max(margin, Math.min(innerWidth - margin - w, left));
+    top = Math.max(topGuard, Math.min(innerHeight - bottomGuard - h, top));
+    unitFlyout.style.left = left + 'px';
+    unitFlyout.style.top = top + 'px';
+  });
+}
 function renderUnitFlyout(code) {
   const info = UNIT_INFO[code];
   if (!info) return;
@@ -104,6 +133,7 @@ function go(destination) {
   else if (destination === 'cover') {
     closeUnits();
     hideUnitFlyout();
+    sceneViewer?.contentWindow?.postMessage({ scope: 'tdn:viewer', action: 'clear-annotation' }, location.origin);
     unitEditor?.flyTo('BUILDING');
   }
 }
@@ -115,7 +145,7 @@ function selectUnit(code) {
     button.setAttribute('aria-pressed', String(button.dataset.select === code));
   });
   closeUnits();
-  renderUnitFlyout(code);
+  hideUnitFlyout();
   blip('whoosh');
   unitEditor?.flyTo(code);
 }
@@ -156,7 +186,7 @@ function viewerUrl() {
   const { position, target } = coverPose();
   const camera = [...position, ...target, 98].map(value => value.toFixed(4)).join(',');
   const url = new URL('viewers/exterior-382a1520/index.html', location.href);
-  url.searchParams.set('bridge', 'hud-stability-1');
+  url.searchParams.set('bridge', 'anchored-units-vignette-1');
   url.searchParams.set('content', new URL('assets/exterior/382a1520/v1-streamed/lod-meta.json', location.href).href);
   url.searchParams.set('budget', '0.75');
   url.searchParams.set('cam', camera);
@@ -167,7 +197,12 @@ function viewerUrl() {
 }
 window.addEventListener('message', event => {
   if (event.origin !== location.origin || event.source !== sceneViewer.contentWindow) return;
-  if (event.data?.type === 'tdn:progress') {
+  if (event.data?.type === 'tdn:annotation-screen') {
+    if (event.data.unit !== selectedUnit) return;
+    if (event.data.hidden) { hideUnitFlyout(); return; }
+    renderUnitFlyout(selectedUnit);
+    positionUnitFlyout(Number(event.data.x), Number(event.data.y));
+  } else if (event.data?.type === 'tdn:progress') {
     modelProgress = Number(event.data.progress) || 0;
     if (engineState === 'loading') refreshEngineStatus();
   } else if (event.data?.type === 'tdn:first-useful-frame') {

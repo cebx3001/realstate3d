@@ -1524,6 +1524,8 @@
                     const host = window.parent;
                     let armed = false;
                     let down = null;
+                    let activeAnnotation = null;
+                    let lastProjection = '';
                     const pickLayer = document.createElement('div');
                     pickLayer.style.cssText = 'position:fixed;inset:0;z-index:100;cursor:crosshair;background:transparent;display:none';
                     document.body.append(pickLayer);
@@ -1544,6 +1546,18 @@
                         camera.calcFocusPoint(target);
                         return { position: vec(camera.position), target: vec(target), fov: camera.fov };
                     };
+                    const projectActiveAnnotation = () => {
+                        if (!activeAnnotation || activeAnnotation?.extras?.unit === 'BUILDING' || !window.__tdnProject) return;
+                        const screen = window.__tdnProject(activeAnnotation.position);
+                        if (!Array.isArray(screen) || !screen.slice(0, 2).every(Number.isFinite)) return;
+                        const payload = { unit: activeAnnotation.extras?.unit, x: screen[0], y: screen[1], z: screen[2] };
+                        const key = [payload.unit, payload.x.toFixed(1), payload.y.toFixed(1)].join(':');
+                        if (key !== lastProjection) {
+                            lastProjection = key;
+                            send('tdn:annotation-screen', payload);
+                        }
+                    };
+                    viewer.global.app.on('prerender', projectActiveAnnotation);
                     window.addEventListener('message', event => {
                         if (event.source !== host || event.origin !== location.origin || event.data?.scope !== 'tdn:viewer') return;
                         const { action, annotation, requestId } = event.data;
@@ -1555,9 +1569,23 @@
                                 send('tdn:armed', { requestId });
                             } else if (action === 'fly-to') {
                                 if (!annotation?.camera?.initial || !Array.isArray(annotation.position)) throw new Error('Anotación incompleta.');
+                                activeAnnotation = annotation;
+                                lastProjection = '';
+                                if (annotation?.extras?.unit === 'BUILDING') {
+                                    window.__tdnSpatialIndicator?.hide();
+                                    send('tdn:annotation-screen', { unit: 'BUILDING', hidden: true });
+                                } else {
+                                    window.__tdnSpatialIndicator?.show(annotation.position, [0.72, 0.22, 0.72]);
+                                }
                                 // v1.30.2 routes native annotation fly-to through this camera-manager event.
                                 viewer.global.events.fire('annotation.activate', annotation);
+                                projectActiveAnnotation();
                                 send('tdn:fly-to', { requestId });
+                            } else if (action === 'clear-annotation') {
+                                activeAnnotation = null;
+                                lastProjection = '';
+                                window.__tdnSpatialIndicator?.hide();
+                                send('tdn:annotation-screen', { unit: '', hidden: true });
                             }
                         } catch (error) {
                             send('tdn:bridge-error', { requestId, message: String(error.message || error) });
