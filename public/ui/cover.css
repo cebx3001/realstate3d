@@ -107,6 +107,7 @@ body[data-engine="error"] .loading-track{border-color:var(--gold)}
 .whatsapp{border:0;padding:7px 0;display:flex;align-items:center;justify-content:center;width:auto;height:34px;color:var(--gold);font:10px var(--mono);letter-spacing:.04em;white-space:nowrap;text-decoration:none}
 .whatsapp:hover,.whatsapp:focus-visible{color:var(--paper)}
 @media(max-width:700px){
+ .experience::after{display:none} /* Rectangular vignette: desktop only */
  .desktop-micro{display:none!important}
  .top-hud{height:54px;padding:0 14px}
  .brand{width:22px;margin-right:17px}.brand svg{width:22px;height:20px}
