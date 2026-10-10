@@ -570,6 +570,7 @@
         <!-- Application Script -->
         <script type="module">
             import { main } from './index.js';
+            import { attachSpatialCamera } from '../../ui/spatial-camera.js?v=1';
 
             const { config, settings } = window.sse;
             const { poster } = config;
@@ -589,6 +590,7 @@
                 const canvas = document.getElementById('application-canvas');
                 const settingsJson = await settings;
                 const viewer = await main(canvas, settingsJson, config);
+                attachSpatialCamera(viewer);
                 window.__getCameraState = () => {
                     const cam = viewer.cameraManager.camera;
                     return {
