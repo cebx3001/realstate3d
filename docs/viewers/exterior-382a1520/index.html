@@ -1661,7 +1661,13 @@ fn modifySplatColor(center: vec3f, color: ptr<function, vec4f>) {
                             const duration = 8500;
                             const advance = () => {
                                 const t = Math.min(1, (performance.now() - startedAt) / duration);
-                                for (const material of materials) material.setParameter('uBuild', t);
+                                // SuperSplat 2.21.4 copies unified material parameters only when
+                                // the scene material is dirty. setParameter alone leaves the
+                                // rendered shader frozen at uBuild=0 (a sudden pop at the end).
+                                for (const material of materials) {
+                                    material.setParameter('uBuild', t);
+                                    material.update();
+                                }
                                 app.renderNextFrame = true;
                                 if (t < 1) {
                                     requestAnimationFrame(advance);
