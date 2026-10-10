@@ -6,9 +6,10 @@
 export function attachSpatialCamera(viewer) {
   const app = viewer?.global?.app;
   const eye = viewer?.global?.camera;
-  const manager = viewer?.cameraManager;
+  // SuperSplat creates the camera manager asynchronously after splat loading.
+  // Never capture it at main() resolution time: the scene may not be ready.
   const lens = eye?.camera;
-  if (!app || !eye || !manager || !lens) {
+  if (!app || !eye || !lens) {
     console.warn('[TDN spatial] Camera bridge unavailable');
     return;
   }
@@ -48,10 +49,13 @@ export function attachSpatialCamera(viewer) {
   app.on('update', dt => {
     if (app.xr?.active) return;
     const factor = 1 - Math.exp(-clamp(Number(dt) || 1 / 60, 0, 0.1) * 9);
+    const previous = {...eased};
     for (const axis of ['x', 'y', 'z']) {
       eased[axis] += (target[axis] - eased[axis]) * factor;
       if (!active && Math.abs(eased[axis]) < 0.0004) eased[axis] = 0;
     }
+    const poseChanged = Math.max(...['x','y','z'].map(axis =>
+      Math.abs(eased[axis] - previous[axis]))) > 0.00015;
     const moving = active || eased.x !== 0 || eased.y !== 0 || eased.z !== 0;
     if (!moving) {
       if (adjusted) {
@@ -62,7 +66,7 @@ export function attachSpatialCamera(viewer) {
       return;
     }
 
-    const native = manager.camera;
+    const native = viewer.cameraManager?.camera;
     if (!native?.position || typeof native.calcFocusPoint !== 'function') return;
     const focus = new native.position.constructor();
     native.calcFocusPoint(focus);
@@ -97,14 +101,15 @@ export function attachSpatialCamera(viewer) {
       const halfWidth = distance * tanHalf * (lens.horizontalFov ? 1 : aspect);
       const halfHeight = distance * tanHalf * (lens.horizontalFov ? 1 / aspect : 1);
       const offset = lens.projectionOffset;
-      lens.projectionOffset = new offset.constructor(
-        baseOffset[0] - dx / Math.max(0.01, halfWidth),
-        baseOffset[1] - dy / Math.max(0.01, halfHeight)
-      );
+      const shiftedX = baseOffset[0] - dx / Math.max(0.01, halfWidth);
+      const shiftedY = baseOffset[1] - dy / Math.max(0.01, halfHeight);
+      if (Math.abs(offset.x - shiftedX) + Math.abs(offset.y - shiftedY) > 0.000001) {
+        lens.projectionOffset = new offset.constructor(shiftedX, shiftedY);
+      }
     }
 
+    if (poseChanged || !adjusted) app.renderNextFrame = true;
     adjusted = true;
-    app.renderNextFrame = true;
   });
 
   window.addEventListener('pagehide', () => {
