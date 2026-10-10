@@ -167,9 +167,9 @@ if (frame) {
     // Screen-right / screen-up are positive. The selfie-camera image is used
     // WITHOUT CSS mirroring or canvas flips.
     sample = {
-      x: clamp(posX / .10, -1, 1),
-      y: clamp(posY / .10, -1, 1),
-      z: clamp((1 - relativeDepth) / .24, -1, 1)
+      x: clamp(posX / .12, -1, 1),
+      y: clamp(posY / .12, -1, 1),
+      z: clamp((1 - relativeDepth) / .28, -1, 1)
     };
     faceMisses = 0;
     send(true);
