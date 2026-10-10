@@ -14,6 +14,23 @@ if (frame) {
   const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
     (navigator.maxTouchPoints > 1 && matchMedia('(pointer: coarse)').matches);
   const label = mobile ? 'MOVE' : 'HEAD';
+  const welcome = document.getElementById('tdn-camera-prompt');
+  const welcomeStart = document.getElementById('tdn-camera-enable');
+  const welcomeSkip = document.getElementById('tdn-camera-skip');
+  const welcomeStatus = document.getElementById('tdn-camera-status');
+  const editMode = new URLSearchParams(location.search).get('edit') === 'true';
+  if (welcome && (mobile || editMode)) welcome.hidden = true;
+  function status(message, error = false) {
+    if (!welcomeStatus) return;
+    welcomeStatus.textContent = message;
+    welcomeStatus.dataset.error = String(error);
+  }
+  function closeWelcome() {
+    if (!welcome || welcome.hidden) return;
+    welcome.hidden = true;
+    welcome.setAttribute('aria-hidden', 'true');
+    if (welcomeStart) welcomeStart.disabled = false;
+  }
   const button = document.createElement('button');
   button.type = 'button';
   button.id = 'tdn-spatial-toggle';
@@ -137,6 +154,7 @@ if (frame) {
     if (!reference) {
       // The activation pose becomes the centre of the existing SuperSplat view.
       reference = {cx, cy, eyeSpan};
+      closeWelcome();
     }
 
     // Pinhole-camera reconstruction relative to the initial screen/eye pose.
@@ -160,7 +178,10 @@ if (frame) {
     if (++faceMisses === 5) {
       sample = zero();
       send(true);
-      if (mode === 'face') display('FACE LOST','Sitúa el rostro frente a la cámara frontal');
+      if (mode === 'face') {
+        display('FACE LOST','Sitúa el rostro frente a la cámara frontal');
+        status('La cámara está activa. Colócate frente a ella para iniciar el seguimiento.');
+      }
     }
     // On re-entry, adopt a fresh baseline instead of teleporting the camera.
     if (faceMisses >= 20) reference = null;
@@ -193,6 +214,7 @@ if (frame) {
     document.body.append(video);
     await video.play();
     if (runToken !== token) return;
+    status('Cámara autorizada. Inicializando detección facial…');
 
     // Pin to a published stable version; the previous 0.10.22 URL was invalid.
     const version = '0.10.35';
@@ -216,6 +238,7 @@ if (frame) {
     mode = 'face';
     starting = false;
     refresh();
+    status('Seguimiento preparado. Buscando el rostro frente a la cámara…');
 
     const loop = (now) => {
       if (runToken !== token || mode !== 'face') return;
@@ -281,6 +304,16 @@ if (frame) {
     }, 3200);
   }
 
+  welcomeSkip?.addEventListener('click', closeWelcome);
+  welcomeStart?.addEventListener('click', () => {
+    if (starting) return;
+    if (mode === 'face') { closeWelcome(); return; }
+    if (welcomeStart) welcomeStart.disabled = true;
+    status('Solicitando acceso a la cámara. Acepta el permiso del navegador para continuar.');
+    // This remains in the user's click handler, satisfying camera consent rules.
+    button.click();
+  });
+
   button.addEventListener('click', () => {
     if (starting) return;
     if (mode) { stop(); return; }
@@ -293,6 +326,11 @@ if (frame) {
       if (runToken !== token) return;
       console.warn('[TDN spatial]', error);
       stop();
+      if (welcome && !welcome.hidden) {
+        status('No se pudo activar la cámara: ' + String(error?.message || error) +
+          '. Comprueba los permisos del navegador e inténtalo nuevamente.', true);
+        if (welcomeStart) welcomeStart.disabled = false;
+      }
       if (mobile && !tryTilt) {
         tryTilt = true;
         refresh();

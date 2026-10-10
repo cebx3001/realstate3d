@@ -1,0 +1,67 @@
+
+/* Opt-in head tracking permission prompt. Isolated from the existing TDN HUD. */
+#tdn-camera-prompt[hidden] { display: none !important; }
+#tdn-camera-prompt {
+  position: fixed; inset: 0; z-index: 2000;
+  display: flex; justify-content: center; align-items: center;
+  padding: 24px; box-sizing: border-box;
+  background: rgba(8, 12, 19, .70);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: auto; 
+}
+#tdn-camera-prompt, #tdn-camera-prompt * {box-sizing: border-box;}
+#tdn-camera-prompt .tdn-camera-panel {
+  width: min(520px, 100%); min-width: 0;
+  border: 1px solid rgba(210,177,107,.85);
+  padding: clamp(20px, 3.5vw, 34px);
+  background: #0F151F; color: #ebeae4;
+  box-shadow: 0 15px 58px rgba(0,0,0,.36);
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-weight: 400; text-align: left; border-radius: 0;
+}
+#tdn-camera-prompt .tdn-camera-meta {
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  padding-bottom:15px; border-bottom:1px solid rgba(210,177,107,.32);
+  font: 10px/1.3 "JetBrains Mono", ui-monospace, Consolas, monospace;
+  letter-spacing: .09em; color:#D2B16B;
+}
+#tdn-camera-prompt h2 {
+  margin: 28px 0 14px; color:#D2B16B;
+  font: 500 clamp(23px,3vw,35px)/1.13 Arial,Helvetica,sans-serif;
+  letter-spacing: -.035em; text-transform:uppercase;
+}
+#tdn-camera-prompt #tdn-camera-copy {
+  margin: 0 0 26px; max-width: 43ch;
+  font: 13px/1.6 Arial,Helvetica,sans-serif;
+  letter-spacing: 0; text-transform:none; color:#e3e1d9;
+}
+#tdn-camera-prompt .tdn-camera-actions {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+#tdn-camera-prompt .tdn-camera-actions button {
+  flex: 1 1 185px; min-height: 44px;
+  border:1px solid rgba(210,177,107,.65);
+  border-radius:0; padding:12px 10px;
+  background:transparent; color:#D2B16B;
+  cursor:pointer; font: 10px/1.3 "JetBrains Mono",ui-monospace,Consolas,monospace;
+  letter-spacing:.04em; text-transform:uppercase; text-align:center;
+  touch-action:manipulation;
+}
+#tdn-camera-prompt #tdn-camera-enable { background:#D2B16B; color:#0F151F; }
+#tdn-camera-prompt button:disabled {opacity:.56;cursor:wait;}
+#tdn-camera-prompt button:focus-visible {outline:2px solid #D2B16B;outline-offset:3px;}
+#tdn-camera-prompt .tdn-camera-status {
+  min-height:26px; margin:20px 0 0;
+  color:rgba(235,234,228,.72);
+  font:10px/1.5 "JetBrains Mono",ui-monospace,Consolas,monospace;
+  letter-spacing:.015em; text-transform:none;
+}
+#tdn-camera-prompt .tdn-camera-status[data-error="true"] { color:#f1a9a1; }
+@media (hover:none) and (pointer:coarse) {
+  #tdn-camera-prompt { display:none; }
+}
+@media (max-width:500px) {
+  #tdn-camera-prompt {padding:14px;}
+  #tdn-camera-prompt .tdn-camera-panel {padding:20px;}
+}
