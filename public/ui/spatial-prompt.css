@@ -58,6 +58,34 @@
   letter-spacing:.015em; text-transform:none;
 }
 #tdn-camera-prompt .tdn-camera-status[data-error="true"] { color:#f1a9a1; }
+
+/* Desktop only: match the mobile permission panel's compact stacked composition. */
+@media (min-width: 769px) {
+  #tdn-camera-prompt .tdn-camera-panel {
+    width: min(440px, calc(100vw - 48px));
+    padding: 24px;
+  }
+  #tdn-camera-prompt .tdn-camera-meta { padding-bottom: 12px; }
+  #tdn-camera-prompt h2 {
+    margin: 20px 0 14px;
+    font-size: 27px;
+    line-height: 1.13;
+  }
+  #tdn-camera-prompt #tdn-camera-copy {
+    margin-bottom: 22px;
+    max-width: 38ch;
+  }
+  #tdn-camera-prompt .tdn-camera-actions {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  #tdn-camera-prompt .tdn-camera-actions button {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  #tdn-camera-prompt .tdn-camera-status { margin-top: 18px; }
+}
+
 @media (max-width:500px) {
   #tdn-camera-prompt {padding:14px;}
   #tdn-camera-prompt .tdn-camera-panel {padding:20px;}

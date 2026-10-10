@@ -45,21 +45,25 @@ if (frame) {
 
   const style = document.createElement('style');
   style.textContent = `
+    /* HUD text control; no button box or visual container. */
     #tdn-spatial-toggle {
-      position:fixed; z-index:52; top:92px; right:24px;
-      pointer-events:auto; cursor:pointer;
-      background:rgba(15,21,31,.58); color:#e9e8e2;
-      border:1px solid rgba(210,177,107,.52); border-radius:0;
-      padding:11px 13px; font:10px "JetBrains Mono",ui-monospace,monospace;
-      letter-spacing:.065em; line-height:1.2; white-space:nowrap;
-      backdrop-filter:blur(3px);
+      position:fixed; z-index:52; top:84px; left:44px; right:auto;
+      pointer-events:auto; cursor:pointer; appearance:none;
+      background:transparent; border:0; border-radius:0;
+      padding:0; margin:0; box-shadow:none; outline:none;
+      backdrop-filter:none; -webkit-backdrop-filter:none;
+      color:#e9e8e2; font:9px var(--tdn-mono, "JetBrains Mono", ui-monospace, monospace);
+      letter-spacing:.05em; line-height:1.4; white-space:nowrap;
+      text-transform:uppercase; text-align:left;
+      text-shadow:0 1px 5px rgba(15,21,31,.75);
     }
-    #tdn-spatial-toggle[aria-pressed="true"] {
-      color:#D2B16B; border-color:#D2B16B;
+    #tdn-spatial-toggle[aria-pressed="true"] { color:#D2B16B; }
+    #tdn-spatial-toggle:hover { color:#D2B16B; }
+    #tdn-spatial-toggle:focus-visible {
+      outline:none; text-decoration:underline; text-underline-offset:4px;
     }
-    #tdn-spatial-toggle:focus-visible {outline:2px solid #D2B16B;outline-offset:3px}
-    @media(max-width:700px) {
-      #tdn-spatial-toggle {top:64px;right:16px;padding:9px 10px;font-size:9px}
+    @media(max-width:768px) {
+      #tdn-spatial-toggle {top:122px;left:44px;font-size:9px}
     }
   `;
   document.head.append(style);
