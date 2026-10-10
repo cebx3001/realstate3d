@@ -210,7 +210,7 @@ if (frame) {
     sample = {
       x: clamp(softDeadZone(neutralX - x, .003) / (mobile ? .11 : .20), -1, 1),
       y: clamp(softDeadZone(y - neutralY, .003) / (mobile ? .10 : .16), -1, 1),
-      z: clamp(softDeadZone(neutralDistance - distance, .005) / (mobile ? .22 : .28), -1, 1)
+      z: clamp(softDeadZone(distance - neutralDistance, .005) / (mobile ? .22 : .28), -1, 1)
     };
     faceMisses = 0;
     send(true);
