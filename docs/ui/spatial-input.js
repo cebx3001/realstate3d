@@ -208,7 +208,7 @@ if (frame) {
     // Spatial units saturate gradually at sensible head/phone excursions;
     // the view and projection always use the *same* eye displacement.
     sample = {
-      x: clamp(softDeadZone(x - neutralX, .003) / (mobile ? .11 : .20), -1, 1),
+      x: clamp(softDeadZone(neutralX - x, .003) / (mobile ? .11 : .20), -1, 1),
       y: clamp(softDeadZone(y - neutralY, .003) / (mobile ? .10 : .16), -1, 1),
       z: clamp(softDeadZone(neutralDistance - distance, .005) / (mobile ? .22 : .28), -1, 1)
     };
