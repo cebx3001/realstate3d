@@ -188,7 +188,7 @@ function viewerUrl() {
   const camera = [...position, ...target, 98].map(value => value.toFixed(4)).join(',');
   const url = new URL('viewers/exterior-382a1520/index.html', location.href);
   url.searchParams.set('bridge', 'anchored-units-vignette-1');
-  url.searchParams.set('revision', 'mcmc-ready-height-20261009-5');
+  url.searchParams.set('revision', 'mcmc-uniform-sync-20261009-6');
   url.searchParams.set('content', new URL('assets/exterior/382a1520/v1-streamed/lod-meta.json', location.href).href);
   url.searchParams.set('budget', '0.75');
   // The crystallization transition is part of the standard cover, not an opt-in preview.
