@@ -1008,17 +1008,12 @@
       .map-close:hover { color: #fff; }
       .map-close:focus-visible { outline: 1px solid #b99457; outline-offset: 2px; }
     </style>
-    <link rel="stylesheet" href="../ui/interior-hud.css?v=brand-label-6">
-    <link rel="stylesheet" href="../ui/spatial-prompt.css?v=3">
+    <link rel="stylesheet" href="../ui/interior-hud.css?v=mobile-vignette-and-original-loading-20261010">
+    <link rel="stylesheet" href="../ui/spatial-prompt.css?v=4">
   </head>
   <body>
     <iframe id="viewer" title="Visor InteriorGS"></iframe>
-    <div class="interior-loading" id="interiorLoading" role="status" aria-live="polite" aria-label="Cargando modelo tridimensional">
-      <div class="interior-loading-status">
-        <div class="engine-status"><span class="status-dot" aria-hidden="true"></span><span id="interiorLoadingLabel">LOADING MODEL</span><span class="loading-percent">STREAMING</span></div>
-        <div class="loading-track" aria-hidden="true"><span></span></div>
-      </div>
-    </div>
+    <div class="interior-loading" id="interiorLoading" role="status" aria-live="polite" aria-label="Cargando espacio"><span id="interiorLoadingLabel">Cargando espacio</span></div>
     <div class="chrome" style="inset:0;opacity:1;border:0;background-image:linear-gradient(to right,rgba(15,21,31,.96) 0%,rgba(15,21,31,.80) 7%,rgba(15,21,31,.50) 15%,rgba(15,21,31,.17) 24%,transparent 33%),linear-gradient(to left,rgba(15,21,31,.96) 0%,rgba(15,21,31,.80) 7%,rgba(15,21,31,.50) 15%,rgba(15,21,31,.17) 24%,transparent 33%),linear-gradient(to bottom,rgba(15,21,31,.86) 0%,rgba(15,21,31,.62) 8%,rgba(15,21,31,.27) 18%,transparent 30%),linear-gradient(to top,rgba(15,21,31,.86) 0%,rgba(15,21,31,.62) 8%,rgba(15,21,31,.27) 18%,transparent 30%)"></div>
     <i class="crosshair tl" aria-hidden="true"></i><i class="crosshair tr" aria-hidden="true"></i>
     <i class="crosshair bl" aria-hidden="true"></i><i class="crosshair br" aria-hidden="true"></i>
@@ -1330,12 +1325,12 @@
         interiorLoadCycle += 1;
         clearInterval(interiorReadyPoll);
         clearTimeout(interiorStillLoadingTimer);
-        interiorLoadingLabel.textContent = "LOADING MODEL";
+        interiorLoadingLabel.textContent = "Cargando espacio";
         interiorLoading.classList.remove("hidden");
         const cycle = interiorLoadCycle;
         interiorStillLoadingTimer = setTimeout(() => {
           if (cycle === interiorLoadCycle && !interiorLoading.classList.contains("hidden")) {
-            interiorLoadingLabel.textContent = "STILL LOADING MODEL";
+            interiorLoadingLabel.textContent = "Cargando espacio";
           }
         }, 25000);
         interiorReadyPoll = setInterval(() => {
@@ -1909,8 +1904,8 @@
 <section id="tdn-camera-prompt" class="tdn-camera-prompt" role="dialog" aria-modal="true" aria-labelledby="tdn-camera-title" aria-describedby="tdn-camera-copy">
   <div class="tdn-camera-panel">
     <div class="tdn-camera-meta"><span>[ TDN / SPATIAL WINDOW ]</span><span>01 / 02</span></div>
-    <h2 id="tdn-camera-title">ACTIVAR SEGUIMIENTO DE CABEZA</h2>
-    <p id="tdn-camera-copy">Mueve la cabeza frente a la pantalla y descubre nuevas perspectivas del espacio tridimensional. La cámara se utiliza únicamente mientras este modo está activo.</p>
+    <h2 id="tdn-camera-title">ESTA PÁGINA FUNCIONA CON HEAD TRACKING</h2>
+    <p id="tdn-camera-copy">Permite el acceso a la cámara para activar automáticamente el seguimiento y explorar el espacio tridimensional al mover la cabeza. También puedes continuar sin cámara.</p>
     <div class="tdn-camera-actions">
       <button type="button" id="tdn-camera-enable">[ ACTIVAR CÁMARA ]</button>
       <button type="button" id="tdn-camera-skip">[ CONTINUAR SIN CÁMARA ]</button>
@@ -1918,7 +1913,7 @@
     <p class="tdn-camera-status" id="tdn-camera-status" role="status" aria-live="polite">El navegador solicitará tu permiso al activar esta función.</p>
   </div>
 </section>
-<script type="module" src="../ui/spatial-input.js?v=3"></script>
+<script type="module" src="../ui/spatial-input.js?v=4"></script>
   </body>
 </html>
 

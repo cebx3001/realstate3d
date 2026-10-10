@@ -13,13 +13,17 @@ const frame = document.querySelector('#scene-viewer, #viewer');
 if (frame) {
   const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
     (navigator.maxTouchPoints > 1 && matchMedia('(pointer: coarse)').matches);
-  const label = mobile ? 'MOVE' : 'HEAD';
+  const label = 'HEAD TRACKING';
   const welcome = document.getElementById('tdn-camera-prompt');
   const welcomeStart = document.getElementById('tdn-camera-enable');
   const welcomeSkip = document.getElementById('tdn-camera-skip');
   const welcomeStatus = document.getElementById('tdn-camera-status');
   const editMode = new URLSearchParams(location.search).get('edit') === 'true';
-  if (welcome && (mobile || editMode)) welcome.hidden = true;
+  if (welcome && editMode) welcome.hidden = true;
+  if (welcome && mobile) {
+    const copy = document.getElementById('tdn-camera-copy');
+    if (copy) copy.textContent = 'Esta página utiliza Head Tracking para convertir el teléfono en una ventana espacial. Permite la cámara frontal y mueve el teléfono para explorar la profundidad del entorno.';
+  }
   function status(message, error = false) {
     if (!welcomeStatus) return;
     welcomeStatus.textContent = message;
@@ -102,10 +106,7 @@ if (frame) {
         : tryTilt
           ? 'Cámara frontal no disponible · pulsar para activar inclinación'
           : 'Usa la cámara frontal para una perspectiva dependiente de tus ojos';
-    const text = starting ? 'LOADING' :
-      mode === 'face' ? label + ' ON' :
-      mode === 'tilt' ? 'TILT ON' :
-      tryTilt ? 'TILT VIEW' : label + ' VIEW';
+    const text = label + (starting ? ' / LOADING' : mode ? ' / ON' : ' / OFF');
     display(text, title);
   }
 
@@ -166,9 +167,9 @@ if (frame) {
     // Screen-right / screen-up are positive. The selfie-camera image is used
     // WITHOUT CSS mirroring or canvas flips.
     sample = {
-      x: clamp(posX / .14, -1, 1),
-      y: clamp(posY / .14, -1, 1),
-      z: clamp((1 - relativeDepth) / .32, -1, 1)
+      x: clamp(posX / .10, -1, 1),
+      y: clamp(posY / .10, -1, 1),
+      z: clamp((1 - relativeDepth) / .24, -1, 1)
     };
     faceMisses = 0;
     send(true);
@@ -179,7 +180,7 @@ if (frame) {
       sample = zero();
       send(true);
       if (mode === 'face') {
-        display('FACE LOST','Sitúa el rostro frente a la cámara frontal');
+        display(label + ' / ON','Seguimiento activo: coloca el rostro frente a la cámara');
         status('La cámara está activa. Colócate frente a ella para iniciar el seguimiento.');
       }
     }
@@ -195,9 +196,9 @@ if (frame) {
       audio: false,
       video: {
         facingMode: 'user',
-        width: {ideal: mobile ? 480 : 640},
-        height: {ideal: mobile ? 360 : 480},
-        frameRate: {ideal: 15, max: 24}
+        width: {ideal: mobile ? 384 : 640},
+        height: {ideal: mobile ? 288 : 480},
+        frameRate: {ideal: mobile ? 24 : 30, max: 30}
       }
     });
     if (runToken !== token) {
@@ -238,11 +239,12 @@ if (frame) {
     mode = 'face';
     starting = false;
     refresh();
+    closeWelcome();
     status('Seguimiento preparado. Buscando el rostro frente a la cámara…');
 
     const loop = (now) => {
       if (runToken !== token || mode !== 'face') return;
-      const interval = mobile ? 125 : 90; // 8fps mobile inference, smooth camera via bridge.
+      const interval = mobile ? 65 : 45; // Lower detection-to-render latency, capped for mobile CPU.
       if (now - lastProcessedAt >= interval && video?.readyState >= 2 &&
           video.currentTime !== lastVideoTime) {
         lastProcessedAt = now;
@@ -251,7 +253,7 @@ if (frame) {
           const face = landmarker.detectForVideo(video, now).faceLandmarks?.[0];
           if (face) {
             recordFace(face);
-            if (faceMisses === 0 && button.textContent.includes('LOST')) refresh();
+            if (faceMisses === 0 && button.title.includes('coloca el rostro')) refresh();
           } else onMissingFace();
         } catch (error) {
           console.warn('[TDN spatial] Face inference', error);

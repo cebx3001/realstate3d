@@ -15,6 +15,11 @@ export function attachSpatialCamera(viewer) {
   }
 
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (navigator.maxTouchPoints > 1 && matchMedia('(pointer: coarse)').matches);
+  const strength = mobile
+    ? { x: 0.23, y: 0.17, z: 0.16 }
+    : { x: 0.20, y: 0.15, z: 0.14 };
   const projection = lens.projectionOffset;
   const baseOffset = projection && Number.isFinite(projection.x) &&
     Number.isFinite(projection.y) ? [projection.x, projection.y] : null;
@@ -48,7 +53,7 @@ export function attachSpatialCamera(viewer) {
   // already placed the author-approved camera each frame.
   app.on('update', dt => {
     if (app.xr?.active) return;
-    const factor = 1 - Math.exp(-clamp(Number(dt) || 1 / 60, 0, 0.1) * 9);
+    const factor = 1 - Math.exp(-clamp(Number(dt) || 1 / 60, 0, 0.1) * 28);
     const previous = {...eased};
     for (const axis of ['x', 'y', 'z']) {
       eased[axis] += (target[axis] - eased[axis]) * factor;
@@ -78,9 +83,9 @@ export function attachSpatialCamera(viewer) {
     if (!Number.isFinite(distance) || distance < 0.01) return;
 
     // World-space translation scaled to the scene rather than hardcoded metres.
-    const dx = distance * 0.045 * eased.x;
-    const dy = distance * 0.035 * eased.y;
-    const dz = distance * 0.025 * eased.z;
+    const dx = distance * strength.x * eased.x;
+    const dy = distance * strength.y * eased.y;
+    const dz = distance * strength.z * eased.z;
     const p = eye.getPosition();
     const r = eye.right;
     const u = eye.up;

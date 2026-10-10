@@ -58,9 +58,6 @@
   letter-spacing:.015em; text-transform:none;
 }
 #tdn-camera-prompt .tdn-camera-status[data-error="true"] { color:#f1a9a1; }
-@media (hover:none) and (pointer:coarse) {
-  #tdn-camera-prompt { display:none; }
-}
 @media (max-width:500px) {
   #tdn-camera-prompt {padding:14px;}
   #tdn-camera-prompt .tdn-camera-panel {padding:20px;}
