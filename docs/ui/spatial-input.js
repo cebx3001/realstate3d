@@ -83,6 +83,28 @@ if (frame) {
   let tiltReference = null;
   let tiltWatchdog = 0;
   let sample = zero();
+  let opticalFilter = null;
+  let lastFaceAt = 0;
+  const irisDistanceMetres = 0.063;
+  const focalScale = 0.90; // Approximate normalized focal length; first face is the neutral pose.
+
+  // One-Euro filtering: quiet when stationary, faster with real movement.
+  function oneEuro(value, axis, dt) {
+    const slot = opticalFilter[axis];
+    const factor = cutoff => {
+      const tau = 1 / (2 * Math.PI * cutoff);
+      return 1 / (1 + tau / dt);
+    };
+    const velocity = (value - slot.value) / dt;
+    slot.speed += (velocity - slot.speed) * factor(1.0);
+    const cutoff = (axis === 'span' ? 0.8 : 1.0) + 7 * Math.abs(slot.speed);
+    slot.value += (value - slot.value) * factor(cutoff);
+    return slot.value;
+  }
+
+  function softDeadZone(value, width) {
+    return Math.sign(value) * Math.max(0, Math.abs(value) - width);
+  }
 
   function send(active = Boolean(mode)) {
     frame.contentWindow?.postMessage(
@@ -133,6 +155,8 @@ if (frame) {
     window.removeEventListener('deviceorientation', onOrientation);
     releaseVideo();
     reference = null;
+    opticalFilter = null;
+    lastFaceAt = 0;
     tiltReference = null;
     sample = zero();
     faceMisses = 0;
@@ -141,51 +165,63 @@ if (frame) {
   }
 
   function recordFace(points) {
-    // Iris centres are less affected by facial expression than face contours.
-    // On devices/models missing iris points, use the outer eye landmarks.
     const left = points[468] || points[33];
     const right = points[473] || points[263];
     if (!left || !right) return;
     const cx = (left.x + right.x) / 2;
     const cy = (left.y + right.y) / 2;
     const ratioY = (video.videoHeight || 480) / Math.max(1, video.videoWidth || 640);
-    const eyeSpan = Math.hypot(left.x - right.x, (left.y - right.y) * ratioY);
-    if (!(eyeSpan > 0.015) || !Number.isFinite(cx + cy + eyeSpan)) return;
+    const span = Math.hypot(left.x - right.x, (left.y - right.y) * ratioY);
+    if (!(span > 0.015) || !Number.isFinite(cx + cy + span)) return;
 
+    const now = performance.now();
     if (!reference) {
-      // The activation pose becomes the centre of the existing SuperSplat view.
-      reference = {cx, cy, eyeSpan};
+      // Initial comfortable gaze is the calibration pose of this fixed window.
+      reference = {cx, cy, span};
+      opticalFilter = {
+        cx: {value:cx,speed:0},
+        cy: {value:cy,speed:0},
+        span: {value:span,speed:0}
+      };
+      lastFaceAt = now;
       closeWelcome();
+      sample = zero();
+      faceMisses = 0;
+      send(true);
+      return;
     }
+    const dt = clamp((now - lastFaceAt) / 1000, 1 / 120, .2);
+    lastFaceAt = now;
+    const filteredCx = oneEuro(cx, 'cx', dt);
+    const filteredCy = oneEuro(cy, 'cy', dt);
+    const filteredSpan = oneEuro(span, 'span', dt);
 
-    // Pinhole-camera reconstruction relative to the initial screen/eye pose.
-    // Eye separation provides depth from a single RGB camera up to a fixed
-    // scale factor, so forward/backward phone translation is observable.
-    const relativeDepth = clamp(reference.eyeSpan / eyeSpan, 0.5, 2.0);
-    const posX = ((reference.cx - .5) - (cx - .5) * relativeDepth);
-    const posY = ((reference.cy - .5) - (cy - .5) * relativeDepth);
-    // Screen-right / screen-up are positive. The selfie-camera image is used
-    // WITHOUT CSS mirroring or canvas flips.
+    // Pinhole eye pose relative to the *screen*, not a synthetic camera pan.
+    // IPD gives a sensible scale; exact screen dimensions are not claimed.
+    const x = irisDistanceMetres * (filteredCx - .5) / filteredSpan;
+    const y = irisDistanceMetres * (.5 - filteredCy) * ratioY / filteredSpan;
+    const neutralX = irisDistanceMetres * (reference.cx - .5) / reference.span;
+    const neutralY = irisDistanceMetres * (.5 - reference.cy) * ratioY / reference.span;
+    const distance = irisDistanceMetres * focalScale / filteredSpan;
+    const neutralDistance = irisDistanceMetres * focalScale / reference.span;
+
+    // Spatial units saturate gradually at sensible head/phone excursions;
+    // the view and projection always use the *same* eye displacement.
     sample = {
-      x: clamp(posX / .12, -1, 1),
-      y: clamp(posY / .12, -1, 1),
-      z: clamp((1 - relativeDepth) / .28, -1, 1)
+      x: clamp(softDeadZone(x - neutralX, .003) / (mobile ? .11 : .20), -1, 1),
+      y: clamp(softDeadZone(y - neutralY, .003) / (mobile ? .10 : .16), -1, 1),
+      z: clamp(softDeadZone(neutralDistance - distance, .005) / (mobile ? .22 : .28), -1, 1)
     };
     faceMisses = 0;
     send(true);
   }
 
   function onMissingFace() {
-    if (++faceMisses === 5) {
-      sample = zero();
-      send(true);
-      if (mode === 'face') {
-        display(label + ' / ON','Seguimiento activo: coloca el rostro frente a la cámara');
-        status('La cámara está activa. Colócate frente a ella para iniciar el seguimiento.');
-      }
+    if (++faceMisses === 5 && mode === 'face') {
+      // Never snap to zero and never silently recalibrate: freeze last pose.
+      display(label + ' / ON', 'Buscando rostro: se mantiene la última perspectiva estable');
+      status('Rostro fuera de cámara. La perspectiva permanece fija hasta recuperarlo.');
     }
-    // On re-entry, adopt a fresh baseline instead of teleporting the camera.
-    if (faceMisses >= 20) reference = null;
   }
 
   async function startFace(runToken) {
@@ -343,6 +379,8 @@ if (frame) {
   frame.addEventListener('load', () => send());
   window.addEventListener('orientationchange', () => {
     reference = null;
+    opticalFilter = null;
+    lastFaceAt = 0;
     tiltReference = null;
   });
   window.addEventListener('pagehide', stop);
