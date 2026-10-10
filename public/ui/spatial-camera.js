@@ -1,73 +1,94 @@
 /**
- * Torres del Norte — additive spatial camera bridge.
- * Only the rendered eye changes. SuperSplat camera manager, saved poses,
- * annotations, input navigation, transitions and scene data are untouched.
+ * Torres del Norte — screen-anchored, head-coupled off-axis camera.
+ * Additive to SuperSplat: native camera-manager poses, scene data, controls,
+ * transitions and saved annotations are never modified.
  */
 export function attachSpatialCamera(viewer) {
   const app = viewer?.global?.app;
   const eye = viewer?.global?.camera;
-  // SuperSplat creates the camera manager asynchronously after splat loading.
-  // Never capture it at main() resolution time: the scene may not be ready.
   const lens = eye?.camera;
-  if (!app || !eye || !lens) {
-    console.warn('[TDN spatial] Camera bridge unavailable');
+  if (!app || !eye || !lens || typeof eye.setPosition !== 'function') {
+    console.warn('[TDN spatial] Camera entity unavailable');
     return;
   }
 
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
     (navigator.maxTouchPoints > 1 && matchMedia('(pointer: coarse)').matches);
-  const strength = mobile
-    ? { x: 0.1375, y: 0.1025, z: 0.0925 }
-    : { x: 0.1225, y: 0.0925, z: 0.0825 };
-  const projection = lens.projectionOffset;
-  const baseOffset = projection && Number.isFinite(projection.x) &&
-    Number.isFinite(projection.y) ? [projection.x, projection.y] : null;
-  let active = false;
+  const originalProjection = lens.calculateProjection;
+  const originalOffset = lens.projectionOffset;
+  const baseOffsetX = Number.isFinite(originalOffset?.x) ? originalOffset.x : 0;
+  const baseOffsetY = Number.isFinite(originalOffset?.y) ? originalOffset.y : 0;
   const target = { x: 0, y: 0, z: 0 };
   const eased = { x: 0, y: 0, z: 0 };
-  let adjusted = false;
+  const position = { x: 0, y: 0, z: 0 };
+  const windowPlane = { distance: 1, halfWidth: 1, halfHeight: 1, dx: 0, dy: 0, dz: 0 };
+  let active = false;
+  let projectionInstalled = false;
+  let displaced = false;
+  let disposed = false;
 
-  function restoreProjection() {
-    if (baseOffset && lens.projectionOffset) {
-      const current = lens.projectionOffset;
-      if (Math.abs(current.x - baseOffset[0]) + Math.abs(current.y - baseOffset[1]) > 0.00001) {
-        lens.projectionOffset = new current.constructor(...baseOffset);
-      }
-    }
+  // Every rendered pixel is a ray from the tracked eye through one fixed
+  // rectangular window. Objects on the reference plane stay stationary;
+  // nearer and farther geometry exhibits depth-dependent motion parallax.
+  function offAxisProjection(matrix) {
+    const screenDistance = Math.max(0.02, windowPlane.distance - windowPlane.dz);
+    const near = Math.max(0.001, Number(lens.nearClip) || 0.01);
+    const far = Math.max(near + 1, Number(lens.farClip) || 1000);
+    const scale = near / screenDistance;
+    const cx = windowPlane.dx;
+    const cy = windowPlane.dy;
+    const left = (-windowPlane.halfWidth + baseOffsetX * windowPlane.halfWidth - cx) * scale;
+    const right = (windowPlane.halfWidth + baseOffsetX * windowPlane.halfWidth - cx) * scale;
+    const bottom = (-windowPlane.halfHeight + baseOffsetY * windowPlane.halfHeight - cy) * scale;
+    const top = (windowPlane.halfHeight + baseOffsetY * windowPlane.halfHeight - cy) * scale;
+    matrix.setFrustum(left, right, bottom, top, near, far);
   }
 
-  const receive = event => {
-    if (event.origin !== location.origin || event.source !== window.parent) return;
-    const data = event.data;
-    if (data?.scope !== 'tdn:spatial') return;
-    active = data.active === true;
-    target.x = active ? clamp(Number(data.x) || 0, -1, 1) : 0;
-    target.y = active ? clamp(Number(data.y) || 0, -1, 1) : 0;
-    target.z = active ? clamp(Number(data.z) || 0, -1, 1) : 0;
-    app.renderNextFrame = true;
-  };
-  window.addEventListener('message', receive);
-
-  // Listener registered AFTER viewer initialization, so native update has
-  // already placed the author-approved camera each frame.
-  app.on('update', dt => {
-    if (app.xr?.active) return;
-    const factor = 1 - Math.exp(-clamp(Number(dt) || 1 / 60, 0, 0.1) * 28);
-    const previous = {...eased};
-    for (const axis of ['x', 'y', 'z']) {
-      eased[axis] += (target[axis] - eased[axis]) * factor;
-      if (!active && Math.abs(eased[axis]) < 0.0004) eased[axis] = 0;
+  function restoreProjection() {
+    if (projectionInstalled && lens.calculateProjection === offAxisProjection) {
+      lens.calculateProjection = originalProjection;
     }
-    const poseChanged = Math.max(...['x','y','z'].map(axis =>
-      Math.abs(eased[axis] - previous[axis]))) > 0.00015;
-    const moving = active || eased.x !== 0 || eased.y !== 0 || eased.z !== 0;
-    if (!moving) {
-      if (adjusted) {
-        restoreProjection();
-        adjusted = false;
-        app.renderNextFrame = true;
-      }
+    projectionInstalled = false;
+  }
+
+  function restorePosition() {
+    if (!displaced) return;
+    eye.setPosition(position.x, position.y, position.z);
+    displaced = false;
+  }
+
+  function onMessage(event) {
+    if (event.origin !== location.origin || event.source !== window.parent) return;
+    if (event.data?.scope !== 'tdn:spatial') return;
+    active = event.data.active === true;
+    for (const axis of ['x', 'y', 'z']) {
+      target[axis] = active ? clamp(Number(event.data[axis]) || 0, -1, 1) : 0;
+    }
+    app.renderNextFrame = true;
+  }
+
+  function onUpdate(dt) {
+    if (disposed) return;
+    // Short output smoothing only; optical One-Euro filter handles jitter.
+    const alpha = 1 - Math.exp(-clamp(Number(dt) || 1 / 60, 0, .1) * 25);
+    let changing = false;
+    for (const axis of ['x', 'y', 'z']) {
+      const old = eased[axis];
+      eased[axis] += (target[axis] - eased[axis]) * alpha;
+      if (!active && Math.abs(eased[axis]) < .0002) eased[axis] = 0;
+      if (Math.abs(eased[axis] - old) > .00002) changing = true;
+    }
+    if (changing) app.renderNextFrame = true;
+  }
+
+  function onPrerender() {
+    if (disposed || app.xr?.active) return;
+    restorePosition(); // Defensive against an interrupted previous render.
+
+    const amount = Math.max(Math.abs(eased.x), Math.abs(eased.y), Math.abs(eased.z));
+    if (amount < .0001) {
+      restoreProjection();
       return;
     }
 
@@ -80,45 +101,61 @@ export function attachSpatialCamera(viewer) {
       native.position.y - focus.y,
       native.position.z - focus.z
     );
-    if (!Number.isFinite(distance) || distance < 0.01) return;
+    if (!(distance > .01) || !Number.isFinite(distance)) return;
 
-    // World-space translation scaled to the scene rather than hardcoded metres.
-    const dx = distance * strength.x * eased.x;
-    const dy = distance * strength.y * eased.y;
-    const dz = distance * strength.z * eased.z;
+    const aspect = clamp(Number(lens.aspectRatio) ||
+      (app.graphicsDevice.width / Math.max(1, app.graphicsDevice.height)), .2, 6);
+    const fov = clamp(Number(lens.fov) || 60, 10, 140) * Math.PI / 360;
+    const tangent = Math.tan(fov);
+    const halfWidth = distance * tangent * (lens.horizontalFov ? 1 : aspect);
+    const halfHeight = distance * tangent * (lens.horizontalFov ? 1 / aspect : 1);
+
+    // Virtual eye motion is a fraction of the fixed viewport's physical span.
+    // Unlike the previous sensitivity multiplier this is used in the
+    // geometric frustum too, so the image is not simply dragged.
+    const lateral = mobile ? .43 : .40;
+    const vertical = mobile ? .41 : .38;
+    windowPlane.distance = distance;
+    windowPlane.halfWidth = halfWidth;
+    windowPlane.halfHeight = halfHeight;
+    windowPlane.dx = halfWidth * lateral * eased.x;
+    windowPlane.dy = halfHeight * vertical * eased.y;
+    windowPlane.dz = distance * .10 * eased.z;
+
     const p = eye.getPosition();
-    const r = eye.right;
-    const u = eye.up;
-    const f = eye.forward;
+    position.x = p.x;
+    position.y = p.y;
+    position.z = p.z;
+    const r = eye.right, u = eye.up, f = eye.forward;
     eye.setPosition(
-      p.x + r.x * dx + u.x * dy + f.x * dz,
-      p.y + r.y * dx + u.y * dy + f.y * dz,
-      p.z + r.z * dx + u.z * dy + f.z * dz
+      p.x + r.x * windowPlane.dx + u.x * windowPlane.dy + f.x * windowPlane.dz,
+      p.y + r.y * windowPlane.dx + u.y * windowPlane.dy + f.y * windowPlane.dz,
+      p.z + r.z * windowPlane.dx + u.z * windowPlane.dy + f.z * windowPlane.dz
     );
+    displaced = true;
+    // Reassign even when already installed: the frustum changes with the
+    // tracked eyes, native orbit, FOV or viewport aspect ratio each frame.
+    lens.calculateProjection = offAxisProjection;
+    projectionInstalled = true;
+  }
 
-    // Asymmetric lens shift keeps the focal plane visually anchored while
-    // nearer and farther splats separate with actual perspective parallax.
-    if (baseOffset && lens.projectionOffset) {
-      const aspect = Math.max(0.1, eye.camera.aspectRatio ||
-        (app.graphicsDevice.width / Math.max(1, app.graphicsDevice.height)));
-      const halfAngle = clamp(native.fov || lens.fov, 5, 150) * Math.PI / 360;
-      const tanHalf = Math.tan(halfAngle);
-      const halfWidth = distance * tanHalf * (lens.horizontalFov ? 1 : aspect);
-      const halfHeight = distance * tanHalf * (lens.horizontalFov ? 1 / aspect : 1);
-      const offset = lens.projectionOffset;
-      const shiftedX = baseOffset[0] - dx / Math.max(0.01, halfWidth);
-      const shiftedY = baseOffset[1] - dy / Math.max(0.01, halfHeight);
-      if (Math.abs(offset.x - shiftedX) + Math.abs(offset.y - shiftedY) > 0.000001) {
-        lens.projectionOffset = new offset.constructor(shiftedX, shiftedY);
-      }
-    }
+  function onPostrender() {
+    restorePosition();
+  }
 
-    if (poseChanged || !adjusted) app.renderNextFrame = true;
-    adjusted = true;
-  });
-
-  window.addEventListener('pagehide', () => {
-    window.removeEventListener('message', receive);
+  function dispose() {
+    disposed = true;
+    window.removeEventListener('message', onMessage);
+    app.off('update', onUpdate);
+    app.off('prerender', onPrerender);
+    app.off('postrender', onPostrender);
+    restorePosition();
     restoreProjection();
-  }, { once: true });
+  }
+
+  window.addEventListener('message', onMessage);
+  app.on('update', onUpdate);
+  app.on('prerender', onPrerender);
+  app.on('postrender', onPostrender);
+  window.addEventListener('pagehide', dispose, { once: true });
 }
