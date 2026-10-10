@@ -18,8 +18,8 @@ export function attachSpatialCamera(viewer) {
   const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
     (navigator.maxTouchPoints > 1 && matchMedia('(pointer: coarse)').matches);
   const strength = mobile
-    ? { x: 0.23, y: 0.17, z: 0.16 }
-    : { x: 0.20, y: 0.15, z: 0.14 };
+    ? { x: 0.1375, y: 0.1025, z: 0.0925 }
+    : { x: 0.1225, y: 0.0925, z: 0.0825 };
   const projection = lens.projectionOffset;
   const baseOffset = projection && Number.isFinite(projection.x) &&
     Number.isFinite(projection.y) ? [projection.x, projection.y] : null;
