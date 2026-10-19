@@ -78,18 +78,6 @@ body[data-edit="true"] .scene:active{cursor:grabbing}
 .unit-annotation-marker::before,.unit-annotation-marker::after{content:"";position:absolute;background:currentColor}
 .unit-annotation-marker::before{left:0;top:8px;width:18px;height:1px}.unit-annotation-marker::after{left:8px;top:0;width:1px;height:18px}
 .unit-annotation-marker span{position:absolute;left:14px;top:-8px;white-space:nowrap;font:7px var(--mono);letter-spacing:.06em;color:var(--gold)}
-.unit-flyout{position:fixed;z-index:21;left:20px;top:110px;bottom:auto;width:clamp(292px,calc((100vw - 40px)/12*3.1),420px);border:1px solid var(--line);background:rgba(15,21,31,.96);color:var(--paper);backdrop-filter:blur(2px)}
-.unit-flyout-head{height:34px;display:grid;grid-template-columns:1fr auto;align-items:center;border-bottom:1px solid var(--line);color:var(--gold);font:8px var(--mono);letter-spacing:.08em}
-.unit-flyout-head span,.unit-flyout-head button{padding:0 11px}.unit-flyout-head button{height:100%;border-width:0 0 0 1px;color:var(--gold)}
-.unit-flyout-cta{min-height:42px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;padding:9px 11px;border-bottom:1px solid var(--line);color:var(--gold);font:9px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
-.unit-flyout-cta:hover,.unit-flyout-cta:focus-visible{background:var(--gold);color:var(--ink);outline:0}
-.unit-flyout-arrow{font:18px/1 var(--mono);padding-left:12px}
-.unit-flyout-specs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
-.unit-flyout-specs span{padding:9px 8px;border-right:1px solid var(--line);font:7px/1.2 var(--mono);color:var(--paper);white-space:nowrap}.unit-flyout-specs span:last-child{border-right:0}
-.unit-flyout-bottom{display:grid;grid-template-columns:1fr auto;align-items:center;min-height:36px;padding:0 10px}
-.unit-flyout-bottom>span{color:var(--paper);font:8px var(--mono)}
-.unit-flyout-code{justify-self:end;color:var(--gold)!important;letter-spacing:.08em}
-.unit-flyout-code strong{font-weight:400;color:var(--gold)}
 .status-dot{display:inline-block;color:var(--gold);margin-right:7px;vertical-align:0}
 .status-dot::before{content:"●"}
 .cover-card{position:absolute;z-index:4;left:50%;bottom:98px;transform:translateX(-50%);width:min(830px,calc(100% - 80px));padding:0;background:transparent;border:0}
@@ -104,10 +92,20 @@ body[data-engine="error"] .loading-track{border-color:var(--gold)}
 .cover-headline span{display:block}
 
 /* Discoverable direct visits, using the existing HUD font, gold and geometry. */
-.visit-units-panel{position:absolute;z-index:20;left:50%;bottom:143px;transform:translateX(-50%);width:min(470px,calc(100% - 40px));padding:13px 15px 14px;background:rgba(15,21,31,.95);border:1px solid var(--line);color:var(--gold);pointer-events:auto}
+.visit-units-panel{position:absolute;z-index:20;left:50%;bottom:143px;transform:translateX(-50%);width:min(470px,calc(100% - 40px));padding:13px 15px 14px;background:transparent;border:1px solid var(--line);color:var(--gold);pointer-events:auto}
 .visit-units-eyebrow{display:block;margin-bottom:11px;font:9px/1.2 var(--mono);letter-spacing:.08em}
 .visit-units-primary{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:13px 1px;border:0;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);color:var(--gold);font:11px/1.25 var(--mono);letter-spacing:.04em;text-align:left}
 .visit-units-arrow{font:19px/1 var(--mono)}
+
+/* The existing visit panel is the sole apartment card; transparent over the scene. */
+.visit-units-detail{padding:1px 0 0}
+.visit-units-detail-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:9px 0 12px;color:var(--gold);font:11px/1.3 var(--mono);letter-spacing:.04em}
+.visit-units-detail-title span:last-child{font-size:9px;text-align:right}
+.visit-units-specs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line);padding:12px 0 10px;color:var(--paper);font:9px/1.2 var(--mono)}
+.visit-units-specs span{min-width:0}
+.visit-units-price{color:var(--gold);font:11px/1.3 var(--mono);margin:2px 0 12px}
+.visit-units-enter{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--gold);color:var(--gold);font:11px/1.25 var(--mono);letter-spacing:.04em;text-decoration:none}
+.visit-units-enter:hover,.visit-units-enter:focus-visible{background:var(--gold);color:var(--ink);outline:0}
 .visit-units-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}
 .visit-units-options button{min-width:0;min-height:42px;border:1px solid rgba(210,177,107,.35);color:var(--gold);font:11px var(--mono)}
 .visit-units-options button[aria-pressed="true"]{border-color:var(--gold);background:rgba(210,177,107,.08)}
@@ -118,6 +116,10 @@ body[data-engine="error"] .loading-track{border-color:var(--gold)}
  .visit-units-primary{font-size:10px;padding:12px 0}
  .visit-units-options{gap:8px;margin-top:10px}
  .visit-units-options button{min-height:40px;font-size:10px}
+ .visit-units-detail-title{font-size:10px;margin:8px 0 10px}
+ .visit-units-specs{gap:5px;padding:10px 0 8px;font-size:8px}
+ .visit-units-price{font-size:10px;margin-bottom:10px}
+ .visit-units-enter{font-size:10px;min-height:44px;padding:9px 10px}
 }
 
 .bottom-hud{position:absolute;z-index:5;bottom:20px;left:20px;right:20px;height:58px;display:flex;align-items:center;gap:20px;border:0;background:transparent;padding:0 24px}
@@ -139,11 +141,6 @@ body[data-engine="error"] .loading-track{border-color:var(--gold)}
  .coordinates{font-size:7px}.cover-button{font-size:8px;padding:9px 0}
  .whatsapp{width:auto;height:auto;padding:5px 0;flex-shrink:0;font-size:8px}
  .units-menu{left:0;width:152px;min-width:0}
- .unit-flyout{left:20px;right:auto;top:96px;bottom:auto;width:min(300px,calc(100vw - 40px))}
- .unit-flyout-cta{min-height:40px;padding:9px 10px;font-size:8px;letter-spacing:.07em}
- .unit-flyout-arrow{font-size:17px;padding-left:10px}
- .unit-flyout-specs span{font-size:7px;padding:8px 6px}
- .unit-flyout-bottom{min-height:34px;padding:0 8px}.unit-flyout-bottom>span{font-size:7px}
 }
 @media(max-width:374px){.primary-nav{gap:10px}.brand{margin-right:12px}.nav-control,.language{font-size:7px}.coordinates{font-size:6px}.cover-headline{font-size:6.2vw}}
 @media(max-height:650px) and (min-width:701px){.cover-card{width:min(700px,70vw);bottom:83px;padding:15px 22px 0}.cover-headline{font-size:30px;margin-bottom:13px}.engine-status{margin-bottom:8px}.panel-nav{min-height:50px}}
