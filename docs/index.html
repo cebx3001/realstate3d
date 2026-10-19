@@ -8,7 +8,7 @@
 <title>Torres del Norte</title>
 <link rel="preload" href="assets/fonts/playfair-display.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="ui/cover.css?v=visit-units-20261019-1">
+<link rel="stylesheet" href="ui/cover.css?v=single-transparent-unit-card-20261019-1">
 </head>
 <body data-state="cover">
 <main class="experience" aria-label="Torres del Norte">
@@ -44,18 +44,28 @@
   <div class="desktop-micro grid-index grid-index-right" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
   <div class="stream hero-hud"><span class="status-dot" aria-hidden="true"></span><span id="unit-stream">UNIT 35B DATA STREAM</span></div>
   <i class="unit-annotation-marker hero-hud" id="unit-annotation-marker" aria-hidden="true" hidden><span id="unit-annotation-code"></span></i>
-  <aside class="unit-flyout hero-hud" id="unit-flyout" aria-live="polite" hidden>
-    <header class="unit-flyout-head"><span id="unit-flyout-label">[ AVAILABLE RESIDENCE ]</span><button type="button" id="unit-flyout-close" aria-label="Cerrar ficha">[ X ]</button></header>
-    <a class="unit-flyout-cta" id="unit-flyout-link" href="inventory/?unit=inventory-48&amp;room=living"><span id="unit-flyout-action">VIEW INTERIOR</span><span class="unit-flyout-arrow" aria-hidden="true">→</span></a>
-    <div class="unit-flyout-specs"><span id="unit-flyout-area">123 M²</span><span id="unit-flyout-beds">3 BEDROOMS</span><span id="unit-flyout-baths">2 BATHROOMS</span></div>
-    <footer class="unit-flyout-bottom"><span id="unit-flyout-price">USD 135.000</span><span class="unit-flyout-code"><span id="unit-flyout-tower">TOWER 1</span> / <strong id="unit-flyout-name">35B</strong></span></footer>
-  </aside>
   <section class="visit-units-panel hero-hud" aria-label="Visitar unidades disponibles">
     <span class="visit-units-eyebrow" data-en="[ EXPLORE THE PROJECT ]" data-es="[ EXPLORA EL PROYECTO ]">[ EXPLORE THE PROJECT ]</span>
     <button class="visit-units-primary" id="visit-units-primary" type="button" aria-label="Comenzar la visita en la unidad 17A">
       <span data-en="VISIT AVAILABLE UNITS" data-es="VISITAR UNIDADES DISPONIBLES">VISIT AVAILABLE UNITS</span>
       <span class="visit-units-arrow" aria-hidden="true">↗</span>
     </button>
+    <div class="visit-units-detail" id="visit-units-detail" aria-live="polite" hidden>
+      <div class="visit-units-detail-title">
+        <span id="visit-unit-code">[ UNIT 17A ]</span>
+        <span id="visit-unit-tower">TOWER 1</span>
+      </div>
+      <div class="visit-units-specs">
+        <span id="visit-unit-area">120 M²</span>
+        <span id="visit-unit-beds">3 BEDROOMS</span>
+        <span id="visit-unit-baths">2 BATHROOMS</span>
+      </div>
+      <div class="visit-units-price" id="visit-unit-price">USD 127.000</div>
+      <a class="visit-units-enter" id="visit-unit-enter" href="inventory/?unit=inventory-47&amp;room=living">
+        <span data-en="ENTER APARTMENT" data-es="INGRESAR AL DEPARTAMENTO">ENTER APARTMENT</span>
+        <span class="visit-units-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
     <div class="visit-units-options" role="group" aria-label="Unidades disponibles">
       <button type="button" data-select="17A" aria-label="Visitar unidad 17A" aria-pressed="false">[ 17A ]</button>
       <button type="button" data-select="35B" aria-label="Visitar unidad 35B" aria-pressed="false">[ 35B ]</button>
@@ -80,6 +90,6 @@
     <div class="unit-editor-files"><button type="button" id="editor-export">[ DESCARGAR settings.json ]</button></div>
   </aside>
 </main>
-<script type="module" src="ui/cover.js?v=visit-units-20261019-1"></script>
+<script type="module" src="ui/cover.js?v=single-transparent-unit-card-20261019-1"></script>
 </body>
 </html>
