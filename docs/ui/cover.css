@@ -103,6 +103,23 @@ body[data-engine="error"] .loading-track{border-color:var(--gold)}
 .cover-headline{font-family:var(--sans);font-weight:400;letter-spacing:-.045em;line-height:1.05;font-size:clamp(28px,3.6vw,49px);color:var(--gold);margin:0 0 20px}
 .cover-headline span{display:block}
 
+/* Discoverable direct visits, using the existing HUD font, gold and geometry. */
+.visit-units-panel{position:absolute;z-index:20;left:50%;bottom:143px;transform:translateX(-50%);width:min(470px,calc(100% - 40px));padding:13px 15px 14px;background:rgba(15,21,31,.95);border:1px solid var(--line);color:var(--gold);pointer-events:auto}
+.visit-units-eyebrow{display:block;margin-bottom:11px;font:9px/1.2 var(--mono);letter-spacing:.08em}
+.visit-units-primary{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:13px 1px;border:0;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);color:var(--gold);font:11px/1.25 var(--mono);letter-spacing:.04em;text-align:left}
+.visit-units-arrow{font:19px/1 var(--mono)}
+.visit-units-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}
+.visit-units-options button{min-width:0;min-height:42px;border:1px solid rgba(210,177,107,.35);color:var(--gold);font:11px var(--mono)}
+.visit-units-options button[aria-pressed="true"]{border-color:var(--gold);background:rgba(210,177,107,.08)}
+.visit-units-primary:hover,.visit-units-primary:focus-visible,.visit-units-options button:hover,.visit-units-options button:focus-visible{background:var(--gold);color:var(--ink);outline:0}
+@media(max-width:700px){
+ .visit-units-panel{bottom:132px;width:calc(100% - 40px);padding:11px 12px 12px}
+ .visit-units-eyebrow{font-size:8px;margin-bottom:9px}
+ .visit-units-primary{font-size:10px;padding:12px 0}
+ .visit-units-options{gap:8px;margin-top:10px}
+ .visit-units-options button{min-height:40px;font-size:10px}
+}
+
 .bottom-hud{position:absolute;z-index:5;bottom:20px;left:20px;right:20px;height:58px;display:flex;align-items:center;gap:20px;border:0;background:transparent;padding:0 24px}
 .coordinates{color:var(--gold);font-size:9px}
 .cover-button{border:0;padding:12px;margin-left:auto;font-size:10px;color:var(--gold)}
