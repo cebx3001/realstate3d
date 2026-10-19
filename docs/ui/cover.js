@@ -6,8 +6,10 @@ const UNIT_INFO = Object.freeze({
   '35B': { tower: { en: 'TOWER 1', es: 'TORRE 1' }, area: '123 M²', beds: 3, baths: 2, price: 'USD 135.000', href: 'inventory/?unit=inventory-48&room=living' },
   '28C': { tower: { en: 'TOWER 2', es: 'TORRE 2' }, area: '107 M²', beds: 3, baths: 2, price: 'USD 139.000', href: 'inventory/?unit=inventory-50&room=living' },
 });
-const unitFlyout = document.getElementById('unit-flyout');
-const unitFlyoutClose = document.getElementById('unit-flyout-close');
+const visitPanel = document.querySelector('.visit-units-panel');
+const visitPrimary = document.getElementById('visit-units-primary');
+const visitDetail = document.getElementById('visit-units-detail');
+let activeVisitUnit = null;
 const unitMarker = document.getElementById('unit-annotation-marker');
 const unitMarkerCode = document.getElementById('unit-annotation-code');
 const unitsMenu = document.getElementById('units-menu');
@@ -55,7 +57,7 @@ function setLanguage(next) {
   document.querySelectorAll('[data-en][data-es]').forEach(el => { el.textContent = el.dataset[lang]; });
   document.getElementById('language-switch').setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
   refreshEngineStatus();
-  if (!unitFlyout.hidden && UNIT_INFO[selectedUnit]) renderUnitFlyout(selectedUnit);
+  if (activeVisitUnit) renderSelectedUnit(activeVisitUnit);
 }
 
 // The cover pose is independent of category state. Public camera input is locked in CSS;
@@ -85,55 +87,50 @@ function toggleUnits(force) {
   document.body.dataset.units = open ? 'open' : 'closed';
   if (open) blip('tick');
 }
-function hideUnitFlyout() {
-  unitFlyout.hidden = true;
+function hideUnitMarker() {
   unitMarker.hidden = true;
 }
-function positionUnitFlyout(x, y) {
+function showUnitMarker(x, y) {
   if (!Number.isFinite(x) || !Number.isFinite(y)) return;
   unitMarker.hidden = false;
   unitMarker.style.left = x + 'px';
   unitMarker.style.top = y + 'px';
   unitMarkerCode.textContent = '[ ' + selectedUnit + ' ]';
-  requestAnimationFrame(() => {
-    const margin = 20, topGuard = 86, bottomGuard = 72, gap = 22;
-    const w = unitFlyout.offsetWidth || 300, h = unitFlyout.offsetHeight || 130;
-    let left, top;
-    if (innerWidth <= 700) {
-      left = Math.max(margin, Math.min(innerWidth - margin - w, x - w * .5));
-      top = y > innerHeight * .54 ? y - h - gap : y + gap;
-    } else {
-      // Desktop: fixed editorial column at the left, independent of unit marker.
-      // Keep the building and monumental lettering clear in the central canvas.
-      left = Math.max(margin, Math.min(innerWidth - margin - w, 36));
-      top = Math.max(topGuard, (innerHeight - h) * .5);
-    }
-    left = Math.max(margin, Math.min(innerWidth - margin - w, left));
-    top = Math.max(topGuard, Math.min(innerHeight - bottomGuard - h, top));
-    unitFlyout.style.left = left + 'px';
-    unitFlyout.style.top = top + 'px';
-  });
 }
-function renderUnitFlyout(code) {
+function renderSelectedUnit(code) {
   const info = UNIT_INFO[code];
   if (!info) return;
-  document.getElementById('unit-flyout-label').textContent = lang === 'es' ? '[ RESIDENCIA DISPONIBLE ]' : '[ AVAILABLE RESIDENCE ]';
-  document.getElementById('unit-flyout-name').textContent = code;
-  document.getElementById('unit-flyout-tower').textContent = info.tower[lang];
-  document.getElementById('unit-flyout-area').textContent = info.area;
-  document.getElementById('unit-flyout-beds').textContent = lang === 'es' ? `${info.beds} DORMITORIOS` : `${info.beds} BEDROOMS`;
-  document.getElementById('unit-flyout-baths').textContent = lang === 'es' ? `${info.baths} BAÑOS` : `${info.baths} BATHROOMS`;
-  document.getElementById('unit-flyout-price').textContent = info.price;
-  const link = document.getElementById('unit-flyout-link');
-  link.href = info.href;
-  document.getElementById('unit-flyout-action').textContent = lang === 'es' ? 'VER INTERIOR' : 'VIEW INTERIOR';
-  unitFlyout.hidden = false;
+  activeVisitUnit = code;
+  visitPrimary.hidden = true;
+  visitDetail.hidden = false;
+  visitPanel.dataset.unitSelected = 'true';
+  document.querySelector('.visit-units-eyebrow').textContent =
+    lang === 'es' ? '[ RESIDENCIA DISPONIBLE ]' : '[ AVAILABLE RESIDENCE ]';
+  document.getElementById('visit-unit-code').textContent = '[ ' + (lang === 'es' ? 'UNIDAD ' : 'UNIT ') + code + ' ]';
+  document.getElementById('visit-unit-tower').textContent = info.tower[lang];
+  document.getElementById('visit-unit-area').textContent = info.area;
+  document.getElementById('visit-unit-beds').textContent = lang === 'es' ? info.beds + ' DORMITORIOS' : info.beds + ' BEDROOMS';
+  document.getElementById('visit-unit-baths').textContent = lang === 'es' ? info.baths + ' BAÑOS' : info.baths + ' BATHROOMS';
+  document.getElementById('visit-unit-price').textContent = info.price;
+  document.getElementById('visit-unit-enter').href = info.href;
+}
+function resetVisitUnits() {
+  activeVisitUnit = null;
+  visitPrimary.hidden = false;
+  visitDetail.hidden = true;
+  visitPanel.dataset.unitSelected = 'false';
+  document.querySelector('.visit-units-eyebrow').textContent =
+    lang === 'es' ? '[ EXPLORA EL PROYECTO ]' : '[ EXPLORE THE PROJECT ]';
+  document.querySelectorAll('.units-menu [data-select], .visit-units-panel [data-select]').forEach(button => {
+    button.setAttribute('aria-pressed', 'false');
+  });
+  hideUnitMarker();
 }
 function go(destination) {
   if (destination === 'technical') toggleUnits();
   else if (destination === 'cover') {
     closeUnits();
-    hideUnitFlyout();
+    resetVisitUnits();
     sceneViewer?.contentWindow?.postMessage({ scope: 'tdn:viewer', action: 'clear-annotation' }, location.origin);
     unitEditor?.flyTo('BUILDING');
   }
@@ -146,7 +143,8 @@ function selectUnit(code) {
     button.setAttribute('aria-pressed', String(button.dataset.select === code));
   });
   closeUnits();
-  hideUnitFlyout();
+  hideUnitMarker();
+  renderSelectedUnit(code);
   blip('whoosh');
   unitEditor?.flyTo(code);
 }
@@ -159,7 +157,6 @@ unitsMenu.addEventListener('pointerdown', event => event.stopPropagation());
 document.querySelectorAll('.units-menu [data-select], .visit-units-panel [data-select]').forEach(button => button.addEventListener('click', event => {
   event.preventDefault(); event.stopPropagation(); selectUnit(button.dataset.select);
 }));
-unitFlyoutClose.addEventListener('click', hideUnitFlyout);
 document.addEventListener('pointerdown', event => { if (!unitsMenu.hidden && !event.target.closest('.units-nav')) closeUnits(); });
 document.getElementById('language-switch').addEventListener('click', () => setLanguage(lang === 'en' ? 'es' : 'en'));
 audioToggle?.addEventListener('click', () => {
@@ -176,7 +173,7 @@ window.addEventListener('pointerdown', ensureAudio, { once: true });
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && !unitsMenu.hidden) closeUnits();
 });
-setLanguage(lang); closeUnits();
+setLanguage(lang); closeUnits(); resetVisitUnits();
 window.__tdnExperience = Object.freeze({
   get state() { return !unitsMenu.hidden ? 'technical' : 'cover'; },
   get unit() { return selectedUnit; }, get engine() { return engineState; },
@@ -205,10 +202,9 @@ function viewerUrl() {
 window.addEventListener('message', event => {
   if (event.origin !== location.origin || event.source !== sceneViewer.contentWindow) return;
   if (event.data?.type === 'tdn:annotation-screen') {
-    if (event.data.unit !== selectedUnit) return;
-    if (event.data.hidden) { hideUnitFlyout(); return; }
-    renderUnitFlyout(selectedUnit);
-    positionUnitFlyout(Number(event.data.x), Number(event.data.y));
+    if (event.data.unit !== selectedUnit || !activeVisitUnit) return;
+    if (event.data.hidden) { hideUnitMarker(); return; }
+    showUnitMarker(Number(event.data.x), Number(event.data.y));
   } else if (event.data?.type === 'tdn:progress') {
     modelProgress = Number(event.data.progress) || 0;
     if (engineState === 'loading') refreshEngineStatus();
