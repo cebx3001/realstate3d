@@ -142,7 +142,7 @@ function selectUnit(code) {
   if (!UNIT_INFO[code]) return;
   selectedUnit = code;
   document.getElementById('unit-stream').textContent = `UNIT ${code} DATA STREAM`;
-  document.querySelectorAll('.units-menu [data-select]').forEach(button => {
+  document.querySelectorAll('.units-menu [data-select], .visit-units-panel [data-select]').forEach(button => {
     button.setAttribute('aria-pressed', String(button.dataset.select === code));
   });
   closeUnits();
@@ -151,10 +151,12 @@ function selectUnit(code) {
   unitEditor?.flyTo(code);
 }
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => go(button.dataset.go)));
+// The prominent visit action begins the tour at the first listed residence.
+document.getElementById('visit-units-primary')?.addEventListener('click', () => selectUnit('17A'));
 unitsTrigger.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); toggleUnits(); });
 unitsTrigger.addEventListener('pointerdown', event => event.stopPropagation());
 unitsMenu.addEventListener('pointerdown', event => event.stopPropagation());
-document.querySelectorAll('.units-menu [data-select]').forEach(button => button.addEventListener('click', event => {
+document.querySelectorAll('.units-menu [data-select], .visit-units-panel [data-select]').forEach(button => button.addEventListener('click', event => {
   event.preventDefault(); event.stopPropagation(); selectUnit(button.dataset.select);
 }));
 unitFlyoutClose.addEventListener('click', hideUnitFlyout);
