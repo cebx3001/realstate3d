@@ -9,6 +9,9 @@ const title = (lines, tag = "h2", cls = "") =>
   `<${tag} class="display ${cls}" data-split>${lines.map((l) => `<span class="line">${esc(l)}</span>`).join("")}</${tag}>`;
 const image = (name, alt, cls = "", hero = false, portrait = false) =>
   `<picture class="visual ${cls}">${!portrait ? `<source media="(max-width: 700px)" srcset="assets/${name}-mobile.webp">` : ""}<img src="assets/${name}.webp" ${!portrait ? `srcset="assets/${name}-960.webp 960w, assets/${name}.webp 1672w" sizes="100vw"` : ""} alt="${esc(alt)}" width="${portrait ? 1024 : 1672}" height="${portrait ? 1280 : 941}" loading="${hero ? "eager" : "lazy"}" ${hero ? 'fetchpriority="high"' : ""} decoding="async"></picture>`;
+const heroLayers = ["blueprint", "hybrid", "real"].map((stage) =>
+  `<picture class="hero-phase hero-phase-${stage}" aria-hidden="true"><source media="(max-width: 700px)" srcset="assets/hero-${stage}-mobile.webp"><img src="assets/hero-${stage}-desktop.webp" alt="" width="1440" height="810" loading="${stage === "blueprint" ? "eager" : "lazy"}" decoding="async"></picture>`
+).join("");
 const eyebrow = (number, text) =>
   `<p class="eyebrow"><span class="eyebrow-index">${number}</span><span>${text}</span></p>`;
 const notes = `<div class="visual-caption" aria-hidden="true"><span>ESPACIO / PERSPECTIVA / EXPERIENCIA</span><span>REPRESENTACIÓN CONCEPTUAL</span></div>`;
@@ -46,7 +49,7 @@ const html = `<!doctype html>
   <meta property="og:description" content="Experiencias tridimensionales para constructoras, promotoras e inmobiliarias.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cebx3001.github.io/realstate3d/gemelos-digitales/">
-  <meta property="og:image" content="https://cebx3001.github.io/realstate3d/gemelos-digitales/assets/hero-architecture.webp">
+  <meta property="og:image" content="https://cebx3001.github.io/realstate3d/gemelos-digitales/assets/hero-real-desktop.webp">
   <title>Gemelos Digitales — El espacio se convierte en experiencia</title>
   <link rel="icon" href="assets/symbol.svg" type="image/svg+xml">
   <link rel="preload" href="assets/manrope-latin.woff" as="font" type="font/woff" crossorigin>
@@ -70,11 +73,12 @@ const html = `<!doctype html>
     "01",
     "Una nueva perspectiva",
     `
-    ${image("hero-architecture", "Arquitectura residencial monumental con volúmenes escultóricos al anochecer.", "hero-visual", true)}
+    <div class="hero-sequence" aria-hidden="true">${heroLayers}</div>
     <div class="scrim"></div>
     <div class="scene-content hero-content">
+      <h1 class="hero-wordmark" data-split><span class="line">GEMELOS</span><span class="line">DIGITALES</span></h1>
       ${eyebrow("01", "ESPACIOS QUE PUEDES EXPLORAR")}
-      ${title(c.hero.title, "h1")}
+      ${title(c.hero.title, "h2")}
       <div class="hero-bottom"><p class="lead">${c.hero.subtitle}</p><p class="body-copy">${c.hero.body}</p></div>
       <a class="scroll-invitation" href="#concepto"><span class="scroll-line" aria-hidden="true"></span>DESLIZA PARA DESCUBRIR <span aria-hidden="true">↓</span></a>
     </div>
