@@ -2690,8 +2690,17 @@ body:not(.motion-ready) .method-content {
   object-fit: cover;
   object-position: 50% 50%;
 }
-.hero-phase-real { opacity: 1; }
-.motion-ready .hero-phase-real { opacity: 0; }
+.hero-phase-real { opacity: 0; }
+/* Avoid a one-frame flash of the finished building before GSAP initializes. */
+body.static-mode .hero-phase-real { opacity: 1; }
+.hero-content > .eyebrow,
+.hero-content > .display,
+.scene-portada .hero-bottom,
+.scene-portada .hero-coordinate { opacity: 0; }
+body.static-mode .hero-content > .eyebrow,
+body.static-mode .hero-content > .display,
+body.static-mode .scene-portada .hero-bottom,
+body.static-mode .scene-portada .hero-coordinate { opacity: 1; }
 .hero-wordmark {
   position: absolute;
   z-index: 5;
