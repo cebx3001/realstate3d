@@ -114,11 +114,11 @@
       const mode = rand();
       const direction = rand() < 0.5 ? -1 : 1;
       return {
-        z: -(65 + rand() * 140),
-        rotationX: mode < 0.35 ? direction * (28 + rand() * 40) : 0,
-        rotationY:
-          mode >= 0.35 && mode < 0.7 ? direction * (28 + rand() * 50) : 0,
-        scale: mode >= 0.7 ? 0.83 + rand() * 0.14 : 1,
+        z: -(55 + rand() * 105),
+        // Giro horizontal en cada carácter; jamás separar las letras del renglón.
+        rotationX: direction * (72 + rand() * 43),
+        rotationY: rand() < 0.18 ? direction * (8 + rand() * 14) : 0,
+        scale: mode >= 0.68 ? 0.91 + rand() * 0.08 : 1,
       };
     });
     const order = chars.map((_, i) => i);
@@ -245,42 +245,64 @@
     );
     context = gsap.context(() => {
       let s = scenes[0],
-        tl = sceneTimeline(s, 10, 2.4, 0.35);
-      // Portada en reposo: únicamente imagen, identidad y una señal clara de scroll.
-      // El primer desplazamiento revela el texto, sin titulares semitransparentes.
-      tl.to(s.querySelector(".eyebrow"), { opacity: 1, duration: 0.35 }, 0.25);
-      tl.to(s.querySelector(".display"), { opacity: 1, duration: 0.12 }, 0.25);
-      tl.add(titleIn(s.querySelector(".display")), 0.35);
+        tl = sceneTimeline(s, 18, 4.8, 0.55);
+      const intro = s.querySelector(".hero-wordmark");
+      const rail = document.querySelector(".identity-rail");
+      const blueprint = s.querySelector(".hero-phase-blueprint");
+      const hybrid = s.querySelector(".hero-phase-hybrid");
+      const realized = s.querySelector(".hero-phase-real");
+      // El estado inicial es solo el título horizontal y el logotipo.
+      // El scroll controla giro tipográfico, aparición lateral y materialización.
+      gsap.set(rail, { opacity: 0, rotationX: -78, transformPerspective: 900 });
+      gsap.set([blueprint, hybrid, realized], { opacity: 0 });
+      gsap.set(intro, { opacity: 1 });
+      gsap.set(s.querySelector(".hero-bottom"), { opacity: 0 });
+      gsap.set(s.querySelector(".hero-coordinate"), { opacity: 0 });
+      gsap.set(s.querySelector(".hero-content > .eyebrow"), { opacity: 0 });
+      gsap.set(s.querySelector(".hero-content > .display"), { opacity: 0 });
+      tl.add(titleOut(intro), 0.65);
+      tl.fromTo(
+        rail,
+        { opacity: 0, rotationX: -78, z: -65 },
+        { opacity: compact.matches ? 0.64 : 0.56, rotationX: 0, z: 0, duration: 2, ease: "power2.out" },
+        1.25,
+      );
+      tl.fromTo(
+        blueprint,
+        { opacity: 0, scale: 1.035 },
+        { opacity: 1, scale: 1, duration: 2.2, ease: "none" },
+        1.4,
+      );
+      tl.fromTo(
+        hybrid,
+        { opacity: 0 },
+        { opacity: 1, duration: 2.8, ease: "none" },
+        5.25,
+      );
+      tl.fromTo(
+        realized,
+        { opacity: 0 },
+        { opacity: 1, duration: 2.8, ease: "none" },
+        8.25,
+      );
+      const heroTitle = s.querySelector(".hero-content > .display");
+      tl.to(s.querySelector(".hero-content > .eyebrow"), { opacity: 1, duration: 0.7 }, 10.55);
+      tl.to(heroTitle, { opacity: 1, duration: 0.05 }, 10.65);
+      tl.add(titleIn(heroTitle), 10.7);
       tl.fromTo(
         s.querySelector(".hero-bottom"),
         { opacity: 0 },
         { opacity: 1, duration: 1.1, ease: "power1.out" },
-        1.65,
+        12.2,
       );
-      tl.fromTo(
-        s.querySelector(".hero-coordinate"),
-        { opacity: 0 },
-        { opacity: 1, duration: 0.7 },
-        2,
-      );
-      tl.add(titleOut(s.querySelector(".display")), 8.2);
-      tl.to(
-        s.querySelector(".hero-bottom"),
-        { opacity: 0, y: -20, duration: 0.8 },
-        8.3,
-      );
+      tl.to(s.querySelector(".hero-coordinate"), { opacity: 1, duration: 0.6 }, 12.4);
       tl.to(
         s.querySelector(".scroll-invitation"),
-        { opacity: 0, duration: 0.5 },
-        1.3,
+        { opacity: 0, duration: 0.55, ease: "none" },
+        0.5,
       );
-      imageMotion(
-        tl,
-        s.querySelector(".visual img"),
-        10,
-        { scale: 1.04 },
-        { scale: 1.12, xPercent: -2 },
-      );
+      tl.add(titleOut(heroTitle), 16.35);
+      tl.to(s.querySelector(".hero-bottom"), { opacity: 0, duration: 0.8 }, 16.55);
 
       s = scenes[1];
       tl = sceneTimeline(s, 15, 4, 0.28);
