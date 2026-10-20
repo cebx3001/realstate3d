@@ -2215,6 +2215,382 @@ body:not(.motion-ready) .op-marker {
     font-size: 8px;
   }
 }
+
+/* Mobile readability and full-frame editorial revision — 2026-10-20 */
+:root {
+  --muted: #d4cddd;
+}
+.motion-ready .scene-portada .eyebrow,
+.motion-ready .scene-portada .display,
+.motion-ready .scene-portada .hero-bottom,
+.motion-ready .scene-portada .hero-coordinate {
+  opacity: 0;
+}
+.scroll-invitation {
+  position: absolute;
+  z-index: 8;
+  bottom: calc(122px + env(safe-area-inset-bottom));
+  left: var(--gutter);
+  margin: 0;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+}
+.scroll-line {
+  width: 46px;
+  background: rgba(255,255,255,0.85);
+}
+.scroll-invitation .icon {
+  width: 20px;
+  height: 20px;
+}
+.scrim {
+  background:
+    linear-gradient(90deg,
+      rgba(12,11,19,0.64) 0%,
+      rgba(12,11,19,0.32) 48%,
+      rgba(12,11,19,0.04) 82%),
+    linear-gradient(0deg,
+      rgba(12,11,19,0.66),
+      transparent 38%,
+      rgba(12,11,19,0.10) 75%);
+}
+.scene-portada .scrim {
+  background:
+    linear-gradient(90deg,
+      rgba(11,10,18,0.46),
+      rgba(11,10,18,0.12) 64%,
+      transparent),
+    linear-gradient(0deg,
+      rgba(11,10,18,0.56),
+      transparent 48%);
+}
+.scene-ventas .scrim {
+  background:
+    linear-gradient(90deg,
+      rgba(11,10,18,0.67),
+      rgba(11,10,18,0.32) 57%,
+      rgba(11,10,18,0.07)),
+    linear-gradient(0deg, rgba(11,10,18,0.64), transparent 47%);
+}
+.scene-demostracion .scrim {
+  background:
+    linear-gradient(90deg,
+      rgba(11,10,18,0.69),
+      rgba(11,10,18,0.27) 70%,
+      transparent),
+    linear-gradient(0deg, rgba(11,10,18,0.48), transparent 55%);
+}
+.scene-construccion .scrim {
+  background: linear-gradient(180deg,
+    rgba(11,10,18,0.48),
+    rgba(11,10,18,0.10) 44%,
+    rgba(11,10,18,0.27) 62%,
+    rgba(11,10,18,0.68));
+}
+.scene-operacion .scrim {
+  background:
+    linear-gradient(90deg,
+      rgba(11,10,18,0.67),
+      rgba(11,10,18,0.26) 62%,
+      rgba(11,10,18,0.05)),
+    linear-gradient(0deg,rgba(11,10,18,0.56),transparent 60%);
+}
+.body-copy,
+.copy-step p,
+.method-question,
+.method-content .body-copy {
+  text-shadow: 0 2px 14px rgba(0,0,0,0.48);
+}
+/* All architectural visuals occupy the full scene, including the 3 methods. */
+.concept-visual,
+.demo-visual,
+.operations-visual {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.demo-visual img {
+  object-fit: cover;
+  object-position: 58% 50%;
+}
+.method-deck {
+  padding: 0;
+  gap: 0;
+}
+.method-panel {
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  border: 0;
+  margin: 0;
+  background: var(--bg);
+}
+.method-visual {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.method-visual img {
+  object-fit: cover;
+  object-position: center 44%;
+}
+.method-shade {
+  background:
+    linear-gradient(0deg,
+      rgba(10,10,16,0.79) 0%,
+      rgba(10,10,16,0.54) 24%,
+      rgba(10,10,16,0.04) 70%),
+    linear-gradient(90deg,
+      rgba(10,10,16,0.36),
+      transparent 75%);
+}
+.method-content {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--right);
+  bottom: clamp(115px,14svh,165px);
+  max-width: 590px;
+  padding: 0;
+}
+.method-content .body-copy {
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 560px;
+  color: #eee8f4;
+}
+.method-question {
+  font-size: 19px;
+  color: #fff;
+}
+.method-heading {
+  z-index: 12;
+}
+.motion-ready .method-heading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+.motion-ready .method-deck {
+  position: absolute;
+  inset: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.motion-ready .method-panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+}
+.motion-ready .method-content {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--right);
+  bottom: clamp(115px,14svh,165px);
+  max-width: 590px;
+  padding: 0;
+}
+.motion-ready .method-number {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+body:not(.motion-ready) .method-deck {
+  display: block;
+  padding: 0;
+}
+body:not(.motion-ready) .method-panel {
+  height: 100svh;
+  min-height: 600px;
+  margin: 0;
+}
+body:not(.motion-ready) .method-content {
+  position: absolute;
+  bottom: clamp(110px,14svh,160px);
+  padding: 0;
+}
+@media (max-width: 700px) {
+  :root {
+    --gutter: 22px;
+    --right: 46px;
+  }
+  .header-caption {
+    display: none;
+  }
+  .header-demo {
+    font-size: 11px;
+    letter-spacing: 0.02em;
+  }
+  .header-demo .circle-arrow {
+    width: 31px;
+    height: 31px;
+  }
+  .identity-rail {
+    opacity: 0.6;
+    -webkit-text-stroke: 0.8px #ac91c6;
+  }
+  .site-header {
+    background: linear-gradient(180deg,rgba(11,10,18,0.5),transparent);
+  }
+  .eyebrow,
+  .construction-heading .eyebrow,
+  .closing-content .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+  .eyebrow-index,
+  .step-marker,
+  .method-number > span {
+    font-size: 11px;
+  }
+  .scene-portada .scrim {
+    background:
+      linear-gradient(180deg,
+        rgba(11,10,18,0.14),
+        rgba(11,10,18,0.27) 32%,
+        rgba(11,10,18,0.36) 62%,
+        rgba(11,10,18,0.65)),
+      linear-gradient(90deg,rgba(11,10,18,0.22),transparent);
+  }
+  .scrim {
+    background:
+      linear-gradient(90deg,
+        rgba(11,10,18,0.55),
+        rgba(11,10,18,0.19)),
+      linear-gradient(0deg,rgba(11,10,18,0.61),transparent 53%);
+  }
+  .scene-ventas .scrim {
+    background: linear-gradient(180deg,
+      rgba(11,10,18,0.35),
+      rgba(11,10,18,0.57) 48%,
+      rgba(11,10,18,0.38) 74%,
+      rgba(11,10,18,0.68));
+  }
+  .scene-demostracion .scrim {
+    background:
+      linear-gradient(90deg,
+        rgba(11,10,18,0.66),
+        rgba(11,10,18,0.21) 74%),
+      linear-gradient(0deg,rgba(11,10,18,0.62),transparent 60%);
+  }
+  .scene-construccion .scrim {
+    background: linear-gradient(180deg,
+      rgba(11,10,18,0.42),
+      rgba(11,10,18,0.12) 42%,
+      rgba(11,10,18,0.28) 61%,
+      rgba(11,10,18,0.72));
+  }
+  .scene-operacion .scrim {
+    background:
+      linear-gradient(90deg,rgba(11,10,18,0.61),rgba(11,10,18,0.19)),
+      linear-gradient(0deg,rgba(11,10,18,0.58),transparent 57%);
+  }
+  .hero-bottom .lead { font-size: 17px; line-height: 1.5; }
+  .hero-bottom .body-copy { font-size: 15px; line-height: 1.6; }
+  .scroll-invitation {
+    bottom: calc(120px + env(safe-area-inset-bottom));
+    left: var(--gutter);
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    gap: 12px;
+  }
+  .scroll-line { width: 33px; }
+  .scroll-invitation .icon { width: 22px; height: 22px; }
+  .copy-step p,
+  .sales-track p,
+  .operations-track p { font-size: 16px; line-height: 1.57; }
+  .copy-step h3 { font-size: 18px; }
+  .copy-step { padding-top: 12px; }
+  .step-marker { margin-bottom: 10px; }
+  .motion-ready .copy-track { height: 195px; }
+  .panel-top,
+  .operations-panel .panel-top { font-size: 11px; }
+  .panel-bottom,
+  .operations-panel .panel-bottom { font-size: 10px; }
+  .space-options { font-size: 11px; }
+  .location-path { font-size: 12px; }
+  .ui-card p { font-size: 12px; }
+  .concept-label { display: none; }
+  .method-heading { padding-top: 105px; }
+  .method-heading .eyebrow { font-size: 11px; margin-bottom: 16px; }
+  .method-heading .section-title { font-size: clamp(25px, 6.5vw, 34px); line-height: 1.1; }
+  .motion-ready .method-deck { inset: 0 !important; }
+  .method-panel,
+  body:not(.motion-ready) .method-panel { height: 100svh; min-height: 0; }
+  .method-shade {
+    background:
+      linear-gradient(0deg,
+        rgba(9,9,14,0.83) 0%,
+        rgba(9,9,14,0.59) 34%,
+        rgba(9,9,14,0.06) 75%);
+  }
+  .method-content,
+  .motion-ready .method-content,
+  body:not(.motion-ready) .method-content {
+    left: var(--gutter);
+    right: var(--right);
+    bottom: calc(118px + env(safe-area-inset-bottom));
+    padding: 0;
+    max-width: none;
+  }
+  .method-content h3 { font-size: clamp(26px,7vw,33px); line-height: 1.1; }
+  .method-question { font-size: 16px; line-height: 1.4; margin: 14px 0 8px; }
+  .method-content .body-copy { font-size: 15px; line-height: 1.48; max-width: 360px; }
+  .motion-ready .method-number { font-size: 26px; margin-bottom: 10px; }
+  .demo-visual { inset: 0; width: 100%; height: 100%; }
+  .demo-visual img { object-fit: cover; object-position: 57% center; }
+  .demo-details .body-copy { font-size: 15px; line-height: 1.55; max-width: 295px; }
+  .demo-note { font-size: 12px; max-width: 280px; }
+  .button { font-size: 12px; line-height: 1.2; letter-spacing: 0.045em; }
+  .demo-proof,
+  .demo-proof > span:last-child { font-size: 10px; }
+  .construction-intro { font-size: 15px; line-height: 1.55; }
+  .build-copy p { font-size: 15px; line-height: 1.5; }
+  .construction-disclaimer { font-size: 10px; }
+  .operations-visual { inset: 0; width: 100%; height: 100%; }
+  .operations-track p { font-size: 16px; }
+  .future-note { font-size: 11px; line-height: 1.45; }
+  .system-row { font-size: 11px; }
+  .operations-panel .panel-bottom { font-size: 10px; }
+  .op-marker { font-size: 10px; }
+  .closing-copy .lead { font-size: 17px; line-height: 1.55; }
+  .closing-copy .body-copy { font-size: 15px; line-height: 1.5; }
+  .price-note { font-size: 12px; line-height: 1.5; }
+  .current-chapter { font-size: 10px; }
+}
+@media (max-width: 700px) and (max-height: 740px) {
+  .hero-bottom .lead { font-size: 16px; }
+  .hero-bottom .body-copy { font-size: 14px; }
+  .scroll-invitation { bottom: calc(112px + env(safe-area-inset-bottom)); }
+  .copy-step p, .sales-track p, .operations-track p { font-size: 15px; }
+  .method-heading { padding-top: 95px; }
+  .method-heading .section-title { font-size: 25px; }
+  .method-content,
+  .motion-ready .method-content,
+  body:not(.motion-ready) .method-content {
+    bottom: calc(103px + env(safe-area-inset-bottom));
+  }
+  .method-content .body-copy { font-size: 14px; line-height: 1.4; }
+  .method-question { font-size: 15px; margin: 10px 0 6px; }
+  .method-content h3 { font-size: 25px; }
+  .construction-intro { font-size: 14px; }
+  .build-copy p { font-size: 14px; }
+  .closing-copy .body-copy { font-size: 14px; }
+}
+
 @media print {
   .site-header,
   .story-hud,
