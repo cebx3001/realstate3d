@@ -247,12 +247,13 @@ svg {
 }
 .char {
   display: inline-block;
-  transform-origin: 50% 80%;
+  transform-origin: 50% 50%;
   backface-visibility: hidden;
 }
 .split-visual {
   display: block;
-  perspective: 1000px;
+  /* Each glyph uses local perspective to retain its baseline and alignment. */
+  perspective: none;
 }
 .semantic-text {
   position: absolute !important;
