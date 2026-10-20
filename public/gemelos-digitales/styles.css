@@ -2882,6 +2882,12 @@ body.static-mode .identity-rail { opacity: 0.98; }
   .concept-subtitle { opacity: 1 !important; transform: none !important; }
 }
 
+/* Rail must be absent on the cover, including reduced-motion or manually paused mode. */
+.identity-rail { visibility: hidden; }
+body.static-mode .identity-rail { opacity: 0; visibility: hidden; }
+body.static-mode.past-hero .identity-rail { opacity: 1; visibility: visible; }
+body.static-mode #portada .hero-phase-real { opacity: 0; }
+
 @media print {
   .site-header,
   .story-hud,

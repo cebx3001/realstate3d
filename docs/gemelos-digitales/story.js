@@ -58,6 +58,7 @@
   function setChapter(index) {
     if (index < 0 || index >= scenes.length) return;
     currentChapter = index;
+    body.classList.toggle("past-hero", index > 0);
     document.getElementById("chapter-number").textContent =
       scenes[index].dataset.number;
     document.getElementById("chapter-name").textContent =
@@ -272,7 +273,7 @@
       const realized = s.querySelector(".hero-phase-real");
       // El estado inicial es solo el título horizontal y el logotipo.
       // El scroll controla giro tipográfico, aparición lateral y materialización.
-      gsap.set(rail, { opacity: 0, rotationX: -78, transformPerspective: 900 });
+      gsap.set(rail, { autoAlpha: 0, rotationX: -78, transformPerspective: 900 });
       gsap.set([blueprint, hybrid, realized], { opacity: 0 });
       gsap.set(intro, { opacity: 1 });
       gsap.set(s.querySelector(".hero-bottom"), { opacity: 0 });
@@ -282,8 +283,8 @@
       tl.add(titleOut(intro), 0.65);
       tl.fromTo(
         rail,
-        { opacity: 0, rotationX: -78, z: -65 },
-        { opacity: 1, rotationX: 0, z: 0, duration: 2, ease: "power2.out" },
+        { autoAlpha: 0, rotationX: -78, z: -65 },
+        { autoAlpha: 1, rotationX: 0, z: 0, duration: 2, ease: "power2.out" },
         1.25,
       );
       tl.fromTo(
