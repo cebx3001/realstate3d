@@ -246,16 +246,24 @@
     context = gsap.context(() => {
       let s = scenes[0],
         tl = sceneTimeline(s, 10, 2.4, 0.35);
-      tl.add(titleIn(s.querySelector(".display"), true), 0);
-      const copy = gsap
-        .timeline()
-        .fromTo(
-          s.querySelector(".hero-bottom"),
-          { opacity: 0.65, y: 12 },
-          { opacity: 1, y: 0, duration: 1.2 },
-          1.1,
-        );
-      tl.add(copy, 0).add(titleOut(s.querySelector(".display")), 8.2);
+      // Portada en reposo: únicamente imagen, identidad y una señal clara de scroll.
+      // El primer desplazamiento revela el texto, sin titulares semitransparentes.
+      tl.to(s.querySelector(".eyebrow"), { opacity: 1, duration: 0.35 }, 0.25);
+      tl.to(s.querySelector(".display"), { opacity: 1, duration: 0.12 }, 0.25);
+      tl.add(titleIn(s.querySelector(".display")), 0.35);
+      tl.fromTo(
+        s.querySelector(".hero-bottom"),
+        { opacity: 0 },
+        { opacity: 1, duration: 1.1, ease: "power1.out" },
+        1.65,
+      );
+      tl.fromTo(
+        s.querySelector(".hero-coordinate"),
+        { opacity: 0 },
+        { opacity: 1, duration: 0.7 },
+        2,
+      );
+      tl.add(titleOut(s.querySelector(".display")), 8.2);
       tl.to(
         s.querySelector(".hero-bottom"),
         { opacity: 0, y: -20, duration: 0.8 },
@@ -326,10 +334,9 @@
         gsap.set(panel, { zIndex: i + 1 });
         tl.fromTo(
           panel,
-          { opacity: 0, yPercent: 25, scale: 0.94 },
+          { opacity: 0, scale: 1.025 },
           {
             opacity: 1,
-            yPercent: 0,
             scale: 1,
             duration: 1.2,
             ease: "power2.out",
@@ -348,7 +355,7 @@
         if (i < 2)
           tl.to(
             panel,
-            { scale: 0.9, xPercent: -5, opacity: 0.2, duration: 1.2 },
+            { opacity: 0.15, duration: 1.2 },
             at + 5.6,
           );
       });
