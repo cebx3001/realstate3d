@@ -205,8 +205,8 @@
   function showStep(timeline, element, at, hold, { last = false } = {}) {
     timeline.fromTo(
       element,
-      { opacity: 0, y: 16 },
-      { opacity: 1, y: 0, duration: 0.55, ease: "power1.out" },
+      { opacity: 0.08, rotationX: -58, transformPerspective: 900 },
+      { opacity: 1, rotationX: 0, duration: 0.62, ease: "power2.out" },
       at,
     );
     const heading = element.querySelector("[data-split]");
@@ -214,7 +214,7 @@
     if (!last)
       timeline.to(
         element,
-        { opacity: 0, y: -12, duration: 0.45, ease: "power1.in" },
+        { opacity: 0, rotationX: 42, transformPerspective: 900, duration: 0.52, ease: "power1.in" },
         at + hold - 0.45,
       );
   }
@@ -310,8 +310,8 @@
       tl.add(titleIn(heroTitle), 10.7);
       tl.fromTo(
         s.querySelector(".hero-bottom"),
-        { opacity: 0 },
-        { opacity: 1, duration: 1.1, ease: "power1.out" },
+        { opacity: 0.08, rotationX: -45, transformPerspective: 900 },
+        { opacity: 1, rotationX: 0, duration: 1.1, ease: "power2.out" },
         12.2,
       );
       tl.to(s.querySelector(".hero-coordinate"), { opacity: 1, duration: 0.6 }, 12.4);
@@ -412,8 +412,8 @@
       tl.add(titleIn(s.querySelector(".display")), 0);
       tl.fromTo(
         s.querySelector(".demo-details"),
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 1.1 },
+        { opacity: 0.08, rotationX: -45, transformPerspective: 900 },
+        { opacity: 1, rotationX: 0, duration: 1.1 },
         1.8,
       );
       imageMotion(
@@ -469,8 +469,8 @@
       );
       tl.fromTo(
         s.querySelector(".construction-outro"),
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.8 },
+        { opacity: 0.08, rotationX: -45, transformPerspective: 900 },
+        { opacity: 1, rotationX: 0, duration: 0.8 },
         21.5,
       );
 
@@ -505,8 +505,8 @@
       tl.add(titleIn(s.querySelector(".display")), 0);
       tl.fromTo(
         s.querySelector(".closing-copy"),
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 1 },
+        { opacity: 0.08, rotationX: -45, transformPerspective: 900 },
+        { opacity: 1, rotationX: 0, duration: 1 },
         1.5,
       );
       tl.fromTo(
@@ -517,8 +517,8 @@
       );
       tl.fromTo(
         s.querySelector(".price-note"),
-        { opacity: 0 },
-        { opacity: 1, duration: 1 },
+        { opacity: 0.08, rotationX: -40, transformPerspective: 900 },
+        { opacity: 1, rotationX: 0, duration: 1 },
         2.8,
       );
     });
