@@ -108,15 +108,19 @@
     });
     element.replaceChildren(semantic, visual);
     const rand = randomFor(text);
-    const transforms = chars.map(() => ({
-      x: (rand() - 0.5) * 145,
-      y: (rand() - 0.5) * 105,
-      z: 80 + rand() * 270,
-      rotationX: (rand() - 0.5) * 125,
-      rotationY: (rand() - 0.5) * 130,
-      rotationZ: (rand() - 0.5) * 35,
-      scale: 0.7 + rand() * 0.5,
-    }));
+    // Cada carácter conserva su casilla tipográfica y su línea base.
+    // La variación se aplica únicamente a profundidad, rotación, escala y tiempo.
+    const transforms = chars.map(() => {
+      const mode = rand();
+      const direction = rand() < 0.5 ? -1 : 1;
+      return {
+        z: -(65 + rand() * 140),
+        rotationX: mode < 0.35 ? direction * (28 + rand() * 40) : 0,
+        rotationY:
+          mode >= 0.35 && mode < 0.7 ? direction * (28 + rand() * 50) : 0,
+        scale: mode >= 0.7 ? 0.83 + rand() * 0.14 : 1,
+      };
+    });
     const order = chars.map((_, i) => i);
     for (let i = order.length - 1; i > 0; i--) {
       const j = Math.floor(rand() * (i + 1));
@@ -138,8 +142,8 @@
       : compact.matches
         ? 0.5
         : 1;
-    const from = { opacity: soft ? 0.85 : 0 };
-    for (const key of ["x", "y", "z", "rotationX", "rotationY", "rotationZ"])
+    const from = { opacity: soft ? 0.85 : 0, transformPerspective: 900 };
+    for (const key of ["z", "rotationX", "rotationY"])
       from[key] = (i) => transforms[i][key] * strength;
     from.scale = (i) => (soft ? 0.98 : transforms[i].scale);
     // Desenfoque solo en pantallas grandes; ningún filtro animado en teléfonos.
@@ -148,12 +152,10 @@
       chars,
       from,
       {
-        x: 0,
-        y: 0,
         z: 0,
         rotationX: 0,
         rotationY: 0,
-        rotationZ: 0,
+        transformPerspective: 900,
         scale: 1,
         opacity: 1,
         filter: "blur(0px)",
@@ -170,12 +172,10 @@
     return gsap
       .timeline()
       .to(chars, {
-        x: (i) => transforms[i].x * 0.4,
-        y: (i) => transforms[i].y * 0.5,
-        z: (i) => -transforms[i].z * 0.5,
-        rotationX: (i) => -transforms[i].rotationX * 0.45,
-        rotationY: (i) => transforms[i].rotationY * 0.5,
-        rotationZ: (i) => -transforms[i].rotationZ * 0.4,
+        z: (i) => transforms[i].z * 0.65,
+        rotationX: (i) => -transforms[i].rotationX * 0.55,
+        rotationY: (i) => -transforms[i].rotationY * 0.55,
+        transformPerspective: 900,
         opacity: 0,
         scale: 0.94,
         duration: 1,
