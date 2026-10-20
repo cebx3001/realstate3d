@@ -2616,6 +2616,29 @@ body:not(.motion-ready) .method-content {
   }
 }
 
+/* Legibility floor for editorial captions on compact devices */
+@media (max-width: 700px) {
+  .header-demo,
+  .eyebrow,
+  .eyebrow-index,
+  .step-marker,
+  .method-number > span,
+  .panel-top,
+  .panel-bottom,
+  .operations-panel .panel-top,
+  .operations-panel .panel-bottom,
+  .space-options,
+  .ui-card p,
+  .location-path,
+  .demo-proof,
+  .demo-proof > span:last-child,
+  .construction-disclaimer,
+  .future-note,
+  .system-row,
+  .current-chapter { font-size: 12px; }
+  .op-marker { font-size: 11px; }
+}
+
 @media print {
   .site-header,
   .story-hud,
