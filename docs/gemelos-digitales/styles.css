@@ -2591,6 +2591,54 @@ body:not(.motion-ready) .method-content {
   .closing-copy .body-copy { font-size: 14px; }
 }
 
+
+/* Persistent outline identity: near full-height on every viewport */
+.identity-rail {
+  top: 50%;
+  right: 12px;
+  font-size: clamp(45px, 5.9svh, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  -webkit-text-stroke: 1px #b99bcc;
+  opacity: 0.56;
+  z-index: 3;
+}
+@media (max-width: 700px) {
+  .identity-rail {
+    right: 1px;
+    top: 50%;
+    font-size: clamp(34px, 6svh, 60px);
+    line-height: 0.95;
+    letter-spacing: -0.065em;
+    -webkit-text-stroke: 0.85px #ba9ed4;
+    opacity: 0.64;
+    z-index: 3;
+  }
+}
+
+/* Legibility floor for editorial captions on compact devices */
+@media (max-width: 700px) {
+  .header-demo,
+  .eyebrow,
+  .eyebrow-index,
+  .step-marker,
+  .method-number > span,
+  .panel-top,
+  .panel-bottom,
+  .operations-panel .panel-top,
+  .operations-panel .panel-bottom,
+  .space-options,
+  .ui-card p,
+  .location-path,
+  .demo-proof,
+  .demo-proof > span:last-child,
+  .construction-disclaimer,
+  .future-note,
+  .system-row,
+  .current-chapter { font-size: 12px; }
+  .op-marker { font-size: 11px; }
+}
+
 @media print {
   .site-header,
   .story-hud,
