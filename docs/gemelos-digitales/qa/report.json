@@ -1,0 +1,572 @@
+{
+  "url": "http://127.0.0.1:4173/gemelos-digitales/",
+  "viewports": {
+    "desktop": {
+      "errors": [],
+      "bad_responses": [],
+      "chapters": 8,
+      "initial_3d_requests": [],
+      "screens": [
+        {
+          "scene": "portada",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 103.671875,
+            "y": 258,
+            "width": 1200,
+            "height": 314.484375
+          }
+        },
+        {
+          "scene": "concepto",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 103.671875,
+            "y": 231,
+            "width": 1200,
+            "height": 247.078125
+          }
+        },
+        {
+          "scene": "ventas",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 103.671875,
+            "y": 231,
+            "width": 1200,
+            "height": 247.078125
+          }
+        },
+        {
+          "scene": "metodos",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 103.671875,
+            "y": 166,
+            "width": 1200,
+            "height": 122.8125
+          }
+        },
+        {
+          "scene": "demostracion",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 103.671875,
+            "y": 249,
+            "width": 1200,
+            "height": 164.71875
+          }
+        },
+        {
+          "scene": "construccion",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 103.671875,
+            "y": 171,
+            "width": 850,
+            "height": 122.8125
+          }
+        },
+        {
+          "scene": "operacion",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 103.671875,
+            "y": 231,
+            "width": 1200,
+            "height": 247.078125
+          }
+        },
+        {
+          "scene": "contacto",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 103.671875,
+            "y": 249,
+            "width": 1200,
+            "height": 278.53125
+          }
+        }
+      ],
+      "construction": [
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            }
+          ],
+          "text": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            1,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scroll_stable": true,
+      "tour_href": "../",
+      "contact_href": "https://wa.me/593992730095?text=Hola%2C%20me%20interesa%20crear%20un%20gemelo%20digital%20para%20mi%20proyecto.%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20informaci%C3%B3n.",
+      "all_images_loaded": true,
+      "pause_returns_to_static": true,
+      "resume_works": true
+    },
+    "mobile": {
+      "errors": [],
+      "bad_responses": [],
+      "chapters": 8,
+      "initial_3d_requests": [],
+      "screens": [
+        {
+          "scene": "portada",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 25,
+            "y": 240.34375,
+            "width": 318,
+            "height": 108.65625
+          }
+        },
+        {
+          "scene": "concepto",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 25,
+            "y": 167.796875,
+            "width": 318,
+            "height": 110.15625
+          }
+        },
+        {
+          "scene": "ventas",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 25,
+            "y": 167.796875,
+            "width": 318,
+            "height": 110.15625
+          }
+        },
+        {
+          "scene": "metodos",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 25,
+            "y": 144.796875,
+            "width": 318,
+            "height": 93.140625
+          }
+        },
+        {
+          "scene": "demostracion",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 25,
+            "y": 162.796875,
+            "width": 318,
+            "height": 77.75
+          }
+        },
+        {
+          "scene": "construccion",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 25,
+            "y": 149.796875,
+            "width": 318,
+            "height": 106.921875
+          }
+        },
+        {
+          "scene": "operacion",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 25,
+            "y": 167.796875,
+            "width": 318,
+            "height": 110.15625
+          }
+        },
+        {
+          "scene": "contacto",
+          "horizontal_overflow": false,
+          "display": {
+            "x": 25,
+            "y": 189.703125,
+            "width": 318,
+            "height": 102.328125
+          }
+        }
+      ],
+      "construction": [
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            }
+          ],
+          "text": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "1",
+              "clip": "inset(0%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "images": [
+            {
+              "opacity": "1",
+              "clip": "none"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            },
+            {
+              "opacity": "0",
+              "clip": "inset(0% 0% 100%)"
+            }
+          ],
+          "text": [
+            1,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scroll_stable": true,
+      "tour_href": "../",
+      "contact_href": "https://wa.me/593992730095?text=Hola%2C%20me%20interesa%20crear%20un%20gemelo%20digital%20para%20mi%20proyecto.%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20informaci%C3%B3n.",
+      "all_images_loaded": true,
+      "pause_returns_to_static": true,
+      "resume_works": true
+    }
+  },
+  "reduced_motion": {
+    "animated": false,
+    "pinned": 0,
+    "headings": 8,
+    "overflow": false
+  },
+  "no_javascript": {
+    "headings": 8,
+    "body_text": 4224,
+    "overflow": false
+  }
+}
