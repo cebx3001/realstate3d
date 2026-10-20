@@ -1,0 +1,34 @@
+{
+  "1440x900": {
+    "animated": true,
+    "overflow": false,
+    "accessibility": [],
+    "chapter_link": true,
+    "cta_visible": true,
+    "mid_animation_stops": true,
+    "reversible": true,
+    "same_tab_tour": true,
+    "browser_back": true
+  },
+  "375x667": {
+    "animated": true,
+    "overflow": false,
+    "accessibility": [],
+    "chapter_link": true,
+    "cta_visible": true
+  },
+  "320x568": {
+    "animated": false,
+    "overflow": false,
+    "accessibility": [],
+    "chapter_link": true,
+    "cta_visible": true
+  },
+  "844x390": {
+    "animated": false,
+    "overflow": false,
+    "accessibility": [],
+    "chapter_link": true,
+    "cta_visible": true
+  }
+}
