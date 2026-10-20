@@ -8,7 +8,7 @@ const esc = (s) =>
 const title = (lines, tag = "h2", cls = "") =>
   `<${tag} class="display ${cls}" data-split>${lines.map((l) => `<span class="line">${esc(l)}</span>`).join("")}</${tag}>`;
 const image = (name, alt, cls = "", hero = false, portrait = false) =>
-  `<picture class="visual ${cls}">${!portrait ? `<source media="(max-width: 700px)" srcset="assets/${name}-mobile.webp">` : ""}<img src="assets/${name}.webp" ${!portrait ? `srcset="assets/${name}-960.webp 960w, assets/${name}.webp 1672w" sizes="100vw"` : ""} alt="${esc(alt)}" width="${portrait ? 1024 : 1672}" height="${portrait ? 1280 : 941}" loading="${hero ? "eager" : "lazy"}" ${hero ? 'fetchpriority="high"' : ""} decoding="async"></picture>`;
+  `<picture class="visual ${cls}">${!portrait ? `<source media="(max-width: 700px)" srcset="assets/${name.startsWith("build-stage-") ? name + "-960" : name + "-mobile"}.webp">` : ""}<img src="assets/${name}.webp" ${!portrait ? `srcset="assets/${name}-960.webp 960w, assets/${name}.webp 1672w" sizes="100vw"` : ""} alt="${esc(alt)}" width="${portrait ? 1024 : 1672}" height="${portrait ? 1280 : 941}" loading="${hero ? "eager" : "lazy"}" ${hero ? 'fetchpriority="high"' : ""} decoding="async"></picture>`;
 const heroLayers = ["blueprint", "hybrid", "real"].map((stage) =>
   `<picture class="hero-phase hero-phase-${stage}" aria-hidden="true"><source media="(max-width: 700px)" srcset="assets/hero-${stage}-mobile.webp"><img src="assets/hero-${stage}-desktop.webp" alt="" width="1440" height="810" loading="${stage === "blueprint" ? "eager" : "lazy"}" decoding="async"></picture>`
 ).join("");
