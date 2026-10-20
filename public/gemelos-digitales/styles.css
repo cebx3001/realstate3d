@@ -2639,6 +2639,29 @@ body:not(.motion-ready) .method-content {
   .op-marker { font-size: 11px; }
 }
 
+/* First-screen scroll cue: unmistakable without introducing a content card */
+.scroll-invitation {
+  z-index: 18;
+  visibility: visible;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.85);
+}
+@media (max-width: 700px) {
+  .scroll-invitation {
+    display: inline-flex;
+    bottom: calc(118px + env(safe-area-inset-bottom));
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .scroll-invitation .icon { width: 25px; height: 25px; }
+}
+@media (max-width: 360px) {
+  .scroll-invitation { font-size: 13px; gap: 9px; }
+  .scroll-line { width: 23px; }
+}
+
 @media print {
   .site-header,
   .story-hud,
