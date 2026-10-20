@@ -53,6 +53,9 @@ const html = `<!doctype html>
   <title>Gemelos Digitales — El espacio se convierte en experiencia</title>
   <link rel="icon" href="assets/symbol.svg" type="image/svg+xml">
   <link rel="preload" href="assets/manrope-latin.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="config.js" defer></script>
   <script src="vendor/gsap.min.js" defer></script>
@@ -66,7 +69,7 @@ const html = `<!doctype html>
     <a class="brand" href="#portada" aria-label="Gemelos Digitales — inicio">${logo}</a>
     <a class="header-demo" href="#demostracion"><span>EXPLORAR DEMO</span><span class="circle-arrow" aria-hidden="true">↗</span></a>
   </header>
-  <div class="identity-rail" aria-hidden="true">GEMELOS DIGITALES</div>
+  <div class="identity-rail" aria-hidden="true"><span class="identity-rail-text">GEMELOS DIGITALES</span></div>
   <main id="experiencia">
   ${scene(
     "portada",
@@ -94,7 +97,8 @@ const html = `<!doctype html>
     <div class="scrim"></div>
     <div class="scene-content split-content">
       ${eyebrow("02", "QUÉ ES UN GEMELO DIGITAL")}
-      ${title(c.concept.title)}
+      ${title(c.concept.title, "h2", "concept-title")}
+      <p class="concept-subtitle">${esc(c.concept.subtitle)}</p>
       <div class="copy-track concept-track">${steps(c.concept.steps)}</div>
     </div>
     <div class="perspective-frame" aria-hidden="true"><i></i><i></i><i></i><i></i><span>UN MISMO ESPACIO. TU PUNTO DE VISTA.</span></div>

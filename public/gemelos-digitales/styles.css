@@ -2761,6 +2761,127 @@ body.static-mode .hero-sequence .hero-phase-real { opacity: 1; }
   .hero-wordmark { transform: translateY(-50%) !important; }
 }
 
+/* Layout and editorial typography — Archivo Black / Space Grotesk / DM Sans */
+:root {
+  font-family: "DM Sans", Arial, sans-serif;
+  --right: clamp(95px, 11vw, 138px);
+}
+.display, .hero-wordmark, .section-title, .method-content h3,
+.copy-step h3, .build-copy h3, .project-name {
+  font-family: "Archivo Black", "Arial Black", sans-serif;
+  font-weight: 900;
+}
+.lead, .concept-subtitle, .method-question, .closing-copy .lead {
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 500;
+}
+.eyebrow, .eyebrow-index, .step-marker, .method-number,
+.header-demo, .current-chapter {
+  font-family: "Space Grotesk", Arial, sans-serif;
+}
+.body-copy, .copy-step p, .method-content .body-copy,
+.construction-intro, .build-copy p, .closing-copy .body-copy {
+  font-family: "DM Sans", Arial, sans-serif;
+}
+.scene-concepto .split-content .display.concept-title {
+  font-family: "Archivo Black", "Arial Black", sans-serif;
+  font-size: clamp(48px, 6.7vw, 104px);
+  font-weight: 900;
+  line-height: 0.97;
+  letter-spacing: -0.035em;
+}
+.concept-subtitle {
+  position: relative;
+  z-index: 5;
+  font-size: clamp(21px, 2.6vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: #e5e1e9;
+  max-width: 650px;
+  margin: 26px 0 0;
+  text-transform: none;
+}
+.concept-track { margin-top: 38px; }
+.hero-wordmark {
+  font-family: "Archivo Black", "Arial Black", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+}
+/* The outer rail is animated. The inner wordmark is independently fitted to viewport height. */
+.identity-rail, .motion-ready .identity-rail {
+  position: fixed;
+  inset: 0 0 0 auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: auto;
+  height: 100svh;
+  width: clamp(76px, 11vw, 130px);
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: none;
+  writing-mode: horizontal-tb;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+}
+.identity-rail-text {
+  display: inline-block;
+  flex: 0 0 auto;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  color: transparent;
+  font-family: "Archivo Black", "Arial Black", sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  letter-spacing: -0.035em;
+  line-height: 0.94;
+  -webkit-text-stroke: 1.5px white;
+  text-shadow: none;
+  transform: scaleX(0.78);
+  transform-origin: 50% 50%;
+}
+body.static-mode .identity-rail { opacity: 0.98; }
+@media (max-width: 700px) {
+  :root { --right: clamp(73px, 21vw, 100px); }
+  .identity-rail, .motion-ready .identity-rail {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100svh;
+    width: clamp(64px, 20vw, 92px);
+  }
+  .identity-rail-text {
+    -webkit-text-stroke: 1.3px white;
+    transform: scaleX(0.72);
+  }
+  .hero-wordmark { font-size: clamp(39px, 11.5vw, 66px); }
+  .scene-concepto .split-content .display.concept-title {
+    font-size: clamp(30px, 8.2vw, 48px);
+    letter-spacing: -0.035em;
+  }
+  .concept-subtitle {
+    font-size: clamp(18px, 4.9vw, 24px);
+    margin-top: 19px;
+    line-height: 1.28;
+    max-width: 290px;
+  }
+  .concept-track { margin-top: 22px; }
+  .copy-step p, .method-content .body-copy { color: #f0ebf4; }
+}
+@media (max-width: 360px) {
+  :root { --right: 74px; }
+  .scene-concepto .split-content .display.concept-title { font-size: 29px; }
+  .concept-subtitle { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .concept-subtitle { opacity: 1 !important; transform: none !important; }
+}
+
 @media print {
   .site-header,
   .story-hud,

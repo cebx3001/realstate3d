@@ -13,6 +13,25 @@
   const motionButton = document.querySelector(".motion-toggle");
   const chapterLinks = [...document.querySelectorAll(".chapter-nav a")];
   const splitCache = new WeakMap();
+  const railLabel = document.querySelector(".identity-rail-text");
+  // Fit the entire label vertically to the viewport, without changing letter proportions.
+  function sizeIdentityRail() {
+    if (!railLabel) return;
+    const target = Math.max(240, document.documentElement.clientHeight - 12);
+    railLabel.style.fontSize = "64px";
+    const initial = railLabel.scrollHeight;
+    if (!initial) return;
+    let size = 64 * target / initial;
+    railLabel.style.fontSize = `${size}px`;
+    const measured = railLabel.scrollHeight;
+    if (measured) {
+      size *= target / measured;
+      railLabel.style.fontSize = `${size}px`;
+    }
+  }
+  addEventListener("resize", sizeIdentityRail, { passive: true });
+  window.visualViewport?.addEventListener("resize", sizeIdentityRail, { passive: true });
+
   const timelines = new Map();
   let context = null;
   let staticObserver = null;
@@ -140,9 +159,9 @@
         ? 0.035
         : 0.12
       : compact.matches
-        ? 0.5
+        ? 0.95
         : 1;
-    const from = { opacity: soft ? 0.85 : 0, transformPerspective: 900 };
+    const from = { opacity: soft ? 0.85 : 0.06, transformPerspective: 900 };
     for (const key of ["z", "rotationX", "rotationY"])
       from[key] = (i) => transforms[i][key] * strength;
     from.scale = (i) => (soft ? 0.98 : transforms[i].scale);
@@ -264,7 +283,7 @@
       tl.fromTo(
         rail,
         { opacity: 0, rotationX: -78, z: -65 },
-        { opacity: compact.matches ? 0.64 : 0.56, rotationX: 0, z: 0, duration: 2, ease: "power2.out" },
+        { opacity: 1, rotationX: 0, z: 0, duration: 2, ease: "power2.out" },
         1.25,
       );
       tl.fromTo(
@@ -307,6 +326,12 @@
       s = scenes[1];
       tl = sceneTimeline(s, 15, 4, 0.28);
       tl.add(titleIn(s.querySelector(".display")), 0);
+      tl.fromTo(
+        s.querySelector(".concept-subtitle"),
+        { opacity: 0.08, rotationX: -56, transformPerspective: 900 },
+        { opacity: 1, rotationX: 0, duration: 1.15, ease: "power2.out" },
+        1.1,
+      );
       s.querySelectorAll(".copy-step").forEach((el, i) =>
         showStep(tl, el, 2 + i * 4, 4, { last: i === 2 }),
       );
@@ -596,8 +621,10 @@
   reduced.addEventListener("change", () => configureMotion(true));
   compact.addEventListener("change", () => configureMotion(true));
   shortViewport.addEventListener("change", () => configureMotion(true));
+  sizeIdentityRail();
   configureMotion();
   document.fonts.ready.then(() => {
+    sizeIdentityRail();
     if (context) ScrollTrigger.refresh();
     if (location.hash) navigate(location.hash.slice(1), false);
   });

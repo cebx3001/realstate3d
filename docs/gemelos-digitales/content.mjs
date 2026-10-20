@@ -7,7 +7,8 @@ export const content = {
     body: "Permite que tus clientes recorran una propiedad desde cualquier lugar, incluso antes de que esté construida.",
   },
   concept: {
-    title: ["UN ESPACIO.", "INFINITAS", "PERSPECTIVAS."],
+    title: ["GEMELOS", "DIGITALES"],
+    subtitle: "un espacio. infinitas perspectivas.",
     steps: [
       "Un gemelo digital es una representación tridimensional interactiva de un espacio real o proyectado.",
       "Puedes recorrer sus ambientes, cambiar de perspectiva y explorar su información desde una página web.",
