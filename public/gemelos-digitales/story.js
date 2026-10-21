@@ -331,12 +331,11 @@
       const intro = s.querySelector(".hero-wordmark");
       const rail = document.querySelector(".identity-rail");
       const blueprint = s.querySelector(".hero-phase-blueprint");
-      const hybrid = s.querySelector(".hero-phase-hybrid");
       const realized = s.querySelector(".hero-phase-real");
       // El estado inicial es solo el título horizontal y el logotipo.
       // El scroll controla giro tipográfico, aparición lateral y materialización.
       gsap.set(rail, { autoAlpha: 0, rotationX: -78, transformPerspective: 900 });
-      gsap.set([blueprint, hybrid, realized], { opacity: 0 });
+      gsap.set([blueprint, realized], { opacity: 0 });
       gsap.set(intro, { opacity: 1 });
       gsap.set(s.querySelector(".hero-bottom"), { autoAlpha: 0 });
       gsap.set(s.querySelector(".hero-coordinate"), { autoAlpha: 0 });
@@ -355,17 +354,13 @@
         { opacity: 1, scale: 1, duration: 2.2, ease: "none" },
         1.4,
       );
-      tl.fromTo(
-        hybrid,
-        { opacity: 0 },
-        { opacity: 1, duration: 2.8, ease: "none" },
-        5.25,
-      );
+      // Only four source files exist: technical + final, each in two orientations.
+      // Their perfectly registered layers crossfade into a hybrid as the user scrolls.
       tl.fromTo(
         realized,
         { opacity: 0 },
-        { opacity: 1, duration: 2.8, ease: "none" },
-        8.25,
+        { opacity: 1, duration: 5.1, ease: "none" },
+        5.25,
       );
       const heroTitle = s.querySelector(".hero-content > .display");
       tl.to(s.querySelector(".hero-content > .eyebrow"), { autoAlpha: 1, duration: 0.7 }, 11.3);
@@ -512,7 +507,7 @@
         }
         tl.to(
           s.querySelectorAll(".build-tick i")[i],
-          { backgroundColor: "#c9b3e2", borderColor: "#c9b3e2", duration: 0.5 },
+          { backgroundColor: "#a9d0e9", borderColor: "#a9d0e9", duration: 0.5 },
           at,
         );
       });

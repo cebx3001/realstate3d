@@ -9,7 +9,7 @@ const title = (lines, tag = "h2", cls = "") =>
   `<${tag} class="display ${cls}" data-split>${lines.map((l) => `<span class="line">${esc(l)}</span>`).join("")}</${tag}>`;
 const image = (name, alt, cls = "", hero = false, portrait = false) =>
   `<picture class="visual ${cls}">${!portrait ? `<source media="(max-width: 700px)" srcset="assets/${name.startsWith("build-stage-") ? name + "-960" : name + "-mobile"}.webp">` : ""}<img src="assets/${name}.webp" ${!portrait ? `srcset="assets/${name}-960.webp 960w, assets/${name}.webp 1672w" sizes="100vw"` : ""} alt="${esc(alt)}" width="${portrait ? 1024 : 1672}" height="${portrait ? 1280 : 941}" loading="${hero ? "eager" : "lazy"}" ${hero ? 'fetchpriority="high"' : ""} decoding="async"></picture>`;
-const heroLayers = ["blueprint", "hybrid", "real"].map((stage) =>
+const heroLayers = ["blueprint", "real"].map((stage) =>
   `<picture class="hero-phase hero-phase-${stage}" aria-hidden="true"><source media="(max-width: 700px)" srcset="assets/hero-${stage}-mobile.webp"><img src="assets/hero-${stage}-desktop.webp" alt="" width="1440" height="810" loading="${stage === "blueprint" ? "eager" : "lazy"}" decoding="async"></picture>`
 ).join("");
 const eyebrow = (number, text) =>
@@ -43,7 +43,7 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#140E21">
+  <meta name="theme-color" content="#0B2138">
   <meta name="description" content="Gemelos digitales para presentar, explorar y comercializar proyectos arquitectónicos. Recorre Torres del Norte y descubre nuevas perspectivas para tu proyecto.">
   <meta property="og:title" content="Gemelos Digitales — El espacio se convierte en experiencia">
   <meta property="og:description" content="Experiencias tridimensionales para constructoras, promotoras e inmobiliarias.">
