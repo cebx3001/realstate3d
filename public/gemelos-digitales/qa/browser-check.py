@@ -35,6 +35,8 @@ with sync_playwright() as p:
             page.wait_for_timeout(180)
             page.locator(f"#{chapter['id']} img").evaluate_all('(imgs)=>imgs.forEach(img=>img.loading="eager")')
             page.wait_for_function('(id)=>[...document.querySelectorAll(`#${id} img`)].every(i=>i.complete&&i.naturalWidth>0)',arg=chapter['id'])
+            page.locator(f"#{chapter['id']} img").evaluate_all('(imgs)=>Promise.all(imgs.map(img=>img.decode()))')
+            page.evaluate('()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))')
             page.screenshot(path=str(out/f"{label}-{chapter['id']}.png"))
             entry['screens'].append({'scene':chapter['id'],'horizontal_overflow':page.evaluate('document.documentElement.scrollWidth>innerWidth'),'display':page.locator(f"#{chapter['id']} .display").bounding_box()})
         hero=next(x for x in chapters if x['id']=='portada')

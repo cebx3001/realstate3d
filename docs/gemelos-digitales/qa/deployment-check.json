@@ -1,0 +1,554 @@
+{
+  "application_commit": "3c7a5c18238b47b792c2398cb6a1bee57892179b",
+  "url": "https://cebx3001.github.io/realstate3d/gemelos-digitales/",
+  "checked_utc": "2026-10-21",
+  "resources": [
+    {
+      "file": "assets/archivo-black-400.woff",
+      "sha256": "b4594393737b0f743791fffb78ebc8057c331a9a310a26f5af03dbf7f5cbf86f",
+      "bytes": 39440
+    },
+    {
+      "file": "assets/build-stage-01-960.webp",
+      "sha256": "45c132494ab72ccfa07a62bfec50c47feb5307f27badc26fa36f63ec9a8858a9",
+      "bytes": 73242
+    },
+    {
+      "file": "assets/build-stage-01-mobile.webp",
+      "sha256": "1d6ac0b2dd8c31f48ca49480c5dc9cf4c6c08a9c5803abf9e387d28c0212dd45",
+      "bytes": 198508
+    },
+    {
+      "file": "assets/build-stage-01.webp",
+      "sha256": "4cf6da8681f2b85f7ad1f66a4b5c8a441ace386019eac08336eddbe3ce0a18c6",
+      "bytes": 191630
+    },
+    {
+      "file": "assets/build-stage-02-960.webp",
+      "sha256": "cda7cf37bd84ec059825bb8d784621b535f764099b8e5c5b488132a69ca770b3",
+      "bytes": 79914
+    },
+    {
+      "file": "assets/build-stage-02-mobile.webp",
+      "sha256": "9cd3ad133808bca05f4e5130e84825c7f46ce486559f41ee47aa21ef47bd4721",
+      "bytes": 219850
+    },
+    {
+      "file": "assets/build-stage-02.webp",
+      "sha256": "030fdef639331a3e39c3fc2f53ee683180e02e4feb2f76fdbee17ac68e4e0779",
+      "bytes": 204252
+    },
+    {
+      "file": "assets/build-stage-03-960.webp",
+      "sha256": "0726eb6d0f30b6392193c9fc1686450c49e6ed4e900f0da0abf4b0c9612a13d3",
+      "bytes": 81838
+    },
+    {
+      "file": "assets/build-stage-03-mobile.webp",
+      "sha256": "fb4ccab670afaf4fe1fb5688bf2d9fe418b632dfa5efdd43b225f1bf4b05ec15",
+      "bytes": 208868
+    },
+    {
+      "file": "assets/build-stage-03.webp",
+      "sha256": "b098633f0ba19b67c065ce77c0a8d0de79057d84cca97742bd557e7151ffbea6",
+      "bytes": 211934
+    },
+    {
+      "file": "assets/build-stage-04-960.webp",
+      "sha256": "9910e8f16b1ff856647bcc14415ada61f3b2abddd36a7e0213ba8ca8e22c0c5c",
+      "bytes": 73280
+    },
+    {
+      "file": "assets/build-stage-04-mobile.webp",
+      "sha256": "133fa7f06a3edc2953e465121b9604eb489c5782dc98600bf3840a7e6618f45b",
+      "bytes": 208542
+    },
+    {
+      "file": "assets/build-stage-04.webp",
+      "sha256": "4806e5407bb9e63cf0100c70ecf38f6ae3011eec21117442fc93d187ae041c5c",
+      "bytes": 190268
+    },
+    {
+      "file": "assets/dm-sans-400.woff",
+      "sha256": "493c3fe3183803d2e10cff2b3d3f26768d9b721c3d773fa5abd4432b1b867ac7",
+      "bytes": 26204
+    },
+    {
+      "file": "assets/dm-sans-500.woff",
+      "sha256": "e5ff16515b6040120ad535d6b10a39591ff3ba6e3adb5eae86ddcc59e2a9d447",
+      "bytes": 26572
+    },
+    {
+      "file": "assets/dm-sans-600.woff",
+      "sha256": "a05bd52f078e0a8bde29a1d2c24e54f73257666116b2bfd1f7884833708efac6",
+      "bytes": 26120
+    },
+    {
+      "file": "assets/dm-sans-700.woff",
+      "sha256": "04338f1d61e58f921f38278bc982f18c78fd709758945f875cb1ab455e0ce7cf",
+      "bytes": 26432
+    },
+    {
+      "file": "assets/hero-architecture-960.webp",
+      "sha256": "cfb4447124bb887441ee96f2856babd7b12cc374138e58c468656ecc91ccffa3",
+      "bytes": 63328
+    },
+    {
+      "file": "assets/hero-architecture-mobile.webp",
+      "sha256": "7ec75dff362e1fac2b0b91d3621737ae7919c4fc5e0a59827c8396902d58cfb4",
+      "bytes": 91524
+    },
+    {
+      "file": "assets/hero-architecture.webp",
+      "sha256": "1b4e733e2f92f01b52b518b29dc56d849ee8c67bab85b3628a7d1d62de4ec5e5",
+      "bytes": 184430
+    },
+    {
+      "file": "assets/hero-blueprint-desktop.webp",
+      "sha256": "62a2592c730cd97994353904645f081d9b31ccba7233610756e9c822887a0b45",
+      "bytes": 349556
+    },
+    {
+      "file": "assets/hero-blueprint-mobile.webp",
+      "sha256": "f2c3ee7432198d6cb90d967b2bba5e8870d2ce0eca247ee6d67da6c19d1dcff3",
+      "bytes": 384212
+    },
+    {
+      "file": "assets/hero-real-desktop.webp",
+      "sha256": "4e737d7d2febe94d831f7cfcc0d4421cc4ba3b9c5586867dfeccc1bb0cdf0bb5",
+      "bytes": 331494
+    },
+    {
+      "file": "assets/hero-real-mobile.webp",
+      "sha256": "57e3e11cf350832d8c9eceee79fbd4aa4683a30e28dbfd5cd8b59c8a6362537f",
+      "bytes": 316898
+    },
+    {
+      "file": "assets/method-existing.webp",
+      "sha256": "abf01764fd94bad3efe8ef747c10aebe2cf98c4a2b57b05deba7f2c305132ca2",
+      "bytes": 215476
+    },
+    {
+      "file": "assets/method-from-plans.webp",
+      "sha256": "ed8fb19af02b8093583b7f43b732b4a44878d5cf7cc12d7d916a17d7f93deb0c",
+      "bytes": 138094
+    },
+    {
+      "file": "assets/method-photo-scan.webp",
+      "sha256": "1a12a2c7d18586bc36882b0df570e4df858a16bb1e052158e414bfae84d40cd7",
+      "bytes": 389230
+    },
+    {
+      "file": "assets/operations-960.webp",
+      "sha256": "3d4e8bb90575ca9a034646b8fdb3bc27f4cd9d4ca026207d7a9a4304c68ffefc",
+      "bytes": 102576
+    },
+    {
+      "file": "assets/operations-mobile.webp",
+      "sha256": "e9506549db91eccf289ab47a6837038cbc2dfbcdc306a7d9979270bb89ae8b6f",
+      "bytes": 314412
+    },
+    {
+      "file": "assets/operations.webp",
+      "sha256": "76277200ac7400100dedfe0e62c69e8342da388b00d3c70c9611cffedbbcfc89",
+      "bytes": 284634
+    },
+    {
+      "file": "assets/sales-remote-960.webp",
+      "sha256": "d57248282037f0be85f2e578e219ceff778889c2bddca08ca6d3896d59e95e35",
+      "bytes": 72346
+    },
+    {
+      "file": "assets/sales-remote-mobile.webp",
+      "sha256": "fdddd2847ed90fce500c2e533f5b269e419443a591446e1377bd0d1295a18d4d",
+      "bytes": 111166
+    },
+    {
+      "file": "assets/sales-remote.webp",
+      "sha256": "cfd053c5dad56644d7361f8a070e113c3b0f80c2cba732f684be9fe34d07e398",
+      "bytes": 200830
+    },
+    {
+      "file": "assets/space-grotesk-400.woff",
+      "sha256": "9be89205e7277450ca701e4844d4484b9aaa6424741ecc518c18b85fcd510f45",
+      "bytes": 35672
+    },
+    {
+      "file": "assets/space-grotesk-500.woff",
+      "sha256": "256396d398177b63cf240af5a1236db7aec5031f10da62cf55b3c77e8e061092",
+      "bytes": 35624
+    },
+    {
+      "file": "assets/space-grotesk-600.woff",
+      "sha256": "f56368faac83602234d4c1d8da246024207d99adfae291871f76768d1c0ef066",
+      "bytes": 35560
+    },
+    {
+      "file": "assets/space-grotesk-700.woff",
+      "sha256": "8a766e8f9dfd9c5e02b431ef7a16b4a422482cb9f439a83bb32b87c367926012",
+      "bytes": 34520
+    },
+    {
+      "file": "assets/symbol.svg",
+      "sha256": "7f582d0af92746c1073a48861db03b5f190ad382ec4104b02bd04d2cfcd47ebb",
+      "bytes": 560
+    },
+    {
+      "file": "assets/torres-del-norte-real-960.webp",
+      "sha256": "d9ae88dd25d25cf0569cd987ac937329d746a57ea6fe8a3367a82f56140b6627",
+      "bytes": 19140
+    },
+    {
+      "file": "assets/torres-del-norte-real-mobile.webp",
+      "sha256": "7b11274620de9dc44279f685080dca099f61dff78639da097286dccbe9c69979",
+      "bytes": 58056
+    },
+    {
+      "file": "assets/torres-del-norte-real.webp",
+      "sha256": "50192ff67c04c03a292097c3bf1485693e0eeb6e14debfc3cdbe480d8d5ae2f0",
+      "bytes": 50600
+    },
+    {
+      "file": "cinematic.css",
+      "sha256": "786b490b3be4a482b07ea11896c5aac3a93542edef08ae0fc9c7404cb6f89af6",
+      "bytes": 8436
+    },
+    {
+      "file": "config.js",
+      "sha256": "6fdd57b70e88a23e20c33f197626d311b84b1b5097849d56005568699212e2ce",
+      "bytes": 350
+    },
+    {
+      "file": "fonts.css",
+      "sha256": "f4439350a8c6f89f80f97a328bc0a4c59de29e219c1ee166a0edd88dbd5f7b4f",
+      "bytes": 1302
+    },
+    {
+      "file": "index.html",
+      "sha256": "fe7a6df155a5fcf505f553d44aa8d2272875322bf90e2857f9cf0dd94c3a1949",
+      "bytes": 27750
+    },
+    {
+      "file": "qa/index.html",
+      "sha256": "3dc7f270dd6f4fabf1e0e35460791554189b2696e440b6276525a427cc6fc19c",
+      "bytes": 9546
+    },
+    {
+      "file": "story.js",
+      "sha256": "1612b246ff5e23371932c92a2a9cb576afde8441eecc80f29f98734c4bd8c5fa",
+      "bytes": 23980
+    },
+    {
+      "file": "styles.css",
+      "sha256": "3060bbdc7a42417d2bca4af3429c2f63e49ddc7840f621c495ebad49644999be",
+      "bytes": 65061
+    },
+    {
+      "file": "vendor/ScrollTrigger.min.js",
+      "sha256": "a3c80b65976721ec6ff3cf72cd4a9b30a8ef4c2f24d9fca821b693c674b246ed",
+      "bytes": 44155
+    },
+    {
+      "file": "vendor/gsap.min.js",
+      "sha256": "a54d1eac0991068ba0b1517906889e98f0f677f03612820a0d66957bbffb2be4",
+      "bytes": 72433
+    }
+  ],
+  "visual_comparison": [
+    {
+      "screenshot": "desktop-concepto.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.000546
+    },
+    {
+      "screenshot": "desktop-construccion-1.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-construccion-2.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-construccion-3.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-construccion-4.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-construccion.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.000458
+    },
+    {
+      "screenshot": "desktop-contacto.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.000522
+    },
+    {
+      "screenshot": "desktop-demostracion.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.000385
+    },
+    {
+      "screenshot": "desktop-hero-0.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-hero-10.5.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-hero-11.5.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-hero-13.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-hero-14.5.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-hero-20.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-hero-25.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-hero-7.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-hero-9.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-initial.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-metodos-1.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.004337
+    },
+    {
+      "screenshot": "desktop-metodos-2.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-metodos-3.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-metodos.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.00091
+    },
+    {
+      "screenshot": "desktop-operacion.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-portada.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-ventas-1.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.000962
+    },
+    {
+      "screenshot": "desktop-ventas-2.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-ventas-3.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-ventas-4.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "desktop-ventas.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.000488
+    },
+    {
+      "screenshot": "mobile-concepto.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.001687
+    },
+    {
+      "screenshot": "mobile-construccion-1.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-construccion-2.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-construccion-3.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-construccion-4.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-construccion.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-contacto.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-demostracion.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-hero-0.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-hero-10.5.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-hero-11.5.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-hero-13.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-hero-14.5.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-hero-20.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-hero-25.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-hero-7.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-hero-9.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-initial.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-metodos-1.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-metodos-2.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-metodos-3.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-metodos.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-operacion.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-portada.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-reduced-motion.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-ventas-1.png",
+      "identical": false,
+      "mean_rgb_difference_0_255": 0.001308
+    },
+    {
+      "screenshot": "mobile-ventas-2.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-ventas-3.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-ventas-4.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    },
+    {
+      "screenshot": "mobile-ventas.png",
+      "identical": true,
+      "mean_rgb_difference_0_255": 0.0
+    }
+  ]
+}
