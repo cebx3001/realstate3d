@@ -1,0 +1,134 @@
+{
+  "desktop": [
+    {
+      "scene": "portada",
+      "characters": 220,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "concepto",
+      "characters": 16,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "ventas",
+      "characters": 109,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "metodos",
+      "characters": 97,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "demostracion",
+      "characters": 22,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "construccion",
+      "characters": 110,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "operacion",
+      "characters": 28,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "contacto",
+      "characters": 36,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    }
+  ],
+  "mobile": [
+    {
+      "scene": "portada",
+      "characters": 220,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "concepto",
+      "characters": 16,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "ventas",
+      "characters": 109,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "metodos",
+      "characters": 97,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "demostracion",
+      "characters": 22,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "construccion",
+      "characters": 110,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "operacion",
+      "characters": 28,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    },
+    {
+      "scene": "contacto",
+      "characters": 36,
+      "samples": 13,
+      "fixed_layout": true,
+      "xy_zero": true,
+      "centered_rotation": true
+    }
+  ]
+}

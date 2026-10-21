@@ -1,54 +1,54 @@
 # Gemelos Digitales
 
-Landing estática independiente para `https://cebx3001.github.io/realstate3d/gemelos-digitales/`.
+Landing estática independiente: https://cebx3001.github.io/realstate3d/gemelos-digitales/
 
-## Edición y vista previa
+## Edición
 
-Desde este directorio:
-
-```sh
-node render.mjs
-node qa/verify.mjs
-```
-
-`index.html` está incluido y funciona sin compilación en GitHub Pages. `content.mjs` contiene todo el guion; `render.mjs` regenera el HTML semántico y copia el símbolo original del proyecto. `config.js` configura el contacto y el enlace del recorrido. El número comercial fue confirmado explícitamente para Gemelos Digitales el 20 de octubre de 2026.
-
-Para previsualizar desde la raíz del repositorio:
+`content.mjs` contiene el guion, `graphics.mjs` las ilustraciones SVG y los puntos operacionales, `render.mjs` genera el HTML semántico. `styles.css` conserva la base editorial y `cinematic.css` define la secuencia revisada y sus adaptaciones. `fonts.css` sirve Archivo Black, Space Grotesk y DM Sans localmente, con sus licencias OFL en `assets/`.
 
 ```sh
-python -m http.server 4173 --directory public
+node public/gemelos-digitales/render.mjs
+node public/gemelos-digitales/qa/verify.mjs
+python -m http.server 4174 --directory public
 ```
 
-Abrir `http://localhost:4173/gemelos-digitales/`.
+El HTML está incluido: GitHub Pages no necesita compilación. `config.js` configura WhatsApp y el enlace del recorrido. El contacto +593 99 273 0095 fue confirmado expresamente por el usuario.
 
-## Movimiento y accesibilidad
+## Secuencia y tipografía
 
-`story.js` crea ocho timelines independientes con GSAP 3.13.0 y ScrollTrigger. Los caracteres usan una semilla derivada del texto, orden de entrada reproducible y transformaciones 3D. Las imágenes, los textos y los elementos de interfaz tienen sus propias secuencias. Todo el movimiento narrativo depende directamente del scroll (`scrub: true`), sin reproducción autónoma ni scroll artificial.
+Ocho escenas con GSAP 3.13.0 y ScrollTrigger locales, `pin` y `scrub: true`. No hay reproducción autónoma de la narración. Cada escena contiene secuencias independientes de imágenes, letras e información.
 
-Cada escena tiene intervalos de lectura. Los accesos del encabezado y los ocho marcadores inferiores llevan a un punto legible de cada capítulo. El botón de pausa devuelve la página a su disposición estática y recuerda la preferencia durante la sesión. `prefers-reduced-motion`, pantallas de menos de 550 px de alto y teléfonos de menos de 620 px de alto usan la versión estática. Si GSAP o JavaScript no están disponibles, siguen apareciendo el guion completo y los enlaces.
+La portada utiliza 26 unidades de progreso: apertura 0–3; aparición del blueprint 3–6 y lectura hasta 9; materialización y transferencia de las 16 letras entre 9–14; aparición comercial desde 15; lectura completa desde 19 hasta 23; salida 23–26. Los valores representan desplazamiento, no segundos. El rótulo lateral no se anima como bloque: cada carácter corresponde al mismo índice del título horizontal y comparte su intervalo de salida/entrada. La inversión del scroll reconstruye la secuencia.
 
-Los titulares conservan un único texto semántico; las letras decorativas tienen `aria-hidden`. El foco de teclado revela los CTA dentro de las escenas. No se secuestra la rueda, el gesto táctil ni las teclas de navegación.
+Los caracteres conservan su caja tipográfica desde el inicio. Solo cambian rotación local X/Y, profundidad Z, opacidad y desenfoque moderado en escritorio. No cambian X/Y, escala, rotación Z, interletrado ni posición de los titulares. La perspectiva se aplica individualmente, con origen central. Las letras visuales llevan `aria-hidden`; cada titular conserva una única copia semántica.
 
-## Imágenes e independencia del tour
+El botón de pausa muestra todo el contenido y conserva la preferencia durante la sesión. Movimiento reducido, teléfonos de menos de 620 px de alto y ventanas de menos de 550 px de alto utilizan una versión estática legible. No se interceptan la rueda ni los gestos táctiles. Los CTA de teclado revelan su escena y los enlaces de capítulo saltan a intervalos de lectura.
 
-`assets/` incluye 11 imágenes principales y variantes WebP para escritorio y teléfono, aproximadamente 3,5 MB en conjunto. Solo la portada tiene prioridad alta; las demás imágenes usan carga diferida. Las cuatro fases de construcción utilizan como referencia la misma imagen del edificio terminado y el mismo recorte en cada formato. Son visualizaciones ilustrativas, como lo señala la página. La escena operacional representa una posible ampliación, no una integración existente.
+## Imágenes y gráficos
 
-`torres-del-norte-real.webp` procede de una captura real del visor exterior. Se ocultaron las superposiciones únicamente en el navegador de captura. No se editaron los archivos, modelos ni configuraciones de cámara del recorrido. El enlace `../` abre la experiencia existente en la misma pestaña. La landing no incluye iframes, modelos, scripts del tour ni precarga del recorrido. El manifiesto `assets/provenance.json` documenta la procedencia.
+La portada usa cuatro WebP: blueprint y render en horizontal y vertical. El blueprint es una única perspectiva arquitectónica general, sin planos complementarios. El render se materializó a partir de esa geometría para registrar el fundido.
 
-La fuente Manrope y las bibliotecas GSAP se sirven localmente. Sus avisos y licencias se conservan en `assets/Manrope-OFL.txt` y en los encabezados de `vendor/`.
+La construcción tiene cuatro estados horizontales y cuatro verticales. La serie vertical se creó desde una toma propia del edificio terminado; no son recortes de las imágenes horizontales. Cada orientación mantiene su cámara y entorno. Los estados se revelan con máscaras de scroll, en contextos de apilado aislados. La comprobación detecta qué imagen queda efectivamente por encima, además de su opacidad y texto.
 
-## Comprobación visual
+Operación utiliza composiciones independientes para escritorio y móvil. Sus cinco indicadores corresponden a equipos de cubierta, ambientes, seguridad, entrada y redes verticales. Las coordenadas normalizadas se adaptan al mismo `object-fit: cover` de la imagen, evitando que los marcadores se separen de la arquitectura al cambiar el viewport. Es una capacidad futura, señalada en el contenido.
 
-`qa/index.html` reúne capturas reales de escritorio y teléfono de las ocho escenas. `qa/report.json` registra las pruebas de renderizado, recursos, ausencia de solicitudes 3D, sincronización de estados y pausa/reanudación. `qa/interactions.json` incluye navegación al tour, regreso del navegador, reversibilidad de las letras y resultados de axe para WCAG 2 A/AA y 2.1 AA. La comprobación automatizada complementa la revisión visual, no representa una certificación de accesibilidad.
+Las fuentes y los recursos visuales son locales. Las imágenes posteriores se cargan al aproximarse a su escena. `assets/provenance.json` documenta su procedencia. No hay texto ni interfaz incrustados en las imágenes generadas.
 
-Se revisaron Chromium a 1440×900, 390×844, 375×667, 320×568 y 844×390, además de movimiento reducido y JavaScript desactivado. Las medidas móviles son emulación de viewport y entrada táctil; no se ha probado en dispositivos físicos ni Safari.
+## Torres del Norte
 
-Para repetir las capturas, con Python y Playwright disponibles:
+Se conserva la captura auténtica y el enlace `../` en la misma pestaña. La landing no incluye el visor, modelos, inventario ni scripts del tour. Ningún archivo del recorrido original ha sido modificado.
+
+## Validación
+
+`qa/index.html` reúne capturas reales de Chromium. `qa/report.json` registra recursos, fases de portada, sincronización de caracteres, apilado y reversibilidad de las cuatro etapas, pausa y reanudación, movimiento reducido y JavaScript desactivado. `qa/typography.json` comprueba 13 posiciones de scroll por escena en dos viewports. `qa/interactions.json` registra navegación, regreso del navegador y axe WCAG 2 A/AA y 2.1 AA.
 
 ```sh
-python qa/browser-check.py http://localhost:4173/gemelos-digitales/ /tmp/gemelos-qa
+python public/gemelos-digitales/qa/browser-check.py http://localhost:4174/gemelos-digitales/ /tmp/gemelos-qa
+python public/gemelos-digitales/qa/typography-check.py http://localhost:4174/gemelos-digitales/ /tmp/gemelos-type
 ```
+
+Viewports revisados: 1440×900, 390×844, 375×667, 320×568 y 844×390. Las pruebas móviles emulan viewport y entrada táctil en Chromium; no constituyen pruebas en Safari o dispositivos físicos ni una certificación de accesibilidad.
 
 ## Publicación
 
-El workflow existente `.github/workflows/pages.yml` publica `public/` al actualizar `main`. Los cambios de esta landing están contenidos únicamente en `public/gemelos-digitales/`. El tour raíz, sus visores, su inventario y el workflow permanecen intactos.
+La fuente principal es `public/gemelos-digitales/` y el workflow existente publica `public/`. El repositorio conserva además una fuente Pages legacy en `main:/docs`; su copia ya existente `docs/gemelos-digitales/` se sincroniza con la landing para que ambos mecanismos sirvan el mismo resultado. No se modifican el workflow, la configuración Pages ni los archivos del tour. Si Pages pasa exclusivamente a GitHub Actions, puede retirarse esa copia en una tarea posterior.

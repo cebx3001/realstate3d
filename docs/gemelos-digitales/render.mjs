@@ -1,6 +1,7 @@
 import { writeFileSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { content as c } from "./content.mjs";
+import { salesGraphics, operationsGraphics } from "./graphics.mjs";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const esc = (s) =>
@@ -8,7 +9,7 @@ const esc = (s) =>
 const title = (lines, tag = "h2", cls = "") =>
   `<${tag} class="display ${cls}" data-split>${lines.map((l) => `<span class="line">${esc(l)}</span>`).join("")}</${tag}>`;
 const image = (name, alt, cls = "", hero = false, portrait = false) =>
-  `<picture class="visual ${cls}">${!portrait ? `<source media="(max-width: 700px)" srcset="assets/${name.startsWith("build-stage-") ? name + "-960" : name + "-mobile"}.webp">` : ""}<img src="assets/${name}.webp" ${!portrait ? `srcset="assets/${name}-960.webp 960w, assets/${name}.webp 1672w" sizes="100vw"` : ""} alt="${esc(alt)}" width="${portrait ? 1024 : 1672}" height="${portrait ? 1280 : 941}" loading="${hero ? "eager" : "lazy"}" ${hero ? 'fetchpriority="high"' : ""} decoding="async"></picture>`;
+  `<picture class="visual ${cls}">${!portrait ? `<source media="(max-width: 700px)" srcset="assets/${name}-mobile.webp">` : ""}<img src="assets/${name}.webp" ${!portrait ? `srcset="assets/${name}-960.webp 960w, assets/${name}.webp 1672w" sizes="100vw"` : ""} alt="${esc(alt)}" width="${portrait ? 1024 : 1672}" height="${portrait ? 1280 : 941}" loading="${hero ? "eager" : "lazy"}" ${hero ? 'fetchpriority="high"' : ""} decoding="async"></picture>`;
 const heroLayers = ["blueprint", "real"].map((stage) =>
   `<picture class="hero-phase hero-phase-${stage}" aria-hidden="true"><source media="(max-width: 700px)" srcset="assets/hero-${stage}-mobile.webp"><img src="assets/hero-${stage}-desktop.webp" alt="" width="1440" height="810" loading="${stage === "blueprint" ? "eager" : "lazy"}" decoding="async"></picture>`
 ).join("");
@@ -52,11 +53,10 @@ const html = `<!doctype html>
   <meta property="og:image" content="https://cebx3001.github.io/realstate3d/gemelos-digitales/assets/hero-real-desktop.webp">
   <title>Gemelos Digitales — El espacio se convierte en experiencia</title>
   <link rel="icon" href="assets/symbol.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/manrope-latin.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/archivo-black-400.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cinematic.css">
   <script src="config.js" defer></script>
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
@@ -69,7 +69,7 @@ const html = `<!doctype html>
     <a class="brand" href="#portada" aria-label="Gemelos Digitales — inicio">${logo}</a>
     <a class="header-demo" href="#demostracion"><span>EXPLORAR DEMO</span><span class="circle-arrow" aria-hidden="true">↗</span></a>
   </header>
-  <div class="identity-rail" aria-hidden="true"><span class="identity-rail-text">GEMELOS DIGITALES</span></div>
+  <div class="identity-rail" aria-hidden="true"><span class="identity-rail-text">${[..."GEMELOS DIGITALES"].map(ch => ch === " " ? " " : `<span class="rail-char">${ch}</span>`).join("")}</span></div>
   <main id="experiencia">
   ${scene(
     "portada",
@@ -79,10 +79,10 @@ const html = `<!doctype html>
     <div class="hero-sequence" aria-hidden="true">${heroLayers}</div>
     <div class="scrim"></div>
     <div class="scene-content hero-content">
-      <h1 class="hero-wordmark" data-split><span class="line">GEMELOS</span><span class="line">DIGITALES</span></h1>
+      <h1 class="hero-wordmark" data-split><span class="line">GEMELOS DIGITALES</span></h1>
       ${eyebrow("01", "ESPACIOS QUE PUEDES EXPLORAR")}
       ${title(c.hero.title, "h2")}
-      <div class="hero-bottom"><p class="lead">${c.hero.subtitle}</p><p class="body-copy">${c.hero.body}</p></div>
+      <div class="hero-bottom"><p class="lead" data-split>${c.hero.subtitle}</p><p class="body-copy" data-split>${c.hero.body}</p></div>
       <a class="scroll-invitation" href="#concepto"><span class="scroll-line" aria-hidden="true"></span>DESLIZA PARA DESCUBRIR <span aria-hidden="true">↓</span></a>
     </div>
     <div class="hero-coordinate" aria-hidden="true">01 — 08<br>UNA NUEVA PERSPECTIVA</div>
@@ -116,13 +116,7 @@ const html = `<!doctype html>
       ${title(c.sales.title)}
       <div class="copy-track sales-track">${steps(c.sales.steps)}</div>
     </div>
-    <div class="sales-interface" aria-hidden="true">
-      <div class="interface-panel ui-card ui-select"><div class="panel-top"><span>EXPLORA LOS ESPACIOS</span><span>↗</span></div><div class="space-options"><span class="selected">Sala</span><span>Cocina</span><span>Dormitorio</span></div><div class="panel-bottom"><i class="dot"></i> TU PRÓXIMO HOGAR, DESDE AQUÍ</div></div>
-      <div class="interface-panel ui-card ui-location"><div class="panel-top"><span>SIN DISTANCIAS</span><span>◎</span></div><div class="location-path"><span>ECUADOR</span><i></i><span>EL MUNDO</span></div><p>Una propiedad. Cualquier lugar.</p></div>
-      <div class="interface-panel ui-card ui-presentation"><div class="panel-top"><span>UNA EXPERIENCIA COMPARTIDA</span><span>↗</span></div><div class="presentation-icon">▱ <span>▯</span></div><p>Tu proyecto, en cada presentación.</p></div>
-      <div class="interface-panel ui-card ui-plan"><div class="panel-top"><span>PLANTA / DEPARTAMENTO</span><span>＋</span></div><svg class="floorplan" viewBox="0 0 300 150" fill="none"><path d="M20 15H280V135H20Z M180 15V65H280 M180 90V135 M100 15V90H20 M100 115V135 M20 90H70 M125 90H180 M230 65V135" stroke="currentColor" stroke-width="2"/><path d="M40 28H80V60H40Z M194 25H225V48H194Z M238 25H268V48H238Z M125 35H155V70H125Z" stroke="currentColor"/><circle cx="135" cy="105" r="8" fill="#B8ADC8"/><circle cx="135" cy="105" r="15" stroke="#B8ADC8"/></svg><div class="panel-bottom"><span>Sala principal</span><span>CONTACTO COMERCIAL ↗</span></div></div>
-      <span class="concept-label">INTERFAZ ILUSTRATIVA</span>
-    </div>
+    ${salesGraphics}
   `,
   )}
   ${scene(
@@ -169,7 +163,7 @@ const html = `<!doctype html>
     ${image("operations", "Representación conceptual de un edificio en corte con sus espacios e instalaciones.", "operations-visual")}
     <div class="scrim"></div>
     <div class="scene-content split-content">${eyebrow("07", "GEMELOS DIGITALES OPERACIONALES")}${title(c.operations.title)}<div class="copy-track operations-track">${steps(c.operations.steps)}</div><p class="future-note">CAPACIDAD DE AMPLIACIÓN · INTEGRACIÓN A MEDIDA</p></div>
-    <div class="operations-interface" aria-hidden="true"><div class="op-marker marker-1"><i></i><span>CLIMATIZACIÓN</span></div><div class="op-marker marker-2"><i></i><span>CÁMARAS</span></div><div class="op-marker marker-3"><i></i><span>ACCESOS</span></div><div class="interface-panel operations-panel"><div class="panel-top"><span>VISIÓN DEL EDIFICIO</span><span>◎</span></div><div class="system-row"><span>Temperatura</span><span>22 °C</span></div><div class="system-row"><span>Accesos</span><span>Planta baja</span></div><div class="system-row"><span>Instalaciones</span><span>Por nivel</span></div><div class="panel-bottom">DATOS ILUSTRATIVOS · POSIBLE INTEGRACIÓN</div></div></div>
+    ${operationsGraphics}
   `,
   )}
   ${scene(

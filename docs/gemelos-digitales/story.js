@@ -56,67 +56,6 @@
     });
 
 
-  function mountEditorialDiagrams() {
-    // Seamless editorial illustrations, never UI cards or PowerPoint-like boxes.
-    const sales = document.querySelector(".sales-interface");
-    if (sales) {
-      sales.classList.add("editorial-graphics");
-      sales.innerHTML = `
-        <div class="sales-graphic sales-graphic-0" aria-hidden="true">
-          <span class="graphic-index">01 / PROYECTO EXPLORABLE</span>
-          <svg viewBox="0 0 640 430" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <g class="drawing-guides" stroke-width=".8"><path d="M30 54H613M30 162H613M30 270H613M30 378H613M108 22V406M254 22V406M400 22V406M546 22V406"/></g>
-            <g class="drawing-primary" stroke-width="2"><path d="M95 237L314 88L548 201L330 355Z"/><path d="M95 237V305L330 411V355M548 201V292L330 411M314 88V169L95 305M314 169L548 292"/><path d="M205 280V361M205 280L423 155M423 155V330M205 361L423 330"/></g>
-            <g class="drawing-detail" stroke-width="1"><path d="M122 238L313 112L524 209M122 281L313 160L524 263M158 258V335M260 188V384M382 147V365M483 171V340" /><path d="M314 88V41M548 201L595 186" stroke-dasharray="5 9"/></g>
-            <g class="drawing-dots" fill="currentColor" stroke="none"><circle cx="95" cy="237" r="3"/><circle cx="314" cy="88" r="3"/><circle cx="548" cy="201" r="3"/><circle cx="330" cy="355" r="3"/></g>
-          </svg><span class="graphic-note">GEOMETRÍA / NAVEGACIÓN / PREVENTA</span>
-        </div>
-        <div class="sales-graphic sales-graphic-1" aria-hidden="true">
-          <span class="graphic-index">02 / UN PROYECTO, CUALQUIER LUGAR</span>
-          <svg viewBox="0 0 640 430" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <g class="globe-graticule" stroke-width="1"><circle cx="320" cy="210" r="153"/><ellipse cx="320" cy="210" rx="80" ry="153"/><ellipse cx="320" cy="210" rx="132" ry="153"/><ellipse cx="320" cy="210" rx="153" ry="64"/><ellipse cx="320" cy="210" rx="153" ry="119"/><path d="M167 210H473M320 57V363"/></g>
-            <g class="globe-routes" stroke-width="2.5"><path d="M272 275Q233 105 352 89"/><path d="M272 275Q399 117 454 236"/><path d="M272 275Q393 360 404 323"/></g>
-            <g class="globe-points" fill="#fff" stroke="none"><circle cx="272" cy="275" r="7"/><circle cx="352" cy="89" r="4"/><circle cx="454" cy="236" r="4"/><circle cx="404" cy="323" r="4"/></g>
-            <g class="globe-rings"><circle cx="272" cy="275" r="17"/><circle cx="272" cy="275" r="29"/></g>
-            <path d="M272 275L182 335H96M454 236L537 259H610" stroke-width="1.3"/>
-            <g class="globe-labels" stroke="none" fill="currentColor" font-family="Space Grotesk,Arial,sans-serif" font-size="17" font-weight="600"><text x="94" y="358">ECUADOR</text><text x="489" y="279">EL MUNDO</text></g>
-          </svg><span class="graphic-note">EXPERIENCIA WEB / ACCESO REMOTO</span>
-        </div>
-        <div class="sales-graphic sales-graphic-2" aria-hidden="true">
-          <span class="graphic-index">03 / PRESENTACIÓN INMERSIVA</span>
-          <svg viewBox="0 0 640 430" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <g class="drawing-primary" stroke-width="1.7"><path d="M104 304L318 182L537 261L324 389Z"/><path d="M104 304V213L318 90V182M537 261V168L318 90M104 213L324 301L537 168M324 301V389"/><path d="M200 253V155L425 210V331M425 210L318 147M240 235L240 115M382 283V155"/></g>
-            <g class="drawing-guides" stroke-width="1"><path d="M84 194L318 56L562 152M318 56V40M318 90V142M324 389V413M537 168L574 152"/><circle cx="318" cy="90" r="24"/><circle cx="324" cy="389" r="24"/></g><g class="drawing-dots" fill="currentColor" stroke="none"><circle cx="318" cy="90" r="4"/><circle cx="324" cy="389" r="4"/></g>
-          </svg><span class="graphic-note">FERIAS / REUNIONES / PRESENTACIONES</span>
-        </div>
-        <div class="sales-graphic sales-graphic-3" aria-hidden="true">
-          <span class="graphic-index">04 / PLANOS ESPACIALES INTERACTIVOS</span>
-          <svg viewBox="0 0 640 430" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <g class="drawing-primary" stroke-width="2"><path d="M85 68H555V356H85V68Z"/><path d="M85 188H277V68M277 116H430V68M430 116V244H555M277 188V356M430 244V356M85 289H277M330 188H430"/></g>
-            <g class="drawing-guides" stroke-width=".9"><path d="M85 51H555M85 43V59M555 43V59M65 68V356M57 68H74M57 356H74"/><path d="M112 92H153V129H112ZM175 92H244V143H175ZM312 119H395V167H312ZM458 273H525V326H458Z"/></g>
-            <path class="floor-route" d="M176 322Q242 320 309 282T487 281" stroke="#fff" stroke-width="2.7" stroke-dasharray="4 10"/><circle cx="176" cy="322" r="9" fill="#fff" stroke="none"/><circle cx="487" cy="281" r="16" stroke="#fff" stroke-width="2"/><circle cx="487" cy="281" r="5" fill="#fff" stroke="none"/>
-          </svg><span class="graphic-note">RECORRIDOS / AMBIENTES / INFORMACIÓN</span>
-        </div>`;
-    }
-    const ops = document.querySelector(".operations-interface");
-    if (ops) {
-      ops.classList.add("operations-editorial");
-      ops.innerHTML = `
-        <svg class="operations-network" viewBox="0 0 1000 720" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g class="network-grid" stroke="#ecedf2" stroke-width=".9"><path d="M192 24V698M315 24V698M438 24V698M561 24V698M684 24V698M807 24V698M96 140H916M96 260H916M96 380H916M96 500H916M96 620H916"/></g>
-          <g class="network-routes" stroke="#fff" stroke-width="2"><path d="M530 218L680 155H885"/><path d="M622 346L787 320H946"/><path d="M499 487L699 555H905"/></g>
-          <g stroke="#fff" stroke-width="1.5"><circle cx="530" cy="218" r="9"/><circle cx="622" cy="346" r="9"/><circle cx="499" cy="487" r="9"/></g>
-          <g fill="#fff" stroke="none"><circle cx="530" cy="218" r="3.3"/><circle cx="622" cy="346" r="3.3"/><circle cx="499" cy="487" r="3.3"/></g>
-          <g class="network-rings" stroke="#fff"><circle cx="530" cy="218" r="23"/><circle cx="622" cy="346" r="23"/><circle cx="499" cy="487" r="23"/></g>
-        </svg>
-        <span class="ops-label ops-label-1"><small>01 / SISTEMA</small>CLIMATIZACIÓN</span>
-        <span class="ops-label ops-label-2"><small>02 / REGISTRO</small>CÁMARAS</span>
-        <span class="ops-label ops-label-3"><small>03 / CONTROL</small>ACCESOS</span>
-        <div class="ops-readout"><strong>EDIFICIO + INFORMACIÓN</strong><span>SENSORES / GESTIÓN ESPACIAL / INTEGRACIÓN A MEDIDA</span></div>`;
-    }
-  }
-  mountEditorialDiagrams();
-
   function setChapter(index) {
     if (index < 0 || index >= scenes.length) return;
     currentChapter = index;
@@ -191,16 +130,14 @@
     element.replaceChildren(semantic, visual);
     const rand = randomFor(text);
     // Cada carácter conserva su casilla tipográfica y su línea base.
-    // La variación se aplica únicamente a profundidad, rotación, escala y tiempo.
+    // Solo profundidad, rotación local y orden; nunca cambia la composición.
     const transforms = chars.map(() => {
-      const mode = rand();
       const direction = rand() < 0.5 ? -1 : 1;
       return {
         z: -(55 + rand() * 105),
         // Giro horizontal en cada carácter; jamás separar las letras del renglón.
         rotationX: direction * (72 + rand() * 43),
         rotationY: rand() < 0.18 ? direction * (8 + rand() * 14) : 0,
-        scale: mode >= 0.68 ? 0.91 + rand() * 0.08 : 1,
       };
     });
     const order = chars.map((_, i) => i);
@@ -227,7 +164,7 @@
     const from = { opacity: soft ? 0.85 : 0.06, transformPerspective: 900 };
     for (const key of ["z", "rotationX", "rotationY"])
       from[key] = (i) => transforms[i][key] * strength;
-    from.scale = (i) => (soft ? 0.98 : transforms[i].scale);
+    gsap.set(chars, {x: 0, y: 0, scale: 1, rotationZ: 0, transformOrigin: "50% 50%"});
     // Desenfoque solo en pantallas grandes; ningún filtro animado en teléfonos.
     if (!compact.matches) from.filter = `blur(${soft ? 0 : 3}px)`;
     tl.fromTo(
@@ -259,7 +196,7 @@
         rotationY: (i) => -transforms[i].rotationY * 0.55,
         transformPerspective: 900,
         opacity: 0,
-        scale: 0.94,
+        scale: 1,
         duration: 1,
         ease: "power1.in",
         stagger: (i) => (ranks[i] / Math.max(1, chars.length - 1)) * 0.4,
@@ -268,8 +205,8 @@
   function showStep(timeline, element, at, hold, { last = false } = {}) {
     timeline.fromTo(
       element,
-      { opacity: 0.08, rotationX: -58, transformPerspective: 900 },
-      { opacity: 1, rotationX: 0, duration: 0.62, ease: "power2.out" },
+      { opacity: 0 },
+      { opacity: 1, duration: 0.62, ease: "none" },
       at,
     );
     const heading = element.querySelector("[data-split]");
@@ -277,7 +214,7 @@
     if (!last)
       timeline.to(
         element,
-        { opacity: 0, rotationX: 42, transformPerspective: 900, duration: 0.52, ease: "power1.in" },
+        { opacity: 0, duration: 0.52, ease: "none" },
         at + hold - 0.45,
       );
   }
@@ -326,67 +263,63 @@
       scene.querySelectorAll("[data-split]").forEach(splitHeading),
     );
     context = gsap.context(() => {
-      let s = scenes[0],
-        tl = sceneTimeline(s, 18, 4.8, 0.55);
+      let s = scenes[0], tl = sceneTimeline(s, 26, 7, 0.75);
       const intro = s.querySelector(".hero-wordmark");
+      const horizontal = splitHeading(intro).chars;
       const rail = document.querySelector(".identity-rail");
+      const vertical = [...rail.querySelectorAll(".rail-char")];
       const blueprint = s.querySelector(".hero-phase-blueprint");
       const realized = s.querySelector(".hero-phase-real");
-      // El estado inicial es solo el título horizontal y el logotipo.
-      // El scroll controla giro tipográfico, aparición lateral y materialización.
-      gsap.set(rail, { autoAlpha: 0, rotationX: -78, transformPerspective: 900 });
-      gsap.set([blueprint, realized], { opacity: 0 });
-      gsap.set(intro, { opacity: 1 });
-      gsap.set(s.querySelector(".hero-bottom"), { autoAlpha: 0 });
-      gsap.set(s.querySelector(".hero-coordinate"), { autoAlpha: 0 });
-      gsap.set(s.querySelector(".hero-content > .eyebrow"), { autoAlpha: 0 });
-      gsap.set(s.querySelector(".hero-content > .display"), { autoAlpha: 0 });
-      tl.add(titleOut(intro), 0.65);
-      tl.fromTo(
-        rail,
-        { autoAlpha: 0, rotationX: -78, z: -65 },
-        { autoAlpha: 1, rotationX: 0, z: 0, duration: 2, ease: "power2.out" },
-        1.25,
-      );
-      tl.fromTo(
-        blueprint,
-        { opacity: 0, scale: 1.035 },
-        { opacity: 1, scale: 1, duration: 2.2, ease: "none" },
-        1.4,
-      );
-      // Only four source files exist: technical + final, each in two orientations.
-      // Their perfectly registered layers crossfade into a hybrid as the user scrolls.
-      tl.fromTo(
-        realized,
-        { opacity: 0 },
-        { opacity: 1, duration: 5.1, ease: "none" },
-        5.25,
-      );
       const heroTitle = s.querySelector(".hero-content > .display");
-      tl.to(s.querySelector(".hero-content > .eyebrow"), { autoAlpha: 1, duration: 0.7 }, 11.3);
-      tl.to(heroTitle, { autoAlpha: 1, duration: 0.05 }, 11.45);
-      tl.add(titleIn(heroTitle), 11.5);
-      tl.fromTo(
-        s.querySelector(".hero-bottom"),
-        { autoAlpha: 0, rotationX: -45, transformPerspective: 900 },
-        { autoAlpha: 1, rotationX: 0, duration: 1.1, ease: "power2.out" },
-        13.1,
-      );
-      tl.to(s.querySelector(".hero-coordinate"), { autoAlpha: 1, duration: 0.6 }, 13.3);
-      tl.to(
-        s.querySelector(".scroll-invitation"),
-        { opacity: 0, duration: 0.55, ease: "none" },
-        0.5,
-      );
-      tl.add(titleOut(heroTitle), 16.35);
-      tl.to(s.querySelector(".hero-bottom"), { opacity: 0, duration: 0.8 }, 16.55);
+      const commercial = [...s.querySelectorAll(".hero-bottom [data-split]")];
+      // The rail container never moves or fades; each glyph owns its visibility.
+      gsap.set(rail, {opacity: 1, visibility: "visible"});
+      gsap.set(vertical, {opacity: 0, rotationX: -90, z: -90,
+        transformPerspective: 900, transformOrigin: "50% 50%"});
+      gsap.set(horizontal, {opacity: 1, rotationX: 0, rotationY: 0, z: 0,
+        scale: 1, x: 0, y: 0, transformPerspective: 900});
+      gsap.set([blueprint, realized], {opacity: 0});
+      gsap.set(intro, {opacity: 1});
+      gsap.set(s.querySelector(".hero-bottom"), {autoAlpha: 0});
+      gsap.set(s.querySelector(".hero-coordinate"), {autoAlpha: 0});
+      gsap.set(s.querySelector(".hero-content > .eyebrow"), {autoAlpha: 0});
+      gsap.set(heroTitle, {autoAlpha: 0});
+      // 0–3: clean blue / 3–7: technical drawing with intact horizontal title.
+      const architecture = gsap.timeline();
+      architecture.to(blueprint, {opacity: 1, duration: 3, ease: "none"}, 3);
+      // 9–14: registered materialization, exactly concurrent with paired glyphs.
+      architecture.to(realized, {opacity: 1, duration: 5, ease: "none"}, 9);
+      architecture.to(blueprint, {opacity: 0, duration: 5, ease: "none"}, 9);
+      tl.add(architecture, 0);
+      const lettering = gsap.timeline();
+      horizontal.forEach((char, i) => {
+        const at = 9 + i * (3.9 / (horizontal.length - 1));
+        lettering.to(char, {rotationX: 90, opacity: 0, z: -90,
+          duration: 1.1, ease: "none"}, at);
+        lettering.to(vertical[i], {rotationX: 0, opacity: 1, z: 0,
+          duration: 1.1, ease: "none"}, at);
+      });
+      tl.add(lettering, 0);
+      tl.to(s.querySelector(".scroll-invitation"), {autoAlpha: 0, duration: 1}, 3);
+      tl.to(s.querySelector(".scrim"), {opacity: 1, duration: 1.2}, 14);
+      // Copy only follows the completed materialization, with a reading plateau.
+      tl.set(heroTitle, {autoAlpha: 1}, 15);
+      tl.add(titleIn(heroTitle), 15);
+      tl.to(s.querySelector(".hero-content > .eyebrow"), {autoAlpha: 1, duration: .8}, 15);
+      tl.set(s.querySelector(".hero-bottom"), {autoAlpha: 1}, 16.7);
+      commercial.forEach((el, i) => tl.add(titleIn(el), 16.7 + i * .5));
+      tl.to(s.querySelector(".hero-coordinate"), {autoAlpha: 1, duration: .7}, 17.8);
+      tl.add(titleOut(heroTitle), 23);
+      commercial.forEach((el, i) => tl.add(titleOut(el), 23.2 + i * .15));
+      tl.to(s.querySelectorAll(".hero-coordinate,.hero-content>.eyebrow"),
+        {autoAlpha: 0, duration: 1}, 23.6);
 
       s = scenes[1];
       tl = sceneTimeline(s, 15, 4, 0.28);
       tl.add(titleIn(s.querySelector(".display")), 0);
       tl.fromTo(
         s.querySelector(".concept-subtitle"),
-        { opacity: 0.08, rotationX: -56, transformPerspective: 900 },
+        { opacity: 0 },
         { opacity: 1, rotationX: 0, duration: 1.15, ease: "power2.out" },
         1.1,
       );
@@ -432,7 +365,7 @@
       );
 
       s = scenes[3];
-      tl = sceneTimeline(s, 19, 5.3, 0.22);
+      tl = sceneTimeline(s, 19, 5.3, 0.28);
       tl.add(titleIn(s.querySelector(".display")), 0);
       s.querySelectorAll(".method-panel").forEach((panel, i) => {
         const at = 1.8 + i * 5.6;
@@ -448,7 +381,7 @@
           },
           at,
         );
-        tl.add(titleIn(panel.querySelector("h3")), at + 0.5);
+        tl.add(titleIn(panel.querySelector("h3")), at + 1.25);
         const media = gsap
           .timeline()
           .fromTo(
@@ -470,7 +403,7 @@
       tl.add(titleIn(s.querySelector(".display")), 0);
       tl.fromTo(
         s.querySelector(".demo-details"),
-        { opacity: 0.08, rotationX: -45, transformPerspective: 900 },
+        { opacity: 0 },
         { opacity: 1, rotationX: 0, duration: 1.1 },
         1.8,
       );
@@ -485,6 +418,7 @@
       s = scenes[5];
       tl = sceneTimeline(s, 25, 6.5, 0.17);
       tl.add(titleIn(s.querySelector(".display")), 0);
+      if (compact.matches) tl.to(s.querySelector(".construction-intro"), {opacity: 0, duration: .6}, 5.4);
       const images = s.querySelectorAll(".build-image");
       gsap.set(images, { opacity: 0 });
       gsap.set(images[0], { opacity: 1 });
@@ -527,7 +461,7 @@
       );
       tl.fromTo(
         s.querySelector(".construction-outro"),
-        { opacity: 0.08, rotationX: -45, transformPerspective: 900 },
+        { opacity: 0 },
         { opacity: 1, rotationX: 0, duration: 0.8 },
         21.5,
       );
@@ -538,38 +472,17 @@
       s.querySelectorAll(".copy-step").forEach((el, i) =>
         showStep(tl, el, 2 + i * 4.3, 4.3, { last: i === 2 }),
       );
-      tl.fromTo(
-        s.querySelector(".operations-network"),
-        { autoAlpha: 0, scale: 0.98 },
-        { autoAlpha: 1, scale: 1, duration: 1.8, ease: "power1.out" },
-        5.5,
-      );
-      tl.fromTo(
-        s.querySelectorAll(".ops-label"),
-        { autoAlpha: 0, rotationX: -55, transformPerspective: 800 },
-        { autoAlpha: 1, rotationX: 0, duration: 1.2, stagger: 0.7 },
-        6,
-      );
-      tl.fromTo(
-        s.querySelector(".ops-readout"),
-        { autoAlpha: 0 },
-        { autoAlpha: 1, duration: 1.2 },
-        7.7,
-      );
-      imageMotion(
-        tl,
-        s.querySelector(".operations-visual img"),
-        16,
-        { scale: 1.08 },
-        { scale: 1 },
-      );
+      if (compact.matches) tl.add(titleOut(s.querySelector(".display")), 4.1);
+      // Markers live in the same cover-coordinate plane as the architectural image.
+      tl.fromTo(s.querySelectorAll(".spatial-marker"),
+        {autoAlpha: 0}, {autoAlpha: 1, duration: 1.1, stagger: .65}, 5.5);
 
       s = scenes[7];
       tl = sceneTimeline(s, 9, 1.8, 0.5);
       tl.add(titleIn(s.querySelector(".display")), 0);
       tl.fromTo(
         s.querySelector(".closing-copy"),
-        { opacity: 0.08, rotationX: -45, transformPerspective: 900 },
+        { opacity: 0 },
         { opacity: 1, rotationX: 0, duration: 1 },
         1.5,
       );
@@ -581,7 +494,7 @@
       );
       tl.fromTo(
         s.querySelector(".price-note"),
-        { opacity: 0.08, rotationX: -40, transformPerspective: 900 },
+        { opacity: 0 },
         { opacity: 1, rotationX: 0, duration: 1 },
         2.8,
       );
@@ -685,6 +598,12 @@
   reduced.addEventListener("change", () => configureMotion(true));
   compact.addEventListener("change", () => configureMotion(true));
   shortViewport.addEventListener("change", () => configureMotion(true));
+  const mediaObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.querySelectorAll("img").forEach(img => { img.loading = "eager"; });
+    mediaObserver.unobserve(entry.target);
+  }), {rootMargin: "150% 0px"});
+  scenes.forEach(scene => mediaObserver.observe(scene));
   sizeIdentityRail();
   configureMotion();
   document.fonts.ready.then(() => {
@@ -703,6 +622,22 @@
   addEventListener("pageshow", (event) => {
     if (event.persisted && context) ScrollTrigger.refresh();
   });
+  function positionSpatialMarkers() {
+    const picture = document.querySelector(".operations-visual");
+    const img = picture.querySelector("img");
+    if (!img.naturalWidth) return;
+    const width = picture.clientWidth, height = picture.clientHeight;
+    const scale = Math.max(width / img.naturalWidth, height / img.naturalHeight);
+    const w = img.naturalWidth * scale, h = img.naturalHeight * scale;
+    document.querySelectorAll(".spatial-marker").forEach(marker => {
+      const [x, y] = marker.dataset[compact.matches ? "mobile" : "desktop"].split(",").map(Number);
+      marker.style.left = `${(width - w) / 2 + x * w}px`;
+      marker.style.top = `${(height - h) / 2 + y * h}px`;
+    });
+  }
+  document.querySelector(".operations-visual img").addEventListener("load", positionSpatialMarkers);
+  addEventListener("resize", positionSpatialMarkers, {passive: true});
+  positionSpatialMarkers();
   window.GemelosStory = Object.freeze({
     navigate,
     get animated() {

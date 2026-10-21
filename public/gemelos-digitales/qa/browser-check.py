@@ -30,15 +30,33 @@ with sync_playwright() as p:
         chapters=page.evaluate('GemelosStory.chapters')
         entry={'errors':errors,'bad_responses':bad,'chapters':len(chapters),'initial_3d_requests':[u for u in requests if any(x in u for x in ['/viewers/','.sog','v1-streamed','/inventory/'])],'screens':[]}
         for chapter in chapters:
-            ratio={'portada':.36,'concepto':.3,'ventas':.27,'metodos':.24,'demostracion':.42,'construccion':.74,'operacion':.76,'contacto':.58}[chapter['id']]
+            ratio={'portada':.78,'concepto':.3,'ventas':.24,'metodos':.28,'demostracion':.42,'construccion':.74,'operacion':.76,'contacto':.58}[chapter['id']]
             page.evaluate('(y)=>window.scrollTo(0,y)',chapter['start']+(chapter['end']-chapter['start'])*ratio)
             page.wait_for_timeout(180)
             page.locator(f"#{chapter['id']} img").evaluate_all('(imgs)=>imgs.forEach(img=>img.loading="eager")')
             page.wait_for_function('(id)=>[...document.querySelectorAll(`#${id} img`)].every(i=>i.complete&&i.naturalWidth>0)',arg=chapter['id'])
             page.screenshot(path=str(out/f"{label}-{chapter['id']}.png"))
             entry['screens'].append({'scene':chapter['id'],'horizontal_overflow':page.evaluate('document.documentElement.scrollWidth>innerWidth'),'display':page.locator(f"#{chapter['id']} .display").bounding_box()})
+        hero=next(x for x in chapters if x['id']=='portada')
+        entry['hero_phases']=[]
+        for t in [0,7,9,10.5,11.5,13,14.5,20,25,11.5,0]:
+            page.evaluate('(y)=>scrollTo(0,y)',hero['start']+(hero['end']-hero['start'])*t/26)
+            page.wait_for_timeout(90)
+            phase=page.evaluate("""()=>({horizontal:[...document.querySelectorAll('.hero-wordmark .char')].map(e=>+getComputedStyle(e).opacity),vertical:[...document.querySelectorAll('.rail-char')].map(e=>+getComputedStyle(e).opacity),blueprint:+getComputedStyle(document.querySelector('.hero-phase-blueprint')).opacity,real:+getComputedStyle(document.querySelector('.hero-phase-real')).opacity,copy:+getComputedStyle(document.querySelector('.hero-content>.display')).opacity})""")
+            assert len(phase['horizontal'])==len(phase['vertical'])==16
+            assert all(abs(a+b-1)<.002 for a,b in zip(phase['horizontal'],phase['vertical'])), 'Desincronización entre caracteres'
+            if t<=9: assert min(phase['horizontal'])>.999 and max(phase['vertical'])<.001
+            if t<15: assert phase['copy']==0, 'Texto comercial antes de completar la materialización'
+            if t==14.5: assert phase['blueprint']==0 and phase['real']==1 and min(phase['vertical'])==1
+            entry['hero_phases'].append({'time':t,**phase})
+            page.screenshot(path=str(out/f'{label}-hero-{t:g}.png'))
+        sales=next(x for x in chapters if x['id']=='ventas')
+        for i,t in enumerate([4.5,9,13.5,18]):
+            page.evaluate('(y)=>scrollTo(0,y)',sales['start']+(sales['end']-sales['start'])*t/21)
+            page.wait_for_timeout(90)
+            page.screenshot(path=str(out/f'{label}-ventas-{i+1}.png'))
         methods=next(x for x in chapters if x['id']=='metodos')
-        for i,t in enumerate([4,10,16]):
+        for i,t in enumerate([5,10.6,16]):
             page.evaluate('(y)=>scrollTo(0,y)',methods['start']+(methods['end']-methods['start'])*t/19)
             page.wait_for_timeout(90)
             page.screenshot(path=str(out/f'{label}-metodos-{i+1}.png'))
@@ -48,6 +66,9 @@ with sync_playwright() as p:
         for index,t in enumerate([4.4,9.1,13.8,18.5,13.8,9.1,4.4]):
             page.evaluate('(y)=>scrollTo(0,y)',chapter['start']+(chapter['end']-chapter['start'])*t/25)
             page.wait_for_timeout(90)
+            expected=[0,1,2,3,2,1,0][index]
+            painted=page.evaluate("""()=>document.elementsFromPoint(innerWidth*.5,innerHeight*.5).find(e=>e.matches('.build-image img')&&+getComputedStyle(e.parentElement).opacity>.99)?.parentElement.className""")
+            assert painted and f'build-{expected}' in painted, f'Estado visual tapado: {label}/{expected}/{painted}'
             if index<4: page.screenshot(path=str(out/f'{label}-construccion-{index+1}.png'))
             entry['construction'].append(page.evaluate('''()=>({images:[...document.querySelectorAll('.build-image')].map(e=>({opacity:getComputedStyle(e).opacity,clip:getComputedStyle(e).clipPath})),text:[...document.querySelectorAll('.build-copy .copy-step')].map(e=>+getComputedStyle(e).opacity)})'''))
         # Fixed-scroll transforms must remain exactly stable.
@@ -83,5 +104,5 @@ for label,result in report['viewports'].items():
     assert all(not s['horizontal_overflow'] for s in result['screens']), 'Desbordamiento horizontal'
     assert result['scroll_stable'] and result['pause_returns_to_static'] and result['resume_works'], 'Movimiento inconsistente'
 assert not report['reduced_motion']['animated']
-assert report['no_javascript']['headings']==8
+assert report['no_javascript']['headings']==9
 print(json.dumps({'status':'passed','url':base,'screenshots':str(out),'viewports':list(report['viewports'])},ensure_ascii=False))

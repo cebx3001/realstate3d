@@ -25,11 +25,6 @@
     "reference": null
   },
   {
-    "asset": "operations",
-    "source": "Imagen generada para esta landing; visualización arquitectónica ilustrativa.",
-    "reference": null
-  },
-  {
     "asset": "build-stage-01",
     "source": "Imagen generada para esta landing; visualización arquitectónica ilustrativa.",
     "reference": "build-stage-04"
@@ -53,5 +48,59 @@
     "asset": "torres-del-norte-real",
     "source": "Captura del visor original de Torres del Norte, sin modificar sus archivos ni cámara.",
     "reference": null
+  },
+  {
+    "asset": "hero-blueprint-desktop",
+    "source": "Dibujo arquitectónico generado. Una sola perspectiva general; sin planos complementarios. Estilo guiado por la referencia aportada por el usuario.",
+    "reference": "hero-real-desktop (arquitectura inicial)",
+    "orientation": "desktop"
+  },
+  {
+    "asset": "hero-real-desktop",
+    "source": "Materialización fotorrealista generada a partir del blueprint para conservar su cámara y geometría.",
+    "reference": "hero-blueprint-desktop",
+    "orientation": "desktop"
+  },
+  {
+    "asset": "hero-blueprint-mobile",
+    "source": "Dibujo arquitectónico generado. Una sola perspectiva general; sin planos complementarios. Estilo guiado por la referencia aportada por el usuario.",
+    "reference": "hero-real-mobile (arquitectura inicial)",
+    "orientation": "mobile"
+  },
+  {
+    "asset": "hero-real-mobile",
+    "source": "Materialización fotorrealista generada a partir del blueprint para conservar su cámara y geometría.",
+    "reference": "hero-blueprint-mobile",
+    "orientation": "mobile"
+  },
+  {
+    "asset": "build-stage-01-mobile",
+    "source": "Composición vertical propia 941 × 1672; no procede de un recorte horizontal. Etapas derivadas de la misma toma terminada.",
+    "reference": "build-stage-04-mobile"
+  },
+  {
+    "asset": "build-stage-02-mobile",
+    "source": "Composición vertical propia 941 × 1672; no procede de un recorte horizontal. Etapas derivadas de la misma toma terminada.",
+    "reference": "build-stage-04-mobile"
+  },
+  {
+    "asset": "build-stage-03-mobile",
+    "source": "Composición vertical propia 941 × 1672; no procede de un recorte horizontal. Etapas derivadas de la misma toma terminada.",
+    "reference": "build-stage-04-mobile"
+  },
+  {
+    "asset": "build-stage-04-mobile",
+    "source": "Composición vertical propia 941 × 1672; no procede de un recorte horizontal. Etapas derivadas de la misma toma terminada.",
+    "reference": "build-stage-04 (referencia de arquitectura, cámara vertical independiente)"
+  },
+  {
+    "asset": "operations",
+    "source": "Corte arquitectónico generado con equipos, circulaciones y redes visibles. Composición horizontal y vertical independientes. Indicadores construidos en SVG/HTML, no incrustados.",
+    "reference": "operations (arquitectura inicial)"
+  },
+  {
+    "asset": "operations-mobile",
+    "source": "Corte arquitectónico generado con equipos, circulaciones y redes visibles. Composición horizontal y vertical independientes. Indicadores construidos en SVG/HTML, no incrustados.",
+    "reference": "operations (arquitectura inicial)"
   }
 ]
