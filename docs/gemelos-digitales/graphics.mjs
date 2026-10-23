@@ -40,18 +40,22 @@ const graphics = [
     <text x="178" y="401" class="svg-label">PLANOS / RECORRIDOS / INFORMACIÓN</text>`)]
 ];
 export const salesGraphics = `<div class="sales-interface editorial-graphics" aria-hidden="true">${graphics.map(([label,drawing],i)=>`<div class="sales-graphic sales-graphic-${i}"><span class="graphic-index">0${i+1} / ${label}</span>${drawing}</div>`).join('')}</div>`;
-const icons={
- camera:'<path d="M3 8h12v9H3zM15 10l6-3v11l-6-3M7 17v4m-3 0h8"/>',
- sensor:'<path d="M10 5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0V5Zm2 4v8m-6-10H3m3 5H3"/>',
- climate:'<path d="M12 3v18M4 7l16 10M4 17 20 7M9 5l3 3 3-3M9 19l3-3 3 3M5 10l4-1V5M15 19v-4l4-1"/>',
- access:'<path d="M5 21V3h13v18M2 21h20M10 3v18m4-10v3"/>',
- systems:'<path d="M4 3v8h8v10M20 3v8h-8M7 6H1m16 0h6M9 16h6"/>'
+// All icons and leader paths are HTML/SVG, independent of the photographs.
+const icons = {
+  climate: '<circle cx="12" cy="12" r="2"/><path d="M12 10C7 3 17 1 17 6c0 3-3 5-3 5M14 12c8-2 6 8 2 6-3-1-4-4-4-4M11 14c-2 7-10 1-6-2 2-2 5-1 5-1"/>',
+  camera: '<path d="m4 7 12-2 2 7-12 3-2-8Zm13 0 4-1 1 4-4 1M9 15l2 4H5m0-2v4"/><circle cx="12" cy="9" r="1.5"/>',
+  sensor: '<path d="M10 5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0V5Zm2 4v8m-6-10H3m3 5H3"/>',
+  access: '<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="9" r="2"/><path d="M8 17v-1a4 4 0 0 1 8 0v1H8Z"/>',
+  systems: '<path d="M5 3v7h7v11M19 3v7h-7M2 6h6m8 0h6M9 16h6"/><circle cx="12" cy="10" r="2"/>'
 };
-const markers=[
- ['climate','CLIMATIZACIÓN','Equipos de cubierta','0.60,0.075','0.47,0.22'],
- ['sensor','SENSORES','Ambientes interiores','0.62,0.31','0.40,0.39'],
- ['camera','CÁMARAS','Circulación y seguridad','0.47,0.75','0.47,0.68'],
- ['access','ACCESOS','Ingreso al edificio','0.46,0.82','0.47,0.73'],
- ['systems','INSTALACIONES','Redes por nivel','0.73,0.55','0.72,0.57']
+const systems = [
+  ['climate','CLIMATIZACIÓN','Equipos de cubierta','0.65,0.12','0.56,0.29'],
+  ['camera','CÁMARAS','Seguridad y circulación','0.52,0.47','0.27,0.56'],
+  ['sensor','SENSORES','Condiciones del ambiente','0.77,0.40','0.67,0.48'],
+  ['systems','REDES TÉCNICAS','Instalaciones por nivel','0.72,0.64','0.65,0.68'],
+  ['access','ACCESOS','Ingreso al edificio','0.60,0.85','0.37,0.81']
 ];
-export const operationsGraphics=`<div class="operations-interface spatial-overlay" aria-hidden="true">${markers.map(([id,label,note,desktop,mobile])=>`<div class="spatial-marker spatial-${id}" data-desktop="${desktop}" data-mobile="${mobile}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">${icons[id]}</svg><span>${label}<small>${note}</small></span></div>`).join('')}</div>`;
+export const operationsGraphics = `<div class="operations-interface spatial-overlay" aria-hidden="true">
+  <svg class="system-connectors" xmlns="http://www.w3.org/2000/svg" fill="none">${systems.map(([id]) => `<g class="system-connection" data-system="${id}"><path class="system-leader"/><circle class="system-target-halo" r="7"/><circle class="system-target" r="2.8"/></g>`).join('')}</svg>
+  ${systems.map(([id,label,note,desktop,mobile]) => `<div class="spatial-marker spatial-${id}" data-system="${id}" data-desktop="${desktop}" data-mobile="${mobile}"><span class="system-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">${icons[id]}</svg></span><span class="system-name">${label}<small>${note}</small></span></div>`).join('')}
+</div>`;

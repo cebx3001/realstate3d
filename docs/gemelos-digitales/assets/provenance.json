@@ -102,5 +102,27 @@
     "asset": "operations-mobile",
     "source": "Corte arquitectónico generado con equipos, circulaciones y redes visibles. Composición horizontal y vertical independientes. Indicadores construidos en SVG/HTML, no incrustados.",
     "reference": "operations (arquitectura inicial)"
+  },
+  {
+    "asset": "operations-editorial",
+    "source": "Imagen generada con composición propia a partir de la dirección visual de la referencia del usuario. Edificio completo, sin textos ni interfaz incrustados.",
+    "orientation": "horizontal",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "date": "2026-10-23",
+    "presentation": "WebP optimizado sin recorte. object-fit: contain conserva la cubierta y el acceso. Los iconos y conexiones se dibujan en HTML/SVG."
+  },
+  {
+    "asset": "operations-editorial-mobile",
+    "source": "Imagen generada con composición propia a partir de la dirección visual de la referencia del usuario. Edificio completo, sin textos ni interfaz incrustados.",
+    "orientation": "vertical",
+    "dimensions": [
+      941,
+      1672
+    ],
+    "date": "2026-10-23",
+    "presentation": "WebP optimizado sin recorte. object-fit: contain conserva la cubierta y el acceso. Los iconos y conexiones se dibujan en HTML/SVG."
   }
 ]

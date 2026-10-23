@@ -4,7 +4,7 @@ Landing estática independiente: https://cebx3001.github.io/realstate3d/gemelos-
 
 ## Edición
 
-`content.mjs` contiene el guion, `graphics.mjs` las ilustraciones SVG y los puntos operacionales, `render.mjs` genera el HTML semántico. `styles.css` conserva la base editorial y `cinematic.css` define la secuencia revisada y sus adaptaciones. `fonts.css` sirve Archivo Black, Space Grotesk y DM Sans localmente, con sus licencias OFL en `assets/`.
+`content.mjs` contiene el guion, `graphics.mjs` las ilustraciones SVG y los puntos operacionales, `render.mjs` genera el HTML semántico. `styles.css` conserva la base editorial, `cinematic.css` define la secuencia revisada y `operations.css` contiene los ajustes exclusivos de la escena 7. `fonts.css` sirve Archivo Black, Space Grotesk y DM Sans localmente, con sus licencias OFL en `assets/`.
 
 ```sh
 node public/gemelos-digitales/render.mjs
@@ -30,7 +30,9 @@ La portada usa cuatro WebP: blueprint y render en horizontal y vertical. El blue
 
 La construcción tiene cuatro estados horizontales y cuatro verticales. La serie vertical se creó desde una toma propia del edificio terminado; no son recortes de las imágenes horizontales. Cada orientación mantiene su cámara y entorno. Los estados se revelan con máscaras de scroll, en contextos de apilado aislados. La comprobación detecta qué imagen queda efectivamente por encima, además de su opacidad y texto.
 
-Operación utiliza composiciones independientes para escritorio y móvil. Sus cinco indicadores corresponden a equipos de cubierta, ambientes, seguridad, entrada y redes verticales. Las coordenadas normalizadas se adaptan al mismo `object-fit: cover` de la imagen, evitando que los marcadores se separen de la arquitectura al cambiar el viewport. Es una capacidad futura, señalada en el contenido.
+Operación utiliza dos nuevas composiciones independientes: horizontal 1672 × 941 y vertical 941 × 1672. La vertical se sirve también en tabletas de hasta 1100 px en orientación vertical. Ninguna procede de recortar la otra. Ambas usan `object-fit: contain`, alineación inferior y una transición tonal en los bordes; se preservan la cubierta y el acceso del edificio. La descripción mide 18 px en teléfonos y 20–22 px en escritorio y tabletas. El titular conserva su posición durante las tres frases.
+
+Los cinco iconos circulares representan climatización, cámaras, sensores, redes técnicas y accesos. Sus conexiones SVG se calculan a partir de puntos normalizados sobre cada imagen y del encuadre realmente visible, actualizándose al redimensionar y al cambiar de recurso. Cada icono y su conexión aparecen en el mismo intervalo de scroll; no hay tarjetas ni indicadores incrustados en las imágenes. La integración operacional sigue presentada como una capacidad futura.
 
 Las fuentes y los recursos visuales son locales. Las imágenes posteriores se cargan al aproximarse a su escena. `assets/provenance.json` documenta su procedencia. No hay texto ni interfaz incrustados en las imágenes generadas.
 
@@ -48,6 +50,8 @@ python public/gemelos-digitales/qa/typography-check.py http://localhost:4174/gem
 ```
 
 Viewports revisados: 1440×900, 390×844, 375×667, 320×568 y 844×390. Las pruebas móviles emulan viewport y entrada táctil en Chromium; no constituyen pruebas en Safari o dispositivos físicos ni una certificación de accesibilidad.
+
+La corrección del 23 de octubre de 2026 añade la revisión específica de operación en 430×932 y 820×1180. `qa/operations.html` muestra las tres fases de texto y los encuadres pequeños; `qa/operations-check.py` comprueba el tamaño del texto, la selección del recurso, la estabilidad del titular y la reversibilidad de los indicadores. `qa/operations-report.json` contiene los resultados locales.
 
 ## Publicación
 

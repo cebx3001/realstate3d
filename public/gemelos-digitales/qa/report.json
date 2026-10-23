@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:4174/gemelos-digitales/",
+  "url": "http://127.0.0.1:4175/gemelos-digitales/",
   "viewports": {
     "desktop": {
       "errors": [],
@@ -72,9 +72,9 @@
           "horizontal_overflow": false,
           "display": {
             "x": 103.671875,
-            "y": 231,
-            "width": 736.984375,
-            "height": 206.625
+            "y": 213,
+            "width": 528.171875,
+            "height": 197.765625
           }
         },
         {
@@ -814,9 +814,9 @@
           "horizontal_overflow": false,
           "display": {
             "x": 22,
-            "y": 144.1875,
+            "y": 142.1875,
             "width": 310,
-            "height": 93.46875
+            "height": 94.734375
           }
         },
         {

@@ -57,10 +57,11 @@ const html = `<!doctype html>
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="cinematic.css">
+  <link rel="stylesheet" href="operations.css?v=20261023">
   <script src="config.js" defer></script>
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
-  <script src="story.js" defer></script>
+  <script src="story.js?v=20261023" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#demostracion">Saltar a la demostración</a>
@@ -160,7 +161,7 @@ const html = `<!doctype html>
     "07",
     "Una nueva posibilidad",
     `
-    ${image("operations", "Representación conceptual de un edificio en corte con sus espacios e instalaciones.", "operations-visual")}
+    ${image("operations-editorial", "Edificio residencial completo, con cubierta, terrazas, circulación vertical y acceso principal.", "operations-visual").replace('media="(max-width: 700px)"', 'media="(max-width: 700px), (max-width: 1100px) and (orientation: portrait)"')}
     <div class="scrim"></div>
     <div class="scene-content split-content">${eyebrow("07", "GEMELOS DIGITALES OPERACIONALES")}${title(c.operations.title)}<div class="copy-track operations-track">${steps(c.operations.steps)}</div><p class="future-note">CAPACIDAD DE AMPLIACIÓN · INTEGRACIÓN A MEDIDA</p></div>
     ${operationsGraphics}

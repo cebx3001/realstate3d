@@ -472,10 +472,13 @@
       s.querySelectorAll(".copy-step").forEach((el, i) =>
         showStep(tl, el, 2 + i * 4.3, 4.3, { last: i === 2 }),
       );
-      if (compact.matches) tl.add(titleOut(s.querySelector(".display")), 4.1);
-      // Markers live in the same cover-coordinate plane as the architectural image.
-      tl.fromTo(s.querySelectorAll(".spatial-marker"),
-        {autoAlpha: 0}, {autoAlpha: 1, duration: 1.1, stagger: .65}, 5.5);
+
+      // Corresponding circles and architecture connections share a scroll interval.
+      s.querySelectorAll(".spatial-marker").forEach((marker, i) => {
+        const group = s.querySelector(`.system-connection[data-system="${marker.dataset.system}"]`);
+        tl.fromTo([marker, group], {autoAlpha: 0}, {autoAlpha: 1, duration: .9}, 5.5 + i * .55);
+        tl.fromTo(group.querySelector("path"), {strokeDashoffset: 1}, {strokeDashoffset: 0, duration: 1.4, ease: "none"}, 5.5 + i * .55);
+      });
 
       s = scenes[7];
       tl = sceneTimeline(s, 9, 1.8, 0.5);
@@ -626,17 +629,38 @@
     const picture = document.querySelector(".operations-visual");
     const img = picture.querySelector("img");
     if (!img.naturalWidth) return;
-    const width = picture.clientWidth, height = picture.clientHeight;
-    const scale = Math.max(width / img.naturalWidth, height / img.naturalHeight);
+    const stage = picture.closest(".stage");
+    const bounds = picture.getBoundingClientRect(), origin = stage.getBoundingClientRect();
+    // BOTH orientations use contain, bottom-aligned. No part of either source is cropped.
+    const scale = Math.min(bounds.width / img.naturalWidth, bounds.height / img.naturalHeight);
     const w = img.naturalWidth * scale, h = img.naturalHeight * scale;
-    document.querySelectorAll(".spatial-marker").forEach(marker => {
-      const [x, y] = marker.dataset[compact.matches ? "mobile" : "desktop"].split(",").map(Number);
-      marker.style.left = `${(width - w) / 2 + x * w}px`;
-      marker.style.top = `${(height - h) / 2 + y * h}px`;
+    img.style.setProperty("--frame-top", `${bounds.height - h}px`);
+    img.style.setProperty("--frame-left", `${(bounds.width - w) / 2}px`);
+    img.style.setProperty("--frame-right", `${(bounds.width + w) / 2}px`);
+    const left = bounds.left - origin.left + (bounds.width - w) / 2;
+    const top = bounds.top - origin.top + bounds.height - h;
+    const connectors = stage.querySelector(".system-connectors");
+    connectors.setAttribute("viewBox", `0 0 ${stage.clientWidth} ${stage.clientHeight}`);
+    stage.querySelectorAll(".spatial-marker").forEach(marker => {
+      const [x, y] = marker.dataset[img.currentSrc.includes("-mobile.webp") ? "mobile" : "desktop"].split(",").map(Number);
+      const tx = left + x * w, ty = top + y * h;
+      const icon = marker.querySelector(".system-icon").getBoundingClientRect();
+      const sx = icon.left + icon.width / 2 - origin.left;
+      const sy = icon.top + icon.height / 2 - origin.top;
+      const group = connectors.querySelector(`[data-system="${marker.dataset.system}"]`);
+      const path = group.querySelector("path");
+      const mx = sx + (tx - sx) * .48;
+      path.setAttribute("d", `M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ty}, ${tx} ${ty}`);
+      path.setAttribute("pathLength", "1");
+      group.querySelectorAll("circle").forEach(dot => {
+        dot.setAttribute("cx", tx); dot.setAttribute("cy", ty);
+      });
     });
   }
   document.querySelector(".operations-visual img").addEventListener("load", positionSpatialMarkers);
+  new ResizeObserver(positionSpatialMarkers).observe(document.querySelector("#operacion .stage"));
   addEventListener("resize", positionSpatialMarkers, {passive: true});
+  document.fonts.ready.then(positionSpatialMarkers);
   positionSpatialMarkers();
   window.GemelosStory = Object.freeze({
     navigate,

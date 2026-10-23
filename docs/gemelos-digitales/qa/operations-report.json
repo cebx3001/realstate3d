@@ -1,0 +1,1965 @@
+{
+  "url": "http://127.0.0.1:4175/gemelos-digitales/",
+  "viewports": {
+    "desktop": {
+      "phases": [
+        {
+          "time": 4,
+          "font": "22px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial.webp",
+          "natural": [
+            1440,
+            810
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 103.671875,
+            "y": 213,
+            "w": 528.171875,
+            "h": 197.765625
+          },
+          "copy": {
+            "x": 103.671875,
+            "y": 440.765625,
+            "w": 440,
+            "h": 180
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 0,
+              "rect": {
+                "x": 1123.1875,
+                "y": 144,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 0,
+              "rect": {
+                "x": 619.1875,
+                "y": 414,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 0,
+              "rect": {
+                "x": 1166.390625,
+                "y": 351,
+                "w": 152,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 0,
+              "rect": {
+                "x": 1166.390625,
+                "y": 576,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0,
+              "rect": {
+                "x": 633.59375,
+                "y": 702,
+                "w": 152,
+                "h": 95.03125
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 1,
+              "text": "01 / 03\n\nCuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "02 / 03\n\nSensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "03 / 03\n\nInformación del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 1199.1875 166 C 1072.8575 166, 1072.8575 187.2, 936 187.2",
+            "M 695.1875 436 C 720.9215 436, 720.9215 470.7, 748.8000000000001 470.7",
+            "M 1242.390625 373 C 1178.267125 373, 1178.267125 414, 1108.8 414",
+            "M 1242.390625 598 C 1143.707125 598, 1143.707125 608.4, 1036.8 608.4",
+            "M 709.59375 724 C 783.70875 724, 783.70875 778.5, 864 778.5"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "22px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial.webp",
+          "natural": [
+            1440,
+            810
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 103.671875,
+            "y": 213,
+            "w": 528.171875,
+            "h": 197.765625
+          },
+          "copy": {
+            "x": 103.671875,
+            "y": 440.765625,
+            "w": 440,
+            "h": 180
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 1123.1875,
+                "y": 144,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 619.1875,
+                "y": 414,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 1166.390625,
+                "y": 351,
+                "w": 152,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 1166.390625,
+                "y": 576,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.9877,
+              "rect": {
+                "x": 633.59375,
+                "y": 702,
+                "w": 152,
+                "h": 95.03125
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "01 / 03\n\nCuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "02 / 03\n\nSensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "03 / 03\n\nInformación del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 1199.1875 166 C 1072.8575 166, 1072.8575 187.2, 936 187.2",
+            "M 695.1875 436 C 720.9215 436, 720.9215 470.7, 748.8000000000001 470.7",
+            "M 1242.390625 373 C 1178.267125 373, 1178.267125 414, 1108.8 414",
+            "M 1242.390625 598 C 1143.707125 598, 1143.707125 608.4, 1036.8 608.4",
+            "M 709.59375 724 C 783.70875 724, 783.70875 778.5, 864 778.5"
+          ]
+        },
+        {
+          "time": 13,
+          "font": "22px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial.webp",
+          "natural": [
+            1440,
+            810
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 103.671875,
+            "y": 213,
+            "w": 528.171875,
+            "h": 197.765625
+          },
+          "copy": {
+            "x": 103.671875,
+            "y": 440.765625,
+            "w": 440,
+            "h": 180
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 1123.1875,
+                "y": 144,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 619.1875,
+                "y": 414,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 1166.390625,
+                "y": 351,
+                "w": 152,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 1166.390625,
+                "y": 576,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 1,
+              "rect": {
+                "x": 633.59375,
+                "y": 702,
+                "w": 152,
+                "h": 95.03125
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "01 / 03\n\nCuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "02 / 03\n\nSensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 1,
+              "text": "03 / 03\n\nInformación del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 1199.1875 166 C 1072.8575 166, 1072.8575 187.2, 936 187.2",
+            "M 695.1875 436 C 720.9215 436, 720.9215 470.7, 748.8000000000001 470.7",
+            "M 1242.390625 373 C 1178.267125 373, 1178.267125 414, 1108.8 414",
+            "M 1242.390625 598 C 1143.707125 598, 1143.707125 608.4, 1036.8 608.4",
+            "M 709.59375 724 C 783.70875 724, 783.70875 778.5, 864 778.5"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "22px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial.webp",
+          "natural": [
+            1440,
+            810
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 103.671875,
+            "y": 213,
+            "w": 528.171875,
+            "h": 197.765625
+          },
+          "copy": {
+            "x": 103.671875,
+            "y": 440.765625,
+            "w": 440,
+            "h": 180
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 1123.1875,
+                "y": 144,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 619.1875,
+                "y": 414,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 1166.390625,
+                "y": 351,
+                "w": 152,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 1166.390625,
+                "y": 576,
+                "w": 152,
+                "h": 95.03125
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.9877,
+              "rect": {
+                "x": 633.59375,
+                "y": 702,
+                "w": 152,
+                "h": 95.03125
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "01 / 03\n\nCuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "02 / 03\n\nSensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "03 / 03\n\nInformación del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 1199.1875 166 C 1072.8575 166, 1072.8575 187.2, 936 187.2",
+            "M 695.1875 436 C 720.9215 436, 720.9215 470.7, 748.8000000000001 470.7",
+            "M 1242.390625 373 C 1178.267125 373, 1178.267125 414, 1108.8 414",
+            "M 1242.390625 598 C 1143.707125 598, 1143.707125 608.4, 1036.8 608.4",
+            "M 709.59375 724 C 783.70875 724, 783.70875 778.5, 864 778.5"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    "mobile": {
+      "phases": [
+        {
+          "time": 4,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 142.1875,
+            "w": 310,
+            "h": 94.734375
+          },
+          "copy": {
+            "x": 22,
+            "y": 254.921875,
+            "w": 310,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 0,
+              "rect": {
+                "x": 234,
+                "y": 396.671875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 0,
+              "rect": {
+                "x": 12,
+                "y": 489.515625,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 0,
+              "rect": {
+                "x": 240,
+                "y": 514.828125,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 0,
+              "rect": {
+                "x": 240,
+                "y": 633,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0,
+              "rect": {
+                "x": 12,
+                "y": 675.1875,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 1,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 282 414.671875 C 238.5696 414.671875, 238.5696 412.54937300743893, 191.52 412.54937300743893",
+            "M 60 507.515625 C 75.5232 507.515625, 75.5232 576.6221466524973, 92.34 576.6221466524973",
+            "M 288 532.828125 C 259.7472 532.828125, 259.7472 528.007991498406, 229.14000000000001 528.007991498406",
+            "M 288 651 C 256.464 651, 256.464 649.5433793836345, 222.3 649.5433793836345",
+            "M 60 693.1875 C 91.9392 693.1875, 91.9392 728.541381509033, 126.53999999999999 728.541381509033"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 142.1875,
+            "w": 310,
+            "h": 94.734375
+          },
+          "copy": {
+            "x": 22,
+            "y": 254.921875,
+            "w": 310,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 234,
+                "y": 396.671875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 489.515625,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 240,
+                "y": 514.828125,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 240,
+                "y": 633,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.9878,
+              "rect": {
+                "x": 12,
+                "y": 675.1875,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 282 414.671875 C 238.5696 414.671875, 238.5696 412.54937300743893, 191.52 412.54937300743893",
+            "M 60 507.515625 C 75.5232 507.515625, 75.5232 576.6221466524973, 92.34 576.6221466524973",
+            "M 288 532.828125 C 259.7472 532.828125, 259.7472 528.007991498406, 229.14000000000001 528.007991498406",
+            "M 288 651 C 256.464 651, 256.464 649.5433793836345, 222.3 649.5433793836345",
+            "M 60 693.1875 C 91.9392 693.1875, 91.9392 728.541381509033, 126.53999999999999 728.541381509033"
+          ]
+        },
+        {
+          "time": 13,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 142.1875,
+            "w": 310,
+            "h": 94.734375
+          },
+          "copy": {
+            "x": 22,
+            "y": 254.921875,
+            "w": 310,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 234,
+                "y": 396.671875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 489.515625,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 240,
+                "y": 514.828125,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 240,
+                "y": 633,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 675.1875,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 1,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 282 414.671875 C 238.5696 414.671875, 238.5696 412.54937300743893, 191.52 412.54937300743893",
+            "M 60 507.515625 C 75.5232 507.515625, 75.5232 576.6221466524973, 92.34 576.6221466524973",
+            "M 288 532.828125 C 259.7472 532.828125, 259.7472 528.007991498406, 229.14000000000001 528.007991498406",
+            "M 288 651 C 256.464 651, 256.464 649.5433793836345, 222.3 649.5433793836345",
+            "M 60 693.1875 C 91.9392 693.1875, 91.9392 728.541381509033, 126.53999999999999 728.541381509033"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 142.1875,
+            "w": 310,
+            "h": 94.734375
+          },
+          "copy": {
+            "x": 22,
+            "y": 254.921875,
+            "w": 310,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 234,
+                "y": 396.671875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 489.515625,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 240,
+                "y": 514.828125,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 240,
+                "y": 633,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.9878,
+              "rect": {
+                "x": 12,
+                "y": 675.1875,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 282 414.671875 C 238.5696 414.671875, 238.5696 412.54937300743893, 191.52 412.54937300743893",
+            "M 60 507.515625 C 75.5232 507.515625, 75.5232 576.6221466524973, 92.34 576.6221466524973",
+            "M 288 532.828125 C 259.7472 532.828125, 259.7472 528.007991498406, 229.14000000000001 528.007991498406",
+            "M 288 651 C 256.464 651, 256.464 649.5433793836345, 222.3 649.5433793836345",
+            "M 60 693.1875 C 91.9392 693.1875, 91.9392 728.541381509033, 126.53999999999999 728.541381509033"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    "small": {
+      "phases": [
+        {
+          "time": 4,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 123.1875,
+            "w": 295,
+            "h": 87.46875
+          },
+          "copy": {
+            "x": 22,
+            "y": 224.65625,
+            "w": 295,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 0,
+              "rect": {
+                "x": 219,
+                "y": 360.171875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 0,
+              "rect": {
+                "x": 12,
+                "y": 426.875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 0,
+              "rect": {
+                "x": 225,
+                "y": 446.875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 0,
+              "rect": {
+                "x": 225,
+                "y": 533.59375,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0,
+              "rect": {
+                "x": 12,
+                "y": 540.265625,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 1,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 267 378.171875 C 225.32021653708134 378.171875, 225.32021653708134 316.55953124999996, 180.16711778558613 316.55953124999996",
+            "M 60 444.875 C 79.01250327452152 444.875, 79.01250327452152 449.825625, 99.60938182191985 449.825625",
+            "M 273 464.875 C 243.10728018839714 464.875, 243.10728018839714 410.339375, 210.72350039249403 410.339375",
+            "M 273 551.59375 C 240.44054134270334 551.59375, 240.44054134270334 509.055, 205.16779446396532 509.055",
+            "M 60 558.265625 C 92.34619750299044 558.265625, 92.34619750299044 573.22015625, 127.38791146456339 573.22015625"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 123.1875,
+            "w": 295,
+            "h": 87.46875
+          },
+          "copy": {
+            "x": 22,
+            "y": 224.65625,
+            "w": 295,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 219,
+                "y": 360.171875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 426.875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 225,
+                "y": 446.875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 225,
+                "y": 533.59375,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.9882,
+              "rect": {
+                "x": 12,
+                "y": 540.265625,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 267 378.171875 C 225.32021653708134 378.171875, 225.32021653708134 316.55953124999996, 180.16711778558613 316.55953124999996",
+            "M 60 444.875 C 79.01250327452152 444.875, 79.01250327452152 449.825625, 99.60938182191985 449.825625",
+            "M 273 464.875 C 243.10728018839714 464.875, 243.10728018839714 410.339375, 210.72350039249403 410.339375",
+            "M 273 551.59375 C 240.44054134270334 551.59375, 240.44054134270334 509.055, 205.16779446396532 509.055",
+            "M 60 558.265625 C 92.34619750299044 558.265625, 92.34619750299044 573.22015625, 127.38791146456339 573.22015625"
+          ]
+        },
+        {
+          "time": 13,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 123.1875,
+            "w": 295,
+            "h": 87.46875
+          },
+          "copy": {
+            "x": 22,
+            "y": 224.65625,
+            "w": 295,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 219,
+                "y": 360.171875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 426.875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 225,
+                "y": 446.875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 225,
+                "y": 533.59375,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 540.265625,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 1,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 267 378.171875 C 225.32021653708134 378.171875, 225.32021653708134 316.55953124999996, 180.16711778558613 316.55953124999996",
+            "M 60 444.875 C 79.01250327452152 444.875, 79.01250327452152 449.825625, 99.60938182191985 449.825625",
+            "M 273 464.875 C 243.10728018839714 464.875, 243.10728018839714 410.339375, 210.72350039249403 410.339375",
+            "M 273 551.59375 C 240.44054134270334 551.59375, 240.44054134270334 509.055, 205.16779446396532 509.055",
+            "M 60 558.265625 C 92.34619750299044 558.265625, 92.34619750299044 573.22015625, 127.38791146456339 573.22015625"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 123.1875,
+            "w": 295,
+            "h": 87.46875
+          },
+          "copy": {
+            "x": 22,
+            "y": 224.65625,
+            "w": 295,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 219,
+                "y": 360.171875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 426.875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 225,
+                "y": 446.875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 225,
+                "y": 533.59375,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.9882,
+              "rect": {
+                "x": 12,
+                "y": 540.265625,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 267 378.171875 C 225.32021653708134 378.171875, 225.32021653708134 316.55953124999996, 180.16711778558613 316.55953124999996",
+            "M 60 444.875 C 79.01250327452152 444.875, 79.01250327452152 449.825625, 99.60938182191985 449.825625",
+            "M 273 464.875 C 243.10728018839714 464.875, 243.10728018839714 410.339375, 210.72350039249403 410.339375",
+            "M 273 551.59375 C 240.44054134270334 551.59375, 240.44054134270334 509.055, 205.16779446396532 509.055",
+            "M 60 558.265625 C 92.34619750299044 558.265625, 92.34619750299044 573.22015625, 127.38791146456339 573.22015625"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    "tall": {
+      "phases": [
+        {
+          "time": 4,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 142.1875,
+            "w": 350,
+            "h": 104.484375
+          },
+          "copy": {
+            "x": 22,
+            "y": 264.671875,
+            "w": 350,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 0,
+              "rect": {
+                "x": 274,
+                "y": 438.03125,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 0,
+              "rect": {
+                "x": 12,
+                "y": 540.546875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 0,
+              "rect": {
+                "x": 280,
+                "y": 568.515625,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 0,
+              "rect": {
+                "x": 280,
+                "y": 699,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0,
+              "rect": {
+                "x": 12,
+                "y": 745.59375,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 1,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 322 456.03125 C 270.1216 456.03125, 270.1216 450.0873113708821, 213.92000000000002 450.0873113708821",
+            "M 60 558.546875 C 80.7072 558.546875, 80.7072 633.3498831030819, 103.14 633.3498831030819",
+            "M 328 586.515625 C 293.4112 586.515625, 293.4112 579.0498618490967, 255.94000000000003 579.0498618490967",
+            "M 328 717 C 289.744 717, 289.744 714.7999149840596, 248.3 714.7999149840596",
+            "M 60 763.59375 C 99.0432 763.59375, 99.0432 803.0374495217853, 141.34 803.0374495217853"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 142.1875,
+            "w": 350,
+            "h": 104.484375
+          },
+          "copy": {
+            "x": 22,
+            "y": 264.671875,
+            "w": 350,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 274,
+                "y": 438.03125,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 540.546875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 280,
+                "y": 568.515625,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 280,
+                "y": 699,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.9874,
+              "rect": {
+                "x": 12,
+                "y": 745.59375,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 322 456.03125 C 270.1216 456.03125, 270.1216 450.0873113708821, 213.92000000000002 450.0873113708821",
+            "M 60 558.546875 C 80.7072 558.546875, 80.7072 633.3498831030819, 103.14 633.3498831030819",
+            "M 328 586.515625 C 293.4112 586.515625, 293.4112 579.0498618490967, 255.94000000000003 579.0498618490967",
+            "M 328 717 C 289.744 717, 289.744 714.7999149840596, 248.3 714.7999149840596",
+            "M 60 763.59375 C 99.0432 763.59375, 99.0432 803.0374495217853, 141.34 803.0374495217853"
+          ]
+        },
+        {
+          "time": 13,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 142.1875,
+            "w": 350,
+            "h": 104.484375
+          },
+          "copy": {
+            "x": 22,
+            "y": 264.671875,
+            "w": 350,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 274,
+                "y": 438.03125,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 540.546875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 280,
+                "y": 568.515625,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 280,
+                "y": 699,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 745.59375,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 1,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 322 456.03125 C 270.1216 456.03125, 270.1216 450.0873113708821, 213.92000000000002 450.0873113708821",
+            "M 60 558.546875 C 80.7072 558.546875, 80.7072 633.3498831030819, 103.14 633.3498831030819",
+            "M 328 586.515625 C 293.4112 586.515625, 293.4112 579.0498618490967, 255.94000000000003 579.0498618490967",
+            "M 328 717 C 289.744 717, 289.744 714.7999149840596, 248.3 714.7999149840596",
+            "M 60 763.59375 C 99.0432 763.59375, 99.0432 803.0374495217853, 141.34 803.0374495217853"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "18px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 22,
+            "y": 142.1875,
+            "w": 350,
+            "h": 104.484375
+          },
+          "copy": {
+            "x": 22,
+            "y": 264.671875,
+            "w": 350,
+            "h": 112
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 274,
+                "y": 438.03125,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 12,
+                "y": 540.546875,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 280,
+                "y": 568.515625,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 280,
+                "y": 699,
+                "w": 96,
+                "h": 58
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.9874,
+              "rect": {
+                "x": 12,
+                "y": 745.59375,
+                "w": 96,
+                "h": 58
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "Cuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "Sensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "Información del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 322 456.03125 C 270.1216 456.03125, 270.1216 450.0873113708821, 213.92000000000002 450.0873113708821",
+            "M 60 558.546875 C 80.7072 558.546875, 80.7072 633.3498831030819, 103.14 633.3498831030819",
+            "M 328 586.515625 C 293.4112 586.515625, 293.4112 579.0498618490967, 255.94000000000003 579.0498618490967",
+            "M 328 717 C 289.744 717, 289.744 714.7999149840596, 248.3 714.7999149840596",
+            "M 60 763.59375 C 99.0432 763.59375, 99.0432 803.0374495217853, 141.34 803.0374495217853"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    "tablet": {
+      "phases": [
+        {
+          "time": 4,
+          "font": "22px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 50,
+            "y": 196,
+            "w": 662,
+            "h": 130.78125
+          },
+          "copy": {
+            "x": 50,
+            "y": 352.78125,
+            "w": 500,
+            "h": 140
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 0,
+              "rect": {
+                "x": 570,
+                "y": 554.59375,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 0,
+              "rect": {
+                "x": 55,
+                "y": 719.796875,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 0,
+              "rect": {
+                "x": 590,
+                "y": 743.390625,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 0,
+              "rect": {
+                "x": 590,
+                "y": 920.390625,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0,
+              "rect": {
+                "x": 100,
+                "y": 979.390625,
+                "w": 120,
+                "h": 95.03125
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 1,
+              "text": "01 / 03\n\nCuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "02 / 03\n\nSensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "03 / 03\n\nInformación del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 630 576.59375 C 514.7483138755981 576.59375, 514.7483138755981 593.54, 389.8923205741627 593.54",
+            "M 115 741.796875 C 182.23813014354067 741.796875, 182.23813014354067 816.5600000000001, 255.07943779904306 816.5600000000001",
+            "M 650 765.390625 C 549.6935559808612 765.390625, 549.6935559808612 750.48, 441.0282416267943 750.48",
+            "M 650 942.390625 C 545.2307846889953 942.390625, 545.2307846889953 915.6800000000001, 431.73080143540676 915.6800000000001",
+            "M 160 1001.390625 C 227.95198660287082 1001.390625, 227.95198660287082 1023.0600000000001, 301.5666387559809 1023.0600000000001"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "22px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 50,
+            "y": 196,
+            "w": 662,
+            "h": 130.78125
+          },
+          "copy": {
+            "x": 50,
+            "y": 352.78125,
+            "w": 500,
+            "h": 140
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 570,
+                "y": 554.59375,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 55,
+                "y": 719.796875,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 590,
+                "y": 743.390625,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 590,
+                "y": 920.390625,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.988,
+              "rect": {
+                "x": 100,
+                "y": 979.390625,
+                "w": 120,
+                "h": 95.03125
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "01 / 03\n\nCuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "02 / 03\n\nSensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "03 / 03\n\nInformación del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 630 576.59375 C 514.7483138755981 576.59375, 514.7483138755981 593.54, 389.8923205741627 593.54",
+            "M 115 741.796875 C 182.23813014354067 741.796875, 182.23813014354067 816.5600000000001, 255.07943779904306 816.5600000000001",
+            "M 650 765.390625 C 549.6935559808612 765.390625, 549.6935559808612 750.48, 441.0282416267943 750.48",
+            "M 650 942.390625 C 545.2307846889953 942.390625, 545.2307846889953 915.6800000000001, 431.73080143540676 915.6800000000001",
+            "M 160 1001.390625 C 227.95198660287082 1001.390625, 227.95198660287082 1023.0600000000001, 301.5666387559809 1023.0600000000001"
+          ]
+        },
+        {
+          "time": 13,
+          "font": "22px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 50,
+            "y": 196,
+            "w": 662,
+            "h": 130.78125
+          },
+          "copy": {
+            "x": 50,
+            "y": 352.78125,
+            "w": 500,
+            "h": 140
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 570,
+                "y": 554.59375,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 55,
+                "y": 719.796875,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 590,
+                "y": 743.390625,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 590,
+                "y": 920.390625,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 1,
+              "rect": {
+                "x": 100,
+                "y": 979.390625,
+                "w": 120,
+                "h": 95.03125
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "01 / 03\n\nCuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 0,
+              "text": "02 / 03\n\nSensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 1,
+              "text": "03 / 03\n\nInformación del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 630 576.59375 C 514.7483138755981 576.59375, 514.7483138755981 593.54, 389.8923205741627 593.54",
+            "M 115 741.796875 C 182.23813014354067 741.796875, 182.23813014354067 816.5600000000001, 255.07943779904306 816.5600000000001",
+            "M 650 765.390625 C 549.6935559808612 765.390625, 549.6935559808612 750.48, 441.0282416267943 750.48",
+            "M 650 942.390625 C 545.2307846889953 942.390625, 545.2307846889953 915.6800000000001, 431.73080143540676 915.6800000000001",
+            "M 160 1001.390625 C 227.95198660287082 1001.390625, 227.95198660287082 1023.0600000000001, 301.5666387559809 1023.0600000000001"
+          ]
+        },
+        {
+          "time": 8.5,
+          "font": "22px",
+          "image": "http://127.0.0.1:4175/gemelos-digitales/assets/operations-editorial-mobile.webp",
+          "natural": [
+            941,
+            1672
+          ],
+          "fit": "contain",
+          "overflow": false,
+          "title": {
+            "x": 50,
+            "y": 196,
+            "w": 662,
+            "h": 130.78125
+          },
+          "copy": {
+            "x": 50,
+            "y": 352.78125,
+            "w": 500,
+            "h": 140
+          },
+          "markers": [
+            {
+              "id": "climate",
+              "opacity": 1,
+              "rect": {
+                "x": 570,
+                "y": 554.59375,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "camera",
+              "opacity": 1,
+              "rect": {
+                "x": 55,
+                "y": 719.796875,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "sensor",
+              "opacity": 1,
+              "rect": {
+                "x": 590,
+                "y": 743.390625,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "systems",
+              "opacity": 1,
+              "rect": {
+                "x": 590,
+                "y": 920.390625,
+                "w": 120,
+                "h": 113.875
+              }
+            },
+            {
+              "id": "access",
+              "opacity": 0.988,
+              "rect": {
+                "x": 100,
+                "y": 979.390625,
+                "w": 120,
+                "h": 95.03125
+              }
+            }
+          ],
+          "paragraphs": [
+            {
+              "opacity": 0,
+              "text": "01 / 03\n\nCuando el proyecto entra en funcionamiento, su representación digital puede continuar evolucionando."
+            },
+            {
+              "opacity": 1,
+              "text": "02 / 03\n\nSensores, cámaras, instalaciones y sistemas pueden integrarse en una plataforma de visualización espacial."
+            },
+            {
+              "opacity": 0,
+              "text": "03 / 03\n\nInformación del edificio organizada directamente sobre su representación tridimensional."
+            }
+          ],
+          "connectors": [
+            "M 630 576.59375 C 514.7483138755981 576.59375, 514.7483138755981 593.54, 389.8923205741627 593.54",
+            "M 115 741.796875 C 182.23813014354067 741.796875, 182.23813014354067 816.5600000000001, 255.07943779904306 816.5600000000001",
+            "M 650 765.390625 C 549.6935559808612 765.390625, 549.6935559808612 750.48, 441.0282416267943 750.48",
+            "M 650 942.390625 C 545.2307846889953 942.390625, 545.2307846889953 915.6800000000001, 431.73080143540676 915.6800000000001",
+            "M 160 1001.390625 C 227.95198660287082 1001.390625, 227.95198660287082 1023.0600000000001, 301.5666387559809 1023.0600000000001"
+          ]
+        }
+      ],
+      "errors": []
+    }
+  },
+  "reduced": {
+    "animated": false,
+    "font": "18px",
+    "overflow": false
+  },
+  "short": {
+    "animated": false,
+    "font": "18px",
+    "overflow": false
+  },
+  "landscape": {
+    "animated": false,
+    "font": "20px",
+    "overflow": false
+  }
+}
