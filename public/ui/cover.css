@@ -171,3 +171,19 @@ body[data-edit="true"] .hero-hud,body[data-edit="true"] .monument{display:none!i
  .unit-editor-heading button{font-size:9px}
  .unit-editor-actions button,.unit-editor-files button{padding:9px 4px;font-size:8px}
 }
+
+/* Desktop: apartment selector and its details are a single lateral panel.
+   Mobile keeps its existing bottom-sheet placement unchanged. */
+@media (min-width: 701px) {
+  .visit-units-panel {
+    left: auto;
+    right: clamp(32px, 4.5vw, 88px);
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: clamp(280px, 25vw, 380px);
+    max-height: calc(100dvh - 190px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
