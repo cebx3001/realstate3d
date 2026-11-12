@@ -1,0 +1,12 @@
+{
+  "stage": "009 context study, not approved final",
+  "master": "versions/tdn_rebuild_009_context.blend",
+  "source_commit": "6f73fe50c4bc85989d7f915d62c6a162d881d240",
+  "units": "relative, not metres",
+  "geometry_status": "tower footprint dimensions and rotations fitted approximately to scan, not surveyed; 39 generated levels must be validated",
+  "render_status": "initial test; environment incomplete",
+  "full_animation_approved": false,
+  "remote_folder": "https://drive.google.com/drive/folders/13rUMC0ajTe08aHR3frjSCei-9tZASk71",
+  "reference_roundtrip_sha256": "6339464f0973dc72b62b61d2000b620750de8293716f403d18ec34b2b619225e",
+  "github_binary_backed_up": false
+}
