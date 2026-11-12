@@ -1,0 +1,2564 @@
+[
+  {
+    "path": "assets/grass_medium_02/grass_medium_02.blend",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/2k/grass_medium_02/grass_medium_02_2k.blend",
+    "bytes": 318801,
+    "sha256": "34abbbfe58861ce9904741c363466acc5ee656909381a834ae872e486ee52011",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/grass_medium_02/textures/grass_medium_02_alpha_2k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/grass_medium_02/grass_medium_02_alpha_2k.png",
+    "bytes": 303260,
+    "sha256": "c96abf8da86aa750ff6425b8ded78aa98cf61858834e3557ad2dcc5348359337",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/grass_medium_02/textures/grass_medium_02_diff_2k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/grass_medium_02/grass_medium_02_diff_2k.jpg",
+    "bytes": 456989,
+    "sha256": "70c0e294fd94b980d01ed91bde30ab19fe7eeed1f2717088cc88ab20bb115c87",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/grass_medium_02/textures/grass_medium_02_dry_diff_2k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/grass_medium_02/grass_medium_02_dry_diff_2k.png",
+    "bytes": 3011488,
+    "sha256": "7d231bc60c2295393c28088c77f6e172cf25b16eed259ab4be2d5756976ff821",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/grass_medium_02/textures/grass_medium_02_nor_gl_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/grass_medium_02/grass_medium_02_nor_gl_2k.exr",
+    "bytes": 651146,
+    "sha256": "3110a10e925cde287eea2ea079b52abe7f889095e03f961ac8805e6766169fc2",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/grass_medium_02/textures/grass_medium_02_rough_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/grass_medium_02/grass_medium_02_rough_2k.exr",
+    "bytes": 1114451,
+    "sha256": "f74c5bcb9c021624f5539290e7cd1ae38676b91ea762b9ee4cbb7487b7d72159",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/periwinkle_plant/periwinkle_plant.blend",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/2k/periwinkle_plant/periwinkle_plant_2k.blend",
+    "bytes": 1681322,
+    "sha256": "e9fc4300a8be05a9e7ec4423c239e9af37a2f3e4be9e6175a19ba82e1ffafd8a",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/periwinkle_plant/textures/periwinkle_plant_diff_2k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/periwinkle_plant/periwinkle_plant_diff_2k.jpg",
+    "bytes": 1025276,
+    "sha256": "015ae7b001fa72a2be9a4297590e30d9e29ec4d686ca1f19d8a313671ac3d137",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/periwinkle_plant/textures/periwinkle_plant_disp_2k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/periwinkle_plant/periwinkle_plant_disp_2k.png",
+    "bytes": 4535665,
+    "sha256": "a250a419e036265f81d0308ae91fc09087c5a83badfa684e843376e80f83c6c9",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/periwinkle_plant/textures/periwinkle_plant_nor_gl_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/periwinkle_plant/periwinkle_plant_nor_gl_2k.exr",
+    "bytes": 2614895,
+    "sha256": "6020c6645f6c3ea5eeec709d9b9b222bacccd406936346a8201a7e7161c69f0d",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/periwinkle_plant/textures/periwinkle_plant_opacity_2k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/periwinkle_plant/periwinkle_plant_opacity_2k.png",
+    "bytes": 195845,
+    "sha256": "969a29f3c44bd9be704e7acc22746785ac7ca26746eec7c157c9c7d1bee2e841",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/periwinkle_plant/textures/periwinkle_plant_rough_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/periwinkle_plant/periwinkle_plant_rough_2k.exr",
+    "bytes": 543847,
+    "sha256": "696fd66e5105193d3808e1966c7404e0171efffc7f96cce131621bcaa2fecdf0",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/periwinkle_plant/textures/periwinkle_plant_translucency_2k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/periwinkle_plant/periwinkle_plant_translucency_2k.png",
+    "bytes": 18487011,
+    "sha256": "196ab842b29575688a77e5fcbf5163fb3393d6406ce73a956e5ffd34f139c469",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/flower_heliophila/flower_heliophila.blend",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/2k/flower_heliophila/flower_heliophila_2k.blend",
+    "bytes": 6111704,
+    "sha256": "24e5769a6771f42ce74776650e8b82a8d6c80a6f8897c66135aa98a0f4bf54f2",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/flower_heliophila/textures/flower_heliophila_alpha_2k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/flower_heliophila/flower_heliophila_alpha_2k.png",
+    "bytes": 100299,
+    "sha256": "b22c3576573fc0aeb46593fcfa4c47727e9ecf00d49b8d0a361e9e65d6dfca43",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/flower_heliophila/textures/flower_heliophila_diff_2k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/flower_heliophila/flower_heliophila_diff_2k.jpg",
+    "bytes": 1054550,
+    "sha256": "f05085bc8559fd44624b36d111c5a6961229a179614c8753ceedada258dae120",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/flower_heliophila/textures/flower_heliophila_rough_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/flower_heliophila/flower_heliophila_rough_2k.exr",
+    "bytes": 1162249,
+    "sha256": "48f3e46d3c0a2a2fd37e983f544de8b120fc8670c2609272a3b119495ee9214e",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/flower_heliophila/textures/flower_heliophila_nor_gl_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/flower_heliophila/flower_heliophila_nor_gl_2k.exr",
+    "bytes": 3968587,
+    "sha256": "38722e3611e34f5eb3f4143d1b65cd2729d8812cf7f66d6406dc92c1ed937953",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/flower_heliophila/textures/flower_heliophila_translucency_2k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/flower_heliophila/flower_heliophila_translucency_2k.png",
+    "bytes": 295470,
+    "sha256": "28660beb527220f86541d9e47bf4fbdcc0cbd828c58e9f823dd40e49afddb644",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/fern_02/fern_02.blend",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/2k/fern_02/fern_02_2k.blend",
+    "bytes": 262018,
+    "sha256": "cf721e00ed5bb72f0b9c3fb59b8febc7b2b9b2082f162d5a80ba3a11e4e7028d",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/fern_02/textures/fern_02_diff_2k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/fern_02/fern_02_diff_2k.jpg",
+    "bytes": 993703,
+    "sha256": "9ee18172170728050871772e2cd6d8d37b52f9138e61b49b04486623f9caf84b",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/fern_02/textures/fern_02_nor_gl_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/fern_02/fern_02_nor_gl_2k.exr",
+    "bytes": 2895843,
+    "sha256": "2787b69707c37a4b90627085f36e818b13816c6587aa0d06c5c6d004ccde7557",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/fern_02/textures/fern_02_rough_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/fern_02/fern_02_rough_2k.exr",
+    "bytes": 901394,
+    "sha256": "877fd64af4d815a2522700c676b2c32c6f075ce8bca59c6a2d267309b2fca550",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/fern_02/textures/fern_02_alpha_2k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/fern_02/fern_02_alpha_2k.png",
+    "bytes": 230089,
+    "sha256": "f51eb9b8f9f4b25a882f8fe12d1ef53ba69448bac7e71396ec1f05b684e9ea75",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/wild_rooibos_bush/wild_rooibos_bush.blend",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/2k/wild_rooibos_bush/wild_rooibos_bush_2k.blend",
+    "bytes": 2607728,
+    "sha256": "873825a6af13e79c649d3567497f9c762efa01bfe07674f358eee4c4cac57821",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/wild_rooibos_bush/textures/wild_rooibos_bush_diff_2k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wild_rooibos_bush/wild_rooibos_bush_diff_2k.jpg",
+    "bytes": 1383104,
+    "sha256": "9c8f32906f59483b576448d4b8815449ee395c49ff020f16af81aac6931c8049",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/wild_rooibos_bush/textures/wild_rooibos_bush_nor_gl_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/wild_rooibos_bush/wild_rooibos_bush_nor_gl_2k.exr",
+    "bytes": 3964292,
+    "sha256": "676f69ec160baa16f23580ce8a56a41db5059d9a3fab07bf8c69913d8f67ab1e",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/wild_rooibos_bush/textures/wild_rooibos_bush_rough_2k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/wild_rooibos_bush/wild_rooibos_bush_rough_2k.exr",
+    "bytes": 879422,
+    "sha256": "69c159538d726cfba4e06a7ef98263b2ff1cd512af770c6950638675d8ff8823",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/wild_rooibos_bush/textures/wild_rooibos_bush_alpha_2k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/wild_rooibos_bush/wild_rooibos_bush_alpha_2k.png",
+    "bytes": 206554,
+    "sha256": "11a2bbdd11cfdccfb1badb716769b83504beef063709280fe757f8beb8398feb",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "assets/sky.hdr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/kloppenheim_06_puresky_4k.hdr",
+    "bytes": 17385661,
+    "sha256": "1bebd7cbbfb5c48a642f03d93bffbabb2c42d0b109061f37a72259d1cbdb3053",
+    "supplier_md5_verified": true
+  },
+  {
+    "path": "references/gaussian/3_0/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_0/meta.json",
+    "bytes": 15561,
+    "sha256": "60d6bed9f1fccee6eb24e430a3f79535cd0f4c263a6db4b860bf63eca8888965",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_0/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_0/means_l.webp",
+    "bytes": 802424,
+    "sha256": "4106f053e56239c87481f5fd1b1a26acb552a34390f8e152f47f8b8e6f72a39b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_0/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_0/means_u.webp",
+    "bytes": 288890,
+    "sha256": "368e7b1fb781f5daf7dfc741a13020e7e750a01094525b83b87722f74d56bb62",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_0/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_0/quats.webp",
+    "bytes": 840140,
+    "sha256": "a040b81df786932b4c00a3cb9db2f4b1182619748f24daff6d5859be197c88b9",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_0/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_0/scales.webp",
+    "bytes": 692236,
+    "sha256": "bd69793f7502da725544ec7deaa8a28819701d2653e66b89a99b603f5e7168c9",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_0/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_0/sh0.webp",
+    "bytes": 645718,
+    "sha256": "56b6afc0856ed393497ac230b122113fdb3915304b884d9c0584531b4be6ae94",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_0/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_0/shN_centroids.webp",
+    "bytes": 2029730,
+    "sha256": "4b2b7193c793a750523543f14fd89b259f731ab95ebad8978e5aa20bfab85309",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_0/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_0/shN_labels.webp",
+    "bytes": 482334,
+    "sha256": "eb89f591b94436a86da148e4eae75703c1bf77416ee36d5c464f0342c5179087",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_0/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_0/meta.json",
+    "bytes": 15562,
+    "sha256": "cb67b65e9606303fb348c0daa15b5a530c51d5ea54f4f49d107fbb3f29b51afb",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_0/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_0/means_l.webp",
+    "bytes": 805376,
+    "sha256": "781eef007c62023ec7f2acfaee5534da24e7d1ef4233a2b6128e637b5a951d67",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_0/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_0/means_u.webp",
+    "bytes": 282822,
+    "sha256": "a20d6df7007e126d06a11fc509d5eb74f4b4f964736060d7d39e363081bd8ce1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_0/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_0/quats.webp",
+    "bytes": 841842,
+    "sha256": "45b4050e3dfcc445169dc97216ae36b96984fae312f01426a076e998fd1adc13",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_0/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_0/scales.webp",
+    "bytes": 685972,
+    "sha256": "82aac2de27a91169cbb266c70c33a4a0bb9a876a89dab8b5b9cb50aaa7e3308c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_0/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_0/sh0.webp",
+    "bytes": 659534,
+    "sha256": "7cfdabc323e9ad4007395e1262893f728dd9e141da66c0250b0c660dd2d08aa9",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_0/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_0/shN_centroids.webp",
+    "bytes": 1955192,
+    "sha256": "01d5ec194fdc130dfd24f1767765713fdca4ed766df3cb732c033b8b00aa9927",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_0/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_0/shN_labels.webp",
+    "bytes": 460996,
+    "sha256": "a36ccd339138a4cb70eeb54234ab48f35e3563f0b91907c6790a2725f8a97b69",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_0/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_0/meta.json",
+    "bytes": 15552,
+    "sha256": "9e8b9ec8b20b62001dbfab6abb65d56733ba73ab75bcaa8873e48fd6bf19789d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_0/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_0/means_l.webp",
+    "bytes": 818890,
+    "sha256": "0f944ce909e940f1efced97208f58564b63fba2b2db499c8a2b8d647992cd003",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_0/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_0/means_u.webp",
+    "bytes": 251298,
+    "sha256": "4eb38ee867135befc2d840394ef53e9d5b7f4b8d1d9c7a6fca20ccdee1d36a3c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_0/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_0/quats.webp",
+    "bytes": 849418,
+    "sha256": "76f2c9cc26d51fc4906e9407eb3c1d45b8d449f78924c72958054a4dfa185093",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_0/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_0/scales.webp",
+    "bytes": 672466,
+    "sha256": "955cc57af9bd86c4ed73fcf3e894fac82b5e8a26fdcb5c3f099db003a388b3db",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_0/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_0/sh0.webp",
+    "bytes": 664434,
+    "sha256": "4d790f0ca2d67f959b499aac149e2415e7c91f0c0dfda4bdc0ae3863e4944341",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_0/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_0/shN_centroids.webp",
+    "bytes": 1735410,
+    "sha256": "b8a78e5839120a015dde8841ce664e8600921b0553c507f10084e3cea7cae8b1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_0/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_0/shN_labels.webp",
+    "bytes": 445990,
+    "sha256": "0538a227f6db75dab5579008d7ab5fca680f2f43dbfc4c3c785945a91d8de13e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_0/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_0/meta.json",
+    "bytes": 13546,
+    "sha256": "bd16760b8b5c6da88e9befaeade43902c18a6d987e2a8db881e998e8a2e0c2e0",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_0/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_0/means_l.webp",
+    "bytes": 814960,
+    "sha256": "24fb4596132a6a250a8087a622374526ae1935d49f25de45ee63ba37eb7e5268",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_0/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_0/means_u.webp",
+    "bytes": 313186,
+    "sha256": "b2a2028011dcea9722d8fd1075f6e99421c5cc3106d45c0c7f9a5fe6b4c5c6b4",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_0/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_0/quats.webp",
+    "bytes": 823458,
+    "sha256": "4f9c85cbf0f0c68b4c69886396af7be41ba133d9019e8afea52532e24838e32f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_0/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_0/scales.webp",
+    "bytes": 521464,
+    "sha256": "71da59afbf69b4e97e88841b1ba21553bf3e7f5eb7fc1dfb39971568799068a1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_0/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_0/sh0.webp",
+    "bytes": 620766,
+    "sha256": "464d9766bf9eda25a96d11d6766c5d2b096a092c9baaf4f3bcc26c3b11ee02a6",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_0/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_0/shN_centroids.webp",
+    "bytes": 447624,
+    "sha256": "060b7ffb7eb1ccefef4188f53e1aa6958cd387cc2b949e951aae795e25485207",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_0/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_0/shN_labels.webp",
+    "bytes": 315910,
+    "sha256": "4b59a1c8a257ba400d747eb4269c2a727b4a843b119ba61541529a988614b3ae",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_1/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_1/meta.json",
+    "bytes": 13559,
+    "sha256": "c2df96a0e5043a030ff09bfe03bc0e9d995a17a37bda30090335155b2dccf22d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_1/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_1/means_l.webp",
+    "bytes": 805668,
+    "sha256": "70c8b7d9ed840e85d85fd2494e5ecdff537eba2ac0a8c9b764eed6e594ccebfa",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_1/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_1/means_u.webp",
+    "bytes": 224022,
+    "sha256": "44902463e1366da0c3b17abb909d6e9fc94a2e9945f3a603b74e10744656ca61",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_1/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_1/quats.webp",
+    "bytes": 821256,
+    "sha256": "1f047d88a5cf7724b1a60ed61a55e1cec5108411b576f7b61ffafbfa97ee6d90",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_1/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_1/scales.webp",
+    "bytes": 514740,
+    "sha256": "2106f958678e543f5921f531b1a1684ea706f73f931bf735f2e01ea6973efd13",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_1/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_1/sh0.webp",
+    "bytes": 588782,
+    "sha256": "5bd3873f732234a5c726eb6f3f2d307b1e7f726c3502e1f21c5c3f96a307f8a8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_1/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_1/shN_centroids.webp",
+    "bytes": 514032,
+    "sha256": "7051006cf1ae20c385595261215eec844706a71abb13b893faffecbd01d886bc",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_1/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_1/shN_labels.webp",
+    "bytes": 346510,
+    "sha256": "63df9ed7c835079fc221c5ebe1796a4d1a9631cf5f9020e715c5e311c1ed04d4",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_2/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_2/meta.json",
+    "bytes": 13601,
+    "sha256": "44ef6f29aae425fc32829192e1d7bf7fcd2bf6152a179bc21de5067a6e997cae",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_2/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_2/means_l.webp",
+    "bytes": 815526,
+    "sha256": "6b97a92e1d369100deb9075d053f2804b503be860f77dd5f00f55b0ed6e033ba",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_2/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_2/means_u.webp",
+    "bytes": 245632,
+    "sha256": "93f158eefc2d78bb4e79587eef367da8fa772cb8d6f72c8c21a49be2db164689",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_2/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_2/quats.webp",
+    "bytes": 810682,
+    "sha256": "5eeae585092dd976e2f851c83a46b7b2f40eee4ee9f4ba4fe365ef428a1c1411",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_2/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_2/scales.webp",
+    "bytes": 520274,
+    "sha256": "641bc7d372ad77691c15a67d82f9426bf5f5a23d9bfcee705895a1ad05a198a4",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_2/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_2/sh0.webp",
+    "bytes": 616768,
+    "sha256": "7401ebf0da48ffdc9574a24cb561bef3b720a95236c4b0ce917a061fef6943fa",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_2/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_2/shN_centroids.webp",
+    "bytes": 529506,
+    "sha256": "ada4e0a1495196e0460f5250246e00a248a55816a6938af7d1eff96e84f0dc07",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_2/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_2/shN_labels.webp",
+    "bytes": 331384,
+    "sha256": "adaed00790706007f278d6c4471a189ecff4e5f68d5f559c50285f22d96bd510",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_1/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_1/meta.json",
+    "bytes": 15541,
+    "sha256": "2b6a9fbef6553d7c579caa658fb23d86cabd16237b94a3e6f14c8a763c8181c8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_1/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_1/means_l.webp",
+    "bytes": 823210,
+    "sha256": "e25946aa7052a9315d1319ed45d1c016288cbab8d73130795923d2a2bf7bc27d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_1/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_1/means_u.webp",
+    "bytes": 249544,
+    "sha256": "fba6058a3cb2465f6efdd229af2e779b214ba0791722e3b4a8417249a2c470cb",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_1/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_1/quats.webp",
+    "bytes": 836150,
+    "sha256": "812e927a40f35345494d59a4b105888f8cd1c571fd1963d72491fc72b5eca6ee",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_1/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_1/scales.webp",
+    "bytes": 672638,
+    "sha256": "4c5a23747034bc5d9c9dd8f0cd0a6f1cacbe4ceb923a7843c11d3d9b36ca164b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_1/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_1/sh0.webp",
+    "bytes": 656506,
+    "sha256": "da322b53e0364c90f173aac4b208bbeb57fc595cab33f8dcb33c368d6864a81c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_1/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_1/shN_centroids.webp",
+    "bytes": 1784658,
+    "sha256": "0dcd715bca07e5682810bb13df435b0e7797cb8ddfb72059af260825acb932fe",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_1/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_1/shN_labels.webp",
+    "bytes": 442260,
+    "sha256": "c967d63d4e68e093a301cfb287fbe602194e47d461f721c6d33888c46d12cb3f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_3/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_3/meta.json",
+    "bytes": 13562,
+    "sha256": "8d43634d89c45709ec7e26749a28df3f45d4c5c146d61e3175d0e79b0f30224c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_3/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_3/means_l.webp",
+    "bytes": 811304,
+    "sha256": "b58de350926a6d00246b87bb21d78d6213e71e1a3c743d80390d1c4d9e629aea",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_3/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_3/means_u.webp",
+    "bytes": 284084,
+    "sha256": "a7b88d1a9e729f0a45a5ea3fa908c9d9df3efaa9d93bb0eb7e85187596546f34",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_3/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_3/quats.webp",
+    "bytes": 801428,
+    "sha256": "3aa2a27d59778d40d3422f53aad68889c020fe1cbad4442cf1e03550905af450",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_3/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_3/scales.webp",
+    "bytes": 520070,
+    "sha256": "bc6d32525cd4207f034c517582acaa3a05a5b175b9f06430fb86a5fd1d9375e0",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_3/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_3/sh0.webp",
+    "bytes": 600786,
+    "sha256": "8975443105cb03812713a1e19e74b75e6fe61cf6a0fd34b6c89a0aa5c14f8d39",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_3/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_3/shN_centroids.webp",
+    "bytes": 492270,
+    "sha256": "6a6c11d6683449fb922e02c467796841c3f38033ded812ba675f36e6e81c3158",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_3/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_3/shN_labels.webp",
+    "bytes": 329266,
+    "sha256": "b6f62a13608109ffb1d403f378c727907f4973d6f68730af202e94860498e2f6",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_4/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_4/meta.json",
+    "bytes": 13552,
+    "sha256": "2edb64317b45bbdad4b2a1e3266dada6c1ed51df883f4b5e8a74df82eec1e00c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_4/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_4/means_l.webp",
+    "bytes": 796972,
+    "sha256": "2d486edb9a3f95540cf4c7e9628534b9350353a187f6a715e23d0fc8142812e5",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_4/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_4/means_u.webp",
+    "bytes": 290800,
+    "sha256": "760229926479b6b1fc35546d137c318b6013006d61618fe136e4d25b2a268335",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_4/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_4/quats.webp",
+    "bytes": 803262,
+    "sha256": "b3bf230d53bed58ea871d3a4e6d371e8025300b90a205cc28b610f135472e62f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_4/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_4/scales.webp",
+    "bytes": 523738,
+    "sha256": "74f70d372cb148b64e227029c2ea5fdc7f660e3c4e83c358dcba379593ffc33f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_4/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_4/sh0.webp",
+    "bytes": 564160,
+    "sha256": "4ca984d0dad1d59cf41632e501af2236edbf7ce374ea9e3beb3ba757be6c9e1c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_4/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_4/shN_centroids.webp",
+    "bytes": 501618,
+    "sha256": "b1502f60c00d9ae8084832a0d595fa65516ca9027c66ff89fd48d01cf155ccb3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_4/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_4/shN_labels.webp",
+    "bytes": 357468,
+    "sha256": "75699d322d9cf7eb35adc230cb2268e8928748b2608cd6b4248415316f6c887f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_1/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_1/meta.json",
+    "bytes": 15578,
+    "sha256": "69ca7df550dc6071f41d7f8574f502a5211f879590c8c89ae6d6f03bab0edccf",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_1/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_1/means_l.webp",
+    "bytes": 821530,
+    "sha256": "caf3f3458db6fbe7ba3fab899ae5103e36937db83259ae63645455adfce7ba38",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_1/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_1/means_u.webp",
+    "bytes": 275906,
+    "sha256": "a339b14b553b36e4146deec0ba535042c3ae3e6ee5f602d119fdc13a0a077b9c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_1/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_1/quats.webp",
+    "bytes": 852792,
+    "sha256": "7923ea214f4bbcf7224ef8a05e562c2a5bb1a48c5a35030aa0344ac80910bd1f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_1/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_1/scales.webp",
+    "bytes": 696124,
+    "sha256": "19c9446cf4af60a056403f484e13786cd3b14ec44e2c14b80c88dc3b1c4a755a",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_1/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_1/sh0.webp",
+    "bytes": 627100,
+    "sha256": "232cb2b663007a01e43ea9060afe1307c0a4e4b0d0b155e066edc5bced6610b7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_1/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_1/shN_centroids.webp",
+    "bytes": 1967976,
+    "sha256": "59e34db24523c02fd6bf7197a66aff3923e51fe54032fc39d2e8862e80e6cb43",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_1/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_1/shN_labels.webp",
+    "bytes": 486138,
+    "sha256": "f57c4d43441590f2b52cc8ea7b54f14d9c98fe8113c354dfd924309d6aa24577",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_2/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_2/meta.json",
+    "bytes": 15545,
+    "sha256": "e342bd50023178e07ce7d7cb50e056c2ecb9d13f5aef6a542b68d046dabf1689",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_2/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_2/means_l.webp",
+    "bytes": 824346,
+    "sha256": "b7f062d23f801b130e503257fa888f6f0023186f9cb11ecbcbb190d0323639cc",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_2/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_2/means_u.webp",
+    "bytes": 231374,
+    "sha256": "7e53bef3c4788c4310ca95f75c3a680751a433a5db2f52ba874bd6da318246dd",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_2/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_2/quats.webp",
+    "bytes": 840966,
+    "sha256": "60a1829bdf0242ff1a0a8796d57b172a8c2d0af8bba42cbee9e03b24bd5cffa8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_2/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_2/scales.webp",
+    "bytes": 674420,
+    "sha256": "fd75b5544ff0611f2341ab77c27ba54757e624453c5a1f09252f57dc3ed20547",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_2/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_2/sh0.webp",
+    "bytes": 614796,
+    "sha256": "ed7eec15743f9fc15788d593f6692d55b4c7d3c3396d33cf4221c66f0b8dd610",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_2/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_2/shN_centroids.webp",
+    "bytes": 1822010,
+    "sha256": "402c405006cea0c43a29cedd915939ec91bbe2e5368aea2617cdcf6aa1c7f1e8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_2/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_2/shN_labels.webp",
+    "bytes": 465034,
+    "sha256": "903b6ffc380efd799afa384744844cb99f4292de3403fd33dddb4e242a47ccc3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_5/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_5/meta.json",
+    "bytes": 13598,
+    "sha256": "d00ffb8591fef60279f67344c25f734eff8211292ca8594a72a722c3eedc96b0",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_5/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_5/means_l.webp",
+    "bytes": 806290,
+    "sha256": "5150c24717291605400ac9a34a23fc1aaa16d0fa5d3f6543586c5bd3426059a9",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_5/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_5/means_u.webp",
+    "bytes": 218800,
+    "sha256": "d2884cfb7a70f07e0a10f0794077f9c907daf587242cf3bd940f551bae93ec05",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_5/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_5/quats.webp",
+    "bytes": 821734,
+    "sha256": "84e14e15df84ceacd8dd911df42a12621b1df757015a936942c6523ae664ef4b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_5/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_5/scales.webp",
+    "bytes": 516058,
+    "sha256": "c5606a547702290ad9f8578c9e1300a36f55e8e88f2dbd584e193309a383ea96",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_5/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_5/sh0.webp",
+    "bytes": 557990,
+    "sha256": "c724529e406575b02eb6da78fa8a740c3f7c32ceb827758cec64100b971e175c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_5/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_5/shN_centroids.webp",
+    "bytes": 548560,
+    "sha256": "34e3f6c3702862c24cf5fc6494719a444db74b76c455ea033b5169122552e165",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_5/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_5/shN_labels.webp",
+    "bytes": 363164,
+    "sha256": "55186b7bd508dc0820b0b96a2091c031516e7b40cfbd8632748ef08f645a2335",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_6/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_6/meta.json",
+    "bytes": 13669,
+    "sha256": "10a13ba9a86442a5b75696ff01dfbead11a4e965398c1ff3a724dbd5c6f76822",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_6/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_6/means_l.webp",
+    "bytes": 818038,
+    "sha256": "02a67266b9cb2922410ebac75a70b617febfb170d9328642cafcade1b9311df3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_6/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_6/means_u.webp",
+    "bytes": 262414,
+    "sha256": "619bec6e6343ce0badc4c8574ed1d209680437471f1b43a3f42828286bebfc66",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_6/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_6/quats.webp",
+    "bytes": 796878,
+    "sha256": "1393555eb257c3e3fb4a7f458bc1cace594325e69b56f84e4c894b1fc059d42c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_6/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_6/scales.webp",
+    "bytes": 521062,
+    "sha256": "0247ee5833c4a5553577f7e9d6f9750c5f9333ce6d306cb394001ce16bcd4f99",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_6/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_6/sh0.webp",
+    "bytes": 575762,
+    "sha256": "7b467825b348890d6eb14caffead7ea0fbbcc83a21b1681a741d045b4509ef3b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_6/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_6/shN_centroids.webp",
+    "bytes": 554876,
+    "sha256": "bfeff7d5ca4ffd8477d8afb3593d1721ee4357490f0ea3e82a0fd410e61274a4",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_6/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_6/shN_labels.webp",
+    "bytes": 359708,
+    "sha256": "607b81da3fde41aa69c569218269f8cf35c9aba109bd929ef086217c6e7cd338",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_3/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_3/meta.json",
+    "bytes": 15545,
+    "sha256": "41e0b16a86220f01a8d004416509578a2e999d8de105fbbb97858877775dc33f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_3/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_3/means_l.webp",
+    "bytes": 829958,
+    "sha256": "5f6fcd28bab8a7984d409cb145d275fb3bd01725da14e66c7161ec44fefcf4f8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_3/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_3/means_u.webp",
+    "bytes": 287666,
+    "sha256": "7093f98e80a05b3fa007a0f1ca1edce7c2bd1370c31c9abda80ac9d530ee44a1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_3/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_3/quats.webp",
+    "bytes": 845984,
+    "sha256": "3f342aa911ff7102b09a2d6b79f0a00104c36a9331a9e8d9628deb5cc8d756c1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_3/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_3/scales.webp",
+    "bytes": 675012,
+    "sha256": "51eb670692ee70b6b52fde0782d26173691d9a4604c3171eb3f55b81d8711f53",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_3/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_3/sh0.webp",
+    "bytes": 632992,
+    "sha256": "42e8c9054aa444c3c756dc673ea4375b7cdc6839df3060f5b82af811ff97b662",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_3/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_3/shN_centroids.webp",
+    "bytes": 1775490,
+    "sha256": "234d1b86c9b9d399fc06c5f961d4e2edf75e3bf1cc76a62a64bbd59d6303cc91",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_3/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_3/shN_labels.webp",
+    "bytes": 466594,
+    "sha256": "6b845263797c42003e8053286cbc063e20ee53e8dd809fdfdeefe740f4c76b90",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_7/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_7/meta.json",
+    "bytes": 13565,
+    "sha256": "bc99edb6fedc174490af882531ae002d9eef11fe70c60a81cc0eaa05d5f356f3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_7/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_7/means_l.webp",
+    "bytes": 814520,
+    "sha256": "b4e2e5a86eb8bbbe583c1bf6cf9580a84207edb757b67321fc8b2c2edadbcc1d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_7/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_7/means_u.webp",
+    "bytes": 281094,
+    "sha256": "631a6fbac354d88b669213ee2cf5dc789f9fadb21c3518ff90002aa0e84a655a",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_7/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_7/quats.webp",
+    "bytes": 794018,
+    "sha256": "a7ded2f00219481a8bb75b05ed44643b21f2aefa5fc4def763c8e720f24de1ee",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_7/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_7/scales.webp",
+    "bytes": 517338,
+    "sha256": "78c73a91cc9f946784e708eb83b89d0e5a8b1ef8aeb457e57c7f647ad4d126bc",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_7/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_7/sh0.webp",
+    "bytes": 566294,
+    "sha256": "3ba1e854908ecfea9e76cb55e23d3283119eddf927ff04f5c0168d69df568c37",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_7/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_7/shN_centroids.webp",
+    "bytes": 545262,
+    "sha256": "3168f98cdcf7b60f24b5e4e0da22e082746969484a734d83a4693b7f6ce3a5ec",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_7/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_7/shN_labels.webp",
+    "bytes": 355088,
+    "sha256": "86e31fffc5ba6a1bbe908ebe6f67b183ebe6b415f55e150c124c7ed026954719",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_8/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_8/meta.json",
+    "bytes": 13563,
+    "sha256": "9ee8a8e03a1b5f6926b03319a7d1ea1a0c970e57a7fbf914e7bf60a34e34e28b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_8/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_8/means_l.webp",
+    "bytes": 806770,
+    "sha256": "18f827643c26a4847314ab04da319cd2d0ce780533c80deb8f3eed8818ba96d2",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_8/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_8/means_u.webp",
+    "bytes": 297862,
+    "sha256": "044ab3c2574692bfa3af9aa5e8100cc5065f166f089557ee60069ff393d6e922",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_8/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_8/quats.webp",
+    "bytes": 792998,
+    "sha256": "580a7284104d0bda121d3d83473fbae4c77e6d3cfd30477e55f0f075b2d70022",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_8/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_8/scales.webp",
+    "bytes": 524316,
+    "sha256": "03f3c49f10142e37311e0f8f68cc611d75eab9fd7daf5b247398be8ac4d4f65e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_8/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_8/sh0.webp",
+    "bytes": 560132,
+    "sha256": "9aea4dee2f18671a6349e3db639e39c212374189a598bab926ad54518515ef3b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_8/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_8/shN_centroids.webp",
+    "bytes": 518568,
+    "sha256": "7fabbd55fdedebaed590b189c69b51e5346055c02f41f2056a01d2b337e7f5d7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_8/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_8/shN_labels.webp",
+    "bytes": 360902,
+    "sha256": "0275e9e34ed032266f93e7c221cfa80dd7a83a344ef51627ad1f48682758a371",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_4/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_4/meta.json",
+    "bytes": 15552,
+    "sha256": "bd2427b88aca9894d872aba78bbc6bc44fca1e840f88173254e96f439a6a29a4",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_4/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_4/means_l.webp",
+    "bytes": 833334,
+    "sha256": "d7c7bd2691cd87af3793303b994302ef78752e309d6050f950c31261fad827ea",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_4/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_4/means_u.webp",
+    "bytes": 319524,
+    "sha256": "7ccb465b908d66dc937a9d55be56850f50095d1323ef2b8a1fa6288be8ae7ff2",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_4/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_4/quats.webp",
+    "bytes": 842334,
+    "sha256": "ba0d6f08df83e2b1b54c1af9524dd021680e58aa262299ee57957125c7b477af",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_4/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_4/scales.webp",
+    "bytes": 675240,
+    "sha256": "b36da79d750c19689b50736cb28bdd0ad282938000feaffa738768eaba8bf372",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_4/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_4/sh0.webp",
+    "bytes": 616920,
+    "sha256": "cd6d70879864dc72065e13f0c5fdb400581145a173c21d2b1cd4de50d6183b40",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_4/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_4/shN_centroids.webp",
+    "bytes": 1872924,
+    "sha256": "0ed796cc1bc6018783440d7ba53d8b69405faea25341354927d56fc22d2981c9",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_4/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_4/shN_labels.webp",
+    "bytes": 471264,
+    "sha256": "8b155ada30f5d09b2dea835d2a888647ad2dd8a18f0120589704c93fa4adfe16",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_2/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_2/meta.json",
+    "bytes": 15565,
+    "sha256": "f28c3624d0dbdd11702001b49ffd1b85d329fc15e84dcb74e8672e254df8fac8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_2/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_2/means_l.webp",
+    "bytes": 791574,
+    "sha256": "a40d456488408648b2cd3cd8cf747bb7404708934deec3627567ec20330f631b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_2/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_2/means_u.webp",
+    "bytes": 225528,
+    "sha256": "a974d596a523c20375ab8a362e6bce47939c5130c0d36fef1c57b17967fc7e8e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_2/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_2/quats.webp",
+    "bytes": 827550,
+    "sha256": "a646f23c813cf40391cfaa2d024816eb26568abcb77c9a302dca6658cef80c0a",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_2/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_2/scales.webp",
+    "bytes": 670460,
+    "sha256": "ee8cb1ee83800756297ba2776ac61486d6ee0c02ab03cc1930244757a9e09dbb",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_2/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_2/sh0.webp",
+    "bytes": 613604,
+    "sha256": "65b7eeaa4d764a2c9397ea5249f8a473e03b561b321a2109ebb70263183d36c8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_2/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_2/shN_centroids.webp",
+    "bytes": 2009712,
+    "sha256": "b668744c7e5f6f5e6aad14f7a4f73eb2c8e3209ab9a04d602e0c57c093943cae",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_2/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_2/shN_labels.webp",
+    "bytes": 468984,
+    "sha256": "6a9887fe8d1d570eaca496e29d54f8ebe75c5721749efb0a5006c7b64ba438f0",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_1/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_1/meta.json",
+    "bytes": 15530,
+    "sha256": "51e35381816a602e6bb479d51d7b24eaa5285ccb984f69483c440971f9c5509f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_1/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_1/means_l.webp",
+    "bytes": 806276,
+    "sha256": "3e5f7dba89fc046b487d4c04e97881d413f1575249346bf09f01cc245988fe4e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_1/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_1/means_u.webp",
+    "bytes": 272040,
+    "sha256": "7fa79b8b506525c11b0e10d645c581d1972c8a0ac56dcf5b12bdc980d8c45753",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_1/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_1/quats.webp",
+    "bytes": 855418,
+    "sha256": "3980cc2c3dd76d7171950424b1c2e2f3a88115b4be77a7951ea6659f39454eb7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_1/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_1/scales.webp",
+    "bytes": 706804,
+    "sha256": "bed5da7d8675fe96f9775002c021522519d3bdf092bf8448ad30391b04e92aa9",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_1/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_1/sh0.webp",
+    "bytes": 623882,
+    "sha256": "9d88ec63f2ea237230d206a51d0af69d2614e0c98ba99b97f900724b540f89bb",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_1/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_1/shN_centroids.webp",
+    "bytes": 2177482,
+    "sha256": "a39fbb5f61b5841185895d7a964987648d5b23f6231c5a6d93e8576bf2c9b92b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_1/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_1/shN_labels.webp",
+    "bytes": 488932,
+    "sha256": "1b56a0d8620d36ab5054b333c31b6f29e67b7ee6a9123a47c390f8fa79177a81",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_9/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_9/meta.json",
+    "bytes": 13630,
+    "sha256": "0e2a9d2df2d72b0bbd3b73528447f2b90cab6769fab094b79701b200f861781a",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_9/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_9/means_l.webp",
+    "bytes": 815560,
+    "sha256": "5e926eccdfc1c22a330cf27bf331bd7e0e30d770e37f990092d488083c41844d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_9/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_9/means_u.webp",
+    "bytes": 296228,
+    "sha256": "1bf3124415658102bcb8eab7174fe40ed6cb7030e9b6529d243bc947c8f5d9dd",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_9/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_9/quats.webp",
+    "bytes": 798006,
+    "sha256": "1beb3a79938c9a0cfdef49b2f0b7559fe144ec4737d3e3a3a3c258f7aba21a76",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_9/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_9/scales.webp",
+    "bytes": 522268,
+    "sha256": "4eb28fe5388ecba1248455c91a7d228734d89536c74089691c7e670bb11df57b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_9/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_9/sh0.webp",
+    "bytes": 565236,
+    "sha256": "63382490e58f8981a111c7edbdb53117f1d471cb7ae70f71a1317ab31ce40643",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_9/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_9/shN_centroids.webp",
+    "bytes": 516010,
+    "sha256": "811fc56944729d5bb3a88b40d6a1a1e9cf984e5803899d79ce623a091ce0d99f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_9/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_9/shN_labels.webp",
+    "bytes": 359262,
+    "sha256": "5226434f97cbbcebeb26482fe96dd267b862da63fa5d0c77f91ff515ca17cdf3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_5/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_5/meta.json",
+    "bytes": 15534,
+    "sha256": "963cd0850d972a88a7088a25b1508675e0f1d390fcfc291f37bed8b7b7dd27ac",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_5/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_5/means_l.webp",
+    "bytes": 829152,
+    "sha256": "8fdcb19de3336386b803a66544b1f983fa4eaa63bc0c98da31efa6127be78176",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_5/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_5/means_u.webp",
+    "bytes": 224668,
+    "sha256": "f5c36dbc1bc15466e17da8d496100df7eb380d44bc4333590985ab6829efdca5",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_5/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_5/quats.webp",
+    "bytes": 857254,
+    "sha256": "15dec0d7fff9224821928e4049792ab6e4ad73e52279a2b4270b790c028e4991",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_5/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_5/scales.webp",
+    "bytes": 675844,
+    "sha256": "878bc2454ed2325165eeecd1039924475f3f7f550cf5fc57df8c2ca42896dcd6",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_5/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_5/sh0.webp",
+    "bytes": 644210,
+    "sha256": "4c488e603543b0e262b584685158e641ea5147df8b1f3d5bcee0c1ec6f846584",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_5/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_5/shN_centroids.webp",
+    "bytes": 1834928,
+    "sha256": "f49b00edfb6e0d3a8868202d70db31c1797df64493a88c55a46c2423ba513539",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_5/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_5/shN_labels.webp",
+    "bytes": 461964,
+    "sha256": "8ff5fa472282f5b9305823afd0b2c5ff5a3fcc9e6987649c0047b149a258670b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_10/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_10/meta.json",
+    "bytes": 13580,
+    "sha256": "9b8f88cbae2d3c526fbbc497dfbee4fd9c10933b41c1cd192f62594ef62e3544",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_10/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_10/means_l.webp",
+    "bytes": 809910,
+    "sha256": "67240eba367d92255b3e8b35d40ff4d8ab3f22baee8d22c836976941745eab5c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_10/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_10/means_u.webp",
+    "bytes": 202898,
+    "sha256": "deda06cc812b48d126e51ede2af4b9027a4fe914d7f1357562d62f2d37cd477e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_10/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_10/quats.webp",
+    "bytes": 827134,
+    "sha256": "6c3f896816f09338e58ba80d0242d7b308ee183c3b69c760ce67baf4923e8a46",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_10/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_10/scales.webp",
+    "bytes": 513696,
+    "sha256": "d5207c1bb31339cac8d15cd1b68d26c799e23e03415f543dbfebd302cfc750d0",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_10/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_10/sh0.webp",
+    "bytes": 562078,
+    "sha256": "7bb168094da9485dd002adb868c45820c564eab6e4ba1c1fff2eab1bfffa30e3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_10/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_10/shN_centroids.webp",
+    "bytes": 569448,
+    "sha256": "da4da27c7227b95c4c0ecf4a84db403539383ab0810232554f6ee5e7ed1be0e3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_10/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_10/shN_labels.webp",
+    "bytes": 356862,
+    "sha256": "8ab3cdbbe8ac64ca285c88ff41ad3a2c72c4e2aa650610b1ff44d51850d85681",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_11/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_11/meta.json",
+    "bytes": 13588,
+    "sha256": "c3e971e1e5c660735276cd6238de118835267cf0703a10bce9007166f11d6e75",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_11/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_11/means_l.webp",
+    "bytes": 818152,
+    "sha256": "c296634ce15695a2ce1116a482d283790fbcd8f05bd1b6ebab58696c74f9db7d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_11/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_11/means_u.webp",
+    "bytes": 294668,
+    "sha256": "3cef732853711a868a92f701a2ecf72644d43f89cc2c7e092607c12bc7205555",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_11/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_11/quats.webp",
+    "bytes": 827808,
+    "sha256": "591a2c2494899f3bcaffde8951f48801cd6aacf817faa8d6991f19c0dbd28f41",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_11/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_11/scales.webp",
+    "bytes": 513322,
+    "sha256": "f17b39b20887892eb49e3ba8b60d35e2b6f42abeae92b2603b95623c582f6e7f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_11/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_11/sh0.webp",
+    "bytes": 589502,
+    "sha256": "4e6c283b17dcf7b886a8eaff04499db1eee531435d843076b9110120fa522395",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_11/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_11/shN_centroids.webp",
+    "bytes": 540408,
+    "sha256": "ad97e9e82be2794803ea616a876215197b1292c1edfe59ea0eeabc0a13ade37c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_11/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_11/shN_labels.webp",
+    "bytes": 342986,
+    "sha256": "88e514e319963a6e203f2e7ec48e4daa3f841c479e4d3d6007e59470f8c24e51",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_3/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_3/meta.json",
+    "bytes": 15511,
+    "sha256": "6766acc8ab7ebc46929da0058d5da209e71b361db51725e1f68b754e12b621f5",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_3/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_3/means_l.webp",
+    "bytes": 820172,
+    "sha256": "dceaf043b3ad8e122a137f41b72ad540ed56320f19e983a414ed78e641955069",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_3/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_3/means_u.webp",
+    "bytes": 297028,
+    "sha256": "1913be1a041058b365e93bed17141b3be3a673c4c42a463d0b65d01b07d0f181",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_3/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_3/quats.webp",
+    "bytes": 869092,
+    "sha256": "1453dfcd795b8c9017e56f8da9cedc19e676902614dc79c9da2183c75f47ec06",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_3/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_3/scales.webp",
+    "bytes": 707042,
+    "sha256": "6294ce9bf0427c458b9fc4f24a384d28dd772d6b11ea667f9471a16f537e1cc7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_3/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_3/sh0.webp",
+    "bytes": 614364,
+    "sha256": "86f48ee8025311774ef4f49a7fc6bd41c590f2342e827683d6eac5b5e54de896",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_3/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_3/shN_centroids.webp",
+    "bytes": 2240264,
+    "sha256": "ef42afff2e3c44fe96429ad89363c09e22594419f5ba611a1a152f2332e5934e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_3/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_3/shN_labels.webp",
+    "bytes": 488168,
+    "sha256": "f1af693b36dc784ef1eaad22c6cdc720ce622ca4f7a788e339c7572d920950bc",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_12/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_12/meta.json",
+    "bytes": 13561,
+    "sha256": "6b0c686aea0406c1a2caaa725a8d253260a6aec14c4919611be48a1b6af8c331",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_12/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_12/means_l.webp",
+    "bytes": 795438,
+    "sha256": "bcd1130d4a2955f9f7955fc6c2351bab2a9e7197a023f5e046260c259595a7af",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_12/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_12/means_u.webp",
+    "bytes": 245236,
+    "sha256": "3597849ebe5599904e38a6217ff9b8c3cf60ee287c83d2dfcd11613ef873bc89",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_12/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_12/quats.webp",
+    "bytes": 827912,
+    "sha256": "611306ef7ef613a81b4f7c24defb384abed3d8d4e1f40941c067113d3c1b5377",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_12/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_12/scales.webp",
+    "bytes": 553650,
+    "sha256": "ed4eab9b786e8eb369e192853f979227f2b4dd0b24ad91c80425b529d776ce72",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_12/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_12/sh0.webp",
+    "bytes": 607052,
+    "sha256": "8bd247aba02f35f187c912c96f37318ba0e61e192704ea3b441cb9ed36cfd8b2",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_12/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_12/shN_centroids.webp",
+    "bytes": 603274,
+    "sha256": "ff052b64f98ca663c19233e609c4c130c34ce4055f1c86c44ee30bcfbb642f8c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_12/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_12/shN_labels.webp",
+    "bytes": 343994,
+    "sha256": "3fe48aa7e9cf54482781a1bb517bd8d9f62e9cddcdc5f2f52f74f4facbd68c36",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_6/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_6/meta.json",
+    "bytes": 15513,
+    "sha256": "e39790df7f248248bc25365e7199030c153a08de466a8d0856608135fe35afe0",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_6/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_6/means_l.webp",
+    "bytes": 832236,
+    "sha256": "2bbb4b3f79764112b4927013a315f3e77b1ec5441988cc6d2810d28e30313b8d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_6/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_6/means_u.webp",
+    "bytes": 241402,
+    "sha256": "999d407a06d432d64352468c3a8af5855188875ef9e8c2372bf7cf78f79db3c5",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_6/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_6/quats.webp",
+    "bytes": 880834,
+    "sha256": "6e328e1ed813b2c3cb3388179622b4b9d679f2712eef368b54c33b9cd486caee",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_6/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_6/scales.webp",
+    "bytes": 692598,
+    "sha256": "574be2d1b92d5dc273de0baa399d39f70f146372b4e53418bfe17ad547a0a0ff",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_6/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_6/sh0.webp",
+    "bytes": 636662,
+    "sha256": "21e5575b26c70e7f35ec6a479705a79c7ac14a7df80590430d368d35e13bbc20",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_6/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_6/shN_centroids.webp",
+    "bytes": 2076390,
+    "sha256": "b7731218a42431f082bf3c9711f863739f80ecf37171b3a13109fd31695d8913",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_6/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_6/shN_labels.webp",
+    "bytes": 464198,
+    "sha256": "12afd3b8d80168580e44459aa91c2ecd8ef6a62ac06b9314d194e1fe57cc31b9",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_13/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_13/meta.json",
+    "bytes": 13716,
+    "sha256": "7a721b066a2a6cce7c500fd9ead20efb5847dcbc291d432c31c223af41fae443",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_13/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_13/means_l.webp",
+    "bytes": 805010,
+    "sha256": "6c81347fd4778535cdd2da4b088aa7e293e3275970c656cce355792e03c2af4f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_13/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_13/means_u.webp",
+    "bytes": 238326,
+    "sha256": "ee6136dda2cc4257639eda06c5a52cf4a77f039a431db6365205eb8998d9e4c3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_13/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_13/quats.webp",
+    "bytes": 797110,
+    "sha256": "95fb6f680e9c0de12a0411a745751922ad3151c2442f5cabdbd9faee1c59b5b8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_13/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_13/scales.webp",
+    "bytes": 523466,
+    "sha256": "4c977c5fe51c2be31f0abb9fcbf1fd14577e313279335351e225311a07fcd0a5",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_13/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_13/sh0.webp",
+    "bytes": 564030,
+    "sha256": "56018c3169204fd13603210815580841c186f5a0454b41e42b781e214761809f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_13/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_13/shN_centroids.webp",
+    "bytes": 733166,
+    "sha256": "5ef1f164670a5d8d88fbe94c30db43c730d0c8dfa566eb876422d81c984d89f6",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_13/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_13/shN_labels.webp",
+    "bytes": 357768,
+    "sha256": "e21629a0e605dc773f4d7250e993717830dd841acff7d7ef8f77bf9445c67714",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_14/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_14/meta.json",
+    "bytes": 13590,
+    "sha256": "82ca42816edac5a2d2be8dfb90bf206e15da9f84585436484de359933e6a4eba",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_14/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_14/means_l.webp",
+    "bytes": 809746,
+    "sha256": "0ad91f08a90a1e6fe22c35caa4d457306f447ab1330e39a46262751590334c95",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_14/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_14/means_u.webp",
+    "bytes": 250564,
+    "sha256": "e36936915b879fccc3c301dd0bfb2e7c151fe8e3af69bb2942d367860f8081e9",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_14/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_14/quats.webp",
+    "bytes": 844790,
+    "sha256": "9a2c7e31296ca88627ddf3bb9f2656835761a85389ac76ce83fe756ade399749",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_14/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_14/scales.webp",
+    "bytes": 577604,
+    "sha256": "84052b638522699ecd17d9dec06200183e4a7b61314edff4e3566047439c617d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_14/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_14/sh0.webp",
+    "bytes": 593600,
+    "sha256": "26d362651f9f3175701aa308fd3ed8c21457c4e6a72586e97bc3394fb85c03e3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_14/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_14/shN_centroids.webp",
+    "bytes": 760018,
+    "sha256": "b4ee8996b47d42e1f609f8f1499f922e718257af45724428d334d617b2dc715b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_14/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_14/shN_labels.webp",
+    "bytes": 377002,
+    "sha256": "753600416f521dca597dcd3ba1d847791bac6a1cf8b60520d686563a9b7b99bd",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_7/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_7/meta.json",
+    "bytes": 15450,
+    "sha256": "15a0795aa461253323a34267e9ac5d36967c8cc75b30c65230f2746c8329dc80",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_7/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_7/means_l.webp",
+    "bytes": 835670,
+    "sha256": "34bacfd95c3fa48eff4559ac75c902a4b19123a6a3aa9c3baed89e5c88ff43a1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_7/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_7/means_u.webp",
+    "bytes": 319548,
+    "sha256": "9f721bc32f3467a4354cc66f2bb306a127c008f63b8b911a5bed0e11c88e17cc",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_7/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_7/quats.webp",
+    "bytes": 877522,
+    "sha256": "f062bb77c8f8983d7ce4fd9bd109604e9419cd30d5b1bfed46ffae54b0a064a0",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_7/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_7/scales.webp",
+    "bytes": 691640,
+    "sha256": "c312fa6e7af23dbfbf2a7a8d656c8394dc7d306fbd43ee117a42ff1dda161c4e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_7/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_7/sh0.webp",
+    "bytes": 626386,
+    "sha256": "330bc5797d8842b075b44d1d76027e211da73751019412c128650b4c4a5b76aa",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_7/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_7/shN_centroids.webp",
+    "bytes": 2253428,
+    "sha256": "6de1f1ce62e15bb0c0d1a6b51d478f9de06c7447093ebd174caa9e217f9879d3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_7/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_7/shN_labels.webp",
+    "bytes": 484020,
+    "sha256": "a89c57f6bf67b365240529498cbe02acdabf80b7f72de333669860d445a421dd",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_15/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_15/meta.json",
+    "bytes": 13644,
+    "sha256": "ad3af6352980df30059a4e9dc0c8aceb44740b963b7c013679ea882d431ec146",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_15/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_15/means_l.webp",
+    "bytes": 794044,
+    "sha256": "d1a7bc8688b9cfa234ae4d4a7fb8bc91d988aa83feaab874d8bba4a4ab42d966",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_15/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_15/means_u.webp",
+    "bytes": 297170,
+    "sha256": "a1742f4974dd706f0606751041a3f3964c98473674157cf7a3c246c481d960a7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_15/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_15/quats.webp",
+    "bytes": 810092,
+    "sha256": "4d42ec979180c89f25ee1cc685b2c04cc7bd857bfae526b90d597e9df7ddb6bb",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_15/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_15/scales.webp",
+    "bytes": 548610,
+    "sha256": "6ef283e2538bbcc3ffe2dd13abf7d98af52509e7cdea570389fc9c9ffcc96001",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_15/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_15/sh0.webp",
+    "bytes": 557688,
+    "sha256": "e5e76f827c2db1837e7e97fc537f6939291e371ea238fd9dd32aa225444f81f5",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_15/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_15/shN_centroids.webp",
+    "bytes": 790002,
+    "sha256": "734741c330fef6bbf0ce0299a63795af92b99925f64a5fd01a1636d711191ac1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_15/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_15/shN_labels.webp",
+    "bytes": 376034,
+    "sha256": "096bab0f55bf8d4e11bdac4faa9ef858168a313fcb801ded9261984728d8219d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_4/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_4/meta.json",
+    "bytes": 15536,
+    "sha256": "0c50ba61cf1a82f5966182170678df5dbe7fb6f89b8329e55652e796059fe698",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_4/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_4/means_l.webp",
+    "bytes": 848974,
+    "sha256": "e9ce0adc9a9e0336a1bc984c79581912a1456107f00a6119572ab84819efcb8c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_4/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_4/means_u.webp",
+    "bytes": 244508,
+    "sha256": "dd939fef34d4faba959fa53a9b5e0e8fb19cdd94e39a76858530251e7fcacff5",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_4/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_4/quats.webp",
+    "bytes": 890704,
+    "sha256": "0263e69ef2a2cfc3ecf8921b47ea4ea9efb4f5b69a6bcf37a4bb2232681121ff",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_4/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_4/scales.webp",
+    "bytes": 729712,
+    "sha256": "97f180d56e5f57254fb3e3394bf6e2932f869ee1ee3ff097a1f08c582fd7fdd4",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_4/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_4/sh0.webp",
+    "bytes": 643502,
+    "sha256": "9d3eb1afa6ddc4d4b6b94b0c7c9b8cabd5d9338ddcd45c99bf25ef46a99bcab5",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_4/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_4/shN_centroids.webp",
+    "bytes": 2178710,
+    "sha256": "ce52724677dd9f4e80d06344c85facc7a1a87b9e0262636de4889288d57eb127",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_4/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_4/shN_labels.webp",
+    "bytes": 502500,
+    "sha256": "e90678a5d32dda49ec034729941698c5bd4858050d7f41a56216497784471b78",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_2/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_2/meta.json",
+    "bytes": 15579,
+    "sha256": "7bdd3e3982d247c9ef3ebcd946e84e82618073fa87d293ade71927da35038332",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_2/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_2/means_l.webp",
+    "bytes": 608044,
+    "sha256": "58ed43daefafccb72a912c8c18292e345f309480785f576e115c9f158de78401",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_2/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_2/means_u.webp",
+    "bytes": 212870,
+    "sha256": "d504c74b93c6526c7d035b21098371d9172f9517fb47b2e17ac8003088c368bb",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_2/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_2/quats.webp",
+    "bytes": 640648,
+    "sha256": "bd6b0a04de9a2e0f76e93899bf88ecd656e7d30a074807471ba7427f136ad9e6",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_2/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_2/scales.webp",
+    "bytes": 532640,
+    "sha256": "b285f23b5dc3dc674dc57f19ef988c035c81c8fde05a3b9b2a933e78dda8ab50",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_2/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_2/sh0.webp",
+    "bytes": 467358,
+    "sha256": "3b6c26ee0762057ed949306835b06aaf2e98f41fedd5bdddc19a82ccb9b6687d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_2/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_2/shN_centroids.webp",
+    "bytes": 2215868,
+    "sha256": "f7a2fabaa989cc69ee36d8e977894809b85eb7665f250834a9f978cdbed3d28f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/3_2/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/3_2/shN_labels.webp",
+    "bytes": 393980,
+    "sha256": "530577a351d0a06e0a601cbc4b013f7e67c69e5aebbc9ef3965219bdd24b9696",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_8/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_8/meta.json",
+    "bytes": 15525,
+    "sha256": "9e5db88e8110a7bdb0f02b2129422cab8adcbab4a3384355c74380b08e3441a1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_8/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_8/means_l.webp",
+    "bytes": 832098,
+    "sha256": "62c62a0ea3045b95a3c07723e3a5ad9f004b32fa94a0c7eb32bfd90efcb0d20e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_8/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_8/means_u.webp",
+    "bytes": 297174,
+    "sha256": "356732d39cd6347b27de8f6148e8baffcb2b92217844f54b4b2c3e3981e4d964",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_8/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_8/quats.webp",
+    "bytes": 844654,
+    "sha256": "46db1dd7d22459b9322336ebf4b9529e32d3c4623b50afbfe71a02354a4777b8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_8/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_8/scales.webp",
+    "bytes": 676758,
+    "sha256": "8b388caa4a6c87eb37d71845dcb0ceb93d42d6ec50f477aeeed7f0bd9602f10d",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_8/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_8/sh0.webp",
+    "bytes": 622764,
+    "sha256": "87ee77923db9742a75f5185f1c66a786229c6d7b951af71ba3f061d0101bceb9",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_8/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_8/shN_centroids.webp",
+    "bytes": 1948436,
+    "sha256": "05b8d9b6cf95546c2036e72f0a2f0bbf41448f002d839ac0789c3e76e27444f2",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_8/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_8/shN_labels.webp",
+    "bytes": 464102,
+    "sha256": "4908c3ec45ace09682f2f71bf0bcea3aceb7ddaae9b04b3e341e9d482a06c355",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_16/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_16/meta.json",
+    "bytes": 13616,
+    "sha256": "2800d9b4ebd284012a2376f1695af7f873d80e62e0139d33e174ab035801a6ee",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_16/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_16/means_l.webp",
+    "bytes": 808518,
+    "sha256": "2c6f8630c6831f76b5e5af29206ce5d6e4b9ac6b878c327a3dcf1da8612c49e7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_16/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_16/means_u.webp",
+    "bytes": 302588,
+    "sha256": "a14d75410e93407db17b356060374543bee770afa1a3f9edc5d6904d2e2581a6",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_16/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_16/quats.webp",
+    "bytes": 782564,
+    "sha256": "a1fa0adcb77e19b848cf2e32a1b2bc11d93ed1e0fc8530397ef7f4c7b6f3ae57",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_16/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_16/scales.webp",
+    "bytes": 506932,
+    "sha256": "f553ee09943bc0838c695b16ab9dc3968cabcd98a1a1d119d3bc663170f64ecc",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_16/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_16/sh0.webp",
+    "bytes": 547326,
+    "sha256": "3cd866de6d86fc01c26e32876ab47db05a5b04c0de2f5dc6cae4a52dbee7def8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_16/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_16/shN_centroids.webp",
+    "bytes": 515164,
+    "sha256": "6c9dd4d300251af28dccfc4e5d0164922922afcd44adb5a3238073babbbc0681",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_16/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_16/shN_labels.webp",
+    "bytes": 347840,
+    "sha256": "1df65e2b5f9d237f4a7c4cbfd2a56326745652eefe900c37bcecc6b514e0181c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_17/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_17/meta.json",
+    "bytes": 13561,
+    "sha256": "6f9a842570f323376f9fb20c5e819139a56265046433115f8e0b387d66ed5bab",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_17/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_17/means_l.webp",
+    "bytes": 804860,
+    "sha256": "f712f83babd7bf061bac0ed2efe9362c0b886c35584108319784b5c3c85f021b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_17/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_17/means_u.webp",
+    "bytes": 255498,
+    "sha256": "10ec89f91af10b30bf498b18de017aba4dd70ea1fd5793c5c22420f94f041a69",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_17/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_17/quats.webp",
+    "bytes": 806468,
+    "sha256": "c696173bea0e856da098b9664a1e762d3962efda55bec44d14c8b0dca4db8c41",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_17/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_17/scales.webp",
+    "bytes": 530324,
+    "sha256": "47ecc8fd7bc53734151872ceb5b7f1441619971e5fe791adf365908a150d9f8b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_17/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_17/sh0.webp",
+    "bytes": 568650,
+    "sha256": "954ca2d77aa31d1bb3bdb22d6ffac7919e2852e17e6384dbfa0c8bd9cbcf368b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_17/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_17/shN_centroids.webp",
+    "bytes": 663872,
+    "sha256": "a2b7bed2fa810b66e545c2347d6620ecc59ea8b21cde15d9bca770cbff6faf99",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_17/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_17/shN_labels.webp",
+    "bytes": 352234,
+    "sha256": "85b29b33ae554ff54d99c84247c7836bfedbd943524cefe9ed5619526f029e43",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_18/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_18/meta.json",
+    "bytes": 13618,
+    "sha256": "efdfa22cfa106745befaf3a1fedf3c14c1925702cee3e43eb90b2f843c2e9960",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_18/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_18/means_l.webp",
+    "bytes": 808968,
+    "sha256": "a4afb4ddd4260ab8e2bfe6b8ef013dd9eaf5493bab1fb447566e6b102cbd4128",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_18/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_18/means_u.webp",
+    "bytes": 241948,
+    "sha256": "b39ea68ea90da67efadd2b361d886d701ca755b17eab1686f8f7b3ad5df0e7f6",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_18/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_18/quats.webp",
+    "bytes": 814940,
+    "sha256": "8b10fba9d942c814c99e1b7d2317635a3fc457099e09ae014a80ea34c912145e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_18/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_18/scales.webp",
+    "bytes": 550240,
+    "sha256": "25d0ee4fa7a4bfd4f810d538b0b5f7c1633e0748b39d529e79d341a3134a7d46",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_18/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_18/sh0.webp",
+    "bytes": 571498,
+    "sha256": "b5d62f191b0fac63b06ba105db82ca508a39ceef76fd844f27d88b2e2ffd7294",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_18/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_18/shN_centroids.webp",
+    "bytes": 750008,
+    "sha256": "e30848e16d6b0e16f5b4f6f16fb00c36cb462db864f0a4ae84e9ca3205fc532a",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_18/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_18/shN_labels.webp",
+    "bytes": 366444,
+    "sha256": "a13f393c3cf49da21330ad45776650636242f342f7be0dc3aa5908f3e14e16d2",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_9/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_9/meta.json",
+    "bytes": 15500,
+    "sha256": "5d82803fd254fa87c6383f3821555a06898a4a76d6d69963ce30f93023473a36",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_9/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_9/means_l.webp",
+    "bytes": 822970,
+    "sha256": "e89360ce79bcd604e7b1095afafb93cd9142fd9c2f26e9d132bba1d73507e044",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_9/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_9/means_u.webp",
+    "bytes": 256314,
+    "sha256": "04b1369d5ef99f0c0f65858d1986ed73e86372076a845def801f06880caab2b1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_9/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_9/quats.webp",
+    "bytes": 867876,
+    "sha256": "9e3fcd7b455391ab77db39437eb10b6b7e7049f4f1b4e87bb3d906cb94953b85",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_9/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_9/scales.webp",
+    "bytes": 684108,
+    "sha256": "17dbd2026628b616d3a0e304992522b381bfffb20a140976ab60535ad4bfc217",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_9/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_9/sh0.webp",
+    "bytes": 614054,
+    "sha256": "ca69fa3d930c942fa009a79d821fd4f6d133f16ffd4cd968476a05b28f2f86f0",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_9/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_9/shN_centroids.webp",
+    "bytes": 2212498,
+    "sha256": "21ee4d1b1ce79f1945e39dfcd6d545be1ebfb70f21caa8a796a78c6bfc9e713f",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_9/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_9/shN_labels.webp",
+    "bytes": 473754,
+    "sha256": "cd30c02d0dba2c478e1e4a72dcd1849f70300e7d59d7d46c42fcdadfc385b8d3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_19/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_19/meta.json",
+    "bytes": 13561,
+    "sha256": "983638cd7b50b53a9fa3b356410367982b37ac0679f6673c294acfcd8dd6da12",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_19/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_19/means_l.webp",
+    "bytes": 808324,
+    "sha256": "df7685cd7491bf9429017c65609dcc76cb97deb09bcea4dfe99b8e38fa864297",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_19/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_19/means_u.webp",
+    "bytes": 323344,
+    "sha256": "ac2a6a2302f0c35e03b30a9893ef7fd423edc8c80729bc9dc323e9bf3cfa8ba5",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_19/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_19/quats.webp",
+    "bytes": 853066,
+    "sha256": "bc86a893c02ea2284098721649468e7ed17bed94f4bac8d5f54c39b4bc0b7255",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_19/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_19/scales.webp",
+    "bytes": 606552,
+    "sha256": "4587248c54eead562fbfa8f9005a4b1ee98db0421a70c0eeb7389297eba2953e",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_19/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_19/sh0.webp",
+    "bytes": 577252,
+    "sha256": "9ffc50a14553c9a8fee71681acd25f5cc71c3f0a83bca9899729003dd7573332",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_19/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_19/shN_centroids.webp",
+    "bytes": 663476,
+    "sha256": "efa538fc2305728907739521e726865efc636453dec10bfe8b25228cf8b6d62b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_19/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_19/shN_labels.webp",
+    "bytes": 396984,
+    "sha256": "7f36e22a61e39b5d9763d1f7c6ba4181ba447e122a3bc8a15a63b4c52526bf07",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_5/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_5/meta.json",
+    "bytes": 15594,
+    "sha256": "bf72d6a3d760842a1282c1819759a0e746884a1c107ba563ee2c8a4208966c4a",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_5/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_5/means_l.webp",
+    "bytes": 341888,
+    "sha256": "68914b86245c7beda13d12f46d51ef90048936d9bf36cc78f982aca6328e3900",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_5/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_5/means_u.webp",
+    "bytes": 151152,
+    "sha256": "b49de68e4df1d725ad59127c6c84a718ad006df6ff5a067be77d3753f45768a7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_5/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_5/quats.webp",
+    "bytes": 361012,
+    "sha256": "3259aed879b0f9c73217564b413027185be1317c454da762d9caaa541e45dab3",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_5/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_5/scales.webp",
+    "bytes": 294856,
+    "sha256": "e1962acb3253ea6ffaaef33b440ac7f3f6b885f6f80ef2d5269c863fa54060a2",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_5/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_5/sh0.webp",
+    "bytes": 261736,
+    "sha256": "65c200febd632d54ad08e02bfe1465ca4352b0c43399570fadcbb45c7c0f0a19",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_5/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_5/shN_centroids.webp",
+    "bytes": 2133522,
+    "sha256": "4756f287ef7ca1b8631a028b1c072793c8bd00330810b92075f9bb649eeb91b7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/2_5/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/2_5/shN_labels.webp",
+    "bytes": 218932,
+    "sha256": "9636c61608c849e9e366ef6fc284506065a341366a5775a90209e0376788ac8c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_10/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_10/meta.json",
+    "bytes": 15597,
+    "sha256": "44822993d0d039b1b7519b2ab196065d63e7fa39d953b260e6b96dc215e8b02c",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_10/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_10/means_l.webp",
+    "bytes": 545422,
+    "sha256": "d4cbeb622e184121b0c8e81b56db58f981a5785d02d5a8b4e8d89c2aaa45e414",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_10/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_10/means_u.webp",
+    "bytes": 228460,
+    "sha256": "50876672a833095bb29ede7bbb4eb4fff802c43896f86b1f11baf5a2c12e72b4",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_10/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_10/quats.webp",
+    "bytes": 570322,
+    "sha256": "c0d821f3d4202cda58f4ad7a91a2ab3ab80ec02f95080719a56b25aed95dbddb",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_10/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_10/scales.webp",
+    "bytes": 452888,
+    "sha256": "69d2d9c5737ef91687361f81223124aad6c017dd91c71fda54fac02cd83228a8",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_10/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_10/sh0.webp",
+    "bytes": 421104,
+    "sha256": "040d454ddecdbc300994975514d0b0c736281b7fae023a6c07d1d9d5083d441b",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_10/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_10/shN_centroids.webp",
+    "bytes": 2101750,
+    "sha256": "0721fd0784070d2640d2d0f44b98202397f56cf763ca92e931d52cc62a911438",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/1_10/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/1_10/shN_labels.webp",
+    "bytes": 319122,
+    "sha256": "2f166731b5dd1c8d7e5ec643e8590acff079b71128ea825b01b5363240b338c7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_20/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_20/meta.json",
+    "bytes": 13583,
+    "sha256": "41da1775de4b7557c5866bcda6615b699ab0ddf08f944ca3f33d87c3dc6cce27",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_20/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_20/means_l.webp",
+    "bytes": 825956,
+    "sha256": "c677d3d805c665423f71b7f2f68040a7eaf2c382fc0bfb92db2f9645fe75a9f7",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_20/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_20/means_u.webp",
+    "bytes": 329036,
+    "sha256": "70ebae5e50b5fd83a6ee1dacf4b0071218d0b07787893fc9c58cb6114e853687",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_20/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_20/quats.webp",
+    "bytes": 844036,
+    "sha256": "7153201ccef922852a3dfb17f93141de05a5f1450837c1fd151bd4649a3ce3ee",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_20/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_20/scales.webp",
+    "bytes": 579860,
+    "sha256": "b110f2cdb3f9a29f2ff5b32063b15c2ff89787bc7a580584008ee820335332f6",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_20/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_20/sh0.webp",
+    "bytes": 573002,
+    "sha256": "ea116641fcce085d2be81205ba7189c35f5424c6c54d864253d4ec64b42e01c1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_20/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_20/shN_centroids.webp",
+    "bytes": 761846,
+    "sha256": "fde79cc8cce1f12fb4c5dfa67cf654e54ea7571b5c5858cb0ec74ff9d474cf00",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_20/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_20/shN_labels.webp",
+    "bytes": 394210,
+    "sha256": "a589e3a0b0a67d6eb1ae61f26af87635a782c3f70f754aa91591c08d4cf58797",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_21/meta.json",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_21/meta.json",
+    "bytes": 13441,
+    "sha256": "a624f956b524702bd207ad971b27deb5147cb26808b013d28669b0ca4cf07ee1",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_21/means_l.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_21/means_l.webp",
+    "bytes": 288052,
+    "sha256": "dbe606a58788e80ba86654831b61bb0388caccefeb32bc2dd479f1cd6d9fa786",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_21/means_u.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_21/means_u.webp",
+    "bytes": 129632,
+    "sha256": "3511139a34673eb8b3813bd6ff344bceddf59c300ccd52f0c29fda1107ee25a4",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_21/quats.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_21/quats.webp",
+    "bytes": 299908,
+    "sha256": "b0614323474bf3763884e84601235a9180c1ce29099708984fa1fe9c59f2b9ec",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_21/scales.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_21/scales.webp",
+    "bytes": 203056,
+    "sha256": "e3f268a9811457495f6840ebeccfe6db82b70f043c6bc735eedceeebbebdad19",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_21/sh0.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_21/sh0.webp",
+    "bytes": 221408,
+    "sha256": "385658a3e32cdb68df6273c3298729825e514e4c95f6ee0fbc1755bd3eada085",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_21/shN_centroids.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_21/shN_centroids.webp",
+    "bytes": 327114,
+    "sha256": "de76d101450301d24602a580ed241517c7283a95eef8e44de84919d3f6a96320",
+    "supplier_md5_verified": false
+  },
+  {
+    "path": "references/gaussian/0_21/shN_labels.webp",
+    "url": "https://raw.githubusercontent.com/cebx3001/realstate3d/6f73fe50c4bc85989d7f915d62c6a162d881d240/public/assets/exterior/382a1520/v1-streamed/0_21/shN_labels.webp",
+    "bytes": 116634,
+    "sha256": "b009fa11ea4365c96918024fbc416afd24e1e8678cc035589ff809e61d05e8ae",
+    "supplier_md5_verified": false
+  }
+]
