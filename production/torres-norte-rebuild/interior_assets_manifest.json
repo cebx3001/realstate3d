@@ -1,0 +1,182 @@
+[
+  {
+    "path": "assets/outdoor_table_chair_set_01/outdoor_table_chair_set_01.blend",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_1k.blend",
+    "sha256": "a3c0f079c5f3f0a021b7d531163134a2e00595ac6507177387fc3b070db4bfbb",
+    "bytes": 427026
+  },
+  {
+    "path": "assets/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_metal_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_metal_1k.png",
+    "sha256": "9908e0a1cfea2a8e548ed2c57b270a31b96d07e1e99bf2c43b51a45c20cbd13d",
+    "bytes": 8644
+  },
+  {
+    "path": "assets/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_diff_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_diff_1k.png",
+    "sha256": "fa3c3c400d0099d60395914e897fd50875c2c1ccc547fc9f98324e21882c8f91",
+    "bytes": 3754258
+  },
+  {
+    "path": "assets/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_nor_gl_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_nor_gl_1k.png",
+    "sha256": "94cd71eccd078bca0c92fbb8c56ea78eae95435350806148ed3d0d2b81dac18a",
+    "bytes": 3918345
+  },
+  {
+    "path": "assets/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_rough_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_rough_1k.png",
+    "sha256": "887a7e411f1cf8438dbd58508867c05dc6be59332a05ff2162dc2728d2622b4d",
+    "bytes": 1558206
+  },
+  {
+    "path": "assets/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_diff_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_diff_1k.png",
+    "sha256": "eccccdf09af791c67b0766b7f4157faf82ebcaf6cd13108ca98c8807de3dc808",
+    "bytes": 4409564
+  },
+  {
+    "path": "assets/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_metal_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_metal_1k.png",
+    "sha256": "91386d87003712ee359f2b0143510b9ab8b7148c400e4282c0a7235365491d55",
+    "bytes": 12908
+  },
+  {
+    "path": "assets/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_nor_gl_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_nor_gl_1k.png",
+    "sha256": "e7c9206d22ef7245467120542077b2dc1db467c0eeac6cc7a2e25b75983b8a90",
+    "bytes": 3295155
+  },
+  {
+    "path": "assets/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_rough_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_rough_1k.png",
+    "sha256": "d58283e7f2d6ce394cdab86d935be9171a29607072cfbde6abde4151f6d6e026",
+    "bytes": 1363599
+  },
+  {
+    "path": "assets/book_encyclopedia_set_01/book_encyclopedia_set_01.blend",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/book_encyclopedia_set_01/book_encyclopedia_set_01_1k.blend",
+    "sha256": "0913d18acc7d26625fb7a1990adae20578ba18effa65f8e73582dd6ea6ced670",
+    "bytes": 1619190
+  },
+  {
+    "path": "assets/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_paper_nor_gl_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/book_encyclopedia_set_01/book_encyclopedia_set_01_paper_nor_gl_1k.png",
+    "sha256": "a66e7b6eb5a555e7ade2cc5b9e1cbb74351f71da8f84f241f7ecb4a1dcd04d35",
+    "bytes": 461583
+  },
+  {
+    "path": "assets/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_cover_roughness_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/book_encyclopedia_set_01/book_encyclopedia_set_01_cover_roughness_1k.png",
+    "sha256": "2d0c15977a7e76881db849fc0f30148f70db1eb2c4725ed1be74eb2f875522d0",
+    "bytes": 540028
+  },
+  {
+    "path": "assets/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_cover_nor_gl_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/book_encyclopedia_set_01/book_encyclopedia_set_01_cover_nor_gl_1k.png",
+    "sha256": "8f1401b622f5fa421bde8b9a956c14cd97a1fc1de3247ecf7fb1bea2f77ab7b2",
+    "bytes": 21774
+  },
+  {
+    "path": "assets/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_paper_diff_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/book_encyclopedia_set_01/book_encyclopedia_set_01_paper_diff_1k.png",
+    "sha256": "9f64226e62298250ccd47224a22f42ed464c2fee9f6cba22a1d6a7d13bf8f8ce",
+    "bytes": 349856
+  },
+  {
+    "path": "assets/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_paper_roughness_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/book_encyclopedia_set_01/book_encyclopedia_set_01_paper_roughness_1k.png",
+    "sha256": "b0f5654c6cff2ea188d712219d7b839f971c59e99a3b4d9a446ad83ee95e833d",
+    "bytes": 3200
+  },
+  {
+    "path": "assets/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_cover_metallic_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/book_encyclopedia_set_01/book_encyclopedia_set_01_cover_metallic_1k.png",
+    "sha256": "6f00853b4fe5f0a62dcba50203ff2fb24607a821f869f06a1ce30a97dcc6049c",
+    "bytes": 24969
+  },
+  {
+    "path": "assets/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_cover_diff_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/book_encyclopedia_set_01/book_encyclopedia_set_01_cover_diff_1k.png",
+    "sha256": "8b460ca70a7dfcc59250e019ccb46589ac97639e077ea9051a1740b1b3e08045",
+    "bytes": 961589
+  },
+  {
+    "path": "assets/modern_arm_chair_01/modern_arm_chair_01.blend",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/modern_arm_chair_01/modern_arm_chair_01_1k.blend",
+    "sha256": "40fcc04a9373ebf64880b459293d9a36285c55ee928ced79369cc9647e98ceac",
+    "bytes": 355104
+  },
+  {
+    "path": "assets/modern_arm_chair_01/textures/modern_arm_chair_01_pillow_rough_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modern_arm_chair_01/modern_arm_chair_01_pillow_rough_1k.png",
+    "sha256": "6d7b264e6bfc668ccda39780974abdb43a9e939e1d739e845cb2bce5367ebf34",
+    "bytes": 776559
+  },
+  {
+    "path": "assets/modern_arm_chair_01/textures/modern_arm_chair_01_pillow_diff_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modern_arm_chair_01/modern_arm_chair_01_pillow_diff_1k.png",
+    "sha256": "37dfdb66f60ebd36434048e0080236b8bdf2b80256ac3ed8b2804a15d5c3d949",
+    "bytes": 2077828
+  },
+  {
+    "path": "assets/modern_arm_chair_01/textures/modern_arm_chair_01_pillow_nor_gl_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modern_arm_chair_01/modern_arm_chair_01_pillow_nor_gl_1k.png",
+    "sha256": "7375a10115ddc824f249f0bd4e067a9cdb765346befc6ed3aacb03e4fa1acfa6",
+    "bytes": 2211406
+  },
+  {
+    "path": "assets/modern_arm_chair_01/textures/modern_arm_chair_01_legs_nor_gl_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modern_arm_chair_01/modern_arm_chair_01_legs_nor_gl_1k.png",
+    "sha256": "b337cd7c6929c22a8c4034123dd772d0c06a1d46e944e408164c2ec2bc0a1ee7",
+    "bytes": 2968569
+  },
+  {
+    "path": "assets/modern_arm_chair_01/textures/modern_arm_chair_01_legs_rough_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modern_arm_chair_01/modern_arm_chair_01_legs_rough_1k.png",
+    "sha256": "29cf8fe198b0a531a4ebff085f3571d3757b9817bad7548b8b44bbabf6076f55",
+    "bytes": 1009274
+  },
+  {
+    "path": "assets/modern_arm_chair_01/textures/modern_arm_chair_01_pillow_metal_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modern_arm_chair_01/modern_arm_chair_01_pillow_metal_1k.png",
+    "sha256": "fb96b44c55677e850c09ed442e2aeb07c21bf013a3912b477b4baae21d1ffeb8",
+    "bytes": 2155
+  },
+  {
+    "path": "assets/modern_arm_chair_01/textures/modern_arm_chair_01_legs_diff_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modern_arm_chair_01/modern_arm_chair_01_legs_diff_1k.png",
+    "sha256": "b11d85b689bc9e16f5aebcb0c94cb0783e7c76ef5c0b93ec576836750adc23c1",
+    "bytes": 2832680
+  },
+  {
+    "path": "assets/modern_arm_chair_01/textures/modern_arm_chair_01_legs_metal_1k.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modern_arm_chair_01/modern_arm_chair_01_legs_metal_1k.png",
+    "sha256": "fb96b44c55677e850c09ed442e2aeb07c21bf013a3912b477b4baae21d1ffeb8",
+    "bytes": 2155
+  },
+  {
+    "path": "assets/modern_coffee_table_01/modern_coffee_table_01.blend",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/modern_coffee_table_01/modern_coffee_table_01_1k.blend",
+    "sha256": "34b73d5432fdf73fe191a66304b4271f23ac61f9fec7457325f15432fb573ba0",
+    "bytes": 235468
+  },
+  {
+    "path": "assets/modern_coffee_table_01/textures/modern_coffee_table_01_rough_1k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/modern_coffee_table_01/modern_coffee_table_01_rough_1k.exr",
+    "sha256": "142c34709f56f3425ad38b5b69c31d875c1865b8c5849aa5875ca658dda62ccd",
+    "bytes": 874137
+  },
+  {
+    "path": "assets/modern_coffee_table_01/textures/modern_coffee_table_01_diff_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modern_coffee_table_01/modern_coffee_table_01_diff_1k.jpg",
+    "sha256": "069b89dd3ef03ddcbb7b2e6a124b1903aa7848394509121aa19f87bd0ef0218c",
+    "bytes": 410569
+  },
+  {
+    "path": "assets/modern_coffee_table_01/textures/modern_coffee_table_01_nor_gl_1k.exr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/modern_coffee_table_01/modern_coffee_table_01_nor_gl_1k.exr",
+    "sha256": "5c011edf233af9b0f3a2fd8dd4c1eab683743e47463057d5918d1dc308276ef7",
+    "bytes": 836417
+  }
+]
